@@ -1,0 +1,27 @@
+{
+  "name": "Roadtripp-gui",
+  "version": "0.0.0",
+  "homepage": "https://github.com/TIY-Durham/TIY-Catalog",
+  "authors": [
+    "Camille Mauban <camille.mauban@gmail.com>"
+  ],
+  "description": "Etsy Catalog built with Angular JS",
+  "main": "src/index.html",
+  "moduleType": [],
+  "license": "GPL-3.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4",
+    "modernizr": "~3.1.0",
+    "normalize-css": "normalize.css#~3.0.3",
+    "angular-route": "~1.4.7"
+  }
+}
