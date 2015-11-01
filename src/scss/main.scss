@@ -95,7 +95,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+ @import 'login';
+ @import 'start';
+ @import 'selection';
+ @import 'welcome';
+ @import 'admin';
+ @import 'timeline';
+ @import 'map';
+ @import 'interest';
 
+ main.container {
+  @extend .grid;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
 
 
 
