@@ -104,6 +104,10 @@ textarea {
  @import 'map';
  @import 'interest';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
  main.container {
   @extend .grid;
   margin: 0 auto;
@@ -113,18 +117,32 @@ textarea {
 
 header {
   @extend .grid;
-  margin: 0 auto;
-  width: 90%;
+  @extend .clearfix;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  position: relative;
+  padding: 15px 5%;
+  background: #BA0000;
+  color: #fff;
+
 
         h1 {
           font-weight: 200;
+          width: 30%;
+          margin: 0;
+          display: inline-block;
         }
 
 }
 
+.nav {
+  margin-top: 15px;
+  float: right;
+  display: inline-block;
+  clear: both;
 
+}
 
 
 
