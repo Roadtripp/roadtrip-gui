@@ -6,9 +6,9 @@
 
     })
 
-    .when('/home', {
-      templateUrl: 'admin.html',
-    })
+    // .when('/home', {
+    //   templateUrl: 'admin.html',
+    // })
 
     .when('/start', {
       templateUrl: 'start.html',

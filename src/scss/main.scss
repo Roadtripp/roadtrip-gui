@@ -111,8 +111,14 @@ textarea {
  main.container {
   @extend .grid;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
+}
+
+section.main-content {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  width: 90%;
 }
 
 header {
@@ -141,10 +147,12 @@ header {
   float: right;
   display: inline-block;
   clear: both;
-
 }
 
-
+h2.heading {
+  font-weight: 300;
+  text-align: center;
+}
 
 
 
