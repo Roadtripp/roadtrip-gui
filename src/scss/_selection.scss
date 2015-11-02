@@ -4,8 +4,31 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
-.submit-button {
+h2.heading {
+  padding-top: 25px;
+  margin-top: 0;
+  color: #fff;
 
+}
+
+.main-content.selection {
+  width: 90%;
+  margin: 0 auto;
+}
+
+form.suggestion-content {
+  background: #fff;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+}
+
+h3 {
+  color: $dark;
+}
+
+.submit-button {
   margin: 20px auto;
   display: block;
   position: relative;

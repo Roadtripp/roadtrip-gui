@@ -1,9 +1,12 @@
 <section class="main-content selection">
   <h2 class="heading">City Suggestions</h2>
-  <form class="suggestion-content">
-    <input type="checkbox" name="city_along"> city_along<br>
+<section class="form-container">
+  <form class="suggestion-content" ng-repeat="city in cities">
+    <input type="checkbox" name="city_along"> {{city.city}}<br>
+    <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
   </form>
-  <div class="submit-button">
+  <div class="button">
     <button class="next" type="submit">Submit</button>
   </div>
+</section> <!-- END form-container -->
 </section>
