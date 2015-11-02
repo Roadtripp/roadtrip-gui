@@ -1,0 +1,32 @@
+{
+  "name": "Roadtripp-gui",
+  "version": "0.0.0",
+  "description": "final project",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --directory --startPath src/index.html --files='src/*.html, src/main.css'",
+    "start:dist": "browser-sync start --server dist",
+    "sass": "node-sass src/scss/main.scss src/css/main.css",
+    "install:bower": "bower install --save",
+    "postinstall:bower": "wiredep --src 'src/*.html'",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIY-Durham/TIY-Catalog.git"
+  },
+  "author": "Camille Mauban <camille.mauban@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TIY-Durham/TIY-Catalog/issues"
+  },
+  "homepage": "https://github.com/TIY-Durham/TIY-Catalog#readme",
+  "devDependencies": {
+    "bower": "^1.5.3",
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "node-sass": "^3.3.3",
+    "wiredep": "^2.2.2"
+  }
+}
