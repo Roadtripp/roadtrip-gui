@@ -153,8 +153,14 @@ header {
   float: right;
   display: inline-block;
   clear: both;
-  color: #fff;
-  text-decoration: none;
+  font-size: 10pt;
+  font-weight: 200;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding-right: 10px;
+    }
 }
 
 h2.heading {
