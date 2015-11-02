@@ -10,6 +10,14 @@
     //   templateUrl: 'admin.html',
     // })
 
+    .when('/timeline', {
+      templateUrl: 'timeline.html',
+    })
+
+    .when('/selection', {
+      templateUrl: 'selection.html',
+    })
+
     .when('/start', {
       templateUrl: 'start.html',
     });
