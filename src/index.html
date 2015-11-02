@@ -22,11 +22,16 @@
     <body>
 
       <header>
-        <h1>road<strong>trip</strong></h1>
+        <h1>zip<strong>trip</strong></h1>
+        <nav class="nav">
+            
+            <a href="#/start">New Trip</a>
+          </nav>
       </header>
 
-        <main class="container">
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <main class="container" ng-app="road-Trip">
+          <ng-view><span class="fa fa-spinner"></span>
+        </ng-view>
       </main>
 
 

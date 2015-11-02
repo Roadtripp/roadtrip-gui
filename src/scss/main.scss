@@ -104,29 +104,55 @@ textarea {
  @import 'map';
  @import 'interest';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
  main.container {
   @extend .grid;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
+}
+
+section.main-content {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  width: 90%;
 }
 
 header {
   @extend .grid;
-  margin: 0 auto;
-  width: 90%;
+  @extend .clearfix;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  position: relative;
+  padding: 10px 5%;
+  background: #BA0000;
+  color: #fff;
+
 
         h1 {
           font-weight: 200;
+          width: 30%;
+          margin: 0;
+          display: inline-block;
         }
 
 }
 
+.nav {
+  margin-top: 15px;
+  float: right;
+  display: inline-block;
+  clear: both;
+}
 
-
-
+h2.heading {
+  font-weight: 300;
+  text-align: center;
+}
 
 
 
