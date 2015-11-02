@@ -13,6 +13,7 @@ cp src/selection.html dist/
 cp src/start.html dist/
 cp src/timeline.html dist/
 cp src/welcome.html dist/
+cp src/favicon.ico dist/
 
 # mkdir dist/partials/
 # cp -r src/partials dist/

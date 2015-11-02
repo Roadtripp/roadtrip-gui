@@ -107,9 +107,22 @@ textarea {
  main.container {
   @extend .grid;
   margin: 0 auto;
+  width: 90%;
   font-family: 'Roboto', sans-serif;
 }
 
+header {
+  @extend .grid;
+  margin: 0 auto;
+  width: 90%;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+
+        h1 {
+          font-weight: 200;
+        }
+
+}
 
 
 
