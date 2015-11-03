@@ -1,3 +1,18 @@
 <section class="main-content start">
   <h2 class="heading">Plan a Trip</h2>
-</section>
+  <section class="form-container">
+      <form class="start" ng-submit="submitForm()">
+        <fieldset>
+        <label>Name of Trip<input type="text" placeholder="NY Wedding" /></label>
+        <label>Start Location<input type="text" placeholder="Raleigh, NC" /></label>
+        <label>Start Date<input type="date" /></label>
+        <label>End Location<input type="text" placeholder="Brooklyn, NY" /></label>
+        <label>End Date<input type="date" /></label>
+      </fieldset>
+      </form>
+      <div class="button">
+        <button class="next" type="submit">Next</button>
+      </div>
+    </section> <!-- END .form-container -->
+
+</section> <!-- END .main-content -->

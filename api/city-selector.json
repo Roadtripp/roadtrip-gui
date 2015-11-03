@@ -1,0 +1,103 @@
+{
+ "title": "Bob's Wedding",
+ "origin": "Durham, NC",
+ "origin_date": "2015-11-14",
+ "origin_time": "7pm",
+ "origin_coordinates": [36.0017455,-79.0249956],
+ "destination": "Buffalo, NY",
+ "destination_date": "2015-11-24",
+ "destination_time": "7pm",
+ "destination_coordinates": [42.8963433,-78.9249142],
+ "suggested_cities": [
+   {
+     "city":"Richmond, VA",
+     "arrivial_date": "2015-11-15T18:25:43.511Z",
+     "coordinates": [37.5245782,-77.6333459],
+     "activities": [
+       {
+         "title": "Watch: Jason Mraz Live",
+         "location": "East Dome Amphitheater",
+         "date" : "2015-11-15T18:25:43.511Z",
+         "url" : "http://www.facebook.com"
+       },
+       {
+         "title": "See: Richville Nature Park",
+         "location": "Richville Nature Park",
+         "date" : "2015-11-15T18:25:43.511Z",
+         "url" : "http://www.yahoo.com"
+       },
+       {
+         "title": "Eat: Hungry???",
+         "location": "East Dome Stadium",
+         "date" : null,
+         "url" : "http://www.facebook.com"
+       },
+       {
+         "title": "See: Seafood Festival",
+         "location": "Richmond Capital",
+         "date" : null,
+         "url" : "http://www.facebook.com"
+       }
+     ]
+   },
+   {
+     "city":"Washington, DC",
+     "arrivial_date": "2015-11-15T18:25:43.511Z",
+     "coordinates": [38.8992651,-77.1546507],
+     "activities": [
+       {
+         "title": "Watch: Giants vs. Cowboys",
+         "location": "DC East Stadium",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "See: Whitehouse Visit",
+         "location": "Whitehouse",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "See: National Mall",
+         "location": "National Mall",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "See: Lincoln Memorial",
+         "location": "Lincoln Memorial",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "Hungry???",
+         "location": "East Dome Stadium",
+         "date" : null
+       }
+     ]
+   },
+   {
+     "city":"Philadelphia, PA",
+     "arrivial_date": "2015-11-15T18:25:43.511Z",
+     "coordinates": [40.0046684,-75.258117],
+     "activities": [
+       {
+         "title": "See: Philadelphia Museum of Art",
+         "location": "Philadelphia Museum of Art",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "See: The Barnes Foundation",
+         "location": "Whitehouse",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "See: Reading Terminal Market",
+         "location": "12th and Arch, Philadelphia, PA 19107",
+         "date" : "2015-11-15T18:25:43.511Z"
+       },
+       {
+         "title": "Eat: Hungry???",
+         "location": "East Dome Stadium",
+         "date" : null
+       }
+     ]
+   }
+ ]
+}
