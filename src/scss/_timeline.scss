@@ -3,3 +3,69 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
+
+section.main-content.timeline {
+  margin: 20px 10px 0px 0px;
+  width: 100%; }
+  section.main-content.timeline nav {
+    display: block;
+    width: 100%; }
+    section.main-content.timeline nav a {
+      width: 45%;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none; }
+  section.main-content.timeline section.tlv {
+    position: relative; }
+    section.main-content.timeline section.tlv ul.origin-section, section.main-content.timeline section.tlv ul.destination-section {
+      width: 100%;
+      list-style: none;
+      position: relative;
+      padding-left: 0px; }
+      section.main-content.timeline section.tlv ul.origin-section::before, section.main-content.timeline section.tlv ul.destination-section::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 8px;
+        background: #E45F56;
+        left: 50%; }
+      section.main-content.timeline section.tlv ul.origin-section li.city-desc, section.main-content.timeline section.tlv ul.destination-section li.city-desc {
+        width: 45%;
+        list-style: none;
+        margin-left: 55%; }
+        section.main-content.timeline section.tlv ul.origin-section li.city-desc span.city-name, section.main-content.timeline section.tlv ul.destination-section li.city-desc span.city-name {
+          font-size: 1em;
+          font-weight: 600;
+          display: block; }
+        section.main-content.timeline section.tlv ul.origin-section li.city-desc span.city-date, section.main-content.timeline section.tlv ul.destination-section li.city-desc span.city-date {
+          font-size: .7em;
+          font-weight: 300;
+          display: block; }
+    section.main-content.timeline section.tlv ul.city-section {
+      width: 100%;
+      list-style: none;
+      position: relative;
+      padding-left: 0px; }
+      section.main-content.timeline section.tlv ul.city-section::before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 8px;
+        background: #E45F56;
+        left: 50%; }
+      section.main-content.timeline section.tlv ul.city-section li.city-desc {
+        width: 45%;
+        list-style: none;
+        margin-left: 55%; }
+        section.main-content.timeline section.tlv ul.city-section li.city-desc span.city-name {
+          font-size: 1em;
+          font-weight: 600;
+          display: block; }
+        section.main-content.timeline section.tlv ul.city-section li.city-desc span.city-date {
+          font-size: .7em;
+          font-weight: 300;
+          display: block; }
