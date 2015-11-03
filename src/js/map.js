@@ -1,11 +1,29 @@
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
 function initialize() {
-  var mapCanvas = document.getElementById('map');
-  var map = new google.maps.Map(mapCanvas);
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
   var mapOptions = {
-    center: new google.maps.LatLng(44.5403, -78.5463), // WHERE TO CENTER THE MAP
-    zoom: 8, // BETWEEN 0(FAR) - 22(CLOSE)
-    mapTypeId: google.maps.mapTypeId.ROADMAP // SPECIFY TYPE OF MAP TO USE (other opt: SATELLITE, HYBRID, TERRAIN)
+    zoom:7,
+    center: chicago
   };
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  directionsDisplay.setMap(map);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+function calcRoute() {
+  var start = document.getElementById("start").value;
+  var end = document.getElementById("end").value;
+  var request = {
+    origin:start,
+    destination:end,
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
+}
