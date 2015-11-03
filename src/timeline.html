@@ -1,2 +1,34 @@
 <section class="main-content timeline">
+  <nav>
+    <a href="#">Timeline</a>
+    <a href="#">Map View</a>
+  </nav>
+  <section class="tlv">
+    <h3>{{main.title}}</h3>
+    <ul class="origin-section">
+      <li class="city-desc">
+        <span class="city-name">{{main.origin}}</span>
+        <span class="city-date">Departs {{main.origin_date | date}}</span>
+      </li>
+    </ul>
+    <ul class="city-section">
+      <li class="city-desc" ng-repeat="city in cities">
+        <span class="city-name">{{city.city}}</span>
+        <span class="city-date">Arrives {{city.arrival_date | date}}</span>
+        <a class="event-card" href="#" ng-repeat="activity in city.activities">
+          <span class="event-name">{{activity.title}}</span>
+          <span class="event-location">{{activity.location}}</span>
+          <span class="event-date">{{activity.date | date}}</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="destination-section">
+      <li class="city-desc">
+        <span class="city-name">Buffalo, NY</span>
+        <span class="city-date">Arrives Nov 17, 2015</span>
+      </li>
+    </ul>
+  </section>
+  <section class="mv">
+  </section>
 </section>
