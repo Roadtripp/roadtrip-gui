@@ -94,15 +94,21 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+$fa-font-path: '../../bower_components/font-awesome/fonts';
 
- @import 'login';
- @import 'start';
- @import 'selection';
- @import 'welcome';
- @import 'admin';
- @import 'timeline';
- @import 'map';
- @import 'interest';
+// bower:scss
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
+// endbower
+
+
+@import 'login';
+@import 'start';
+@import 'selection';
+@import 'welcome';
+@import 'admin';
+@import 'timeline';
+@import 'map';
+@import 'interest';
 
 $accent: #E45F56;
 $dark: #35404F;

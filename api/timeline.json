@@ -42,7 +42,7 @@
     },
     {
       "city":"Washington, DC",
-      "arrivial_date": "2015-11-15T18:25:43.511Z",
+      "arrival_date": "2015-11-17T18:25:43.511Z",
       "coordinates": [38.8992651,-77.1546507],
       "activities": [
         {
@@ -74,7 +74,7 @@
     },
     {
       "city":"Philadelphia, PA",
-      "arrivial_date": "2015-11-15T18:25:43.511Z",
+      "arrival_date": "2015-11-19T18:25:43.511Z",
       "coordinates": [40.0046684,-75.258117],
       "activities": [
         {

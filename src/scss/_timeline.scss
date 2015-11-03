@@ -82,7 +82,7 @@ section.main-content.timeline {
       	bottom: 0;
       	width: 8px;
       	background: $accent;
-      	left: 49.5%;
+      	left: 49.3%;
 			}
 			&.destination-section::before {
         display: block;
@@ -92,13 +92,14 @@ section.main-content.timeline {
       	bottom: 0;
       	width: 8px;
       	background: $accent;
-      	left: 49.5%;
+      	left: 49.3%;
 			}
 			&.city-section {
 				width: 95%;
 				list-style: none;
 				position: relative;
 				padding-left: 0;
+        padding-bottom: 3ex;
 				li.city-desc {
           width: 100%;
           padding-left: 0px;
@@ -119,7 +120,7 @@ section.main-content.timeline {
 					}
           a.event-card {
             margin-bottom: 1ex;
-            width: 45%;
+            width: 47%;
             text-decoration: none;
             color: $teal;
             border: 2px solid $teal;
@@ -128,11 +129,27 @@ section.main-content.timeline {
               float: left;
               text-align: right;
               padding-right: 3px;
+              position: relative;
+              &::before{
+                position: absolute;
+                right: -12px;
+                font-family: 'FontAwesome';
+                content: "\f0da  ";
+                font-size: 2em;
+              } //caret
             }
             &:nth-of-type(even) {
               float: right;
               text-align: left;
               padding-left: 3px;
+              position: relative;
+              &::before{
+                position: absolute;
+                left: -12px;
+                font-family: 'FontAwesome';
+                content: "\f0d9  ";
+                font-size: 2em;
+              }
             }
             span.event-name{
               font-size: 1em;
@@ -149,9 +166,9 @@ section.main-content.timeline {
               font-weight: 300;
               display: block;
             }
-          }
-        }
-			}
+          } //event card
+        } //li.city-desc
+			} //city section
 			&.city-section::before {
 				display: block;
 				content: '';
@@ -160,7 +177,7 @@ section.main-content.timeline {
 				bottom: 0;
 				width: 8px;
 				background: $accent;
-				left: 49.5%;
+				left: 49.3%;
 			}
 
 		}// end of ul
