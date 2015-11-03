@@ -16,13 +16,19 @@
 
     .when('/selection', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope){
+      controller: function($http, $rootScope, $location){
       $http.get('/api/city-selector.json')
         .then(function (response){
           console.log(arguments);
           $rootScope.cities = response.data.suggested_cities;
           $rootScope.activities = response.data.suggested_cities.activities;
         });
+
+        $http.post('')
+        .success(function(data){
+          $location.path('/trip');
+        });
+
       } // END controller function
 
     }) // END .when
