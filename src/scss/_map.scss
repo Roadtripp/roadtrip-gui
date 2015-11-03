@@ -3,3 +3,21 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
+
+.main-content.map {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h2.heading {
+  padding-top: 25px;
+  margin-top: 0;
+  color: #fff;
+
+}
+
+  #map {
+    height: 400px;
+    width: 500px;
+    background-color: #ccc;
+  }

@@ -114,11 +114,15 @@ $green: #A3D39C;
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/736x/b3/09/ed/b309eddd57990b734c72791f5a57a4ac.jpg");
+  font-family: 'Roboto', sans-serif;
+}
+
  main.container {
   @extend .grid;
   margin: 0 auto;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
 }
 
 section.main-content {
