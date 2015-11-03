@@ -18,6 +18,14 @@
       templateUrl: 'map.html',
     })
 
+    .when('/panel-login', {
+      templateUrl: 'login.html',
+    })
+
+    .when('/panel-signup', {
+      templateUrl: 'signup.html',
+    })
+
     .when('/selection', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location){
