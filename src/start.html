@@ -1,13 +1,15 @@
 <section class="main-content start">
   <h2 class="heading">Plan a Trip</h2>
   <section class="form-container">
-      <form class="start" ng-submit="submitForm()">
+      <form class="start" ng-submit="calculateAndDisplayRoute()">
         <fieldset>
         <label>Name of Trip<input type="text" placeholder="NY Wedding" /></label>
         <label>Start Location<input type="text" placeholder="Raleigh, NC" /></label>
         <label>Start Date<input type="date" /></label>
+        <label>Start Time<input type="time" /></label>
         <label>End Location<input type="text" placeholder="Brooklyn, NY" /></label>
         <label>End Date<input type="date" /></label>
+
       </fieldset>
       </form>
       <div class="button">

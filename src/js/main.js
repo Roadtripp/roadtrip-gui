@@ -14,6 +14,10 @@
       templateUrl: 'timeline.html',
     })
 
+    .when('/map', {
+      templateUrl: 'map.html',
+    })
+
     .when('/selection', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location){
@@ -24,10 +28,10 @@
           $rootScope.activities = response.data.suggested_cities.activities;
         });
 
-        $http.post('')
-        .success(function(data){
-          $location.path('/trip');
-        });
+        // $http.post('')
+        // .success(function(data){
+        //   $location.path('/trip');
+        // });
 
       } // END controller function
 
@@ -48,9 +52,6 @@
         });
 
 }); // END CONFIG.
-
-
-
 
 
 })(); // END IIFE
