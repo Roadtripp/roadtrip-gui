@@ -11,6 +11,7 @@
  "suggested_cities": [
    {
      "city":"Richmond, VA",
+     "stopover": true,
      "arrivial_date": "2015-11-15T18:25:43.511Z",
      "coordinates": [37.5245782,-77.6333459],
      "activities": [
@@ -42,6 +43,7 @@
    },
    {
      "city":"Washington, DC",
+     "stopover": true,
      "arrivial_date": "2015-11-15T18:25:43.511Z",
      "coordinates": [38.8992651,-77.1546507],
      "activities": [
@@ -74,6 +76,7 @@
    },
    {
      "city":"Philadelphia, PA",
+     "stopover": true,
      "arrivial_date": "2015-11-15T18:25:43.511Z",
      "coordinates": [40.0046684,-75.258117],
      "activities": [
