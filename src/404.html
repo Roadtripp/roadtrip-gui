@@ -22,11 +22,12 @@
 
         body {
             display: table-cell;
-            vertical-align: middle;
+            background: #fff !important;
+            /*vertical-align: middle;*/
             margin: 2em auto;
         }
 
-        h1 {
+        h1.not-found {
             color: #555;
             font-size: 2em;
             font-weight: 400;
@@ -43,7 +44,7 @@
                 width: 95%;
             }
 
-            h1 {
+            h1.not-found {
                 font-size: 1.5em;
                 margin: 0 0 0.3em;
             }
@@ -53,8 +54,10 @@
     </style>
 </head>
 <body>
-    <h1>Page Not Found</h1>
-    <p>Sorry, but there has been a road block!!</p>
+    <h1 class="not-found">Page Not Found</h1>
+    <p>Sorry, but there has been a road block!!</p><br>
+    <p>Click <a href="#/home">here</a> to go back</p>
+    <img src="http://www.clickz.com/IMG/541/291541/digital-strategy-roadblock-370x229.jpg">
 </body>
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

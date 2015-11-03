@@ -10,6 +10,10 @@
       templateUrl: 'admin.html',
     })
 
+    .when('/404', {
+      templateUrl: '404.html',
+    })
+
     .when('/timeline', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location){
@@ -19,7 +23,7 @@
           $scope.main = response.data;
           $scope.cities = response.data.cities_along;
           $scope.activities = response.data.cities_along.activities;
-        })
+        });
     }})
 
     .when('/map', {
@@ -47,19 +51,57 @@
 
     .when('/start', {
       templateUrl: 'start.html',
+      controller: function($http, $location){
+        var newTrip = this;
+
+        newTrip.add = { };
+        console.log(newTrip.add);
+
+        newTrip.next = function() {
+          console.log('tracer bullet');
+
+        $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', newTrip.add)
+          .then(function(){
+            $location.path('/selection'); //TODO: path to interest page
+          }, function(){
+            $location.path('/selection');
+          }
+        );
+        };
+      },
+      controllerAs: 'start'
     });
 
 })  // END MODULE
 
     // ROUTES TO CREATED TRIP
-    .config(function($routeProvider, $locationProvider){
-      $routeProvider
-        .when('/trip/:id',{
-          templateUrl: 'timeline.html',
-          controller: 'activityController'
-        });
+    // .config(function($routeProvider, $locationProvider){
+    //   $routeProvider
+    //     .when('/trip/:id',{
+    //       templateUrl: 'timeline.html',
+    //       controller: 'activityController'
+    //     });
 
-}); // END CONFIG.
+// }); // END CONFIG.
+
+.controller('tripController', function($scope, $http, $location){
+     $scope.add = { };
+
+     console.log($scope.add);
+
+   $scope.next = function(){
+     $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $scope.add)
+       .then(function(){
+        $location.path('/selection'); //TODO: path to interest page
+  },
+        function(){
+          $location.path('/404');
+        }
+);
+};
+}); // END SIGNUP CONTROLLER
+
+
 
 
 })(); // END IIFE
