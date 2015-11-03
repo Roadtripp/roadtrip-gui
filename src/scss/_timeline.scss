@@ -4,68 +4,165 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+
 section.main-content.timeline {
-  margin: 20px 10px 0px 0px;
-  width: 100%; }
-  section.main-content.timeline nav {
-    display: block;
-    width: 100%; }
-    section.main-content.timeline nav a {
-      width: 45%;
+	margin: 20px 10px 0 0;
+	width: 100%;
+  background-color: white;
+	nav {
+		display: block;
+		width: 100%;
+		a {
+			width: 45%;
+			text-align: center;
+			display: inline-block;
+			text-decoration: none;
+		}
+	}
+	section.tlv {
+		position: relative;
+    h3{
       text-align: center;
-      display: inline-block;
-      text-decoration: none; }
-  section.main-content.timeline section.tlv {
-    position: relative; }
-    section.main-content.timeline section.tlv ul.origin-section, section.main-content.timeline section.tlv ul.destination-section {
-      width: 100%;
-      list-style: none;
-      position: relative;
-      padding-left: 0px; }
-      section.main-content.timeline section.tlv ul.origin-section::before, section.main-content.timeline section.tlv ul.destination-section::before {
+    }
+		ul {
+      margin: 0px auto;
+      padding-top: 2ex;
+      padding-bottom: 2ex;
+			&.origin-section {
+        width: 95%;
+      	list-style: none;
+      	position: relative;
+      	padding-left: 0;
+				li.city-desc {
+          width: 45%;
+          list-style: none;
+          margin-left: 55%;
+					span {
+						&.city-name {
+              font-size: 1em;
+              font-weight: 600;
+              display: block;
+						}
+						&.city-date {
+              font-size: .7em;
+              font-weight: 300;
+              display: block;
+						}
+					}
+				}
+			} //origin city
+			&.destination-section {
+        width: 95%;
+      	list-style: none;
+      	position: relative;
+      	padding-left: 0;
+				li.city-desc {
+          width: 45%;
+          list-style: none;
+          margin-left: 55%;
+					span {
+						&.city-name {
+              font-size: 1em;
+              font-weight: 600;
+              display: block;
+						}
+						&.city-date {
+              font-size: .7em;
+              font-weight: 300;
+              display: block;
+						}
+					}
+				}
+			} //destination city
+			&.origin-section::before {
+				display: block;
+      	content: '';
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	width: 8px;
+      	background: $accent;
+      	left: 49.5%;
+			}
+			&.destination-section::before {
         display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 8px;
-        background: #E45F56;
-        left: 50%; }
-      section.main-content.timeline section.tlv ul.origin-section li.city-desc, section.main-content.timeline section.tlv ul.destination-section li.city-desc {
-        width: 45%;
-        list-style: none;
-        margin-left: 55%; }
-        section.main-content.timeline section.tlv ul.origin-section li.city-desc span.city-name, section.main-content.timeline section.tlv ul.destination-section li.city-desc span.city-name {
-          font-size: 1em;
-          font-weight: 600;
-          display: block; }
-        section.main-content.timeline section.tlv ul.origin-section li.city-desc span.city-date, section.main-content.timeline section.tlv ul.destination-section li.city-desc span.city-date {
-          font-size: .7em;
-          font-weight: 300;
-          display: block; }
-    section.main-content.timeline section.tlv ul.city-section {
-      width: 100%;
-      list-style: none;
-      position: relative;
-      padding-left: 0px; }
-      section.main-content.timeline section.tlv ul.city-section::before {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 8px;
-        background: #E45F56;
-        left: 50%; }
-      section.main-content.timeline section.tlv ul.city-section li.city-desc {
-        width: 45%;
-        list-style: none;
-        margin-left: 55%; }
-        section.main-content.timeline section.tlv ul.city-section li.city-desc span.city-name {
-          font-size: 1em;
-          font-weight: 600;
-          display: block; }
-        section.main-content.timeline section.tlv ul.city-section li.city-desc span.city-date {
-          font-size: .7em;
-          font-weight: 300;
-          display: block; }
+      	content: '';
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	width: 8px;
+      	background: $accent;
+      	left: 49.5%;
+			}
+			&.city-section {
+				width: 95%;
+				list-style: none;
+				position: relative;
+				padding-left: 0;
+				li.city-desc {
+          width: 100%;
+          padding-left: 0px;
+          @extend .clearfix;
+					span {
+						&.city-name {
+              margin-left: 55%;
+							font-size: 1em;
+							font-weight: 600;
+							display: block;
+						}
+						&.city-date {
+              margin-left: 55%;
+							font-size: .7em;
+							font-weight: 300;
+							display: block;
+						}
+					}
+          a.event-card {
+            margin-bottom: 1ex;
+            width: 45%;
+            text-decoration: none;
+            color: $teal;
+            border: 2px solid $teal;
+            border-radius: 3px;
+            &:nth-of-type(odd) {
+              float: left;
+              text-align: right;
+              padding-right: 3px;
+            }
+            &:nth-of-type(even) {
+              float: right;
+              text-align: left;
+              padding-left: 3px;
+            }
+            span.event-name{
+              font-size: 1em;
+              font-weight: 400;
+              display: block;
+            }
+            span.event-location{
+              font-size: 0.8em;
+              font-weight: 300;
+              display: block;
+            }
+            span.event-date{
+              font-size: 0.7em;
+              font-weight: 300;
+              display: block;
+            }
+          }
+        }
+			}
+			&.city-section::before {
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 8px;
+				background: $accent;
+				left: 49.5%;
+			}
+
+		}// end of ul
+	}
+}

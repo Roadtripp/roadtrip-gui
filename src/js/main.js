@@ -12,7 +12,15 @@
 
     .when('/timeline', {
       templateUrl: 'timeline.html',
-    })
+      controller: function($http, $scope, $location){
+      $http.get('/api/timeline.json')
+        .then(function (response){
+          console.log(arguments);
+          $scope.main = response.data;
+          $scope.cities = response.data.cities_along;
+          $scope.activities = response.data.cities_along.activities;
+        })
+    }})
 
     .when('/selection', {
       templateUrl: 'selection.html',

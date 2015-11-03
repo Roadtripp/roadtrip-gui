@@ -4,21 +4,22 @@
     <a href="#">Map View</a>
   </nav>
   <section class="tlv">
+    <h3>{{main.title}}</h3>
     <ul class="origin-section">
       <li class="city-desc">
-        <span class="city-name">Durham, NC</span>
-        <span class="city-date">Departs Nov 12, 2015</span>
+        <span class="city-name">{{main.origin}}</span>
+        <span class="city-date">Departs {{main.origin_date | date}}</span>
       </li>
     </ul>
     <ul class="city-section">
-      <li class="city-desc">
-        <span class="city-name">Richmond, VA</span>
-        <span class="city-date">Departs Nov 13, 2015</span>
-      </li>
-      <li class="event-card">
-        <span class="event-name">Watch: Jason Mraz Live!</span>
-        <span class="event-location">East Dome Amphitheater</span>
-        <span class="event-date">Nov 12, 2015 4pm</span>
+      <li class="city-desc" ng-repeat="city in cities">
+        <span class="city-name">{{city.city}}</span>
+        <span class="city-date">Arrives {{city.arrival_date | date}}</span>
+        <a class="event-card" href="#" ng-repeat="activity in city.activities">
+          <span class="event-name">{{activity.title}}</span>
+          <span class="event-location">{{activity.location}}</span>
+          <span class="event-date">{{activity.date | date}}</span>
+        </a>
       </li>
     </ul>
     <ul class="destination-section">

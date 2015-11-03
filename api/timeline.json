@@ -1,17 +1,17 @@
 {
-  "title": "Bob's Wedding",
+  "title": "November Great Escapade Plan",
   "origin": "Durham, NC",
-  "origin_date": "2015-11-14",
+  "origin_date": "2015-11-11T18:25:43.511Z",
   "origin_time": "7pm",
-  "origin": [36.0017455,-79.0249956],
+  "origin_coordinates": [36.0017455,-79.0249956],
   "destination": "Buffalo, NY",
-  "destination_date": "2015-11-24",
+  "destination_date": "2015-11-20T18:25:43.511Z",
   "destination_time": "7pm",
   "destination_coordinates": [42.8963433,-78.9249142],
   "cities_along": [
     {
       "city":"Richmond, VA",
-      "arrivial_date": "2015-11-15T18:25:43.511Z",
+      "arrival_date": "2015-11-15T18:25:43.511Z",
       "coordinates": [37.5245782,-77.6333459],
       "activities": [
         {
