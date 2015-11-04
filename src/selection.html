@@ -1,8 +1,8 @@
 <section class="main-content selection">
   <h2 class="heading">City Suggestions</h2>
 <section class="form-container">
-  <form class="suggestion-content" ng-repeat="city in cities" ng-submit="submit()">
-    <input type="checkbox" checklist-model="selected.cities" checklist-value="city.city" name="selectedCities[]"> {{city.city}}<br>
+  <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="submit()">
+    <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false"> {{city.location}}<br>
     <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
 
   </form>
@@ -10,7 +10,7 @@
     <button class="next" type="submit" ng-click="update(city)">Submit</button>
   </div>
 
-  <tt>cities = {{selected.cities}}</tt>
+  <tt>cities = {{selectedCity.stopover}}</tt>
 
 </section> <!-- END form-container -->
 </section>
