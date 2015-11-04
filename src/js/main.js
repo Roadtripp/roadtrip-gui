@@ -1,6 +1,6 @@
 ;(function(){
 
-  angular.module('road-Trip', ['ngRoute'], function($routeProvider){
+  angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
 
@@ -32,13 +32,20 @@
 
     .when('/selection', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location){
+      controller: function($http, $rootScope, $location, filterFilter){
       $http.get('/api/city-selector.json')
         .then(function (response){
           console.log(arguments);
           $rootScope.cities = response.data.suggested_cities;
           $rootScope.activities = response.data.suggested_cities.activities;
-          $rootScope.selected = { };
+          $rootScope.selected = {
+            cities: [ ]
+          };
+
+          // GET SELECTED CITIES?
+          $rootScope.selectedCities = function selectedCities() {
+            return filterFilter($rootScope.cities, {selected: true});
+          };
         });
 
         // $http.post('')
