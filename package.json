@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TIY-Durham/TIY-Catalog.git"
+    "url": "git+https://github.com/Roadtripp/roadtrip-gui.git"
   },
-  "author": "Camille Mauban <camille.mauban@gmail.com>",
+  "author": ["Camille Mauban <camille.mauban@gmail.com>", "Karlo Eleuterio <karloe@gmail.com>"],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/TIY-Durham/TIY-Catalog/issues"
@@ -28,8 +28,5 @@
     "gulp": "^3.9.0",
     "node-sass": "^3.3.3",
     "wiredep": "^2.2.2"
-  },
-  "dependencies": {
-    "checklist-model": "^0.6.0"
   }
 }
