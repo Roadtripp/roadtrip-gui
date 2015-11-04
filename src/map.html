@@ -1,6 +1,10 @@
 <section class="main-content map">
-
+  <nav class="tabs">
+    <a href="#/timeline" class="">Timeline</a>
+    <a href="#/map" class="active">Map View</a>
+  </nav>
   <body>
+    <section class="map-content">
     <div id="floating-panel">
     <b>Start: </b>
     <select id="start" onchange="calcRoute()">
@@ -18,6 +22,7 @@
       <option value="los angeles, ca">Los Angeles</option>
       <option value="tampa, fl">Tampa</option>
       <option value="cary, nc">Cary</option>
+      <option value="greenville, NC">Greenville, NC</option>
     </select>
     <b>End: </b>
     <select id="end" onchange="calcRoute()">
@@ -38,6 +43,7 @@
     </select>
     </div>
     <div id="map"></div>
+  </section>
 
 <script>
 
@@ -75,6 +81,5 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     </script>
 
   </body>
-</html>
 
 </section>

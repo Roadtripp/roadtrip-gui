@@ -2,7 +2,7 @@
 
   angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
     $routeProvider.when('/', {
-      templateUrl: 'welcome.html',
+      templateUrl: 'start.html',
     })
 
     .when('/home', {

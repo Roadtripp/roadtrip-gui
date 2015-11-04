@@ -5,24 +5,52 @@ $light-teal: #7ACCC8;
 $green: #A3D39C;
 
 
-section.main-content.timeline {
-	margin: 20px 10px 0 0;
-	width: 100%;
-  background-color: white;
-	nav {
+nav.tabs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 		display: block;
 		width: 100%;
-		a {
-			width: 45%;
+
+    a[href] { // TAB LINKS & LINE LOCATION
 			text-align: center;
-			display: inline-block;
 			text-decoration: none;
-		}
-	}
+			display: inline-block;
+      position: relative;
+      bottom: -10px;
+      font-size: 15pt;
+      padding: 2% 0;
+      background: #fafafa;
+      color: $light-teal;
+      font-weight: 700;
+      // border-right: 1px solid #ddd;
+			width: 49.5%;
+      border-top: 1px solid #ddd;
+
+      &.active {
+        color: #000000;
+        border-top: 3px solid $green;
+        border-right: 1px solid #ddd;
+				border-left: 1px solid #ddd;
+        border-bottom: 2px solid #ffffff;
+        background: #ffffff;
+    }
+  }
+}
+
+
+section.main-content.timeline {
+	margin: 0px 10px 0 0;
+	width: 100%;
+	background: #fff;
+
 	section.tlv {
 		position: relative;
     h3{
       text-align: center;
+			font-weight: 300;
+			margin: 30px auto;
+
     }
 		ul {
       margin: 0px auto;
