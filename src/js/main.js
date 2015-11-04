@@ -35,15 +35,12 @@
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
-      var suggestedCities = {};
-      var selectedCity = {};
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
         .then(function (response){
-          console.log(arguments);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.activities = response.data.waypoints.activities;
-          suggestedCities = response.data;
+          $rootScope.selectedCities = response.data;
 
       }); // END .then
 
@@ -51,14 +48,12 @@
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
-            console.log(suggestedCities);
-            // var postything = dosomestuff($rootScope.selected);
 
-            
 
-              $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selected)
+            console.log($rootScope.selectedCities);
+              $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
-                  console.log(suggested_city.data.waypoints);
+                  console.log($rootScope.selectedCities);
 
                   $location.path('/trip/' + $routeParams.id + '/city/' + $routeParams.id);
               });

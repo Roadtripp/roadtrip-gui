@@ -2,7 +2,7 @@
   <h2 class="heading">City Suggestions</h2>
 <section class="form-container">
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="submit()">
-    <input type="checkbox" ng-model="city.selected.stopover" ng-true-value="'true'" ng-false-value="'false'"> {{city.location}}<br>
+    <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false"> {{city.location}}<br>
     <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
 
   </form>
