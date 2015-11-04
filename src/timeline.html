@@ -15,7 +15,7 @@
     <ul class="city-section">
       <li class="city-desc" ng-repeat="city in cities">
         <span class="city-name">{{city.city_name}}</span>
-        <span class="city-date">Arrives {{city.arrival_date | date}}</span>
+        <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
         <a class="event-card" href="#" ng-repeat="activity in city.activities">
           <span class="event-name">{{activity.title}}</span>
           <span class="event-location">{{activity.location}}</span>
