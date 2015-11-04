@@ -1,5 +1,7 @@
 ;(function(){
 
+  var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
+
   angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
     $routeProvider.when('/', {
       templateUrl: 'start.html',
@@ -29,26 +31,37 @@
       templateUrl: 'map.html',
     })
 
-    .when('/selection', {
+    .when('/trip/:id', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location){
-      $http.get('/api/city-selector.json')
+      controller: function($http, $rootScope, $location, $routeParams){
+
+      var suggested_city = {};
+      var selected_city = {};
+
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
         .then(function (response){
           console.log(arguments);
-          $rootScope.cities = response.data.suggested_cities;
-          $rootScope.activities = response.data.suggested_cities.activities;
-          $rootScope.selected = {
-            cities: [ ]
-          };
+          $rootScope.suggestions = response.data.waypoints;
+          $rootScope.activities = response.data.waypoints.activities;
+          suggested_city = response;
 
+      }); // END .then
+
+        $rootScope.cities = {
+
+        };
+        $rootScope.selected = {
+        // cities: { }
+        };
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
-            $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $rootScope.selected)
+            $http.post( BASE_URL + '/api/trip/13/city/', $rootScope.selected)
               .then(function(){
-                console.log($rootScope.selected.cities);
+                console.log($rootScope.selected);
+                console.log(placeholder.data.waypoints);
               });
           };
-      }); // END .then
+
     } // END selection controller function
   }) // END .when
 
@@ -63,12 +76,13 @@
 .controller('tripController', function($scope, $http, $location){
      $scope.add = { };
 
-     console.log($scope.add);
+
 
    $scope.next = function(){
-     $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $scope.add)
-       .then(function(){
-        $location.path('/selection'); //TODO: path to interest page
+     console.log($scope.add);
+     $http.post( BASE_URL + 'api/trip/', $scope.add)
+       .then(function(response){
+        $location.path('/trip/' + response.data.id); //TODO: path to interest page
       },
         function(){
           $location.path('/404');
