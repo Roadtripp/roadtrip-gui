@@ -3,7 +3,6 @@
   angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
-
     })
 
     .when('/home', {
@@ -32,7 +31,7 @@
 
     .when('/selection', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location, filterFilter){
+      controller: function($http, $rootScope, $location){
       $http.get('/api/city-selector.json')
         .then(function (response){
           console.log(arguments);
@@ -42,20 +41,16 @@
             cities: [ ]
           };
 
-          // GET SELECTED CITIES?
-          $rootScope.selectedCities = function selectedCities() {
-            return filterFilter($rootScope.cities, {selected: true});
+          // SUBMITS THE CHECKED CITIES
+          $rootScope.update = function(city){
+            $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $rootScope.selected)
+              .then(function(){
+                console.log($rootScope.selected.cities);
+              });
           };
-        });
-
-        // $http.post('')
-        // .success(function(data){
-        //   $location.path('/trip');
-        // });
-
-      } // END controller function
-
-    }) // END .when
+      }); // END .then
+    } // END selection controller function
+  }) // END .when
 
     .when('/start', {
       templateUrl: 'start.html',
@@ -74,23 +69,6 @@
      $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $scope.add)
        .then(function(){
         $location.path('/selection'); //TODO: path to interest page
-      },
-        function(){
-          $location.path('/404');
-        }
-    );
-  };
-}) // END START FORM CONTROLLER
-
-
-// CITY SELECTION FORM
-.controller('cityController', function($scope, $http, $location){
-     $scope.select = { };
-
-   $scope.submit = function(){
-     $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $scope.select)
-       .then(function(){
-        $location.path('/timeline');
       },
         function(){
           $location.path('/404');
