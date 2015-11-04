@@ -15,17 +15,25 @@
       templateUrl: '404.html',
     })
 
-    .when('/timeline', {
+    .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
-      controller: function($http, $scope, $location){
-      $http.get('/api/timeline.json')
+      controller: function($http, $scope, $location, $routeParams){
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           console.log(arguments);
-          $scope.main = response.data;
-          $scope.cities = response.data.cities_along;
-          $scope.activities = response.data.cities_along.activities;
+          // $scope.main = response.data;
+          $scope.cities = response.data;
+          // $scope.activities = response.data.cities_along.activities;
         });
-    }})
+
+
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
+        .then(function(response){
+          console.log(arguments);
+          $scope.main = response.data;
+        });
+    }
+  })
 
     .when('/map', {
       templateUrl: 'map.html',
@@ -44,18 +52,15 @@
 
       }); // END .then
 
-
-
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
-
 
             console.log($rootScope.selectedCities);
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
                   console.log($rootScope.selectedCities);
 
-                  $location.path('/trip/' + $routeParams.id + '/city/' + $routeParams.id);
+                  $location.path('/trip/' + $routeParams.id + '/city/' );
               });
           };
 
