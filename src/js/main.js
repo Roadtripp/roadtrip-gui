@@ -47,18 +47,18 @@
 
       }); // END .then
 
-        $rootScope.cities = {
+          $rootScope.selected = { };
 
-        };
-        $rootScope.selected = {
-        // cities: { }
-        };
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
-            $http.post( BASE_URL + '/api/trip/13/city/', $rootScope.selected)
-              .then(function(){
-                console.log($rootScope.selected);
-                console.log(placeholder.data.waypoints);
+            console.log($rootScope.selected);
+            // var postything = dosomestuff($rootScope.selected);
+
+              $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selected)
+                .then(function(){
+                  console.log(suggested_city.data.waypoints);
+
+                  $location.path('/trip/' + $routeParams.id + '/city/' + $routeParams.id);
               });
           };
 
@@ -76,11 +76,9 @@
 .controller('tripController', function($scope, $http, $location){
      $scope.add = { };
 
-
-
    $scope.next = function(){
      console.log($scope.add);
-     $http.post( BASE_URL + 'api/trip/', $scope.add)
+     $http.post( BASE_URL + '/api/trip/', $scope.add)
        .then(function(response){
         $location.path('/trip/' + response.data.id); //TODO: path to interest page
       },
