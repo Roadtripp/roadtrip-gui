@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "homepage": "https://github.com/TIY-Durham/TIY-Catalog",
   "authors": [
-    "Camille Mauban <camille.mauban@gmail.com>"
+    "Camille Mauban <camille.mauban@gmail.com>",
+    "Karlo Eleuterio <karloe@gmail.com>"
   ],
-  "description": "Etsy Catalog built with Angular JS",
+  "description": "Ziptrip GUI",
   "main": "src/index.html",
   "moduleType": [],
   "license": "GPL-3.0",
@@ -23,6 +24,7 @@
     "modernizr": "~3.1.0",
     "normalize-css": "normalize.css#~3.0.3",
     "angular-route": "~1.4.7",
-    "font-awesome": "fontawesome#~4.4.0"
+    "font-awesome": "fontawesome#~4.4.0",
+    "checklist-model": "~0.6.0"
   }
 }
