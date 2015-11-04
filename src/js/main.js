@@ -35,24 +35,26 @@
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
-      var suggested_city = {};
-      var selected_city = {};
+      var suggestedCities = {};
+      var selectedCity = {};
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
         .then(function (response){
           console.log(arguments);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.activities = response.data.waypoints.activities;
-          suggested_city = response;
+          suggestedCities = response.data;
 
       }); // END .then
 
-          $rootScope.selected = { };
+
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
-            console.log($rootScope.selected);
+            console.log(suggestedCities);
             // var postything = dosomestuff($rootScope.selected);
+
+            
 
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selected)
                 .then(function(){
