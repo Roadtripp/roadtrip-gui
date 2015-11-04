@@ -1,13 +1,16 @@
 ;(function(){
 
-  angular.module('road-Trip', ['ngRoute'], function($routeProvider){
+  angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
     $routeProvider.when('/', {
-      templateUrl: 'welcome.html',
-
+      templateUrl: 'start.html',
     })
 
     .when('/home', {
       templateUrl: 'admin.html',
+    })
+
+    .when('/404', {
+      templateUrl: '404.html',
     })
 
     .when('/timeline', {
@@ -19,7 +22,7 @@
           $scope.main = response.data;
           $scope.cities = response.data.cities_along;
           $scope.activities = response.data.cities_along.activities;
-        })
+        });
     }})
 
     .when('/map', {
@@ -34,16 +37,20 @@
           console.log(arguments);
           $rootScope.cities = response.data.suggested_cities;
           $rootScope.activities = response.data.suggested_cities.activities;
-        });
+          $rootScope.selected = {
+            cities: [ ]
+          };
 
-        // $http.post('')
-        // .success(function(data){
-        //   $location.path('/trip');
-        // });
-
-      } // END controller function
-
-    }) // END .when
+          // SUBMITS THE CHECKED CITIES
+          $rootScope.update = function(city){
+            $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $rootScope.selected)
+              .then(function(){
+                console.log($rootScope.selected.cities);
+              });
+          };
+      }); // END .then
+    } // END selection controller function
+  }) // END .when
 
     .when('/start', {
       templateUrl: 'start.html',
@@ -51,15 +58,63 @@
 
 })  // END MODULE
 
-    // ROUTES TO CREATED TRIP
-    .config(function($routeProvider, $locationProvider){
-      $routeProvider
-        .when('/trip/:id',{
-          templateUrl: 'timeline.html',
-          controller: 'activityController'
-        });
 
-}); // END CONFIG.
+// START FORM
+.controller('tripController', function($scope, $http, $location){
+     $scope.add = { };
+
+     console.log($scope.add);
+
+   $scope.next = function(){
+     $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', $scope.add)
+       .then(function(){
+        $location.path('/selection'); //TODO: path to interest page
+      },
+        function(){
+          $location.path('/404');
+        }
+    );
+  };
+}); // END START FORM CONTROLLER
+
+
 
 
 })(); // END IIFE
+
+
+
+//TODO:
+// ROUTES TO CREATED TRIP
+// .config(function($routeProvider, $locationProvider){
+//   $routeProvider
+//     .when('/trip/:id',{
+//       templateUrl: 'timeline.html',
+//       controller: 'activityController'
+//     });
+
+// }); // END CONFIG.
+
+
+
+//TODO: fix start controller
+
+// controller: function($http, $location){
+//   var newTrip = this;
+//
+//   newTrip.add = { };
+//   console.log(newTrip.add);
+//
+//   newTrip.next = function() {
+//     console.log('tracer bullet');
+//
+//   $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', newTrip.add)
+//     .then(function(){
+//       $location.path('/selection'); //TODO: path to interest page
+//     }, function(){
+//       $location.path('/selection');
+//     }
+//   );
+//   };
+// },
+// controllerAs: 'start'

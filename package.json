@@ -28,5 +28,8 @@
     "gulp": "^3.9.0",
     "node-sass": "^3.3.3",
     "wiredep": "^2.2.2"
+  },
+  "dependencies": {
+    "checklist-model": "^0.6.0"
   }
 }

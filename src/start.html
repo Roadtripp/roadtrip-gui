@@ -1,20 +1,20 @@
 <section class="main-content start">
   <h2 class="heading">Plan a Trip</h2>
   <section class="form-container">
-      <form class="start" ng-submit="calculateAndDisplayRoute()">
+      <form class="start" ng-submit="next()">
         <fieldset>
-        <label>Name of Trip<input type="text" placeholder="NY Wedding" /></label>
-        <label>Start Location<input type="text" placeholder="Raleigh, NC" /></label>
-        <label>Start Date<input type="date" /></label>
-        <label>Start Time<input type="time" /></label>
-        <label>End Location<input type="text" placeholder="Brooklyn, NY" /></label>
-        <label>End Date<input type="date" /></label>
-
+        <label>Name of Trip<input ng-model="add.title" type="text" placeholder="NY Wedding" /></label>
+        <label>Start Location<input ng-model="add.origin" type="text" placeholder="Raleigh, NC" /></label>
+        <label>Start Date<input ng-model="add.origin_date" type="date" /></label>
+        <label>Start Time<input ng-model="add.origin_time" type="time" /></label>
+        <label>End Location<input ng-model="add.destination" type="text" placeholder="Brooklyn, NY" /></label>
+        <label>End Date<input ng-model="add.destination_date" type="date" /></label>
+        <div class="button">
+          <button class="next" type="submit">Next</button>
+        </div>
       </fieldset>
       </form>
-      <div class="button">
-        <button class="next" type="submit">Next</button>
-      </div>
+
     </section> <!-- END .form-container -->
 
 </section> <!-- END .main-content -->
