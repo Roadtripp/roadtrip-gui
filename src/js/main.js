@@ -35,10 +35,6 @@
     }
   })
 
-    .when('/map', {
-      templateUrl: 'map.html',
-    })
-
     .when('/trip/:id', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
