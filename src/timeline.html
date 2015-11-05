@@ -7,14 +7,15 @@
     <h3>{{main.title}}</h3>
     <ul class="origin-section">
       <li class="city-desc">
-        <span class="city-name">{{main.origin}}</span>
+        <span class="start-end">{{main.origin}}</span>
         <span class="city-date">Departs {{main.origin_date | date}}</span>
+        <span class="city-date">at {{main.origin_time}}</span>
       </li>
     </ul>
     <ul class="city-section">
       <li class="city-desc" ng-repeat="city in cities">
-        <span class="city-name">{{city.city}}</span>
-        <span class="city-date">Arrives {{city.arrival_date | date}}</span>
+        <span class="city-name">{{city.city_name}}</span>
+        <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
         <a class="event-card" href="#" ng-repeat="activity in city.activities">
           <span class="event-name">{{activity.title}}</span>
           <span class="event-location">{{activity.location}}</span>
@@ -24,8 +25,8 @@
     </ul>
     <ul class="destination-section">
       <li class="city-desc">
-        <span class="city-name">Buffalo, NY</span>
-        <span class="city-date">Arrives Nov 17, 2015</span>
+        <span class="start-end">{{main.destination}}</span>
+        <span class="city-date">Arrives {{main.destination_date}}</span>
       </li>
     </ul>
   </section>

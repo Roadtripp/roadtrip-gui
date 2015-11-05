@@ -66,10 +66,12 @@ section.main-content.timeline {
           list-style: none;
           margin-left: 55%;
 					span {
-						&.city-name {
+						&.start-end {
               font-size: 1em;
               font-weight: 600;
               display: block;
+              color: $green;
+              text-transform: uppercase;
 						}
 						&.city-date {
               font-size: .7em;
@@ -89,10 +91,12 @@ section.main-content.timeline {
           list-style: none;
           margin-left: 55%;
 					span {
-						&.city-name {
+						&.start-end {
               font-size: 1em;
               font-weight: 600;
               display: block;
+              color: $green;
+              text-transform: uppercase;
 						}
 						&.city-date {
               font-size: .7em;
