@@ -8,18 +8,19 @@
   "destination_date": "2015-11-20T18:25:43.511Z",
   "destination_time": "7pm",
   "destination_coordinates": [42.8963433,-78.9249142],
-  "cities_along": [
+  "waypoints": [
     {
-      "city":"Richmond, VA",
+      "location":"Richmond, VA",
       "stopover": true,
-      "arrival_date": "2015-11-15T18:25:43.511Z",
+      "destination_date": "2015-11-15T18:25:43.511Z",
       "coordinates": [37.5245782,-77.6333459],
       "activities": [
         {
           "title": "Watch: Jason Mraz Live",
           "location": "East Dome Amphitheater",
           "date" : "2015-11-15T18:25:43.511Z",
-          "url" : "http://www.facebook.com"
+          "url" : "http://www.facebook.com",
+          "stopover": true
         },
         {
           "title": "See: Richville Nature Park",
