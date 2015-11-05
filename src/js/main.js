@@ -63,6 +63,11 @@
     } // END selection controller function
   }) // END .when
 
+
+  .when('/404', {
+    templateUrl: '404.html',
+  })
+
     .when('/start', {
       templateUrl: 'start.html',
     });
