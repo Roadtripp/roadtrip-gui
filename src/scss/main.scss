@@ -183,7 +183,16 @@ h2.heading {
 }
 
 
-
+button {
+  display: inline-block;
+  color: #fff;
+  background: darken($green, 5%);
+  border: none;
+  vertical-align: middle;
+  margin-top: 2.5%;
+  margin-right: 2%;
+  padding: 2% 6%;
+}
 
 
 

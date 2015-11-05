@@ -13,6 +13,14 @@
       templateUrl: 'admin.html',
     })
 
+    .when('/panel-login', {
+      templateUrl: 'login.html',
+    })
+
+    .when('/panel-signup', {
+      templateUrl: 'signup.html',
+    })
+
     .when('/404', {
       templateUrl: '404.html',
     })
