@@ -2,7 +2,7 @@
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
 
-  angular.module('road-Trip', ['ngRoute', 'checklist-model'], function($routeProvider){
+  angular.module('road-Trip', ['ngRoute'], function($routeProvider){
     $routeProvider.when('/', {
       templateUrl: 'start.html',
     })
