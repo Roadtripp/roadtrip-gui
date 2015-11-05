@@ -141,7 +141,6 @@ header {
   @extend .grid;
   @extend .clearfix;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
   text-align: left;
   position: relative;
   padding: 10px 5%;
@@ -154,6 +153,7 @@ header {
           width: 30%;
           margin: 0;
           display: inline-block;
+
         }
 
 }
