@@ -1,3 +1,5 @@
+
+
 ;(function(){
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
@@ -35,7 +37,7 @@
     }
   })
 
-    .when('/trip/:id', {
+    .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
@@ -64,8 +66,8 @@
   }) // END .when
 
 
-  .when('/404', {
-    templateUrl: '404.html',
+  .when('/trip/:id', {
+    templateUrl: 'interests.html',
   })
 
     .when('/start', {
@@ -96,6 +98,7 @@
 
 
 })(); // END IIFE
+
 
 
 

@@ -66,12 +66,12 @@ h2.heading {
         button.next {
           display: inline-block;
           color: #fff;
-          background: $accent;
+          background: darken($green, 5%);
           border: none;
           vertical-align: middle;
           margin-top: 2.5%;
           margin-right: 2%;
-          padding: 1% 5%;
+          padding: 2% 6%;
         }
 
 
