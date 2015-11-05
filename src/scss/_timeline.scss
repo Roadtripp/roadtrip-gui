@@ -1,0 +1,223 @@
+$accent: #E45F56;
+$dark: #35404F;
+$teal: #4AAAA5;
+$light-teal: #7ACCC8;
+$green: #A3D39C;
+
+
+nav.tabs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+		display: block;
+		width: 100%;
+
+    a[href] { // TAB LINKS & LINE LOCATION
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+      position: relative;
+      bottom: -10px;
+      font-size: 15pt;
+      padding: 2% 0;
+      background: #fafafa;
+      color: $light-teal;
+      font-weight: 700;
+      // border-right: 1px solid #ddd;
+			width: 49.5%;
+      border-top: 1px solid #ddd;
+
+      &.active {
+        color: #000000;
+        border-top: 3px solid $green;
+        border-right: 1px solid #ddd;
+				border-left: 1px solid #ddd;
+        border-bottom: 2px solid #ffffff;
+        background: #ffffff;
+    }
+  }
+}
+
+
+section.main-content.timeline {
+	margin: 0px 10px 0 0;
+	width: 100%;
+	background: #fff;
+
+	section.tlv {
+		position: relative;
+    h3{
+      text-align: center;
+			font-weight: 300;
+			margin: 30px auto;
+
+    }
+		ul {
+      margin: 0px auto;
+      padding-top: 2ex;
+      padding-bottom: 2ex;
+			&.origin-section {
+        width: 95%;
+      	list-style: none;
+      	position: relative;
+      	padding-left: 0;
+				li.city-desc {
+          width: 45%;
+          list-style: none;
+          margin-left: 55%;
+					span {
+						&.start-end {
+              font-size: 1em;
+              font-weight: 600;
+              display: block;
+              color: $green;
+              text-transform: uppercase;
+						}
+						&.city-date {
+              font-size: .7em;
+              font-weight: 300;
+              display: block;
+						}
+					}
+				}
+			} //origin city
+			&.destination-section {
+        width: 95%;
+      	list-style: none;
+      	position: relative;
+      	padding-left: 0;
+				li.city-desc {
+          width: 45%;
+          list-style: none;
+          margin-left: 55%;
+					span {
+						&.start-end {
+              font-size: 1em;
+              font-weight: 600;
+              display: block;
+              color: $green;
+              text-transform: uppercase;
+						}
+						&.city-date {
+              font-size: .7em;
+              font-weight: 300;
+              display: block;
+						}
+					}
+				}
+			} //destination city
+			&.origin-section::before {
+				display: block;
+      	content: '';
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	width: 8px;
+      	background: $accent;
+      	left: 49.3%;
+			}
+			&.destination-section::before {
+        display: block;
+      	content: '';
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	width: 8px;
+      	background: $accent;
+      	left: 49.3%;
+			}
+			&.city-section {
+				width: 95%;
+				list-style: none;
+				position: relative;
+				padding-left: 0;
+        padding-bottom: 3ex;
+				li.city-desc {
+          width: 100%;
+          padding-left: 0px;
+          @extend .clearfix;
+					span {
+						&.city-name {
+              margin-left: 55%;
+							font-size: 1em;
+							font-weight: 600;
+							display: block;
+							margin-top: 20px; //TODO: spacing between each city-section
+						}
+						&.city-date {
+              margin-left: 55%;
+							font-size: .7em;
+							font-weight: 300;
+							display: block;
+						}
+					}
+          a.event-card {
+            margin-bottom: 1ex;
+            width: 47%;
+            text-decoration: none;
+            color: #fff;
+            border: 2px solid $dark;
+            border-radius: 3px;
+						background: $dark;
+						padding: 1%;
+            &:nth-of-type(odd) {
+              float: left;
+              text-align: right;
+              padding-right: 5px;
+              position: relative;
+
+              &::before{
+                position: absolute;
+                right: -12px;
+                font-family: 'FontAwesome';
+                content: "\f0da  ";
+                font-size: 2em;
+								color: $dark;
+              } //caret
+            }
+            &:nth-of-type(even) {
+              float: right;
+              text-align: left;
+              padding-left: 5px;
+              position: relative;
+              &::before{
+                position: absolute;
+                left: -12px;
+                font-family: 'FontAwesome';
+                content: "\f0d9  ";
+                font-size: 2em;
+								color: $dark;
+              }
+            }
+            span.event-name{
+              font-size: 1em;
+              font-weight: 500;
+              display: block;
+            }
+            span.event-location{
+              font-size: 0.8em;
+              font-weight: 300;
+              display: block;
+            }
+            span.event-date{
+              font-size: 0.7em;
+              font-weight: 300;
+              display: block;
+            }
+          } //event card
+        } //li.city-desc
+			} //city section
+			&.city-section::before {
+				display: block;
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 8px;
+				background: $accent;
+				left: 49.3%;
+			}
+
+		}// end of ul
+	}
+}

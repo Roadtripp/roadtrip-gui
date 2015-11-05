@@ -1,0 +1,49 @@
+$accent: #E45F56;
+$dark: #35404F;
+$teal: #4AAAA5;
+$light-teal: #7ACCC8;
+$green: #A3D39C;
+
+h2.heading {
+  padding-top: 25px;
+  margin-top: 0;
+  color: #fff;
+
+}
+
+.main-content.selection {
+  width: 90%;
+  margin: 0 auto;
+}
+
+form.suggestion-content {
+  background: #fff;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+}
+
+h3 {
+  color: $dark;
+}
+
+.submit-button {
+  margin: 20px auto;
+  display: block;
+  position: relative;
+  text-align: center;
+
+    button.submit {
+      display: inline-block;
+      color: #fff;
+      background: $accent;
+      border: none;
+      vertical-align: middle;
+      margin-top: 2.5%;
+      margin-right: 2%;
+      padding: 1% 5%;
+    }
+
+
+} // END .submit-button

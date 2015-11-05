@@ -94,39 +94,91 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+$fa-font-path: '../../bower_components/font-awesome/fonts';
 
- @import 'login';
- @import 'start';
- @import 'selection';
- @import 'welcome';
- @import 'admin';
- @import 'timeline';
- @import 'map';
- @import 'interest';
+// bower:scss
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
+// endbower
+
+
+@import 'login';
+@import 'start';
+@import 'selection';
+@import 'welcome';
+@import 'admin';
+@import 'timeline';
+@import 'map';
+@import 'interest';
+
+$accent: #E45F56;
+$dark: #35404F;
+$teal: #4AAAA5;
+$light-teal: #7ACCC8;
+$green: #A3D39C;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/736x/b3/09/ed/b309eddd57990b734c72791f5a57a4ac.jpg");
+  font-family: 'Roboto', sans-serif;
+}
 
  main.container {
   @extend .grid;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
+}
+
+section.main-content {
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
+  // width: 90%;
 }
 
 header {
   @extend .grid;
-  margin: 0 auto;
-  width: 90%;
+  @extend .clearfix;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  position: relative;
+  padding: 10px 5%;
+  background: $teal;
+  color: #fff;
+
 
         h1 {
           font-weight: 200;
+          width: 30%;
+          margin: 0;
+          display: inline-block;
         }
 
 }
 
+.nav {
+  margin-top: 15px;
+  float: right;
+  display: inline-block;
+  clear: both;
+  font-size: 10pt;
+  font-weight: 200;
 
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding-right: 7px;
+    }
+}
 
-
+h2.heading {
+  font-weight: 500;
+  text-align: center;
+  margin: 15px auto;
+  padding: 0;
+}
 
 
 
