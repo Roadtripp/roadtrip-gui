@@ -1,6 +1,6 @@
 {
   "name": "Roadtripp-gui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "final project",
   "main": "src/index.html",
   "scripts": {
@@ -16,7 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/Roadtripp/roadtrip-gui.git"
   },
-  "author": ["Camille Mauban <camille.mauban@gmail.com>", "Karlo Eleuterio <karloe@gmail.com>"],
+  "author": [
+    "Camille Mauban <camille.mauban@gmail.com>",
+    "Karlo Eleuterio <karloe@gmail.com>"
+  ],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/TIY-Durham/TIY-Catalog/issues"

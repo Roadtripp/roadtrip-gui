@@ -1,6 +1,6 @@
 {
   "name": "Roadtripp-gui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/TIY-Durham/TIY-Catalog",
   "authors": [
     "Camille Mauban <camille.mauban@gmail.com>",
@@ -24,7 +24,6 @@
     "modernizr": "~3.1.0",
     "normalize-css": "normalize.css#~3.0.3",
     "angular-route": "~1.4.7",
-    "font-awesome": "fontawesome#~4.4.0",
-    "checklist-model": "~0.6.0"
+    "font-awesome": "fontawesome#~4.4.0"
   }
 }
