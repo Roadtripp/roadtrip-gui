@@ -10,6 +10,14 @@ h2.heading {
   color: #fff;
 }
 
+p.copy {
+  text-align: center;
+  text-transform: none;
+  margin-bottom: 20px;
+  width: 300px;
+  color: $dark;
+}
+
 h3.cities {
   color: $accent;
   text-transform: uppercase;

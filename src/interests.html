@@ -1,75 +1,79 @@
 <section class="main-content selection">
   <h2 class="heading">Interests</h2>
 <section class="form-container">
+  <p class="copy">Tell us about some of the things you like to see, eat or do!</p>
   <form class="interest-content" ng-submit="interests()">
 
-    <div class="dropdown">
-      <p>Food</p>
-      <ul class="dropdown-list">
-          <li><label><input type="checkbox" value="Vejle" name="city" /> Asian Fusion</label></li>
-          <li><label><input type="checkbox" value="Horsens" name="city" /> Barbeque</label></li>
-          <li><label><input type="checkbox" value="Kolding" name="city" /> Burgers</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Cafes</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Chinese</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Comfort Food</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Filipino</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Fish & Chips</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Food Stands</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Gastropubs</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Gluten-Free</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Italian</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Mexican</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> American (new)</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> American (traditional)</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Pizza</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Salad</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Sandwiches</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Seafood</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Steakhouses</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Thai</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Vegan</label></li>
+    <div class="dropdown-food">
+      <span class="general">Food</span>
+      <p class="multiSelected-food"></p>
+      <ul class="dropdown-list-food">
+          <li><label><input type="checkbox" value="Asian Fusion" name="city" /> Asian Fusion</label></li>
+          <li><label><input type="checkbox" value="Barbeque" name="city" /> Barbeque</label></li>
+          <li><label><input type="checkbox" value="Burgers" name="city" /> Burgers</label></li>
+          <li><label><input type="checkbox" value="Cafes" name="city" /> Cafes</label></li>
+          <li><label><input type="checkbox" value="Chinese" name="city" /> Chinese</label></li>
+          <li><label><input type="checkbox" value="Comfort Food" name="city" /> Comfort Food</label></li>
+          <li><label><input type="checkbox" value="Filipino" name="city" /> Filipino</label></li>
+          <li><label><input type="checkbox" value="Fish & Chips" name="city" /> Fish & Chips</label></li>
+          <li><label><input type="checkbox" value="Food Stands" name="city" /> Food Stands</label></li>
+          <li><label><input type="checkbox" value="Gastropubs" name="city" /> Gastropubs</label></li>
+          <li><label><input type="checkbox" value="Gluten-Free" name="city" /> Gluten-Free</label></li>
+          <li><label><input type="checkbox" value="Italian" name="city" /> Italian</label></li>
+          <li><label><input type="checkbox" value="Mexican" name="city" /> Mexican</label></li>
+          <li><label><input type="checkbox" value="American (new)" name="city" /> American (new)</label></li>
+          <li><label><input type="checkbox" value="American (traditional)" name="city" /> American (traditional)</label></li>
+          <li><label><input type="checkbox" value="Pizza" name="city" /> Pizza</label></li>
+          <li><label><input type="checkbox" value="Salad" name="city" /> Salad</label></li>
+          <li><label><input type="checkbox" value="Sandwiches" name="city" /> Sandwiches</label></li>
+          <li><label><input type="checkbox" value="Seafood" name="city" /> Seafood</label></li>
+          <li><label><input type="checkbox" value="Steakhouses" name="city" /> Steakhouses</label></li>
+          <li><label><input type="checkbox" value="Thai" name="city" /> Thai</label></li>
+          <li><label><input type="checkbox" value="Vegan" name="city" /> Vegan</label></li>
       </ul>
   </div>
 
-  <div class="dropdown">
-    <p>Activities</p>
-    <ul class="dropdown-list">
-        <li><label><input type="checkbox" value="Vejle" name="city" /> Amusement Parks</label></li>
-        <li><label><input type="checkbox" value="Horsens" name="city" /> Aquariums</label></li>
-        <li><label><input type="checkbox" value="Kolding" name="city" /> Beaches</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bike Rentals</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Boating</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bowling</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Challenge Courses</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Climbing</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Disc Golf</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Jet Skis</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Kids Activities</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Parks</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Public Plazas</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Water Parks</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Zoos</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Nightlife</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bars</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Museums</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Sports Teams</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Wineries</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Shopping</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Tours</label></li>
+  <div class="dropdown-activities">
+    <span class="general">Activities</span>
+    <p class="multiSelected-activities"></p>
+    <ul class="dropdown-list-activities">
+        <li><label><input type="checkbox" value="Amusement Parks" name="city" /> Amusement Parks</label></li>
+        <li><label><input type="checkbox" value="Aquariums" name="city" /> Aquariums</label></li>
+        <li><label><input type="checkbox" value="Beaches" name="city" /> Beaches</label></li>
+        <li><label><input type="checkbox" value="Bike Rentals" name="city" /> Bike Rentals</label></li>
+        <li><label><input type="checkbox" value="Boating" name="city" /> Boating</label></li>
+        <li><label><input type="checkbox" value="Bowling" name="city" /> Bowling</label></li>
+        <li><label><input type="checkbox" value="Challenge Courses" name="city" /> Challenge Courses</label></li>
+        <li><label><input type="checkbox" value="Climbing" name="city" /> Climbing</label></li>
+        <li><label><input type="checkbox" value="Disc Golf" name="city" /> Disc Golf</label></li>
+        <li><label><input type="checkbox" value="Jet Skis" name="city" /> Jet Skis</label></li>
+        <li><label><input type="checkbox" value="Kids Activities" name="city" /> Kids Activities</label></li>
+        <li><label><input type="checkbox" value="Parks" name="city" /> Parks</label></li>
+        <li><label><input type="checkbox" value="Public Plazas" name="city" /> Public Plazas</label></li>
+        <li><label><input type="checkbox" value="Water Parks" name="city" /> Water Parks</label></li>
+        <li><label><input type="checkbox" value="Zoos" name="city" /> Zoos</label></li>
+        <li><label><input type="checkbox" value="Nightlife" name="city" /> Nightlife</label></li>
+        <li><label><input type="checkbox" value="Bars" name="city" /> Bars</label></li>
+        <li><label><input type="checkbox" value="Museums" name="city" /> Museums</label></li>
+        <li><label><input type="checkbox" value="Sports Teams" name="city" /> Sports Teams</label></li>
+        <li><label><input type="checkbox" value="Wineries" name="city" /> Wineries</label></li>
+        <li><label><input type="checkbox" value="Shopping" name="city" /> Shopping</label></li>
+        <li><label><input type="checkbox" value="Tours" name="city" /> Tours</label></li>
     </ul>
 </div>
 
-<div class="dropdown">
-  <p>Need a place to stay?</p>
-  <ul class="dropdown-list">
-      <li><label><input type="checkbox" value="Vejle" name="city" /> Bed & Breakfast</label></li>
-      <li><label><input type="checkbox" value="Horsens" name="city" /> Campgrounds</label></li>
-      <li><label><input type="checkbox" value="Kolding" name="city" /> Health Retreats</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Hostels</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Hotels</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Resorts</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> RV Parks</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Ski Resorts</label></li>
+<div class="dropdown-hotels">
+  <span class="general">Need a place to stay?</span>
+  <p class="multiSelected-hotels"></p>
+  <ul class="dropdown-list-hotels">
+      <li><label><input type="checkbox" value="Bed & Breakfast" name="city" /> Bed & Breakfast</label></li>
+      <li><label><input type="checkbox" value="Campgrounds" name="city" /> Campgrounds</label></li>
+      <li><label><input type="checkbox" value="Health Retreats" name="city" /> Health Retreats</label></li>
+      <li><label><input type="checkbox" value="Hostels" name="city" /> Hostels</label></li>
+      <li><label><input type="checkbox" value="Hotels" name="city" /> Hotels</label></li>
+      <li><label><input type="checkbox" value="Resorts" name="city" /> Resorts</label></li>
+      <li><label><input type="checkbox" value="RV Parks" name="city" /> RV Parks</label></li>
+      <li><label><input type="checkbox" value="Ski Resorts" name="city" /> Ski Resorts</label></li>
   </ul>
 </div>
 
@@ -100,14 +104,86 @@
 
 <script>
 $(function () {
-    $(".dropdown").click(function () {
-        $(this).toggleClass("is-active");
+
+    // FOOD
+    $(".dropdown-food").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-food').addClass('show');
     });
 
-    $(".dropdown ul").click(function (e) {
-        e.stopPropagation();
+    $(".dropdown-food ul").on('click', function (event) {
+        event.stopPropagation();
     });
-});
+
+    $('.dropdown-list-food input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-food').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-food').append(html);
+      $('.general').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+    // ACTIVITIES
+    $(".dropdown-activities").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-activities').addClass('show');
+    });
+
+    $(".dropdown-activities ul").on('click', function (event) {
+        event.stopPropagation();
+    });
+
+    $('.dropdown-list-activities input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-activities').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-activities').append(html);
+      $('.general').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+    // HOTELS
+    $(".dropdown-hotels").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-hotels').addClass('show');
+    });
+
+    $(".dropdown-hotels ul").on('click', function (event) {
+        event.stopPropagation();
+    });
+
+    $('.dropdown-list-hotels input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-hotels').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-hotels').append(html);
+      $('.general').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+
+}); // END FULL FUNCTION
+
+
 </script>
 
 
