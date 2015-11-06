@@ -2,12 +2,25 @@
   <h2 class="heading">City Suggestions</h2>
 <section class="form-container">
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="submit()">
-    <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false"> {{city.location}}<br>
+    <h3 class="cities">{{city.location}}</h3>
+    <!-- <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" /> {{city.location}}<br> -->
     <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
+    <article class="activities">
+      <div class="col-1">
+      <input id="city-select" type="checkbox" /> Taylor Swift concert <br>
+      <input id="city-select" type="checkbox" /> Jack Johnson concert <br>
+      <input id="city-select" type="checkbox" /> Sublime concert <br>
+    </div>
+    <div class="col-2">
+      <input id="city-select" type="checkbox" /> Taylor Swift concert <br>
+      <input id="city-select" type="checkbox" /> Jack Johnson concert <br>
+      <input id="city-select" type="checkbox" /> Sublime concert
+    </div>
+    </article>
 
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click="update(city)">Submit</button>
+    <button class="next" type="submit" ng-click="update(city)">generate trip!</button>
   </div>
 
 </section> <!-- END form-container -->

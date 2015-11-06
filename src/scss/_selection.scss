@@ -8,7 +8,14 @@ h2.heading {
   padding-top: 25px;
   margin-top: 0;
   color: #fff;
+}
 
+h3.cities {
+  color: $accent;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 0;
 }
 
 .main-content.selection {
@@ -18,32 +25,20 @@ h2.heading {
 
 form.suggestion-content {
   background: #fff;
-  padding: 5%;
+  // padding: 5%;
   min-width: 300px;
   max-width: 500px;
   background: #fff;
+  margin-bottom: 20px;
 }
 
-h3 {
-  color: $dark;
+article.activities {
+  @extend .clearfix;
+  width: 100%;
 }
 
-.submit-button {
-  margin: 20px auto;
-  display: block;
-  position: relative;
-  text-align: center;
-
-    button.submit {
-      display: inline-block;
-      color: #fff;
-      background: $accent;
-      border: none;
-      vertical-align: middle;
-      margin-top: 2.5%;
-      margin-right: 2%;
-      padding: 1% 5%;
-    }
-
-
-} // END .submit-button
+[class*='col-'] {
+  // outline: 1px solid #000;
+  width: 50%;
+  float: left;
+}
