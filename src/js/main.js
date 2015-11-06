@@ -25,6 +25,8 @@
       templateUrl: '404.html',
     })
 
+
+    // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams){
@@ -45,6 +47,7 @@
     }
   })
 
+    // SELECTION PAGE
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
@@ -74,9 +77,33 @@
   }) // END .when
 
 
+  // INTERESTS PAGE
   .when('/trip/:id', {
     templateUrl: 'interests.html',
-  })
+    controller: function($http, $rootScope, $location, $routeParams){
+
+    $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
+      .then(function (response){
+        $rootScope.suggestions = response.data.waypoints;
+        $rootScope.activities = response.data.waypoints.activities;
+        $rootScope.selectedCities = response.data;
+
+    }); // END .then
+
+        // SUBMITS THE CHECKED CITIES
+        $rootScope.update = function(city){
+
+          console.log($rootScope.selectedCities);
+            $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
+              .then(function(){
+                console.log($rootScope.selectedCities);
+
+                $location.path('/trip/' + $routeParams.id + '/city/' );
+            });
+        };
+
+      } // END interests controller function
+  }) // END .when
 
     .when('/start', {
       templateUrl: 'start.html',
