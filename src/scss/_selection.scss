@@ -13,9 +13,9 @@ h2.heading {
 p.copy {
   text-align: center;
   text-transform: none;
-  margin-bottom: 20px;
   width: 300px;
   color: $dark;
+  margin: 0 auto 20px auto;
 }
 
 h3.cities {
@@ -56,9 +56,12 @@ article.activities {
       font-size: 1em;
     }
 
-    p {
-      font-size: .7em;
+    p.time {
+      font-size: .8em;
       margin-left: 19px;
+      margin-top: 0;
+      color: #c3c3c3;
+      font-weight: 300;
     }
 
     hr.break {
