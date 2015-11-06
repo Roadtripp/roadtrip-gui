@@ -1,7 +1,11 @@
-<section class="main-content signup">
-  <h2 class="heading">Signup</h2>
+<section class="main-content login">
+  <h2 class="heading">Sign up</h2>
+
+  <div class="tab-content">
+  <section id="panel-signup" class="panel active">
+
   <section class="form-container">
-      <form class="start" ng-submit="signUp()">
+      <form class="start" ng-submit="signup()">
         <fieldset>
         <label>Username<input type="text" placeholder="Johndoe" /></label>
         <label>Email<input type="email" placeholder="your@email.com" /></label>
@@ -9,8 +13,14 @@
       </fieldset>
       </form>
       <div class="button">
-        <button class="signup" type="submit">Sign up</button>
+        <button class="login" type="submit">Sign up</button>
       </div>
     </section> <!-- END .form-container -->
 
+    <section class="alternate">
+      <p>Have an account already? <a href="#panel-login">Log in</a></p>
+      </section>
+
+  </section> <!-- END .panel-login -->
+  </div> <!-- END .tab-content -->
 </section> <!-- END .main-content -->
