@@ -13,9 +13,10 @@ h2.heading {
 h3.cities {
   color: $accent;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 2px;
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .main-content.selection {
@@ -29,16 +30,40 @@ form.suggestion-content {
   min-width: 300px;
   max-width: 500px;
   background: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 article.activities {
   @extend .clearfix;
   width: 100%;
+
+    h5.category {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: lighten($dark, 15%);
+      font-weight: 500;
+    }
+
+    label {
+      font-size: 1em;
+    }
+
+    p {
+      font-size: .7em;
+      margin-left: 19px;
+    }
+
+    hr.break {
+      width: 100%;
+
+    }
+
 }
+
 
 [class*='col-'] {
   // outline: 1px solid #000;
   width: 50%;
   float: left;
+  margin-bottom: 15px;
 }
