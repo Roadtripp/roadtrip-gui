@@ -6,7 +6,7 @@ $green: #A3D39C;
 
 
 form.interest-content {
-  padding: 5%;
+  // padding: 5%;
   min-width: 300px;
   max-width: 500px;
 }
@@ -15,9 +15,9 @@ form.interest-content {
     opacity: 1;
     background: #fff;
     color: #000;
-    width: 90%;
+    width: 100%;
     border: 1px solid #c3c3c3;
-    cursor: pointer; /* use correct mouse pointer when hovering over the dropdown */
+    cursor: pointer;
     padding: 10px;
     position: relative;
     margin: 0 auto 20px auto;
@@ -41,7 +41,7 @@ form.interest-content {
     margin-top: -3px;
 }
 
-/* Reverse the CSS arrow when the dropdown is active */
+//Reverse the CSS arrow when the dropdown is active
 .dropdown.is-active:after {
     border-bottom-color: $accent;
     border-top-color: #fff;
@@ -75,7 +75,7 @@ ul.dropdown-list {
 
 .is-active .dropdown-list {
     opacity: 1; /* display the dropdown */
-    pointer-events: auto; /* make sure that the user still can select checkboxes */
+    pointer-events: auto;
 }
 
 .dropdown-list li label {
@@ -101,7 +101,7 @@ p {
 }
 
 .sportInputs {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 
     h4 {

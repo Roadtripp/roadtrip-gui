@@ -28,8 +28,12 @@ $green: #A3D39C;
           label {
             display: block;
             padding: 5px 5px 10px 2px;
-            font-weight: bold;
-            color: $dark;
+            font-size: 1em;
+            color: darken(#c3c3c3, 15%);
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 8px;
+            // letter-spacing: 1px;
           }
 
           input {
@@ -37,7 +41,7 @@ $green: #A3D39C;
             display: block;
             width: 100%;
             height: 28px;
-            border: 1px solid #e6e6e6;
+            border: 1px solid #c3c3c3;
             font-weight: 200;
             padding-left: 1%;
             color: #000;
