@@ -4,12 +4,11 @@
       <form class="start" ng-submit="next()">
         <fieldset>
         <label>Name of Trip<input ng-model="add.title" type="text" placeholder="Cousin's Wedding" /></label>
-        <label>Origin Location<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
+        <label>Origin<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Destination<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
              onFocus="initAutocomplete()" type="text"></input></label>
         <label>Start Date<input ng-model="add.origin_date" type="text" /></label>
-        <label>Start Time<input ng-model="add.origin_time" type="text" /></label>
-        <label>Destination Location<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
-             onFocus="initAutocomplete()" type="text"></input></label>
         <label>End Date<input ng-model="add.destination_date" type="text" /></label>
         <div class="button">
           <button class="next" type="submit">next</button>
