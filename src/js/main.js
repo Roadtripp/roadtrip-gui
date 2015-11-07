@@ -29,6 +29,14 @@ var waypointCities = [];
       templateUrl: '404.html',
     })
 
+
+      // INTERESTS PAGE
+      .when('/trip/:id', {
+        templateUrl: 'interests.html',
+      }) // END .when
+
+
+    // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams){
@@ -69,18 +77,22 @@ var waypointCities = [];
     }
   })
 
+    // SELECTION PAGE
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
-
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
         .then(function (response){
           $rootScope.suggestions = response.data.waypoints;
-          $rootScope.activities = response.data.waypoints.activities;
           $rootScope.selectedCities = response.data;
+          $rootScope.activities = response.data.waypoints.activities;
+          $rootScope.sports = response.data.waypoints.sports;
+          $rootScope.foods = response.data.waypoints.food;
+          $rootScope.artists = response.data.waypoints.artist;
 
       }); // END .then
+
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
@@ -96,11 +108,6 @@ var waypointCities = [];
 
     } // END selection controller function
   }) // END .when
-
-
-  .when('/trip/:id', {
-    templateUrl: 'interests.html',
-  })
 
     .when('/start', {
       templateUrl: 'start.html',
@@ -124,7 +131,22 @@ var waypointCities = [];
         }
     );
   };
-}); // END START FORM CONTROLLER
+}) // END START FORM CONTROLLER
+
+
+.controller('interestController', function($scope, $http){
+  $scope.selectedInt = { };
+  $scope.inputs = { };
+
+   $scope.interest = function(){
+    //  $http.post('https://aqueous-sea-6980.herokuapp.com/api/users.json', $scope.signup)
+    //    .then(function(){
+
+      console.log($scope.selectedInt);
+  // });
+  };
+}); // END SIGNUP CONTROLLER
+
 
 
 

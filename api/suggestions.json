@@ -1,0 +1,178 @@
+{
+  "origin": "tampa, fl",
+  "waypoints": [
+    {
+      "location": "Orlando, FL",
+      "location_plus": "Orlando,+FL",
+      "stopover": false,
+      "food": [
+        {
+          "title": "The Scullery",
+          "date":   ,
+          "time":   ,
+          "address":,
+          "activity_stopover": false,
+          "url":,
+          "img_url": ,
+          "small_rate_img_url":,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings":
+        },
+        {
+          "title": "Amy's BBQ",
+          "date": ,
+          "time": ,
+          "address": ,
+          "category": "food",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+      ],
+      "artist": [
+        {
+          "title": "Sublime Concert",
+          "date": "11/02/2015",
+          "time": "7:00 PM",
+          "address": ,
+          "category": "artist",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+
+        {
+          "title": "O.A.R Concert",
+          "date": "11/01/2015",
+          "time": "6:30 PM",
+          "address": ,
+          "category": "artist",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+      ],
+      "hotels": [
+        {
+          "title": "Babe's Bed & Breakfast",
+          "date": ,
+          "time": ,
+          "address": ,
+          "category": "hotels",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+        {
+          "title": "Sunshine Inn",
+          "date": ,
+          "time": ,
+          "address": ,
+          "category": "hotels",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+      ],
+      "sports": [
+        {
+          "title": "Met vs. Cardinals Game",
+          "date": "11/11/2015",
+          "time": "11:00 AM",
+          "address": ,
+          "category": "sports",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+        {
+          "title": "ECU vs. Temple Game",
+          "date": "11/12/2015",
+          "time": "1:30 PM",
+          "address": ,
+          "category": "sports",
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url": ,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+​
+        },
+      ],
+​
+    },
+    {
+      "location": "Atlanta, GA",
+      "location_plus": "Atlanta,+GA",
+      "stopover": false,
+      "activities": [
+        {
+          "title": ,
+          "date": ,
+          "time": ,
+          "address":,
+          "category":,
+          "sub-category": ,
+          "activity_stopover": false,
+          "url":,
+          "img_url": ,
+          "small_rate_img_url":,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings": ,
+        },
+        {
+          "title": ,
+          "date":  ,
+          "time": ,
+          "address":,
+          "category":,
+          "activity_stopover": false,
+          "url": ,
+          "img_url": ,
+          "small_rate_img_url":,
+          "large_rate_img_url":,
+          "average_rating": ,
+          "num_ratings":
+​
+        },
+      ],
+​
+    },
+
+  "destination" : "st. louis, mo",
+  "id" : "14"
+}

@@ -1,90 +1,93 @@
 <section class="main-content selection">
   <h2 class="heading">Interests</h2>
-<section class="form-container">
-  <form class="interest-content" ng-submit="interests()">
-
-    <div class="dropdown">
-      <p>Food</p>
-      <ul class="dropdown-list">
-          <li><label><input type="checkbox" value="Vejle" name="city" /> Asian Fusion</label></li>
-          <li><label><input type="checkbox" value="Horsens" name="city" /> Barbeque</label></li>
-          <li><label><input type="checkbox" value="Kolding" name="city" /> Burgers</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Cafes</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Chinese</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Comfort Food</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Filipino</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Fish & Chips</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Food Stands</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Gastropubs</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Gluten-Free</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Italian</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Mexican</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> American (new)</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> American (traditional)</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Pizza</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Salad</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Sandwiches</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Seafood</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Steakhouses</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Thai</label></li>
-          <li><label><input type="checkbox" value="Fredericia" name="city" /> Vegan</label></li>
+<section class="form-container" ng-controller="interestController">
+  <p class="copy">Tell us about some of the things you would like to see, eat or do!</p>
+  <form class="interest-content" ng-submit="submit()">
+    <div class="dropdown-food">
+      <span class="general-food">Food</span>
+      <p class="multiSelected-food"></p>
+      <ul class="dropdown-list-food">
+          <li><label><input type="checkbox" ng-model="selectedInt.food.asianfusion" value="Asian Fusion" /> Asian Fusion</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.barbeque" ng-true-value="true" ng-false-value="false" value="barbeque" /> Barbeque</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.burgers" value="burgers" /> Burgers</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.cafes" value="Cafes" /> Cafes</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.chinese" value="Chinese" /> Chinese</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.comfortfood" value="Comfort Food" /> Comfort Food</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.filipino" value="Filipino" /> Filipino</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.fishandchips" value="Fish & Chips" /> Fish & Chips</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.foodstands" value="Food Stands" /> Food Stands</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.gastropubs" value="Gastropubs" /> Gastropubs</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.glutenfree" value="Gluten-Free" /> Gluten-Free</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.italian" value="Italian" /> Italian</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.mexican" value="Mexican" /> Mexican</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.americannew" value="American (new)" /> American (new)</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.americantraditional" value="American (traditional)" /> American (traditional)</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.pizza" value="Pizza" /> Pizza</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.salad" value="Salad" /> Salad</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.sandwiches" value="Sandwiches" /> Sandwiches</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.seafood" value="Seafood" /> Seafood</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.steakhouses" value="Steakhouses" /> Steakhouses</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.thai" value="Thai" /> Thai</label></li>
+          <li><label><input type="checkbox" ng-model="selectedInt.food.vegan" value="Vegan" /> Vegan</label></li>
       </ul>
   </div>
 
-  <div class="dropdown">
-    <p>Activities</p>
-    <ul class="dropdown-list">
-        <li><label><input type="checkbox" value="Vejle" name="city" /> Amusement Parks</label></li>
-        <li><label><input type="checkbox" value="Horsens" name="city" /> Aquariums</label></li>
-        <li><label><input type="checkbox" value="Kolding" name="city" /> Beaches</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bike Rentals</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Boating</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bowling</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Challenge Courses</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Climbing</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Disc Golf</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Jet Skis</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Kids Activities</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Parks</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Public Plazas</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Water Parks</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Zoos</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Nightlife</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Bars</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Museums</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Sports Teams</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Wineries</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Shopping</label></li>
-        <li><label><input type="checkbox" value="Fredericia" name="city" /> Tours</label></li>
+  <div class="dropdown-activities">
+    <span class="general-activities">Activities</span>
+    <p class="multiSelected-activities"></p>
+    <ul class="dropdown-list-activities">
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.amusementparks" value="Amusement Parks" /> Amusement Parks</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.aquariums" value="Aquariums" /> Aquariums</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.beaches"value="Beaches" /> Beaches</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.bikerentals"value="Bike Rentals" /> Bike Rentals</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.boating"value="Boating" /> Boating</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.bowling"value="Bowling" /> Bowling</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.challengecourses"value="Challenge Courses" /> Challenge Courses</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.climbing"value="Climbing" /> Climbing</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.discgolf"value="Disc Golf" /> Disc Golf</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.jetskis"value="Jet Skis" /> Jet Skis</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.kidsactivities"value="Kids Activities" /> Kids Activities</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.parks"value="Parks" /> Parks</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.publicplazas"value="Public Plazas" /> Public Plazas</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.waterparks"value="Water Parks" /> Water Parks</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.zoos"value="Zoos" /> Zoos</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.nightlife"value="Nightlife" /> Nightlife</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.bars"value="Bars" /> Bars</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.museums"value="Museums" /> Museums</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.sportsteams"value="Sports Teams" /> Sports Teams</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.wineries"value="Wineries" /> Wineries</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.shopping"value="Shopping" /> Shopping</label></li>
+        <li><label><input type="checkbox" ng-model="selectedInt.activities.tours"value="Tours" /> Tours</label></li>
     </ul>
 </div>
 
-<div class="dropdown">
-  <p>Need a place to stay?</p>
-  <ul class="dropdown-list">
-      <li><label><input type="checkbox" value="Vejle" name="city" /> Bed & Breakfast</label></li>
-      <li><label><input type="checkbox" value="Horsens" name="city" /> Campgrounds</label></li>
-      <li><label><input type="checkbox" value="Kolding" name="city" /> Health Retreats</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Hostels</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Hotels</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Resorts</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> RV Parks</label></li>
-      <li><label><input type="checkbox" value="Fredericia" name="city" /> Ski Resorts</label></li>
+<div class="dropdown-hotels">
+  <span class="general-hotels">Need a place to stay?</span>
+  <p class="multiSelected-hotels"></p>
+  <ul class="dropdown-list-hotels">
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.bedandbreakfast" value="Bed & Breakfast" /> Bed & Breakfast</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.campgrounds" value="Campgrounds" /> Campgrounds</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.healthretreats" value="Health Retreats" /> Health Retreats</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.hostels" value="Hostels" /> Hostels</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.hotels" value="Hotels" /> Hotels</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.resorts" value="Resorts" /> Resorts</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.rvparks" value="RV Parks" /> RV Parks</label></li>
+      <li><label><input type="checkbox" ng-model="selectedInt.hotels.skiresorts" value="Ski Resorts" /> Ski Resorts</label></li>
   </ul>
 </div>
 
   <section class="sportInputs">
     <h4>Sports Events</h4>
-    <input class="sports" placeholder="Greenbay Packers"></input>
-    <input class="sports" placeholder="Panthers"></input>
-    <input class="sports" placeholder="Cardinals Baseball"></input>
+    <input class="sports" ng-model="selectedInt.sports1" placeholder="Greenbay Packers"></input>
+    <input class="sports" ng-model="selectedInt.sports2" placeholder="Panthers"></input>
+    <input class="sports" ng-model="selectedInt.sports3" placeholder="Cardinals Baseball"></input>
   </section>
 
   <section class="sportInputs">
     <h4>Artists</h4>
-    <input class="sports" placeholder="Red Hot Chili Peppers"></input>
-    <input class="sports" placeholder="Sublime"></input>
-    <input class="sports" placeholder="Taylor Swift"></input>
+    <input class="sports" ng-model="selectedInt.artist1" placeholder="Red Hot Chili Peppers"></input>
+    <input class="sports" ng-model="selectedInt.artist2" placeholder="Sublime"></input>
+    <input class="sports" ng-model="selectedInt.artist3" placeholder="Taylor Swift"></input>
   </section>
 
 
@@ -92,7 +95,7 @@
 
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click="">step 2</button>
+    <button class="next" type="submit" ng-click="interest()">next</button>
   </div>
 
 </section> <!-- END form-container -->
@@ -100,14 +103,86 @@
 
 <script>
 $(function () {
-    $(".dropdown").click(function () {
-        $(this).toggleClass("is-active");
+
+    // FOOD
+    $(".dropdown-food").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-food').addClass('show');
     });
 
-    $(".dropdown ul").click(function (e) {
-        e.stopPropagation();
+    $(".dropdown-food ul").on('click', function (event) {
+        event.stopPropagation();
     });
-});
+
+    $('.dropdown-list-food input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-food').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-food').append(html);
+      $('.general-food').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+    // ACTIVITIES
+    $(".dropdown-activities").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-activities').addClass('show');
+    });
+
+    $(".dropdown-activities ul").on('click', function (event) {
+        event.stopPropagation();
+    });
+
+    $('.dropdown-list-activities input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-activities').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-activities').append(html);
+      $('.general-activities').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+    // HOTELS
+    $(".dropdown-hotels").on('click', function () {
+        $(this).toggleClass("active");
+        $('.multiSelected-hotels').addClass('show');
+    });
+
+    $(".dropdown-hotels ul").on('click', function (event) {
+        event.stopPropagation();
+    });
+
+    $('.dropdown-list-hotels input[type="checkbox"]').on('click', function(){
+      var selected = $(this).closest('.dropdown-list-hotels').find('input[type="checkbox"]').val(),
+      selected = $(this).val() + ", ";
+
+    if ($(this).is(':checked')) {
+      var html = '<span selected="' + selected + '">' + selected + '</span>';
+      $('.multiSelected-hotels').append(html);
+      $('.general-hotels').hide();
+    }
+      else {
+        $('span[selected="' + selected + '"]').remove();
+      }
+    });
+
+
+
+}); // END FULL FUNCTION
+
+
 </script>
 
 
