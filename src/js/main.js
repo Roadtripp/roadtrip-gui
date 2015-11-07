@@ -13,7 +13,7 @@ var waypointCities = [];
       templateUrl: 'start.html',
     })
 
-    .when('/home', {
+    .when('/home/user/:id', {
       templateUrl: 'admin.html',
     })
 
@@ -23,7 +23,21 @@ var waypointCities = [];
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-    })
+      controller: function($http, $location, $routeParams){
+        var signup = this;
+
+        signup.user = { };
+
+        signup.createUser = function(){
+          console.log(signup.user);
+        //  $http.post('https://aqueous-sea-6980.herokuapp.com/api/users.json', $scope.user)
+        //    .then(function(){
+            //  $location.path('/home/user/' + routeParams.id);
+          //  });
+         };
+      }, // END controller
+      controllerAs: 'signup'
+    }) // END .when
 
     .when('/404', {
       templateUrl: '404.html',
@@ -31,9 +45,25 @@ var waypointCities = [];
 
 
       // INTERESTS PAGE
-      .when('/trip/:id', {
-        templateUrl: 'interests.html',
-      }) // END .when
+    .when('/trip/:id', {
+      templateUrl: 'interests.html',
+      controller: function($http, $location, $routeParams) {
+        var pick = this;
+
+        pick.selectedInt = { };
+
+        pick.interest = function(){
+          console.log(pick.selectedInt);
+          $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/interests/', pick.selectedInt)
+            .then(function(response){
+              console.log(response);
+              $location.path('/trip/' + $routeParams.id + '/suggestions/');
+              console.log(pick.selectedInt);
+          });
+        };
+      },
+      controllerAs: 'pick'
+    }) // END .when
 
 
     // TIMELINE PAGE
@@ -65,15 +95,6 @@ var waypointCities = [];
           initMap();
         });
 
-
-
-
-
-
-
-      // $scope.mapIframe = function (a,b) {
-      //   return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/directions?key=AIzaSyCFhgyt2qjQ_2CjcMNSqJpHhtM3wdpPjvU&origin="+ $scope.main.origin + "&destination=" + $scope.main.destination + "&waypoints=Richmond,VA|Washington,DC");
-      // }
     }
   })
 
@@ -131,34 +152,7 @@ var waypointCities = [];
         }
     );
   };
-}) // END START FORM CONTROLLER
-
-
-.controller('interestController', function($scope, $http){
-  $scope.selectedInt = { };
-  $scope.inputs = { };
-
-   $scope.interest = function(){
-    //  $http.post('https://aqueous-sea-6980.herokuapp.com/api/users.json', $scope.signup)
-    //    .then(function(){
-
-      console.log($scope.selectedInt);
-  // });
-  };
-}); // END SIGNUP CONTROLLER
-
-
-
-
-
-    $("a.button-map").click(function () {
-        $('#map').toggleClass("inactive");
-    });
-    $("a.button-timeline").click(function () {
-        $('#map').addClass("inactive");
-    });
-
-
+}); // END START FORM CONTROLLER
 
 
 
@@ -179,28 +173,6 @@ var waypointCities = [];
 // }); // END CONFIG.
 
 
-
-//TODO: fix start controller
-
-// controller: function($http, $location){
-//   var newTrip = this;
-//
-//   newTrip.add = { };
-//   console.log(newTrip.add);
-//
-//   newTrip.next = function() {
-//     console.log('tracer bullet');
-//
-//   $http.post('https://hidden-woodland-2621.herokuapp.com/api/users/trip/', newTrip.add)
-//     .then(function(){
-//       $location.path('/selection'); //TODO: path to interest page
-//     }, function(){
-//       $location.path('/selection');
-//     }
-//   );
-//   };
-// },
-// controllerAs: 'start'
 
 
 
