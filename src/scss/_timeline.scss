@@ -4,11 +4,15 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+#map {
+  display: none !important;
 
-iframe {
-  width: 100%;
-  margin: 30px auto;
+  &.active {
+    display: block !important;
+  }
+
 }
+
 
 nav.tabs {
     padding-top: 10px;

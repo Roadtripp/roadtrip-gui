@@ -82,7 +82,7 @@ var waypointCities = [];
             waypointCities.push(temp);
           }
           console.log(waypointCities);
-          initMap();
+          // initMap();
           // $scope.activities = response.data.cities_along.activities;
         });
 
@@ -92,7 +92,7 @@ var waypointCities = [];
           originCity = $scope.main.origin;
           desinationCity = $scope.main.destination;
           console.log(originCity);
-          initMap();
+          // initMap();
         });
 
     }
@@ -157,7 +157,6 @@ var waypointCities = [];
 
 
 })(); // END IIFE
-
 
 
 
