@@ -3,6 +3,8 @@
 ;(function(){
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
+  var mapOrigin = "";
+  var mapDestination = "";
 
   angular.module('road-Trip', ['ngRoute'], function($routeProvider){
     $routeProvider.when('/', {
@@ -28,6 +30,7 @@
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams){
+
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           console.log(arguments);
@@ -36,12 +39,23 @@
           // $scope.activities = response.data.cities_along.activities;
         });
 
-
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
         .then(function(response){
           console.log(arguments);
           $scope.main = response.data;
+          mapOrigin = $scope.main.origin;
+          mapDestination = $scope.main.destination;
         });
+
+
+
+
+
+
+
+      // $scope.mapIframe = function (a,b) {
+      //   return $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/directions?key=AIzaSyCFhgyt2qjQ_2CjcMNSqJpHhtM3wdpPjvU&origin="+ $scope.main.origin + "&destination=" + $scope.main.destination + "&waypoints=Richmond,VA|Washington,DC");
+      // }
     }
   })
 
@@ -101,6 +115,15 @@
     );
   };
 }); // END START FORM CONTROLLER
+
+
+    $("a.button-map").click(function () {
+        $('#map').toggleClass("inactive");
+    });
+    $("a.button-timeline").click(function () {
+        $('#map').addClass("inactive");
+    });
+
 
 
 
