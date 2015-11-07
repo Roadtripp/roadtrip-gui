@@ -16,26 +16,26 @@
       "coordinates": [37.5245782,-77.6333459],
       "activities": [
         {
-          "title": "Watch: Jason Mraz Live",
+          "title": "Jason Mraz Live",
           "location": "East Dome Amphitheater",
           "date" : "2015-11-15T18:25:43.511Z",
           "url" : "http://www.facebook.com",
           "stopover": true
         },
         {
-          "title": "See: Richville Nature Park",
+          "title": "Richville Nature Park",
           "location": "Richville Nature Park",
           "date" : "2015-11-15T18:25:43.511Z",
           "url" : "http://www.yahoo.com"
         },
         {
-          "title": "Eat: Hungry???",
+          "title": "The Scullery",
           "location": "East Dome Stadium",
           "date" : null,
           "url" : "http://www.facebook.com"
         },
         {
-          "title": "See: Seafood Festival",
+          "title": "Seafood Festival",
           "location": "Richmond Capital",
           "date" : null,
           "url" : "http://www.facebook.com"
