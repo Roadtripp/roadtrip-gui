@@ -1,0 +1,74 @@
+$accent: #E45F56;
+$dark: #35404F;
+$teal: #4AAAA5;
+$light-teal: #7ACCC8;
+$green: #A3D39C;
+
+.main-content.login {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-container {
+  border: 1px solid #e6e6e6;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+  opacity: .93;
+
+    form.start {
+      display: block;
+      position: relative;
+      font-size: 10pt;
+      margin: 0 auto;
+      text-align: left;
+      padding-bottom: 5%;
+
+          label {
+            display: block;
+            padding: 5px 5px 10px 2px;
+            font-size: 1em;
+            color: darken(#c3c3c3, 15%);
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 8px;
+            // letter-spacing: 1px;
+          }
+
+          input {
+            font-size: 12px;
+            display: block;
+            width: 100%;
+            height: 28px;
+            border: 1px solid #c3c3c3;
+            font-weight: 200;
+            padding-left: 1%;
+            color: #000;
+            font-weight: 300;
+         }
+
+    } // END .START
+}
+
+.alternate {
+  margin-top: 8px;
+  border: 1px solid #e6e6e6;
+  padding: 5%;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+  opacity: .93;
+
+    p {
+      text-align: center;
+      font-size: 10pt;
+
+          a[href] {
+            color: lighten($dark, 15%);
+            font-size: 10pt;
+            font-weight: 500;
+            text-decoration: none;
+          }
+    }
+}

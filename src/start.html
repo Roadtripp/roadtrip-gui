@@ -3,18 +3,29 @@
   <section class="form-container">
       <form class="start" ng-submit="next()">
         <fieldset>
-        <label>Name of Trip<input ng-model="add.title" type="text" placeholder="NY Wedding" /></label>
-        <label>Start Location<input ng-model="add.origin" type="text" placeholder="Raleigh, NC" /></label>
+        <label>Name of Trip<input ng-model="add.title" type="text" placeholder="Cousin's Wedding" /></label>
+        <label>Origin<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Destination<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
+             onFocus="initAutocomplete()" type="text"></input></label>
         <label>Start Date<input ng-model="add.origin_date" type="text" /></label>
-        <label>Start Time<input ng-model="add.origin_time" type="text" /></label>
-        <label>End Location<input ng-model="add.destination" type="text" placeholder="Brooklyn, NY" /></label>
         <label>End Date<input ng-model="add.destination_date" type="text" /></label>
         <div class="button">
-          <button class="next" type="submit">Next</button>
+          <button class="next" type="submit">next</button>
         </div>
       </fieldset>
       </form>
-
-    </section> <!-- END .form-container -->
-
+  </section> <!-- END .form-container -->
+  <script>
+      var placeSearch, autocomplete_origin, autocomplete_destination;
+      function initAutocomplete() {
+        autocomplete_origin = new google.maps.places.Autocomplete(
+          (document.getElementById('autocomplete_origin')),
+          {types: ['geocode']});
+        autocomplete_destination = new google.maps.places.Autocomplete(
+          (document.getElementById('autocomplete_destination')),
+          {types: ['geocode']});
+        }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
 </section> <!-- END .main-content -->

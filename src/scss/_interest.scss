@@ -3,3 +3,138 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
+
+
+form.interest-content {
+  // padding: 5%;
+  // min-width: 300px;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+[class*="dropdown-"] {
+    opacity: 1;
+    background: #fff;
+    color: #000;
+    width: 100%;
+    border: 1px solid #c3c3c3;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    margin: 0 auto 20px auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+[class*="dropdown-"]:after {
+    content:'';
+    height: 0;
+    position: absolute;
+    width: 0;
+    border: 6px solid transparent;
+    border-top-color: $accent;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+}
+
+//Reverse the CSS arrow when the dropdown is active
+[class*="dropdown-"].active:after {
+    border-bottom-color: $accent;
+    border-top-color: #fff;
+    margin-top: -9px;
+}
+
+ul[class*="dropdown-list-"] {
+    z-index: 1; // overlays other elements
+    height: 130px;
+    overflow: auto;
+    background: lighten($dark, 15%);
+    color: #fff;
+    font-size: 9pt;
+    margin: -1px 0 0 0;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    top: 100%; /* align the dropdown right below the dropdown text */
+    border: inherit;
+    border-top: none;
+    left: -1px; /* align the dropdown to the left */
+    right: -1px; /* align the dropdown to the right */
+    opacity: 0; /* hide the dropdown */
+    -webkit-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none; /* avoid mouse click events inside the dropdown */
+}
+
+.active [class*="dropdown-list-"] {
+    opacity: 1; // display the dropdown
+    pointer-events: auto;
+}
+
+[class*="dropdown-list-"] li label {
+    display: block;
+    padding: 4px 10px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+[class*="dropdown-list-"] li label:hover {
+    background-color: $dark;
+    color: white;
+}
+
+[class*='general-'] {
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: darken(#c3c3c3, 15%);
+  font-weight: 300;
+}
+
+[class*='multiSelected-'] {
+  display: none;
+}
+
+p[class*='multiSelected-'].show {
+  display: inherit;
+  margin: 0;
+  color: darken(#c3c3c3, 15%);
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+.sportInputs {
+  width: 100%;
+  margin: 0 auto;
+
+    h4 {
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      margin-top: 30px;
+      font-weight: 300;
+      font-size: 1em;
+      color: darken(#c3c3c3, 15%);
+    }
+
+}
+
+input.sports {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: block;
+  height: 28px;
+  border: 1px solid #c3c3c3;
+  font-weight: lighter;
+  padding-left: 3%;
+}

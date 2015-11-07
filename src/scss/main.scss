@@ -107,8 +107,8 @@ $fa-font-path: '../../bower_components/font-awesome/fonts';
 @import 'welcome';
 @import 'admin';
 @import 'timeline';
-@import 'map';
 @import 'interest';
+@import 'map';
 
 $accent: #E45F56;
 $dark: #35404F;
@@ -141,7 +141,6 @@ header {
   @extend .grid;
   @extend .clearfix;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
   text-align: left;
   position: relative;
   padding: 10px 5%;
@@ -154,6 +153,7 @@ header {
           width: 30%;
           margin: 0;
           display: inline-block;
+
         }
 
 }
@@ -174,14 +174,25 @@ header {
 }
 
 h2.heading {
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 4px;
   text-align: center;
   margin: 15px auto;
   padding: 0;
+  font-family: 'Oswald', sans-serif;
 }
 
 
-
+button {
+  display: inline-block;
+  color: #fff;
+  background: darken($green, 5%);
+  border: none;
+  vertical-align: middle;
+  margin-top: 2.5%;
+  margin-right: 2%;
+  padding: 2% 6%;
+}
 
 
 

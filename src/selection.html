@@ -1,13 +1,37 @@
 <section class="main-content selection">
-  <h2 class="heading">City Suggestions</h2>
+  <h2 class="heading">Events</h2>
 <section class="form-container">
+  <p class="copy">Select some events you're interested in along your way!</p>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="submit()">
-    <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false"> {{city.location}}<br>
+    <h3 class="cities">{{city.location}}</h3>
+    <!-- <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" /> {{city.location}}<br> -->
     <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
-
+    <article class="activities">
+      <div class="col-1">
+      <h5 class="category">sports events</h5>
+      <label><input ng-repeat="sport in city.sports" id="city-select" type="checkbox" ng-model="city.sport"/>{{city.sports.title}}<br><p class="time">{{city.sports.date}} @ {{city.sports.time}}</p></label>
+    </div>
+    <div class="col-2">
+      <h5 class="category">entertainment</h5>
+      <label><input ng-repeat="artist in city.artists" id="city-select" type="checkbox" ng-model="city.artist"/>{{city.artist.title}}<br><p class="time">{{city.artist.date}} @ {{city.artist.time}}</p></label>
+  </div>
+    <div class="col-3">
+    <h5 class="category">bites to eat</h5>
+    <label><input ng-repeat="food in city.foods" id="city-select" type="checkbox" ng-model="city.food"/>{{city.food.title}}</label>
+  </div>
+  <div class="col-4">
+    <h5 class="category">lodging</h5>
+    <label><input ng-repeat="hotel in city.hotels" id="city-select" type="checkbox" ng-model="city.hotel"/>{{city.hotels.title}}</label>
+  </div>
+  <div class="col-5 activities">
+    <h5 class="category">activities</h5>
+    <label><input ng-repeat="activity in city.activities" id="city-select" type="checkbox" ng-model="city.activity"/>{{city.activities.title}}</label>
+  </div>
+  </article>
+    <hr class="break">
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click="update(city)">Submit</button>
+    <button class="next" type="submit" ng-click="update(city)">generate trip!</button>
   </div>
 
 </section> <!-- END form-container -->

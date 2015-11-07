@@ -1,7 +1,8 @@
 <section class="main-content timeline">
+
   <nav class="tabs">
-    <a href="" ng-click="showme=true" ng-init="showme=true">Timeline</a>
-    <a href="" ng-click="showme=false">Map View</a>
+    <a href="" ng-click="showme=true" class="button-timeline" ng-init="showme=true">Timeline</a>
+    <a href="" ng-click="showme=false" class="button-map" >Map View</a>
   </nav>
   <section class="tlv" ng-show="showme">
     <h3>{{main.title}}</h3>
@@ -30,91 +31,19 @@
       </li>
     </ul>
   </section>
-
-  <section class="map-content panel" ng-hide="showme">
-  <div id="floating-panel">
-  <b>Start: </b>
-  <select id="start" onchange="calcRoute()">
-    <option value="chicago, il">Chicago</option>
-    <option value="st louis, mo">St Louis</option>
-    <option value="joplin, mo">Joplin, MO</option>
-    <option value="oklahoma city, ok">Oklahoma City</option>
-    <option value="amarillo, tx">Amarillo</option>
-    <option value="gallup, nm">Gallup, NM</option>
-    <option value="flagstaff, az">Flagstaff, AZ</option>
-    <option value="winona, az">Winona</option>
-    <option value="kingman, az">Kingman</option>
-    <option value="barstow, ca">Barstow</option>
-    <option value="san bernardino, ca">San Bernardino</option>
-    <option value="los angeles, ca">Los Angeles</option>
-    <option value="tampa, fl">Tampa</option>
-    <option value="cary, nc">Cary</option>
-    <option value="greenville, NC">Greenville, NC</option>
-  </select>
-  <b>End: </b>
-  <select id="end" onchange="calcRoute()">
-    <option value="chicago, il">Chicago</option>
-    <option value="st louis, mo">St Louis</option>
-    <option value="joplin, mo">Joplin, MO</option>
-    <option value="oklahoma city, ok">Oklahoma City</option>
-    <option value="amarillo, tx">Amarillo</option>
-    <option value="gallup, nm">Gallup, NM</option>
-    <option value="flagstaff, az">Flagstaff, AZ</option>
-    <option value="winona, az">Winona</option>
-    <option value="kingman, az">Kingman</option>
-    <option value="barstow, ca">Barstow</option>
-    <option value="san bernardino, ca">San Bernardino</option>
-    <option value="los angeles, ca">Los Angeles</option>
-    <option value="raleigh, nc">Raleigh</option>
-    <option value="charlotte, nc">charlotte</option>
-  </select>
-  </div>
-  <!-- <div id="map"></div> -->
-
-<iframe src="https://www.google.com/maps/dir/Durham,NC/Nashville,TN/Chicago,IL/" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
+  <section id="map" class=""></section>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&callback=initMap" async defer></script>
   </section>
 
+<script>
+// $(document).ready(initMap());
 
-  <script>
+$('.button-map').on('click', function(){
+  $('#map').addClass('active');
+  initMap();
 
-  function initMap() {
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
-  var map = new google.maps.Map(document.getElementById('map'), {
-  zoom: 7,
-  center: {lat: 41.85, lng: -87.65}
-  });
-  directionsDisplay.setMap(map);
-
-  var onChangeHandler = function() {
-  calculateAndDisplayRoute(directionsService, directionsDisplay);
-  };
-  document.getElementById('start').addEventListener('change', onChangeHandler);
-  document.getElementById('end').addEventListener('change', onChangeHandler);
-  };
-
-  //DISPLAY ROUTE
-  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-  directionsService.route({
-  origin: document.getElementById('start').value,
-  destination: document.getElementById('end').value,
-  travelMode: google.maps.TravelMode.DRIVING
-  }, function(response, status) {
-  if (status === google.maps.DirectionsStatus.OK) {
-    directionsDisplay.setDirections(response);
-  } else {
-    window.alert('Directions request failed due to ' + status);
-  }
-  });
-  };
-
-  </script>
-
-
-  </section>
-
-
-
-
-</section>
+$('.button-timeline').on('click', function(){
+  $('#map').removeClass('active');
+})
+})
+</script>
