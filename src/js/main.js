@@ -29,22 +29,6 @@
       // INTERESTS PAGE
       .when('/trip/:id', {
         templateUrl: 'interests.html',
-        // controller: function($http, $scope, $location, $routeParams){
-        //     $scope.selectEvents = {
-        //       activity_stopover: false
-        //      };
-        //
-        //     $scope.interest = function(activity_stopover){
-        //
-        //       console.log($scope.selectedEvents.activity_stopover);
-        //         // $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
-        //           // .then(function(){
-        //
-        //             // $location.path('/trip/' + $routeParams.id + '/city/' );
-        //         // });
-        //     };
-        //
-        //   } // END interests controller function
       }) // END .when
 
 
@@ -74,19 +58,17 @@
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
-
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
         .then(function (response){
           $rootScope.suggestions = response.data.waypoints;
-          $rootScope.activities = response.data.waypoints.activities;
           $rootScope.selectedCities = response.data;
+          $rootScope.activities = response.data.waypoints.activities;
+          $rootScope.sports = response.data.waypoints.sports;
+          $rootScope.foods = response.data.waypoints.food;
+          $rootScope.artists = response.data.waypoints.artist;
 
       }); // END .then
 
-      $http.get('api/suggestions.json')
-        .then(function (response){
-          $rootScope.foods = response.data.waypoints.food;
-        });
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){

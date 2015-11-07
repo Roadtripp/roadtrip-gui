@@ -9,27 +9,27 @@
     <article class="activities">
       <div class="col-1">
       <h5 class="category">sports</h5>
-      <label><input id="city-select" type="checkbox" /> Taylor Swift<br><p class="time">11/06/2015 @ 7:00 PM</p></label>
-      <label><input id="city-select" type="checkbox" /> Jack Johnson concert<br><p class="time">11/07/2015 @ 6:30 PM</p></label>
-      <label><input id="city-select" type="checkbox" /> Sublime concert<br><p class="time">11/06/2015 @ 7:00 PM</p></label>
+      <div ng-repeat="sport in city.sports">
+      <label><input id="city-select" type="checkbox" ng-model="city.sport"/>{{city.sports.title}}<br><p class="time">{{city.sports.date}} @ {{city.sports.time}}</p></label>
+    </div>
     </div>
     <div class="col-2">
       <h5 class="category">music</h5>
-      <label><input id="city-select" type="checkbox" /> Taylor Swift concert<br><p class="time">11/06/2015 @ 7:00 PM</p></label>
-      <label><input id="city-select" type="checkbox" /> Jack Johnson concert<br><p class="time" class="time">11/07/2015 @ 6:30 PM</p></label>
-      <label><input id="city-select" type="checkbox" /> Sublime concert<br><p class="time">11/06/2015 @ 7:00 PM</p></label>
+      <div ng-repeat="artist in city.artists">
+      <label><input id="city-select" type="checkbox" ng-model="city.artist"/>{{city.artist.title}}<br><p class="time">{{city.artist.date}} @ {{city.artist.time}}</p></label>
     </div>
+  </div>
     <div class="col-3">
     <h5 class="category">food</h5>
-    <label><input id="city-select" type="checkbox" /> The Scullery</label> <br>
-    <label><input id="city-select" type="checkbox" /> Amy's BBQ</label> <br>
-    <label><input id="city-select" type="checkbox" /> Longhorn Steakhouse</label> <br>
+    <div ng-repeat="food in city.foods">
+    <label><input id="city-select" type="checkbox" ng-model="city.food"/>{{city.food.title}}</label>
+  </div>
   </div>
   <div class="col-4">
     <h5 class="category">hotels</h5>
-    <label><input id="city-select" type="checkbox" /> Holiday Inn</label> <br>
-    <label><input id="city-select" type="checkbox" /> Bed & Breakfast</label> <br>
-    <label><input id="city-select" type="checkbox" /> Sunshine Resort</label> <br>
+    <div ng-repeat="hotel in city.hotels">
+    <label><input id="city-select" type="checkbox" ng-model="city.hotel"/>{{city.hotels.title}}</label>
+  </div>
   </div>
   </article>
     <hr class="break">
