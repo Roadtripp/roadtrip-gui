@@ -26,6 +26,28 @@
     })
 
 
+      // INTERESTS PAGE
+      .when('/trip/:id', {
+        templateUrl: 'interests.html',
+        // controller: function($http, $scope, $location, $routeParams){
+        //     $scope.selectEvents = {
+        //       activity_stopover: false
+        //      };
+        //
+        //     $scope.interest = function(activity_stopover){
+        //
+        //       console.log($scope.selectedEvents.activity_stopover);
+        //         // $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
+        //           // .then(function(){
+        //
+        //             // $location.path('/trip/' + $routeParams.id + '/city/' );
+        //         // });
+        //     };
+        //
+        //   } // END interests controller function
+      }) // END .when
+
+
     // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
@@ -61,6 +83,11 @@
 
       }); // END .then
 
+      $http.get('api/suggestions.json')
+        .then(function (response){
+          $rootScope.foods = response.data.waypoints.food;
+        });
+
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(city){
 
@@ -74,35 +101,6 @@
           };
 
     } // END selection controller function
-  }) // END .when
-
-
-  // INTERESTS PAGE
-  .when('/trip/:id', {
-    templateUrl: 'interests.html',
-    controller: function($http, $rootScope, $location, $routeParams){
-
-    $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
-      .then(function (response){
-        $rootScope.suggestions = response.data.waypoints;
-        $rootScope.activities = response.data.waypoints.activities;
-        $rootScope.selectedCities = response.data;
-
-    }); // END .then
-
-        // SUBMITS THE CHECKED CITIES
-        $rootScope.update = function(city){
-
-          console.log($rootScope.selectedCities);
-            $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
-              .then(function(){
-                console.log($rootScope.selectedCities);
-
-                $location.path('/trip/' + $routeParams.id + '/city/' );
-            });
-        };
-
-      } // END interests controller function
   }) // END .when
 
     .when('/start', {
@@ -127,7 +125,22 @@
         }
     );
   };
-}); // END START FORM CONTROLLER
+}) // END START FORM CONTROLLER
+
+
+.controller('interestController', function($scope, $http){
+  $scope.selectedInt = { };
+  $scope.inputs = { };
+
+   $scope.interest = function(){
+    //  $http.post('https://aqueous-sea-6980.herokuapp.com/api/users.json', $scope.signup)
+    //    .then(function(){
+
+      console.log($scope.selectedInt);
+  // });
+  };
+}); // END SIGNUP CONTROLLER
+
 
 
 

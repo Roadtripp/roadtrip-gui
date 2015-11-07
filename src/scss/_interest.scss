@@ -94,7 +94,7 @@ ul[class*="dropdown-list-"] {
     color: white;
 }
 
-span.general {
+[class*='general-'] {
   margin: 0 auto;
   text-transform: uppercase;
   color: darken(#c3c3c3, 15%);
