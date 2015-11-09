@@ -39,10 +39,10 @@ var destinationstart;
 
         signup.createUser = function(){
           console.log(signup.user);
-        //  $http.post('https://aqueous-sea-6980.herokuapp.com/api/users.json', $scope.user)
-        //    .then(function(){
-            //  $location.path('/home/user/' + routeParams.id);
-          //  });
+         $http.post( BASE_URL + '/api/register', signup.user)
+           .then(function(){
+             $location.path('/home/user/' + routeParams.id);
+           });
          };
       }, // END controller
       controllerAs: 'signup'
