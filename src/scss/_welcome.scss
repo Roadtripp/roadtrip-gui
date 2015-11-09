@@ -4,8 +4,24 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
-button {
-  background: $accent;
-  color: #fff;
-  border: none;
+.main-content.welcome {
+  margin: 0px 10px 0 0;
+	width: 100%;
+	// background-image: url('https://cloud.githubusercontent.com/assets/14016133/11043267/ec340a96-86e9-11e5-8341-2e47af9ce4cd.png');
+
+  img.main {
+    padding-bottom: 10px;
+    width: 100%;
+  }
+
+  a[href] {
+    text-decoration: none;
+  }
+
+  button.start {
+    text-align: center;
+    margin: 0 auto 20px auto;
+    display: block;
+  }
+
 }

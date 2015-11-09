@@ -1,5 +1,10 @@
 <section class="main-content selection">
   <h2 class="heading">Events</h2>
+  <ul class="breadcrumb">
+    <li><a href="#/start" class="active">step one</a></li>
+    <li><a href="#/trip/:id" class="active">step two</a></li>
+    <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
+  </ul>
 <section class="form-container">
   <p class="copy">Select some events you're interested in along your way!</p>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
@@ -46,4 +51,11 @@
   </div>
 
 </section> <!-- END form-container -->
+
+<section class="footer">
+  <div class="footer-container">
+    <p class="footer"> powered by:<img class="footer" src="https://cloud.githubusercontent.com/assets/14016133/11045241/432f8618-86f4-11e5-992d-f22b6aa92d03.png"> <img src="https://cloud.githubusercontent.com/assets/14016133/11045397/3b7646ae-86f5-11e5-8442-5867c5c29dd4.png"></p>
+    <p class="footer">&copy; ziptrip 2015
+  </div>
+</section> <!-- END .footer -->
 </section>

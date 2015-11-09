@@ -48,12 +48,16 @@ article.activities {
     h5.category {
       margin-top: 0;
       margin-bottom: 15px;
-      color: lighten($dark, 15%);
+      color: $light-teal;
       font-weight: 500;
     }
 
     label {
-      font-size: 1em;
+      font-size: .9em;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
     }
 
     p.time {
@@ -74,8 +78,8 @@ article.activities {
 
 [class*='col-'] {
   // outline: 1px solid #000;
-  width: 50%;
-  float: left;
+  // width: 50%;
+  // float: left;
   margin-bottom: 15px;
 }
 
@@ -84,4 +88,21 @@ article.activities {
   width: 100%;
   float: left;
   margin-bottom: 15px;
+}
+
+section.footer {
+  text-align: center;
+  border-top: 1px solid #c3c3c3;
+  margin-top: 30px;
+
+  p.footer {
+    font-size: .8em;
+    color: $dark;
+
+    img.footer {
+      margin-top: -5px;
+      margin-left: 5px;
+    }
+  }
+
 }
