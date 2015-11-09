@@ -15,13 +15,13 @@
       <div class="col-1">
       <h5 class="category">sports events</h5>
       <div ng-repeat="sport in city.sports" >
-        <label><input type="checkbox" ng-model="city.sports.sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p></label>
+        <label><input type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p></label>
       </div>
     </div>
     <div class="col-2">
       <h5 class="category">entertainment</h5>
       <div ng-repeat="artis in city.artist">
-        <label><input  type="checkbox" ng-model="city.artist.artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p></label>
+        <label><input  type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p></label>
       </div>
   </div>
     <div class="col-3">
