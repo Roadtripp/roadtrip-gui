@@ -3,17 +3,21 @@ var originCity = "";
 var desinationCity = "";
 var waypointCities = [];
 
+var autocompleteorigin, autocompletedestination;
+var originstart;
+var destinationstart;
+
+
+
+
+
 ;(function(){
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
 
 
   angular.module('road-Trip', ['ngRoute'], function($routeProvider){
-    $routeProvider.when('/', {
-      templateUrl: 'start.html',
-    })
-
-    .when('/home/user/:id', {
+    $routeProvider.when('/home/user/:id', {
       templateUrl: 'admin.html',
     })
 
@@ -125,29 +129,32 @@ var waypointCities = [];
     } // END selection controller function
   }) // END .when
 
-    .when('/start', {
+    .when('/', {
       templateUrl: 'start.html',
-    });
+      controller: function($http, $location) {
+        var add = this;
+        add.trip = {"origin": " ", "destination": " ", "origin_date": " ", "destination_date": " ", "title": " " };
 
-})  // END MODULE
+        add.next = function(){
+          add.trip.origin = originstart;
+          add.trip.destination = destinationstart;
+          console.log(add.trip);
+          $http.post( BASE_URL + '/api/trip/', add.trip)
+            .then(function(response){
+             $location.path('/trip/' + response.data.id); //TODO: path to interest page
+           },
+             function(){
+               $location.path('/404');
+             }
+         );
+       }
+    },
+    controllerAs: 'add'
+  });
+
+});  // END MODULE
 
 
-// START FORM
-.controller('tripController', function($scope, $http, $location){
-     $scope.add = { };
-
-   $scope.next = function(){
-     console.log($scope.add);
-     $http.post( BASE_URL + '/api/trip/', $scope.add)
-       .then(function(response){
-        $location.path('/trip/' + response.data.id); //TODO: path to interest page
-      },
-        function(){
-          $location.path('/404');
-        }
-    );
-  };
-}); // END START FORM CONTROLLER
 
 
 

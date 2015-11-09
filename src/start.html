@@ -1,15 +1,15 @@
 <section class="main-content start">
   <h2 class="heading">Plan a Trip</h2>
   <section class="form-container">
-      <form class="start" ng-submit="next()">
+      <form class="start" ng-submit="add.next()">
         <fieldset>
-        <label>Name of Trip<input ng-model="add.title" type="text" placeholder="Cousin's Wedding" /></label>
-        <label>Origin<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
-             onFocus="initAutocompleteO()" type="text"></input></label>
-        <label>Destination<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
-             onFocus="initAutocompleteD()" type="text"></input></label>
-        <label>Start Date<input ng-model="add.origin_date" type="text" placeholder="11/09/2015"/></label>
-        <label>End Date<input ng-model="add.destination_date" type="text" placeholder="11/12/2015"/></label>
+        <label>Name of Trip<input ng-model="add.trip.title" type="text" placeholder="Cousin's Wedding" /></label>
+        <label>Origin<input id="autocomplete_origin" placeholder="Enter origin address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Destination<input id="autocomplete_destination"  placeholder="Enter destination address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Start Date<input ng-model="add.trip.origin_date" type="text" placeholder="11/09/2015"/></label>
+        <label>End Date<input ng-model="add.trip.destination_date" type="text" placeholder="11/12/2015"/></label>
         <div class="button">
           <button class="next" type="submit">next</button>
         </div>
@@ -17,22 +17,29 @@
       </form>
   </section> <!-- END .form-container -->
   <script>
-      var autocompleteorigin, autocompletedestination;
-      function initAutocompleteO() {
-        autocompleteorigin = new google.maps.places.Autocomplete(
-          (document.getElementById('autocomplete_origin')),
-          {types: ['geocode']});
-        autocompleteorigin.addListener('place_changed', fillInAddressO);
-        }
-      function initAutocompleteD() {
-        autocompletedestination = new google.maps.places.Autocomplete(
-          (document.getElementById('autocomplete_destination')),
-          {types: ['geocode']});
-        autocompletedestination.addListener('place_changed', fillInAddressD);
-        }
-      function fillInAddressO() {
-        var place = autocomplete.getPlace();
-      }
+  function initAutocomplete() {
+    autocompleteorigin = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete_origin')),
+      {types: ['geocode']});
+    autocompleteorigin.addListener('place_changed', fillInAddressO);
+
+    autocompletedestination = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete_destination')),
+      {types: ['geocode']});
+    autocompletedestination.addListener('place_changed', fillInAddressD);
+  }
+  function fillInAddressO() {
+    var place = autocompleteorigin.getPlace();
+    console.log(place.formatted_address);
+    originstart = place.formatted_address;
+    console.log(originstart);
+  }
+  function fillInAddressD() {
+    var place = autocompletedestination.getPlace();
+    console.log(place.formatted_address);
+    destinationstart = place.formatted_address;
+    console.log(destinationstart);
+  }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
 </section> <!-- END .main-content -->
