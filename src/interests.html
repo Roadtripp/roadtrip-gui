@@ -112,11 +112,15 @@ $(function () {
     $(".dropdown-food").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-food').addClass('show');
+          event.stopPropagation();
     });
 
-    $(".dropdown-food ul").on('click', function (event) {
-        event.stopPropagation();
-    });
+    // HIDES DROPDOWN WHEN CLICKED ANYWHERE
+    $('body').on('click', function(event){
+      if ($(event.target).closest('.dropdown-food').length === 0) {
+        $('.dropdown-food').removeClass('active');
+      }
+    })
 
     $('.dropdown-list-food input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-food').find('input[type="checkbox"]').val(),
@@ -137,11 +141,15 @@ $(function () {
     $(".dropdown-activities").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-activities').addClass('show');
-    });
-
-    $(".dropdown-activities ul").on('click', function (event) {
         event.stopPropagation();
     });
+
+    // HIDES DROPDOWN WHEN CLICKED ANYWHERE
+    $('body').on('click', function(event){
+      if ($(event.target).closest('.dropdown-activities').length === 0) {
+        $('.dropdown-activities').removeClass('active');
+      }
+    })
 
     $('.dropdown-list-activities input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-activities').find('input[type="checkbox"]').val(),
@@ -162,11 +170,16 @@ $(function () {
     $(".dropdown-hotels").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-hotels').addClass('show');
-    });
-
-    $(".dropdown-hotels ul").on('click', function (event) {
         event.stopPropagation();
     });
+
+    // HIDES DROPDOWN WHEN CLICKED ANYWHERE
+    $('body').on('click', function(event){
+      if ($(event.target).closest('.dropdown-hotels').length === 0) {
+        $('.dropdown-hotels').removeClass('active');
+      }
+    })
+
 
     $('.dropdown-list-hotels input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-hotels').find('input[type="checkbox"]').val(),
