@@ -17,7 +17,12 @@ var destinationstart;
 
 
   angular.module('road-Trip', ['ngRoute'], function($routeProvider){
-    $routeProvider.when('/home/user/:id', {
+
+    $routeProvider.when('/', {
+      templateUrl: 'welcome.html',
+    })
+
+    .when('/home/user/:id', {
       templateUrl: 'admin.html',
     })
 
@@ -129,7 +134,7 @@ var destinationstart;
     } // END selection controller function
   }) // END .when
 
-    .when('/', {
+    .when('/start', {
       templateUrl: 'start.html',
       controller: function($http, $location) {
         var add = this;
@@ -147,7 +152,7 @@ var destinationstart;
                $location.path('/404');
              }
          );
-       }
+       };
     },
     controllerAs: 'add'
   });
