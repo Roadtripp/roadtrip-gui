@@ -5,11 +5,11 @@
         <fieldset>
         <label>Name of Trip<input ng-model="add.title" type="text" placeholder="Cousin's Wedding" /></label>
         <label>Origin<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
-             onFocus="initAutocomplete()" type="text"></input></label>
+             onFocus="initAutocompleteO()" type="text"></input></label>
         <label>Destination<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
-             onFocus="initAutocomplete()" type="text"></input></label>
-        <label>Start Date<input ng-model="add.origin_date" type="text" /></label>
-        <label>End Date<input ng-model="add.destination_date" type="text" /></label>
+             onFocus="initAutocompleteD()" type="text"></input></label>
+        <label>Start Date<input ng-model="add.origin_date" type="text" placeholder="11/09/2015"/></label>
+        <label>End Date<input ng-model="add.destination_date" type="text" placeholder="11/12/2015"/></label>
         <div class="button">
           <button class="next" type="submit">next</button>
         </div>
@@ -17,15 +17,22 @@
       </form>
   </section> <!-- END .form-container -->
   <script>
-      var placeSearch, autocomplete_origin, autocomplete_destination;
-      function initAutocomplete() {
-        autocomplete_origin = new google.maps.places.Autocomplete(
+      var autocompleteorigin, autocompletedestination;
+      function initAutocompleteO() {
+        autocompleteorigin = new google.maps.places.Autocomplete(
           (document.getElementById('autocomplete_origin')),
           {types: ['geocode']});
-        autocomplete_destination = new google.maps.places.Autocomplete(
+        autocompleteorigin.addListener('place_changed', fillInAddressO);
+        }
+      function initAutocompleteD() {
+        autocompletedestination = new google.maps.places.Autocomplete(
           (document.getElementById('autocomplete_destination')),
           {types: ['geocode']});
+        autocompletedestination.addListener('place_changed', fillInAddressD);
         }
+      function fillInAddressO() {
+        var place = autocomplete.getPlace();
+      }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
 </section> <!-- END .main-content -->

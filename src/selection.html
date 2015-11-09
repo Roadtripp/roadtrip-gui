@@ -2,36 +2,47 @@
   <h2 class="heading">Events</h2>
 <section class="form-container">
   <p class="copy">Select some events you're interested in along your way!</p>
-  <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="submit()">
+  <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
     <h3 class="cities">{{city.location}}</h3>
     <!-- <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" /> {{city.location}}<br> -->
     <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
     <article class="activities">
       <div class="col-1">
       <h5 class="category">sports events</h5>
-      <label><input ng-repeat="sport in city.sports" id="city-select" type="checkbox" ng-model="city.sport"/>{{city.sports.title}}<br><p class="time">{{city.sports.date}} @ {{city.sports.time}}</p></label>
+      <div ng-repeat="sport in city.sports" >
+        <label><input type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p></label>
+      </div>
     </div>
     <div class="col-2">
       <h5 class="category">entertainment</h5>
-      <label><input ng-repeat="artist in city.artists" id="city-select" type="checkbox" ng-model="city.artist"/>{{city.artist.title}}<br><p class="time">{{city.artist.date}} @ {{city.artist.time}}</p></label>
+      <div ng-repeat="artis in city.artist">
+        <label><input  type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p></label>
+      </div>
   </div>
     <div class="col-3">
     <h5 class="category">bites to eat</h5>
-    <label><input ng-repeat="food in city.foods" id="city-select" type="checkbox" ng-model="city.food"/>{{city.food.title}}</label>
+    <div ng-repeat="foo in city.food">
+      <label><input type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}</label>
+    </div>
   </div>
   <div class="col-4">
     <h5 class="category">lodging</h5>
-    <label><input ng-repeat="hotel in city.hotels" id="city-select" type="checkbox" ng-model="city.hotel"/>{{city.hotels.title}}</label>
+    <div ng-repeat="hotel in city.hotels">
+      <label><input type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}</label>
+    </div>
   </div>
   <div class="col-5 activities">
     <h5 class="category">activities</h5>
-    <label><input ng-repeat="activity in city.activities" id="city-select" type="checkbox" ng-model="city.activity"/>{{city.activities.title}}</label>
+    <div ng-repeat="activity in city.activities">
+      <label><input  type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</label>
+    </div>
   </div>
   </article>
     <hr class="break">
+
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click="update(city)">generate trip!</button>
+    <button class="next" type="submit" ng-click= "update()">generate trip!</button>
   </div>
 
 </section> <!-- END form-container -->

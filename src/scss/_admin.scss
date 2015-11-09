@@ -1,5 +1,16 @@
-button.plan-a-trip {
-  // text-align: center;
-  margin: 0 auto;
+.main-content.admin {
+  margin: 0px 10px 0 0;
+	width: 100%;
+	background: #fff;
 
+    .saved {
+      margin: 0 auto;
+      width: 90%;
+    }
+}
+
+button.plan-a-trip {
+  text-align: center;
+  width: auto;
+  margin: 30px 30%;
 }
