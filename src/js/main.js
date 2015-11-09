@@ -133,7 +133,7 @@ var destinationstart;
       templateUrl: 'start.html',
       controller: function($http, $location) {
         var add = this;
-        add.trip = {"origin": " ", "destination": " ", "origin_date": " ", "destination_date": " ", "title": " " };
+        add.trip = { };
 
         add.next = function(){
           add.trip.origin = originstart;
@@ -175,9 +175,9 @@ var destinationstart;
 
 
 
+///// Google Services
 
-
-
+//Google Maps
 function initMap() {
 var map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 41.85, lng: -87.65},
@@ -205,4 +205,30 @@ if (status == google.maps.DirectionsStatus.OK) {
 directionsDisplay.setDirections(response);
 }
 });
+}
+
+//Google Autofill
+function initAutocomplete() {
+  autocompleteorigin = new google.maps.places.Autocomplete(
+    (document.getElementById('autocomplete_origin')),
+    {types: ['geocode'],componentRestrictions: {country: "us"}});
+  autocompleteorigin.addListener('place_changed', fillInAddressO);
+
+  autocompletedestination = new google.maps.places.Autocomplete(
+    (document.getElementById('autocomplete_destination')),
+    {types: ['geocode'],componentRestrictions: {country: "us"}});
+  autocompletedestination.addListener('place_changed', fillInAddressD);
+}
+function fillInAddressO() {
+  var place = autocompleteorigin.getPlace();
+  console.log(place);
+  console.log(place.formatted_address);
+  originstart = place.formatted_address;
+  console.log(originstart);
+}
+function fillInAddressD() {
+  var place = autocompletedestination.getPlace();
+  console.log(place.formatted_address);
+  destinationstart = place.formatted_address;
+  console.log(destinationstart);
 }
