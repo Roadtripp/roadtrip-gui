@@ -11,6 +11,10 @@
 
 button.plan-a-trip {
   text-align: center;
-  width: auto;
-  margin: 30px 30%;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+a[href] {
+  text-decoration: none;
 }
