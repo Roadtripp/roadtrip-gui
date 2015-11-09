@@ -1,5 +1,10 @@
 <section class="main-content selection">
   <h2 class="heading">Events</h2>
+  <ul class="breadcrumb">
+    <li><a href="#/start" class="active">step one</a></li>
+    <li><a href="#/trip/:id" class="active">step two</a></li>
+    <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
+  </ul>
 <section class="form-container">
   <p class="copy">Select some events you're interested in along your way!</p>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">

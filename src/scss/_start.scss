@@ -18,6 +18,45 @@ h2.heading {
   margin: 0 auto;
 }
 
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+
+    li {
+      float: left;
+    }
+
+    li a[href] {
+      color: lighten($accent, 20%);
+      text-decoration: none;
+      padding: 0px 30px 5px 0px;
+      position: relative;
+      display: block;
+      float: left;
+      font-size: .8em;
+      font-weight: 300;
+
+      &.active {
+        color: $accent;
+        font-weight: 400;
+      }
+
+    }
+
+}
+
+.breadcrumb li a:after {
+	content: "\bb";
+	position: absolute;
+	left: 76%;
+	// z-index: 2;
+
+}
+
+.breadcrumb li:last-child a:after {
+  content: " " !important;
+}
 
 .form-container {
   border: 1px solid #e6e6e6;
@@ -69,7 +108,5 @@ h2.heading {
 
 
     } // END .next-button
-
-
 
 } // END .FORM-CONTAINER
