@@ -4,8 +4,8 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
-button {
-  background: $accent;
-  color: #fff;
-  border: none;
+.main-content.welcome {
+  margin: 0px 10px 0 0;
+	width: 100%;
+	background: #fff;
 }

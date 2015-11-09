@@ -10,7 +10,7 @@ var waypointCities = [];
 
   angular.module('road-Trip', ['ngRoute'], function($routeProvider){
     $routeProvider.when('/', {
-      templateUrl: 'start.html',
+      templateUrl: 'welcome.html',
     })
 
     .when('/home/user/:id', {
