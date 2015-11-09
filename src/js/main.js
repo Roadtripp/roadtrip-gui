@@ -107,18 +107,12 @@ var waypointCities = [];
         .then(function (response){
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
-          // $rootScope.activities = response.data.waypoints.activities;
-          // $rootScope.sports = response.data.waypoints.sports;
-          // $rootScope.foods = response.data.waypoints.food;
-          // $rootScope.artists = response.data.waypoints.artist;
-          // $rootScope.hotels = response.data.waypoints.hotels;
           $rootScope.selectedCities = response.data;
       }); // END .then
 
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
-
             console.log($rootScope.selectedCities);
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
