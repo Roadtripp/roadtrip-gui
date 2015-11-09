@@ -6,21 +6,21 @@
     <li><a href="#/trip/:id/suggestions" class="">step three</a></li>
   </ul>
   <section class="form-container">
-      <form class="start" ng-submit="next()">
+      <form class="start" ng-submit="add.next()">
         <fieldset>
-        <label>Name of Trip<input ng-model="add.title" type="text" placeholder="Cousin's Wedding" /></label>
-        <label>Origin<input id="autocomplete_origin" ng-model="add.origin" placeholder="Enter origin address"
-             onFocus="initAutocompleteO()" type="text"></input></label>
-        <label>Destination<input id="autocomplete_destination" ng-model="add.destination" placeholder="Enter destination address"
-             onFocus="initAutocompleteD()" type="text"></input></label>
-        <label>Start Date<input ng-model="add.origin_date" type="text" placeholder="11/09/2015"/></label>
-        <label>End Date<input ng-model="add.destination_date" type="text" placeholder="11/12/2015"/></label>
+        <label>Name of Trip<input ng-model="add.trip.title" type="text" placeholder="Cousin's Wedding" /></label>
+        <label>Origin<input id="autocomplete_origin" placeholder="Enter origin address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Destination<input id="autocomplete_destination"  placeholder="Enter destination address"
+             onFocus="initAutocomplete()" type="text"></input></label>
+        <label>Start Date<input ng-model="add.trip.origin_date" type="text" placeholder="11/09/2015"/></label>
+        <label>End Date<input ng-model="add.trip.destination_date" type="text" placeholder="11/12/2015"/></label>
         <div class="button">
           <button class="next" type="submit">next</button>
         </div>
       </fieldset>
       </form>
   </section> <!-- END .form-container -->
-  
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
 </section> <!-- END .main-content -->
