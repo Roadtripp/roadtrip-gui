@@ -85,7 +85,7 @@ var destinationstart;
           // $scope.main = response.data;
           $scope.cities = response.data;
           var waypoints = response.data;
-          console.log($scope.cities);
+          console.log(response);
           for (var i in waypoints) {
             var temp = { location: waypoints[i].city_name , stopover: waypoints[i].visited };
             waypointCities.push(temp);
@@ -106,6 +106,8 @@ var destinationstart;
 
     }
   })
+
+
 
     // SELECTION PAGE
     .when('/trip/:id/suggestions', {
@@ -140,6 +142,12 @@ var destinationstart;
         var add = this;
         add.trip = { };
 
+
+
+
+
+
+
         add.next = function(){
           add.trip.origin = originstart;
           add.trip.destination = destinationstart;
@@ -155,9 +163,14 @@ var destinationstart;
        };
     },
     controllerAs: 'add'
-  });
+  })
 
-});  // END MODULE
+
+}).filter('removeUSA', function () {
+    return function (text) {
+  return text ? text.replace(', USA', '') : '';
+    };
+}); // END MODULE
 
 
 
