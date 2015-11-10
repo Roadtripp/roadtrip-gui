@@ -8,10 +8,11 @@
 <section class="form-container">
   <p class="copy">Tell us about some of the things you would like to see, eat or do!</p>
   <form class="interest-content" ng-submit="pick.interest()">
-    <div class="dropdown-food">
+    <div class="dropdownb-food">
       <span class="general-food">Food</span>
       <p class="multiSelected-food"></p>
       <ul class="dropdown-list-food">
+          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.restaurants" value="all" /> I love everything</label></li>
           <li><label><input type="checkbox" ng-model="pick.selectedInt.food.asianfusion" value="Asian Fusion" /> Asian Fusion</label></li>
           <li><label><input type="checkbox" ng-model="pick.selectedInt.food.barbeque" ng-true-value="true" ng-false-value="false" value="barbeque" /> Barbeque</label></li>
           <li><label><input type="checkbox" ng-model="pick.selectedInt.food.burgers" value="burgers" /> Burgers</label></li>
@@ -37,7 +38,7 @@
       </ul>
   </div>
 
-  <div class="dropdown-activities">
+  <div class="dropdownb-activities">
     <span class="general-activities">Activities</span>
     <p class="multiSelected-activities"></p>
     <ul class="dropdown-list-activities">
@@ -66,7 +67,7 @@
     </ul>
 </div>
 
-<div class="dropdown-hotels">
+<div class="dropdownb-hotels">
   <span class="general-hotels">Need a place to stay?</span>
   <p class="multiSelected-hotels"></p>
   <ul class="dropdown-list-hotels">
@@ -82,17 +83,19 @@
 </div>
 
   <section class="sportInputs">
-    <h4>Sports Events</h4>
-    <input class="sports" ng-model="pick.selectedInt.sports1" placeholder="Greenbay Packers"></input>
-    <input class="sports" ng-model="pick.selectedInt.sports2" placeholder="Panthers"></input>
-    <input class="sports" ng-model="pick.selectedInt.sports3" placeholder="Cardinals Baseball"></input>
+    <h4>Sporting Events</h4>
+    <button ng-click="addNew()" type="button" class="add-more-sports">+</button>
+    <div data-ng-repeat="sport in sports">
+    <input type="text" class="sports" ng-model="pick.selectedInt.sport.sport1[$index]" placeholder="Greenbay Packers"></input>
+  </div>
   </section>
 
-  <section class="sportInputs">
-    <h4>Artists</h4>
-    <input class="sports" ng-model="pick.selectedInt.artist1" placeholder="Red Hot Chili Peppers"></input>
-    <input class="sports" ng-model="pick.selectedInt.artist2" placeholder="Sublime"></input>
-    <input class="sports" ng-model="pick.selectedInt.artist3" placeholder="Taylor Swift"></input>
+  <section class="artistInputs">
+    <h4>Entertainment</h4>
+    <button ng-click="addNewArt()" type="button" class="add-more-artists">+</button>
+    <div data-ng-repeat="artist in artists">
+    <input type="text" class="artists" ng-model="pick.selectedInt.artist.artist1[$index]" placeholder="Red Hot Chili Peppers"></input>
+  </div>
   </section>
 
 
@@ -109,7 +112,7 @@
 $(function () {
 
     // FOOD
-    $(".dropdown-food").on('click', function () {
+    $(".dropdownb-food").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-food').addClass('show');
           event.stopPropagation();
@@ -117,8 +120,8 @@ $(function () {
 
     // HIDES DROPDOWN WHEN CLICKED ANYWHERE
     $('body').on('click', function(event){
-      if ($(event.target).closest('.dropdown-food').length === 0) {
-        $('.dropdown-food').removeClass('active');
+      if ($(event.target).closest('.dropdownb-food').length === 0) {
+        $('.dropdownb-food').removeClass('active');
       }
     })
 
@@ -138,7 +141,7 @@ $(function () {
 
 
     // ACTIVITIES
-    $(".dropdown-activities").on('click', function () {
+    $(".dropdownb-activities").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-activities').addClass('show');
         event.stopPropagation();
@@ -146,8 +149,8 @@ $(function () {
 
     // HIDES DROPDOWN WHEN CLICKED ANYWHERE
     $('body').on('click', function(event){
-      if ($(event.target).closest('.dropdown-activities').length === 0) {
-        $('.dropdown-activities').removeClass('active');
+      if ($(event.target).closest('.dropdownb-activities').length === 0) {
+        $('.dropdownb-activities').removeClass('active');
       }
     })
 
@@ -167,7 +170,7 @@ $(function () {
 
 
     // HOTELS
-    $(".dropdown-hotels").on('click', function () {
+    $(".dropdownb-hotels").on('click', function () {
         $(this).toggleClass("active");
         $('.multiSelected-hotels').addClass('show');
         event.stopPropagation();
@@ -175,8 +178,8 @@ $(function () {
 
     // HIDES DROPDOWN WHEN CLICKED ANYWHERE
     $('body').on('click', function(event){
-      if ($(event.target).closest('.dropdown-hotels').length === 0) {
-        $('.dropdown-hotels').removeClass('active');
+      if ($(event.target).closest('.dropdownb-hotels').length === 0) {
+        $('.dropdownb-hotels').removeClass('active');
       }
     })
 
@@ -197,7 +200,32 @@ $(function () {
 
 
 
+    // var x = 1;
+    // $('button.add-more-sports').on('click', function(event){
+    //   event.preventDefault();
+    //
+    //   if(x < 5) {
+    //     x++;
+    //     // var z = x.toString();
+    //     $('.sportInputs').append('<input class="sports" ng-model='"pick.selectedInt.sports" + x'></input>');
+    //   }
+    // });
+    //
+    //
+    // var y = 1;
+    //
+    // $('button.add-more-artist').on('click', function(event){
+    //   event.preventDefault();
+    //
+    //   if(y < 5) {
+    //     y++;
+    //     $('.artistInputs').append('<input class="artists" ng-model="pick.selectedInt.artist2"></input>');
+    //   }
+    // });
+
+
 }); // END FULL FUNCTION
+
 
 
 </script>
