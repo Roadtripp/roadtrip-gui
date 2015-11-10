@@ -8,9 +8,8 @@
     <h3>{{main.title}}</h3>
     <ul class="origin-section">
       <li class="city-desc">
-        <span class="start-end">{{main.origin}}</span>
+        <span class="start-end">{{main.origin | removeUSA}}</span>
         <span class="city-date">Departs {{main.origin_date | date}}</span>
-        <span class="city-date">at {{main.origin_time}}</span>
       </li>
     </ul>
     <ul class="city-section">
@@ -26,7 +25,7 @@
     </ul>
     <ul class="destination-section">
       <li class="city-desc">
-        <span class="start-end">{{main.destination}}</span>
+        <span class="start-end">{{main.destination | removeUSA}}</span>
         <span class="city-date">Arrives {{main.destination_date}}</span>
       </li>
     </ul>

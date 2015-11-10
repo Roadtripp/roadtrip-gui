@@ -80,32 +80,33 @@ var destinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams){
 
+       // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
-          // $scope.main = response.data;
           $scope.cities = response.data;
-          var waypoints = response.data;
           console.log($scope.cities);
+          // Generate Waypoint cities in array for Google Maps use
+          var waypoints = response.data;
           for (var i in waypoints) {
             var temp = { location: waypoints[i].city_name , stopover: waypoints[i].visited };
             waypointCities.push(temp);
           }
-          console.log(waypointCities);
-          // initMap();
-          // $scope.activities = response.data.cities_along.activities;
-        });
 
+        });
+      // Get Origin and Destination Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
         .then(function(response){
           $scope.main = response.data;
+          console.log($scope.main);
+          // Generate Origin and Destination cities in array for Google Maps use
           originCity = $scope.main.origin;
           desinationCity = $scope.main.destination;
-          console.log(originCity);
-          // initMap();
         });
 
     }
   })
+
+
 
     // SELECTION PAGE
     .when('/trip/:id/suggestions', {
@@ -120,8 +121,44 @@ var destinationstart;
       }); // END .then
 
 
+
+
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
+
+            // change cities stopover to true if they select any activities within that city
+            var wp = $rootScope.suggestions;
+            function cityTrue (){
+            for (var i in wp){
+              for (var j in wp[i].activities){
+                if( wp[i].activities[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].artist){
+                if( wp[i].artist[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].food){
+                if( wp[i].food[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].hotels){
+                if( wp[i].hotels[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].sports){
+                if( wp[i].sports[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+            }
+          };
+          cityTrue();
+
             console.log($rootScope.selectedCities);
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
@@ -134,11 +171,19 @@ var destinationstart;
     } // END selection controller function
   }) // END .when
 
+
+
     .when('/start', {
       templateUrl: 'start.html',
       controller: function($http, $location) {
         var add = this;
         add.trip = { };
+
+
+
+
+
+
 
         add.next = function(){
           add.trip.origin = originstart;
@@ -155,9 +200,14 @@ var destinationstart;
        };
     },
     controllerAs: 'add'
-  });
+  })
 
-});  // END MODULE
+
+}).filter('removeUSA', function () {
+    return function (text) {
+  return text ? text.replace(', USA', '') : '';
+    };
+}); // END MODULE
 
 
 
@@ -184,11 +234,160 @@ var destinationstart;
 
 //Google Maps
 function initMap() {
+
+  // google map style from https://snazzymaps.com/style/70/unsaturated-browns
+  var customMapType = new google.maps.StyledMapType([
+    {
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ff4400"
+            },
+            {
+                "saturation": -68
+            },
+            {
+                "lightness": -4
+            },
+            {
+                "gamma": 0.72
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.icon"
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#0077ff"
+            },
+            {
+                "gamma": 3.1
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "hue": "#00ccff"
+            },
+            {
+                "gamma": 0.44
+            },
+            {
+                "saturation": -33
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+            {
+                "hue": "#44ff00"
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "hue": "#007fff"
+            },
+            {
+                "gamma": 0.77
+            },
+            {
+                "saturation": 65
+            },
+            {
+                "lightness": 99
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "gamma": 0.11
+            },
+            {
+                "weight": 5.6
+            },
+            {
+                "saturation": 99
+            },
+            {
+                "hue": "#0091ff"
+            },
+            {
+                "lightness": -86
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": -48
+            },
+            {
+                "hue": "#ff5e00"
+            },
+            {
+                "gamma": 1.2
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "saturation": -64
+            },
+            {
+                "hue": "#ff9100"
+            },
+            {
+                "lightness": 16
+            },
+            {
+                "gamma": 0.47
+            },
+            {
+                "weight": 2.7
+            }
+        ]
+    }
+      ], {
+        name: 'Custom Style'
+    });
+    var customMapTypeId = 'custom_style';
+
+
+
 var map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 41.85, lng: -87.65},
   scrollwheel: false,
-  zoom: 7
+  zoom: 8
 });
+
+map.mapTypes.set(customMapTypeId, customMapType);
+map.setMapTypeId(customMapTypeId);
 
 var directionsDisplay = new google.maps.DirectionsRenderer({
   map: map
@@ -212,18 +411,26 @@ directionsDisplay.setDirections(response);
 });
 }
 
-//Google Autofill
-function initAutocomplete() {
+//Google Address Form Autofill
+function initAutocompleteO() {
+
   autocompleteorigin = new google.maps.places.Autocomplete(
     (document.getElementById('autocomplete_origin')),
     {types: ['geocode'],componentRestrictions: {country: "us"}});
   autocompleteorigin.addListener('place_changed', fillInAddressO);
 
+}
+
+function initAutocompleteD() {
+
   autocompletedestination = new google.maps.places.Autocomplete(
     (document.getElementById('autocomplete_destination')),
     {types: ['geocode'],componentRestrictions: {country: "us"}});
-  autocompletedestination.addListener('place_changed', fillInAddressD);
+  autocompletedestination.addListener('place_change', fillInAddressD);
 }
+
+
+
 function fillInAddressO() {
   var place = autocompleteorigin.getPlace();
   console.log(place);
