@@ -5,10 +5,10 @@
   <section id="panel-login" class="panel active">
 
   <section class="form-container">
-      <form class="start" ng-submit="login()">
+      <form class="start" ng-submit="login.submit()">
         <fieldset>
-        <label>Username<input type="text" placeholder="RoadTripper9" /></label>
-        <label>Password<input type="password" placeholder="********" /></label>
+        <label>Username<input type="text" placeholder="RoadTripper9" ng-model="login.user.username" /></label>
+        <label>Password<input type="password" placeholder="********" ng-model="login.user.password"/></label>
       </fieldset>
       <div class="button">
         <button class="login" type="submit">log in</button>
