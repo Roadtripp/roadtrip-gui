@@ -74,6 +74,26 @@ h2.heading {
       text-align: left;
       padding-bottom: 5%;
 
+          div.dates {
+            display: inline-block;
+            width: 48%;
+
+            &:first-of-type {
+              margin-left: 0;
+              margin-right: 2%;
+            }
+            &:last-of-type {
+              margin-left: 2%;
+              margin-right: 0;
+              padding-right: 0;
+            }
+
+            label.date-label {
+              width: 100%;
+              padding-right: 0px;
+            }
+          }
+
           input {
             font-size: 12px;
             display: block;
@@ -84,6 +104,7 @@ h2.heading {
             padding-left: 1%;
             color: #000;
             font-weight: 300;
+
          }
 
     } // END .START
