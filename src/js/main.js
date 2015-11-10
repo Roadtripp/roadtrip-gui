@@ -100,7 +100,6 @@ var destinationstart;
           $scope.main = response.data;
           originCity = $scope.main.origin;
           desinationCity = $scope.main.destination;
-          console.log(originCity);
           // initMap();
         });
 
@@ -122,8 +121,46 @@ var destinationstart;
       }); // END .then
 
 
+
+
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
+            var wp = $rootScope.suggestions;
+
+            function cityTrue (){
+            for (var i in wp){
+              for (var j in wp[i].activities){
+                if( wp[i].activities[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].artist){
+                if( wp[i].artist[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].food){
+                if( wp[i].food[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].hotels){
+                if( wp[i].hotels[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+              for (var j in wp[i].sports){
+                if( wp[i].sports[j].activity_stopover === true){
+                  $rootScope.selectedCities.waypoints[i].stopover = true;
+                }
+              }
+            }
+          };
+
+          cityTrue();
+
+
+
             console.log($rootScope.selectedCities);
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
