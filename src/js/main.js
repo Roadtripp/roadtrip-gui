@@ -56,10 +56,26 @@ var destinationstart;
       // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
-      controller: function($http, $location, $routeParams) {
+      controller: function($http, $location, $routeParams, $scope) {
         var pick = this;
 
         pick.selectedInt = { };
+
+        $scope.sports = [{id: 'sport1'}];
+
+        $scope.addNew = function(){
+          var newItemNo = $scope.sports.length+1;
+          $scope.sports.push({'id':'sport'+ newItemNo});
+        };
+
+
+        $scope.artists = [{id: 'artist1'}];
+
+        $scope.addNewArt = function(){
+          var newItem = $scope.artists.length+1;
+          $scope.artists.push({'id':'artist'+ newItem});
+        };
+
 
         pick.interest = function(){
           console.log(pick.selectedInt);
@@ -119,10 +135,14 @@ var destinationstart;
           $rootScope.selectedCities = response.data;
       }); // END .then
 
+          // var wp = response.data.waypoints;
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
             console.log($rootScope.selectedCities);
+
+
+
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
                   console.log($rootScope.selectedCities);

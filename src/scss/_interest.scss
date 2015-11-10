@@ -8,15 +8,14 @@ $green: #A3D39C;
 form.interest-content {
   // padding: 5%;
   // min-width: 300px;
-  max-width: 500px;
+  // max-width: 500px;
   margin-top: 20px;
 }
 
-[class*="dropdown-"] {
+[class*="dropdownb-"] {
     opacity: 1;
     background: #fff;
     color: #000;
-    width: 100%;
     border: 1px solid #c3c3c3;
     cursor: pointer;
     padding: 10px;
@@ -30,7 +29,7 @@ form.interest-content {
     user-select: none;
 }
 
-[class*="dropdown-"]:after {
+[class*="dropdownb-"]:after {
     content:'';
     height: 0;
     position: absolute;
@@ -43,7 +42,7 @@ form.interest-content {
 }
 
 //Reverse the CSS arrow when the dropdown is active
-[class*="dropdown-"].active:after {
+[class*="dropdownb-"].active:after {
     border-bottom-color: $accent;
     border-top-color: #fff;
     margin-top: -9px;
@@ -51,10 +50,10 @@ form.interest-content {
 
 ul[class*="dropdown-list-"] {
     z-index: 1; // overlays other elements
-    height: 130px;
+    height: 85vw;
     overflow: auto;
-    background: lighten($dark, 15%);
-    color: #fff;
+    background: #fff;
+    color: $dark;
     font-size: 9pt;
     margin: -1px 0 0 0;
     list-style: none;
@@ -96,7 +95,7 @@ ul[class*="dropdown-list-"] {
 
 [class*='general-'] {
   margin: 0 auto;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: darken(#c3c3c3, 15%);
   font-weight: 300;
 }
@@ -113,28 +112,35 @@ p[class*='multiSelected-'].show {
   text-transform: lowercase;
 }
 
-.sportInputs {
+.sportInputs, .artistInputs {
   width: 100%;
   margin: 0 auto;
+  @extend .clearfix;
 
     h4 {
-      text-transform: uppercase;
+      text-transform: lowercase;
       margin-bottom: 5px;
       margin-top: 30px;
       font-weight: 300;
       font-size: 1em;
       color: darken(#c3c3c3, 15%);
+
     }
 
 }
 
-input.sports {
-  width: 100%;
+input.sports, input.artists {
+  width: 93%;
   margin-bottom: 10px;
   font-size: 12px;
-  display: block;
   height: 28px;
   border: 1px solid #c3c3c3;
   font-weight: lighter;
   padding-left: 3%;
+}
+
+[class*="add-more-"] {
+  padding: 3px 9px;
+  margin: 0;
+  float: right;
 }
