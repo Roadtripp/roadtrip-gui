@@ -148,13 +148,20 @@ header {
   background: $teal;
   color: #fff;
 
+    a[href] {
+      text-decoration: none;
+
 
         h1 {
           font-weight: 200;
           width: 30%;
           margin: 0;
           display: inline-block;
-        }
+          color: #fff;
+          }
+      }
+
+
 
 }
 

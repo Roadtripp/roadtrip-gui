@@ -128,6 +128,10 @@ var destinationstart;
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $scope.cities = response.data;
+
+          // $scope.category = $scope.cities.activity_set.category;
+          // console.log($scope.category);
+
           console.log($scope.cities);
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
@@ -137,10 +141,14 @@ var destinationstart;
           }
 
 
+
+
 // END POINT FOR SAVING A TRIP- /trip/:id/save/
-
-
         });
+
+
+
+
       // Get Origin and Destination Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
         .then(function(response){

@@ -17,7 +17,7 @@
       <li class="city-desc" ng-repeat="city in cities">
         <span class="city-name">{{city.city_name}}</span>
         <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
-        <article class="event" ng-repeat="activity in city.activity_set">
+        <article class="event" ng-repeat="activity in city.activity_set" ng-style="category === 'hotels' && {'background-color': 'red'}">
         <a href="{{activity.url}}" target="_blank" class="event-card" href="#">
           <span class="event-name">{{activity.title}}</span>
         </a>
