@@ -28,6 +28,34 @@ var destinationstart;
 
     .when('/panel-login', {
       templateUrl: 'login.html',
+      controller: function($http, $location, $routeParams){
+        var login = this;
+
+        login.user = { };
+
+        login.submit = function(){
+          console.log(login.user);
+          $http.post( BASE_URL + '/api/login/', login.user)
+            .then(function(response){
+              console.log(response);
+              var token = response.data.token;
+              $http.defaults.headers.common.Authorization = "Token " + response.data.token;
+               $location.path('/home/user/' + $routeParams.id);
+            });
+
+          // $http.get(BASE_URL + 'api/whoami', {
+          //   headers: {
+          //     Authorization: "Basic" + btoa(login.user.username + ":" + login.user.password)
+          //   }
+          // }).then(function(){
+          //   $location.path('/home/user/' + $routeParams.id);
+          //   $http.defaults.headers.common.Authorization = "Basic" + btoa(login.user.username + ":" + login.user.password);
+          // });
+
+        }; // END login.submit function
+      },
+
+      controllerAs: 'login'
     })
 
     .when('/panel-signup', {
@@ -39,9 +67,9 @@ var destinationstart;
 
         signup.createUser = function(){
           console.log(signup.user);
-         $http.post( BASE_URL + '/api/register', signup.user)
+         $http.post( BASE_URL + '/api/register/', signup.user)
            .then(function(){
-             $location.path('/home/user/' + routeParams.id);
+             $location.path('/panel-login/');
            });
          };
       }, // END controller
@@ -108,6 +136,10 @@ var destinationstart;
             waypointCities.push(temp);
           }
 
+
+// END POINT FOR SAVING A TRIP- /trip/:id/save/
+
+
         });
       // Get Origin and Destination Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
@@ -129,7 +161,7 @@ var destinationstart;
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
 
-      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions')
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
@@ -173,7 +205,7 @@ var destinationstart;
                 }
               }
             }
-          };
+          }
           cityTrue();
 
             console.log($rootScope.selectedCities);
@@ -199,12 +231,6 @@ var destinationstart;
         var add = this;
         add.trip = { };
 
-
-
-
-
-
-
         add.next = function(){
           add.trip.origin = originstart;
           add.trip.destination = destinationstart;
@@ -220,7 +246,7 @@ var destinationstart;
        };
     },
     controllerAs: 'add'
-  })
+  });
 
 
 }).filter('removeUSA', function () {
@@ -446,7 +472,7 @@ function initAutocompleteD() {
   autocompletedestination = new google.maps.places.Autocomplete(
     (document.getElementById('autocomplete_destination')),
     {types: ['geocode'],componentRestrictions: {country: "us"}});
-  autocompletedestination.addListener('place_change', fillInAddressD);
+  autocompletedestination.addListener('place_changed', fillInAddressD);
 }
 
 
