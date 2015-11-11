@@ -231,12 +231,6 @@ var destinationstart;
         var add = this;
         add.trip = { };
 
-
-
-
-
-
-
         add.next = function(){
           add.trip.origin = originstart;
           add.trip.destination = destinationstart;
