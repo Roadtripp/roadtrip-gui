@@ -196,7 +196,8 @@ h2.heading {
 button {
   display: inline-block;
   color: #fff;
-  background: darken($green, 5%);
+  // background: darken($green, 5%);
+  background: lighten(#754AAA, 12%);
   border: none;
   vertical-align: middle;
   margin-top: 2.5%;
