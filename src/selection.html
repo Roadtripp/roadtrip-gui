@@ -13,9 +13,8 @@
       <div class="col-3">
       <h5 class="category">food</h5>
       <div class="checkbox" ng-repeat="foo in city.food">
-        <label class="checkboxes"></label><input type="checkbox" class="food" ng-model="foo.activity_stopover"/>
-        <label>{{foo.title}}</label>
-
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}
+        <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-5">
