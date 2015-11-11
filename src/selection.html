@@ -8,20 +8,20 @@
 <section class="form-container">
   <p class="copy">Select some events you're interested in along your way!</p>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
-    <h3 class="cities"><input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" />{{city.location}}</h3>
-    <!-- <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" /> {{city.location}}<br> -->
-    <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
+    <h3 class="cities">{{city.location}}</h3>
     <article class="activities">
       <div class="col-3">
       <h5 class="category">food</h5>
-      <div ng-repeat="foo in city.food">
-        <label><input type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}</label>
+      <div class="checkbox" ng-repeat="foo in city.food">
+        <label class="checkboxes"></label><input type="checkbox" class="food" ng-model="foo.activity_stopover"/>
+        <label>{{foo.title}}</label>
+
       </div>
     </div>
     <div class="col-5">
       <h5 class="category">activities</h5>
       <div ng-repeat="activity in city.activities">
-        <label><input  type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</label>
+        <label><input type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</label>
       </div>
     </div>
     <div class="col-4">

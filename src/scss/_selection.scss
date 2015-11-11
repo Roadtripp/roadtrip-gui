@@ -30,6 +30,59 @@ h3.cities {
 .main-content.selection {
   width: 90%;
   margin: 0 auto;
+
+      input[type=checkbox] {
+      	visibility: hidden;
+      }
+
+      div.checkbox {
+        // width: 25px;
+        // margin: 20px 100px;
+        margin-right: 20px;
+        position: relative;
+      }
+
+      div.checkbox label.checkboxes {
+    	cursor: pointer;
+    	position: absolute;
+    	width: 18px;
+    	height: 18px;
+    	top: 1px;
+      left: 0;
+    	background: #fff;
+    	border:1px solid #ddd;
+    }
+
+    .checkbox label.checkboxes:after {
+    	opacity: 0.2;
+    	content: '';
+    	position: absolute;
+    	width: 10px;
+    	height: 6px;
+    	background: transparent;
+    	top: 4px;
+    	left: 3px;
+    	border: 3px solid #333;
+    	border-top: none;
+    	border-right: none;
+
+    	-webkit-transform: rotate(-45deg);
+    	-moz-transform: rotate(-45deg);
+    	-o-transform: rotate(-45deg);
+    	-ms-transform: rotate(-45deg);
+    	transform: rotate(-45deg);
+    }
+
+    .checkbox label.checkboxes:hover::after {
+	     opacity: 0.5;
+     }
+
+
+    .checkbox input.food:checked + label.checkboxes:after {
+ 	     opacity: 1;
+      //  color: #000;
+     }
+
 }
 
 form.suggestion-content {
