@@ -36,32 +36,32 @@ h3.cities {
       // }
 
       div.checkbox {
-        width: 25px;
-        margin: 20px 100px;
+        // width: 25px;
+        // margin: 20px 100px;
         position: relative;
       }
 
       div.checkbox label {
     	cursor: pointer;
     	position: absolute;
-    	width: 25px;
-    	height: 25px;
+    	width: 18px;
+    	height: 18px;
     	top: 0;
-      left: 0;
-    	background: #eee;
+      // left: 0;
+    	background: #fff;
     	border:1px solid #ddd;
     }
 
     .checkbox label:after {
-    	opacity: 0.2;
+    	opacity: 0.4;
     	content: '';
     	position: absolute;
-    	width: 9px;
-    	height: 5px;
+    	width: 10px;
+    	height: 6px;
     	background: transparent;
-    	top: 6px;
-    	left: 7px;
-    	border: 3px solid #333;
+    	top: 4px;
+    	left: 3px;
+    	border: 3px solid darken($green, 10%);
     	border-top: none;
     	border-right: none;
 
@@ -130,12 +130,6 @@ article.activities {
   margin-bottom: 15px;
 }
 
-.col-5.activities {
-  // outline: 1px solid #000;
-  width: 100%;
-  float: left;
-  margin-bottom: 15px;
-}
 
 section.footer {
   text-align: center;
