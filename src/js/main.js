@@ -210,7 +210,7 @@ var destinationstart;
           }
           cityTrue();
 
-            console.log($rootScope.selectedCities);
+            // console.log($rootScope.selectedCities);
 
 
 
@@ -482,13 +482,12 @@ function initAutocompleteD() {
 function fillInAddressO() {
   var place = autocompleteorigin.getPlace();
   console.log(place);
-  console.log(place.formatted_address);
+
   originstart = place.formatted_address;
   console.log(originstart);
 }
 function fillInAddressD() {
   var place = autocompletedestination.getPlace();
-  console.log(place.formatted_address);
   destinationstart = place.formatted_address;
   console.log(destinationstart);
 }

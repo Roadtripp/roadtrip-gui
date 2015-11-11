@@ -1,8 +1,8 @@
 <section class="main-content timeline">
  <h2 class="heading">Itinerary</h2>
-  <button>save this trip!</button>
+  <button class="save">save this trip!</button>
   <nav class="tabs">
-    <a href="" ng-click="showme=true" class="button-timeline" ng-init="showme=true">Timeline</a>
+    <a href="" ng-click="showme=true" class="button-timeline active" ng-init="showme=true">Timeline</a>
     <a href="" ng-click="showme=false" class="button-map" >Map View</a>
   </nav>
   <section class="tlv" ng-show="showme">
@@ -17,12 +17,16 @@
       <li class="city-desc" ng-repeat="city in cities">
         <span class="city-name">{{city.city_name}}</span>
         <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
-        <a href="{{activity.url}}" target="_blank" class="event-card" href="#" ng-repeat="activity in city.activity_set">
+        <article class="event" ng-repeat="activity in city.activity_set">
+        <a href="{{activity.url}}" target="_blank" class="event-card" href="#">
           <span class="event-name">{{activity.title}}</span>
-          <span class="event-location">{{activity.address}}</span>
-          <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
-          <span class="event-phone">{{activity.phone| date}}</span>
         </a>
+        <section class=details>
+        <span class="event-location">{{activity.address}}</span><br>
+        <span class="event-date">{{activity.date | date}} {{activity.time}}</span><br>
+        <span class="event-phone">{{activity.phone| date}}</span>
+      </section>
+      </article>
       </li>
     </ul>
     <ul class="destination-section">
@@ -41,10 +45,14 @@
 
 $('.button-map').on('click', function(){
   $('#map').addClass('active');
+  $('.button-map').addClass('active');
+  $('.button-timeline').removeClass('active');
   initMap();
 });
 $('.button-timeline').on('click', function(){
   $('#map').removeClass('active');
+  $('.button-timeline').addClass('active');
+  $('.button-map').removeClass('active');
 });
 
 </script>
