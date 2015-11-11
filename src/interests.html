@@ -125,9 +125,11 @@ $(function () {
       }
     })
 
+
     $('.dropdown-list-food input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-food').find('input[type="checkbox"]').val(),
       selected = $(this).val() + ", ";
+
 
     if ($(this).is(':checked')) {
       var html = '<span selected="' + selected + '">' + selected + '</span>';
@@ -137,7 +139,12 @@ $(function () {
       else {
         $('span[selected="' + selected + '"]').remove();
       }
+
     });
+
+    $('li').on('click', function(){
+        $(this).addClass("selected");
+   });
 
 
     // ACTIVITIES

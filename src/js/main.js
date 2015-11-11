@@ -166,6 +166,8 @@ var destinationstart;
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
+
+          // foo.activity_stopover = {};
       }); // END .then
 
           // var wp = response.data.waypoints;

@@ -30,6 +30,56 @@ h3.cities {
 .main-content.selection {
   width: 90%;
   margin: 0 auto;
+
+      // input[type=checkbox] {
+      // 	visibility: hidden;
+      // }
+
+      div.checkbox {
+        // width: 25px;
+        // margin: 20px 100px;
+        position: relative;
+      }
+
+      div.checkbox label {
+    	cursor: pointer;
+    	position: absolute;
+    	width: 18px;
+    	height: 18px;
+    	top: 0;
+      // left: 0;
+    	background: #fff;
+    	border:1px solid #ddd;
+    }
+
+    .checkbox label:after {
+    	opacity: 0.4;
+    	content: '';
+    	position: absolute;
+    	width: 10px;
+    	height: 6px;
+    	background: transparent;
+    	top: 4px;
+    	left: 3px;
+    	border: 3px solid darken($green, 10%);
+    	border-top: none;
+    	border-right: none;
+
+    	-webkit-transform: rotate(-45deg);
+    	-moz-transform: rotate(-45deg);
+    	-o-transform: rotate(-45deg);
+    	-ms-transform: rotate(-45deg);
+    	transform: rotate(-45deg);
+    }
+
+    .checkbox label:hover::after {
+	     opacity: 0.5;
+     }
+
+    .checkbox input[type=checkbox]:checked + label:after {
+ 	     opacity: 1;
+ }
+
 }
 
 form.suggestion-content {
@@ -56,9 +106,6 @@ article.activities {
       font-size: .9em;
     }
 
-    input[type="checkbox"] {
-      margin-right: 5px;
-    }
 
     p.time {
       font-size: .8em;
@@ -83,12 +130,6 @@ article.activities {
   margin-bottom: 15px;
 }
 
-.col-5.activities {
-  // outline: 1px solid #000;
-  width: 100%;
-  float: left;
-  margin-bottom: 15px;
-}
 
 section.footer {
   text-align: center;

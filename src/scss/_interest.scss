@@ -54,7 +54,7 @@ ul[class*="dropdown-list-"] {
     overflow: auto;
     background: #fff;
     color: $dark;
-    font-size: 9pt;
+    font-size: 10pt;
     margin: -1px 0 0 0;
     list-style: none;
     padding: 0;
@@ -80,7 +80,7 @@ ul[class*="dropdown-list-"] {
 
 [class*="dropdown-list-"] li label {
     display: block;
-    padding: 4px 10px;
+    padding: 4px 10px 4px 0;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
@@ -92,6 +92,16 @@ ul[class*="dropdown-list-"] {
     background-color: $dark;
     color: white;
 }
+
+[class*="dropdown-list-"] input[type=checkbox] {
+  visibility: hidden;
+}
+
+.selected {
+    background-color: #35404F;
+    color: #fff;
+}
+
 
 [class*='general-'] {
   margin: 0 auto;
