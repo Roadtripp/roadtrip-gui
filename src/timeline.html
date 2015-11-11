@@ -17,10 +17,11 @@
       <li class="city-desc" ng-repeat="city in cities">
         <span class="city-name">{{city.city_name}}</span>
         <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
-        <a class="event-card" href="#" ng-repeat="activity in city.activities">
+        <a href="{{activity.url}}" target="_blank" class="event-card" href="#" ng-repeat="activity in city.activity_set">
           <span class="event-name">{{activity.title}}</span>
-          <span class="event-location">{{activity.location}}</span>
-          <span class="event-date">{{activity.date | date}}</span>
+          <span class="event-location">{{activity.address}}</span>
+          <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
+          <span class="event-phone">{{activity.phone| date}}</span>
         </a>
       </li>
     </ul>
