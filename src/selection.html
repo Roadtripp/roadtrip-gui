@@ -33,7 +33,7 @@
     </div>
       <div class="col-1">
       <h5 class="category">sporting events</h5>
-      <div class="checkbox" ng-repeat="sport in city.sports">
+      <div class="checkbox" ng-repeat="sport in city.sport">
         <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p>
         <label for="checkboxes"></label>
       </div>

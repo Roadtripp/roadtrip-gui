@@ -47,10 +47,24 @@ nav.tabs {
   }
 }
 
-button.save {
+div.buttons {
+  display: block;
   text-align: center;
   margin: 0 auto 5px auto;
-  display: block;
+
+    button.save {
+      text-align: center;
+      margin: 0 auto 5px auto;
+      display: inline-block;
+      padding: 2% 3%;
+    }
+
+    button.return {
+      text-align: center;
+      margin: 0 auto 5px auto;
+      display: inline-block;
+      padding: 2% 3%;
+    }
 }
 
 section.main-content.timeline {
