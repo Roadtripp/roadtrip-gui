@@ -7,6 +7,9 @@ var autocompleteorigin, autocompletedestination;
 var originstart;
 var destinationstart;
 
+var titleholder;
+var tripholder;
+var usernamholder;
 
 
 
@@ -22,13 +25,22 @@ var destinationstart;
       templateUrl: 'welcome.html',
     })
 
-    .when('/home/user/:id', {
+    .when('/home/user/', {
       templateUrl: 'admin.html',
+      controller: function ($http, $location, $routeParams, $scope){
+        $http.get( BASE_URL + '/api/trips/')
+          .then(function (response){
+            $scope.usertrips = response.data;
+            $scope.trips = response.data.trips;
+            console.log($scope.trips);
+          });
+
+        }
     })
 
     .when('/panel-login', {
       templateUrl: 'login.html',
-      controller: function($http, $location, $routeParams){
+      controller: function($http, $location, $routeParams, $rootScope){
         var login = this;
 
         login.user = { };
@@ -39,8 +51,10 @@ var destinationstart;
             .then(function(response){
               console.log(response);
               var token = response.data.token;
+              var username = response.data.username;
               $http.defaults.headers.common.Authorization = "Token " + response.data.token;
-               $location.path('/home/user/' + $routeParams.id);
+              $rootScope.authenticated = true;
+              $location.path('/home/user/');
             });
 
           // $http.get(BASE_URL + 'api/whoami', {
@@ -122,7 +136,10 @@ var destinationstart;
     // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
-      controller: function($http, $scope, $location, $routeParams){
+      controller: function($http, $scope, $location, $routeParams, $rootScope){
+
+
+
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
@@ -142,14 +159,42 @@ var destinationstart;
 
         });
       // Get Origin and Destination Details for Timeline
-      $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
         .then(function(response){
           $scope.main = response.data;
+          titleholder = response.data.title;
+          tripholder = response.data.id;
           console.log($scope.main);
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $scope.main.origin;
           desinationCity = $scope.main.destination;
         });
+
+
+      $scope.savetrip = function (){
+        console.log("saving");
+        var titleToSave = { };
+        titleToSave.title = titleholder;
+
+        if ($rootScope.authenticated){
+          console.log("authorized");
+          $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', titleToSave)
+          .then ( function (response){
+            console.log(response);
+            var username = response.data.username;
+            $location.path('/home/user/');
+          }
+
+        )
+        } //if logged-in
+        else {
+          $location.path('/panel-login');
+        }
+
+      }
+
+
+
 
     }
   })
