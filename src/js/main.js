@@ -316,7 +316,7 @@ var destinationstart;
 
   $scope.loggedIn = $cookies.get("zloggedin");
 
-  //TODO: http get whoami
+  //TODO: http get whoami to show username in header
 
   $rootScope.login = function (){
     $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
@@ -328,20 +328,19 @@ var destinationstart;
     var logoutObject = { };
     $http.post(BASE_URL + '/api/logout/', logoutObject)
     .then (function (response){
-    console.log("logged out from server");
-    $http.defaults.headers.common.Authorization = " ";
-    $cookies.remove("zloggedin"); //removes logged status
-    $cookies.remove("zipt");  //removes token
-    $cookies.remove("currenTrip"); //remove current trip number
-    $location.path('/');
-    $scope.loggedIn = false;
-    console.log($http.defaults.headers.common.Authorization);
+      console.log("logged out from server");
+      $http.defaults.headers.common.Authorization = " ";
+      $cookies.remove("zloggedin"); //removes logged status
+      $cookies.remove("zipt");  //removes token
+      $cookies.remove("currenTrip"); //remove current trip number
+      $location.path('/');
+      $scope.loggedIn = false;
+      console.log($http.defaults.headers.common.Authorization);
+    }, function (){
+      $location.path('/');
+      $scope.loggedIn = false;
     });
-    $location.path('/');
-    $scope.loggedIn = false;
-
   };
-
 })
 
 .filter('removeUSA', function () {
