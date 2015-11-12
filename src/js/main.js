@@ -327,18 +327,18 @@ var destinationstart;
 
 
   $scope.logout = function (){
-    var logoutObject = {};
-    $http.post(BASE_URL + '/api/logout/', logoutObject)
-    .then (function (){
-      $http.defaults.headers.common.Authorization = null;
-      $cookies.remove("zloggedin"); //removes logged status
-      $cookies.remove("zipt");  //removes token
-      $cookies.remove("currenTrip"); //remove current trip number
-      $location.path('/');
-      $scope.loggedIn = false;
-    });
+    // var logoutObject = {};
+    // $http.post(BASE_URL + '/api/logout/', logoutObject)
+    // .then (function (){
+    //
+    // });
 
-
+    $http.defaults.headers.common.Authorization = null;
+    $cookies.remove("zloggedin"); //removes logged status
+    $cookies.remove("zipt");  //removes token
+    $cookies.remove("currenTrip"); //remove current trip number
+    $location.path('/');
+    $scope.loggedIn = false;
   };
 
 })
