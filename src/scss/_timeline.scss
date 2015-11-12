@@ -7,30 +7,12 @@ $orange: #fbb03b;
 $blue: #29aae4;
 $purple: #bb9bca;
 
-div.key {
-  width: 100%;
-  // outline: 1px solid #000;
-  margin: 20px auto 0 auto;
-
-    span.orange {
-      outline: 1px solid #000;
-      background: $orange;
-      display: inline-block;
-
-    }
-
-    span.purple {
-      outline: 1px solid #000;
-      background: $purple;
-      display: inline-block;
-    }
-
-    span.blue {
-      outline: 1px solid #000;
-      background: $blue;
-      display: inline-block;
-    }
-
+input.user-title {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+  border: none;
+  font-size: 1.2em;
 }
 
 
@@ -155,7 +137,7 @@ section.main-content.timeline {
     }
 		ul {
       margin: 0px auto;
-      padding-top: 2ex;
+      padding-top: 1ex;
       padding-bottom: 2ex;
 			&.origin-section {
         width: 95%;
@@ -166,8 +148,6 @@ section.main-content.timeline {
 				li.city-desc {
           // width: 45%;
           list-style: none;
-          // margin-left: 54%;
-          margin-top: 30px;
           text-align: left;
 
 					span {
@@ -242,18 +222,14 @@ section.main-content.timeline {
 				list-style: none;
 				position: relative;
 				padding-left: 0;
-        padding-bottom: 3ex;
+        padding-bottom: 0;
+
 				li.city-desc {
           width: 100%;
           padding-left: 0px;
-          padding-bottom: 3ex;
+          padding-bottom: 1ex;
           @extend .clearfix;
-          &:nth-of-type(odd) {
-            // background-color: #EEE;
-          }
-          &:nth-of-type(even) {
-            background-color: #FFF;
-          }
+
 
 					span {
 
@@ -265,7 +241,7 @@ section.main-content.timeline {
 							font-size: 1em;
 							font-weight: 600;
 							display: block;
-							margin-top: 20px; //TODO: spacing between each city-section
+							margin-top: 5px;
 						}
 
 						&.city-date {
