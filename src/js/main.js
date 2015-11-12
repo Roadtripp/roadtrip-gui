@@ -219,6 +219,8 @@ var destinationstart;
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
+        $rootScope.suggestions = { };
+        $rootScope.selectedCities = { };
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
@@ -273,9 +275,9 @@ var destinationstart;
 
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
-                  console.log($rootScope.selectedCities);
-
                   $location.path('/trip/' + $routeParams.id + '/city/' );
+                  $rootScope.suggestions = { };
+                  $rootScope.selectedCities = { };
               });
           };
 
@@ -334,9 +336,9 @@ var destinationstart;
     $location.path('/');
     $scope.loggedIn = false;
     console.log($http.defaults.headers.common.Authorization);
-
     });
-
+    $location.path('/');
+    $scope.loggedIn = false;
 
   };
 
