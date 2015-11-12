@@ -3,9 +3,11 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
-$orange: #fbb03b;
-$blue: darken(#A3D39C, 10%);
-$purple: #4F4AAA;
+
+$pink: #D39CCC;
+$darkgreen: darken(#A3D39C, 10%);
+$blue: #5670E4;
+$orange: #E4B956;
 
 input.user-title {
   margin: 20px auto;
@@ -27,28 +29,50 @@ input.user-title {
 }
 
 .hotelscolor {
-  background: $blue;
+  background: $darkgreen;
   color: #fff;
   &::before{
-    color: $blue;
+    color: $darkgreen;
   } //caret
   &::after{
-    border: 3px solid $blue;
+    border: 3px solid $darkgreen;
   } //circle
 }
 
 .activitiescolor {
-  background: $blue;
+  background: $pink;
   color: #fff;
     &::before{
-      color: $blue;
+      color: $pink;
     } //caret
     &::after{
-      border: 3px solid $blue;
+      border: 3px solid $pink;
     } //circle
 }
 
 .foodcolor {
+  background: $orange;
+  color: #fff;
+  &::before{
+    color: $orange;
+  } //caret
+  &::after{
+    border: 3px solid $orange;
+  } //circle
+}
+
+.sportcolor {
+  background: $orange;
+  color: #fff;
+  &::before{
+    color: $orange;
+  } //caret
+  &::after{
+    border: 3px solid $orange;
+  } //circle
+}
+
+.artistcolor {
   background: $blue;
   color: #fff;
   &::before{
@@ -56,28 +80,6 @@ input.user-title {
   } //caret
   &::after{
     border: 3px solid $blue;
-  } //circle
-}
-
-.sportcolor {
-  background: $purple;
-  color: #fff;
-  &::before{
-    color: $purple;
-  } //caret
-  &::after{
-    border: 3px solid $purple;
-  } //circle
-}
-
-.artistcolor {
-  background: $purple;
-  color: #fff;
-  &::before{
-    color: $purple;
-  } //caret
-  &::after{
-    border: 3px solid $purple;
   } //circle
 }
 
