@@ -6,15 +6,21 @@ $green: #A3D39C;
 
 $pink: #D39CCC;
 $darkgreen: darken(#A3D39C, 10%);
-$blue: #5670E4;
+$blue: #5681E4;
 $orange: #E4B956;
 
-input.user-title {
-  margin: 20px auto;
-  width: 50%;
-  text-align: center;
-  border: none;
-  font-size: 1.2em;
+
+form.timeline {
+  margin-bottom: 20px;
+
+    input.user-title {
+      margin: 0px auto;
+      display: block;
+      width: 50%;
+      text-align: center;
+      border: none;
+      font-size: 1.2em;
+    }
 }
 
 
@@ -126,17 +132,30 @@ div.buttons {
 
     button.save {
       text-align: center;
-      margin: 0 auto 5px auto;
+      margin: 0 3px 5px auto;
       display: inline-block;
-      padding: 2% 3%;
+      padding: 2%;
+      width: 25%;
+      font-size: .8em;
     }
 
     button.return {
       text-align: center;
-      margin: 0 auto 5px auto;
+      margin: 0 3px 5px auto;
       display: inline-block;
-      padding: 2% 3%;
+      padding: 2%;
+      width: 25%;
+      font-size: .8em;
     }
+
+}
+
+button.bottom {
+  text-align: center;
+  margin: 0 auto 5px auto;
+  display: block;
+  padding: 2%;
+  font-size: .8em;
 }
 
 section.main-content.timeline {
@@ -146,6 +165,7 @@ section.main-content.timeline {
 
 section.tlv-container {
   margin: 0 auto;
+  padding-top: 20px;
   width: 92%;
 }
 
