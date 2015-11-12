@@ -7,9 +7,6 @@ var autocompleteorigin, autocompletedestination;
 var originstart;
 var destinationstart;
 
-var titleholder;
-var tripholder;
-var usernameholder;
 
 
 
@@ -58,8 +55,12 @@ var usernameholder;
               $cookies.put("zloggedin", true);
               $rootScope.login();
 
-              
-              $location.path('/home/user/');
+              if ($cookies.get("currenTrip")) {
+                $location.path('/trip/' + $cookies.get("currenTrip") + '/city/');
+              } else {
+                $location.path('/');
+              }
+
             },
             function(){
               //TODO: alert user "wrong username or password"
@@ -175,7 +176,7 @@ var usernameholder;
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
         .then(function(response){
           $scope.main = response.data;
-          tripholder = response.data.id;
+          var tripholder = response.data.id;
           $cookies.put("currenTrip", tripholder);
           console.log($scope.main);
           // Generate Origin and Destination cities in array for Google Maps use
@@ -185,21 +186,18 @@ var usernameholder;
 
 
       $scope.savetrip = function (){
-        console.log("saving");
         var titleToSave = { };
-        titleToSave.title = titleholder;
+        titleToSave.title = $scope.main.title;
 
-        if ($rootScope.authenticated){
-          console.log("authorized");
+        //if user logged-in
+        if ($http.defaults.headers.common.Authorization){
           $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', titleToSave)
           .then ( function (response){
-            console.log(response);
-            var username = response.data.username;
             $location.path('/home/user/');
           }
 
         )
-        } //if logged-in
+      } //if not logged in
         else {
           $location.path('/panel-login');
         }
@@ -330,16 +328,12 @@ var usernameholder;
     $http.defaults.headers.common.Authorization = null;
     $cookies.remove("zloggedin");
     $cookies.remove("zipt");
+    $cookies.remove("currenTrip");
     $location.path('/');
     $scope.loggedIn = false;
   }
 
 })
-
-
-
-
-
 
 .filter('removeUSA', function () {
     return function (text) {
