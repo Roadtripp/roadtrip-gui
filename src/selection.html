@@ -2,46 +2,50 @@
   <h2 class="heading">Events</h2>
   <ul class="breadcrumb">
     <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="#/trip/:id" class="active">step two</a></li>
+    <li><a href="/#trip/:id" class="active">step two</a></li>
     <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
   </ul>
 <section class="form-container">
   <p class="copy">Select some events you're interested in along your way!</p>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
     <h3 class="cities">{{city.location}}</h3>
-    <!-- <input id="city-select" type="checkbox" ng-model="city.stopover" ng-true-value="true" ng-false-value="false" /> {{city.location}}<br> -->
-    <!-- <input ng-repeat="activity in city.activities" type="checkbox" name="city_along"> {{activity.title}}<br> -->
     <article class="activities">
+      <div class="col-3">
+      <h5 class="category">food</h5>
+      <div class="checkbox" ng-repeat="foo in city.food">
+      <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}
+        <label for="checkboxes"></label>
+      </div>
+    </div>
+    <div class="col-5">
+      <h5 class="category">activities</h5>
+      <div class="checkbox" ng-repeat="activity in city.activities">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="$parent.activity.activity_stopover"/>{{activity.title}}
+        <label for="checkboxes"></label>
+      </div>
+    </div>
+    <div class="col-4">
+      <h5 class="category">lodging</h5>
+      <div class="checkbox" ng-repeat="hotel in city.hotels">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}
+        <label for="checkboxes"></label>
+      </div>
+    </div>
       <div class="col-1">
-      <h5 class="category">sports events</h5>
-      <div ng-repeat="sport in city.sports" >
-        <label><input type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p></label>
+      <h5 class="category">sporting events</h5>
+      <div class="checkbox" ng-repeat="sport in city.sport">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p>
+        <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-2">
       <h5 class="category">entertainment</h5>
-      <div ng-repeat="artis in city.artist">
-        <label><input  type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p></label>
+      <div class="checkbox" ng-repeat="artis in city.artist">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p>
+        <label for="checkboxes"></label>
       </div>
   </div>
-    <div class="col-3">
-    <h5 class="category">bites to eat</h5>
-    <div ng-repeat="foo in city.food">
-      <label><input type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}</label>
-    </div>
-  </div>
-  <div class="col-4">
-    <h5 class="category">lodging</h5>
-    <div ng-repeat="hotel in city.hotels">
-      <label><input type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}</label>
-    </div>
-  </div>
-  <div class="col-5 activities">
-    <h5 class="category">activities</h5>
-    <div ng-repeat="activity in city.activities">
-      <label><input  type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</label>
-    </div>
-  </div>
+
   </article>
     <hr class="break">
 

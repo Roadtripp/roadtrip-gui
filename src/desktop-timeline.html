@@ -1,10 +1,9 @@
 <section class="main-content timeline">
  <h2 class="heading">Itinerary</h2>
- <div class="buttons">
-  <button class="save" ng-click="savetrip()">save this trip!</button>
+<div class="buttons">
+  <button class="save">save this trip</button>
   <a href="#/start"><button class="return">plan return trip</button></a>
 <div>
-
   <nav class="tabs">
     <a href="" ng-click="showme=true" class="button-timeline active" ng-init="showme=true">Timeline</a>
     <a href="" ng-click="showme=false" class="button-map" >Map View</a>
@@ -34,9 +33,8 @@
       </div>
         <section class=details>
         <span class="event-location">{{activity.address}}</span>
-        <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
+        <span class="event-date">{{activity.date | date}} {{activity.time}}</span><br>
         <span class="event-phone">{{activity.phone| date}}</span>
-        <span class="event-phone">Yelp Rating: <img ng-src="{{activity.small_rate_img_url}}"/></span>
       </section>
       </article>
       </li>
@@ -49,7 +47,7 @@
     </ul>
   </section>
   <section id="map" class=""></section>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&callback=initMap" async defer></script>
 
   <section class="footer">
     <div class="footer-container">
@@ -58,7 +56,6 @@
     </div>
   </section> <!-- END .footer -->
   </section>
-
 
 <script>
 // $(document).ready(initMap());

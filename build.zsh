@@ -52,5 +52,8 @@ cp bower_components/font-awesome/fonts/fontawesome-webfont.ttf dist/bower_compon
 cp bower_components/font-awesome/fonts/fontawesome-webfont.woff dist/bower_components/font-awesome/fonts/fontawesome-webfont.woff
 cp bower_components/font-awesome/fonts/fontawesome-webfont.woff2 dist/bower_components/font-awesome/fonts/fontawesome-webfont.woff2
 
+mkdir -p dist/bower_components/angular-cookies/
+cp bower_components/angular-cookies/angular-cookies.js dist/bower_components/angular-cookies/angular-cookies.js
+
 
 npm run start:dist

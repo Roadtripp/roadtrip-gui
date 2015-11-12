@@ -62,7 +62,7 @@ h2.heading {
   border: 1px solid #e6e6e6;
   padding: 5%;
   min-width: 300px;
-  max-width: 500px;
+  // max-width: 500px;
   background: #fff;
   opacity: .93;
 
@@ -74,6 +74,26 @@ h2.heading {
       text-align: left;
       padding-bottom: 5%;
 
+          div.dates {
+            display: inline-block;
+            width: 48%;
+
+            &:first-of-type {
+              margin-left: 0;
+              margin-right: 2%;
+            }
+            &:last-of-type {
+              margin-left: 2%;
+              margin-right: 0;
+              padding-right: 0;
+            }
+
+            label.date-label {
+              width: 100%;
+              padding-right: 0px;
+            }
+          }
+
           input {
             font-size: 12px;
             display: block;
@@ -84,6 +104,7 @@ h2.heading {
             padding-left: 1%;
             color: #000;
             font-weight: 300;
+
          }
 
     } // END .START
@@ -98,7 +119,6 @@ h2.heading {
         button.next {
           display: inline-block;
           color: #fff;
-          background: darken($green, 5%);
           border: none;
           vertical-align: middle;
           margin-top: 2.5%;
