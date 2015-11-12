@@ -226,6 +226,10 @@ var destinationstart;
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
+
+
+
+
       }); // END .then
 
           // var wp = response.data.waypoints;
@@ -356,17 +360,6 @@ var destinationstart;
 })(); // END IIFE
 
 
-
-//TODO:
-// ROUTES TO CREATED TRIP
-// .config(function($routeProvider, $locationProvider){
-//   $routeProvider
-//     .when('/trip/:id',{
-//       templateUrl: 'timeline.html',
-//       controller: 'activityController'
-//     });
-
-// }); // END CONFIG.
 
 
 

@@ -10,35 +10,35 @@
     <h3 class="cities">{{city.location}}</h3>
     <article class="activities">
       <div class="col-3">
-      <h5 class="category">food</h5>
+      <h5 class="category" ng-hide="city.food.length === 0">food</h5>
       <div class="checkbox" ng-repeat="foo in city.food">
       <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-5">
-      <h5 class="category">activities</h5>
+      <h5 class="category" ng-hide="city.activities.length === 0">activities</h5>
       <div class="checkbox" ng-repeat="activity in city.activities">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="$parent.activity.activity_stopover"/>{{activity.title}}
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-4">
-      <h5 class="category">lodging</h5>
+      <h5 ng-hide="city.hotels.length === 0" class="category">lodging</h5>
       <div class="checkbox" ng-repeat="hotel in city.hotels">
         <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}
         <label for="checkboxes"></label>
       </div>
     </div>
       <div class="col-1">
-      <h5 class="category">sporting events</h5>
+      <h5 ng-hide="city.sport.length === 0" class="category">sports</h5>
       <div class="checkbox" ng-repeat="sport in city.sport">
         <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-2">
-      <h5 class="category">entertainment</h5>
+      <h5 ng-hide="city.artist.length === 0" class="category">entertainment</h5>
       <div class="checkbox" ng-repeat="artis in city.artist">
         <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p>
         <label for="checkboxes"></label>

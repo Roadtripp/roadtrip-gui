@@ -44,11 +44,11 @@ $green: #A3D39C;
 
 ul[class*="dropdown-list-"] {
     z-index: 1; // overlays other elements
-    height: 85vw;
+    height: 88vw;
     overflow: auto;
     background: #fff;
     color: $dark;
-    font-size: 10pt;
+    font-size: 15pt;
     margin: -1px 0 0 0;
     list-style: none;
     padding: 0;
@@ -137,14 +137,16 @@ input.sports, input.artists {
   width: 90%;
   margin-bottom: 10px;
   font-size: 12px;
-  height: 28px;
+  height: 30px;
   border: 1px solid #c3c3c3;
   font-weight: lighter;
   padding-left: 3%;
 }
 
-[class*="add-more-"] {
-  padding: 3px 8px;
-  margin: 0;
+
+[class*="add-more-"] { //button
+  padding: 0px 7px;
+  margin: 3px 1px;
   float: right;
+  background: $light-teal;
 }
