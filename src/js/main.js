@@ -166,8 +166,6 @@ var destinationstart;
           }
 
 
-
-
 // END POINT FOR SAVING A TRIP- /trip/:id/save/
         });
 
@@ -193,9 +191,10 @@ var destinationstart;
       $scope.savetrip = function (){
         var titleToSave = { };
         titleToSave.title = $scope.main.title;
+        console.log($http.defaults.headers.common.Authorization);
 
         //if user logged-in
-        if ($http.defaults.headers.common.Authorization){
+        if ($http.defaults.headers.common.Authorization !== undefined){
           $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', titleToSave)
           .then ( function (response){
             $location.path('/home/user/');
