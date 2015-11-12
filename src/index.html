@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Road Trip App</title>
+        <title>ZipTrip</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,17 +21,19 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
     </head>
-    <body>
+    <body ng-app="road-Trip" >
 
       <header>
         <h1>zip<strong>trip</strong></h1>
-        <nav class="nav">
-            <a href="#/start">New Trip</a>
-            <a href="#/panel-login">Login</a>
+        <nav class="nav" ng-controller="headerController">
+            <a href="#/start" class="newtrip">New Trip</a>
+            <a ng-hide="loggedIn" href="#/panel-login" class="login">Login</a>
+            <a ng-hide="loggedIn" href="#/panel-signup" class="login">Sign Up</a>
+            <a ng-show="loggedIn" ng-click="logout()" href="" class="logout">Logout</a>
           </nav>
       </header>
 
-        <main class="container" ng-app="road-Trip">
+        <main class="container" ng-controller="loginController">
           <ng-view><span class="fa fa-5x fa-spinner fa-spin"></span></ng-view>
         </main>
 
@@ -40,6 +42,7 @@
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/angular/angular.js"></script>
         <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-cookies/angular-cookies.js">
         <!--endbower-->
 
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
@@ -54,6 +57,7 @@
             <!-- async defer></script> -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&libraries=places" async defer></script>
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

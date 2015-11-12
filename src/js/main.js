@@ -9,7 +9,8 @@ var destinationstart;
 
 var titleholder;
 var tripholder;
-var usernamholder;
+var usernameholder;
+
 
 
 
@@ -19,7 +20,7 @@ var usernamholder;
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
 
 
-  angular.module('road-Trip', ['ngRoute'], function($routeProvider){
+  angular.module('road-Trip', ['ngRoute','ngCookies'], function($routeProvider){
 
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
@@ -40,22 +41,31 @@ var usernamholder;
 
     .when('/panel-login', {
       templateUrl: 'login.html',
-      controller: function($http, $location, $routeParams, $rootScope){
+      controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
         var login = this;
 
         login.user = { };
 
         login.submit = function(){
-          console.log(login.user);
           $http.post( BASE_URL + '/api/login/', login.user)
             .then(function(response){
               console.log(response);
-              var token = response.data.token;
-              var username = response.data.username;
-              $http.defaults.headers.common.Authorization = "Token " + response.data.token;
-              $rootScope.authenticated = true;
+              var temp = "Token " + response.data.token;
+              $cookies.put("zipt", temp);
+              $http.defaults.headers.common.Authorization = temp;
+              login.user = { };
+              temp = "";
+              $cookies.put("zloggedin", true);
+              $rootScope.login();
+
+              
               $location.path('/home/user/');
+            },
+            function(){
+              //TODO: alert user "wrong username or password"
             });
+
+
 
           // $http.get(BASE_URL + 'api/whoami', {
           //   headers: {
@@ -82,7 +92,9 @@ var usernamholder;
         signup.createUser = function(){
           console.log(signup.user);
          $http.post( BASE_URL + '/api/register/', signup.user)
-           .then(function(){
+           .then(function(response){
+             console.log(response.data);
+             signup.user = { };
              $location.path('/panel-login/');
            });
          };
@@ -136,7 +148,7 @@ var usernamholder;
     // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
-      controller: function($http, $scope, $location, $routeParams, $rootScope){
+      controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
 
 
 
@@ -148,6 +160,7 @@ var usernamholder;
           console.log($scope.cities);
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
+          waypointCities = [];
           for (var i in waypoints) {
             var temp = { location: waypoints[i].city_name , stopover: waypoints[i].visited };
             waypointCities.push(temp);
@@ -162,8 +175,8 @@ var usernamholder;
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
         .then(function(response){
           $scope.main = response.data;
-          titleholder = response.data.title;
           tripholder = response.data.id;
+          $cookies.put("currenTrip", tripholder);
           console.log($scope.main);
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $scope.main.origin;
@@ -294,7 +307,41 @@ var usernamholder;
   });
 
 
-}).filter('removeUSA', function () {
+})
+.controller ('loginController', function ($cookies, $http){
+  $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
+
+})
+.controller ('headerController', function ($cookies, $http, $scope, $location, $rootScope){
+
+  $scope.loggedIn = false;
+  $rootScope.login = function (){
+    $scope.loggedIn = $cookies.get("zloggedin");
+  }
+
+  $scope.logout = function (){
+    // var logoutObject = {};
+    // $http.post (BASE_URL + '/api/logout/', logoutObject)
+    // .then (function (){
+    //   $location.path('/');
+    // });
+
+    $http.defaults.headers.common.Authorization = null;
+    $cookies.remove("zloggedin");
+    $cookies.remove("zipt");
+    $location.path('/');
+    $scope.loggedIn = false;
+  }
+
+})
+
+
+
+
+
+
+.filter('removeUSA', function () {
     return function (text) {
   return text ? text.replace(', USA', '') : '';
     };
