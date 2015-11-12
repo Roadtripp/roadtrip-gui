@@ -7,30 +7,12 @@ $orange: #fbb03b;
 $blue: #29aae4;
 $purple: #bb9bca;
 
-div.key {
-  width: 100%;
-  // outline: 1px solid #000;
-  margin: 20px auto 0 auto;
-
-    span.orange {
-      outline: 1px solid #000;
-      background: $orange;
-      display: inline-block;
-
-    }
-
-    span.purple {
-      outline: 1px solid #000;
-      background: $purple;
-      display: inline-block;
-    }
-
-    span.blue {
-      outline: 1px solid #000;
-      background: $blue;
-      display: inline-block;
-    }
-
+input.user-title {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+  border: none;
+  font-size: 1.2em;
 }
 
 
@@ -147,16 +129,18 @@ section.main-content.timeline {
 		position: relative;
     background: #fff;
 
-    h3{
+    h3 {
       text-align: center;
 			font-weight: 300;
       margin: 0;
       padding-top: 30px;
     }
+
 		ul {
       margin: 0px auto;
-      padding-top: 2ex;
+      padding-top: 1ex;
       padding-bottom: 2ex;
+
 			&.origin-section {
         width: 95%;
       	list-style: none;
@@ -166,8 +150,6 @@ section.main-content.timeline {
 				li.city-desc {
           // width: 45%;
           list-style: none;
-          // margin-left: 54%;
-          margin-top: 30px;
           text-align: left;
 
 					span {
@@ -179,14 +161,17 @@ section.main-content.timeline {
               color: $green;
               text-transform: uppercase;
 						}
+
 						&.city-date {
               font-size: .7em;
               font-weight: 300;
               display: block;
 						}
+
 					}
 				}
 			} //origin city
+
 			&.destination-section {
         width: 95%;
       	list-style: none;
@@ -214,9 +199,11 @@ section.main-content.timeline {
               font-weight: 300;
               display: block;
 						}
+
 					}
 				}
 			} //destination city
+
 			&.origin-section::before {
 				display: block;
       	content: '';
@@ -227,6 +214,7 @@ section.main-content.timeline {
       	background: $accent;
       	left: 95%;
 			}
+
 			&.destination-section::before {
         display: block;
       	content: '';
@@ -237,23 +225,20 @@ section.main-content.timeline {
       	background: $accent;
       	left: 95%;
 			}
+
 			&.city-section {
 				width: 95%;
 				list-style: none;
 				position: relative;
 				padding-left: 0;
-        padding-bottom: 3ex;
+        padding-bottom: 0;
+
 				li.city-desc {
           width: 100%;
           padding-left: 0px;
-          padding-bottom: 3ex;
+          padding-bottom: 1ex;
           @extend .clearfix;
-          &:nth-of-type(odd) {
-            // background-color: #EEE;
-          }
-          &:nth-of-type(even) {
-            background-color: #FFF;
-          }
+
 
 					span {
 
@@ -265,7 +250,7 @@ section.main-content.timeline {
 							font-size: 1em;
 							font-weight: 600;
 							display: block;
-							margin-top: 20px; //TODO: spacing between each city-section
+							margin-top: 5px;
 						}
 
 						&.city-date {
@@ -299,15 +284,7 @@ section.main-content.timeline {
           &:first-of-type {
             margin-top: 30px;
           }
-          // &::before{ //LEFT POINTING CARET
-          //   position: absolute;
-          //   left: -6px;
-          //   top: 0;
-          //   font-family: 'FontAwesome';
-          //   content: "\f0d9";
-          //   font-size: 2em;
-          //
-          // }
+
         }
 
           div.event-card {
