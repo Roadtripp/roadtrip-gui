@@ -122,17 +122,17 @@ var destinationstart;
     // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
-      controller: function($http, $scope, $location, $routeParams){
+      controller: function($http, $rootScope, $location, $routeParams){
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
-          $scope.cities = response.data;
+          $rootScope.cities = response.data;
 
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
 
-          console.log($scope.cities);
+          console.log($rootScope.cities);
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
           for (var i in waypoints) {
@@ -152,11 +152,11 @@ var destinationstart;
       // Get Origin and Destination Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id)
         .then(function(response){
-          $scope.main = response.data;
-          console.log($scope.main);
+          $rootScope.main = response.data;
+          console.log($rootScope.main);
           // Generate Origin and Destination cities in array for Google Maps use
-          originCity = $scope.main.origin;
-          desinationCity = $scope.main.destination;
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
         });
 
     }

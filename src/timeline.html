@@ -20,10 +20,12 @@
       <li class="city-desc" ng-repeat="city in cities">
         <span class="city-name">{{city.city_name}}</span>
         <!-- <span class="city-date">Arrives {{city.arrival_date | date}}</span> -->
-        <article class="event" ng-repeat="activity in city.activity_set" ng-style="category === 'hotels' && {'background-color': 'red'}">
-        <a href="{{activity.url}}" target="_blank" class="event-card" href="#">
+        <article class="event" ng-repeat="activity in city.activity_set">
+        <div class="event-card" ng-class="{hotels: (activity.category == 'hotels'), activities: (activity.category == 'activities'), food: (activity.category == 'food'), sports: (activity.category == 'sports'), artists: (activity.category == 'artist')}">
+        <a href="{{activity.url}}" target="_blank" href="#">
           <span class="event-name">{{activity.title}}</span>
         </a>
+      </div>
         <section class=details>
         <span class="event-location">{{activity.address}}</span>
         <span class="event-date">{{activity.date | date}} {{activity.time}}</span><br>
@@ -41,10 +43,19 @@
   </section>
   <section id="map" class=""></section>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_djHAXJgmjY1balaTg0nzlg5RonxJrJk&callback=initMap" async defer></script>
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="footer"> powered by:<img class="footer" src="https://cloud.githubusercontent.com/assets/14016133/11045241/432f8618-86f4-11e5-992d-f22b6aa92d03.png"> <img src="https://cloud.githubusercontent.com/assets/14016133/11045397/3b7646ae-86f5-11e5-8442-5867c5c29dd4.png"></p>
+      <p class="footer">&copy; ziptrip 2015
+    </div>
+  </section> <!-- END .footer -->
   </section>
 
 <script>
 // $(document).ready(initMap());
+
+$(function () {
 
 $('.button-map').on('click', function(){
   $('#map').addClass('active');
@@ -58,4 +69,8 @@ $('.button-timeline').on('click', function(){
   $('.button-map').removeClass('active');
 });
 
+
+
+
+  });
 </script>
