@@ -45,13 +45,14 @@ var destinationstart;
               console.log(response);
               var temp = "Token " + response.data.token;
               $cookies.put("zipt", temp);
-              $http.defaults.headers.common.Authorization = temp;
-              login.user = { };
-              temp = "";
               $cookies.put("zloggedin", true);
               $rootScope.login();
+              login.user = { };
+              temp = "";
 
-              if ($cookies.get("currenTrip")) {
+
+
+              if (!isNaN($cookies.get("currenTrip"))) {
                 $location.path('/trip/' + $cookies.get("currenTrip") + '/city/');
               } else {
                 $location.path('/');
@@ -199,9 +200,8 @@ var destinationstart;
           .then ( function (response){
             $location.path('/home/user/');
           }
-
         );
-      } //if not logged in
+        } //if not logged in
         else {
           $location.path('/panel-login');
         }
@@ -310,30 +310,25 @@ var destinationstart;
 
 
 })
-.controller ('loginController', function ($cookies, $http){
-  $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+.controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
 
-})
-.controller ('headerController', function ($cookies, $http, $scope, $location, $rootScope){
+  $scope.loggedIn = $cookies.get("zloggedin");
 
-
-
-  $scope.loggedIn = false;
   $rootScope.login = function (){
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
     $scope.loggedIn = $cookies.get("zloggedin");
   };
 
+  $rootScope.logout = function (){
+    var logoutObject = { };
+    $http.post(BASE_URL + '/api/logout/', logoutObject)
+    .then (function (response){
+    console.log("logged out from server");
+    });
 
+    $http.defaults.headers.common.Authorization = " ";
 
-  $scope.logout = function (){
-    // var logoutObject = {};
-    // $http.post(BASE_URL + '/api/logout/', logoutObject)
-    // .then (function (){
-    //
-    // });
-
-    $http.defaults.headers.common.Authorization = null;
     $cookies.remove("zloggedin"); //removes logged status
     $cookies.remove("zipt");  //removes token
     $cookies.remove("currenTrip"); //remove current trip number
