@@ -33,8 +33,9 @@
       </div>
         <section class=details>
         <span class="event-location">{{activity.address}}</span>
-        <span class="event-date">{{activity.date | date}} {{activity.time}}</span><br>
+        <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
         <span class="event-phone">{{activity.phone| date}}</span>
+        <span class="event-phone">Yelp Rating: <img ng-src="{{activity.small_rate_img_url}}"/></span>
       </section>
       </article>
       </li>

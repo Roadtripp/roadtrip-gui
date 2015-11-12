@@ -53,10 +53,10 @@ div.key {
 }
 
 .activitiescolor {
-  background: $purple;
+  background: $blue;
   color: #fff;
     &::before{
-      color: $purple;
+      color: $blue;
     } //caret
 }
 
@@ -69,18 +69,18 @@ div.key {
 }
 
 .sportcolor {
-  background: $orange;
+  background: $purple;
   color: #fff;
   &::before{
-    color: $orange;
+    color: $purple;
   } //caret
 }
 
 .artistcolor {
-  background: $orange;
+  background: $purple;
   color: #fff;
   &::before{
-    color: $orange;
+    color: $purple;
   } //caret
 }
 
@@ -90,6 +90,7 @@ nav.tabs {
     border-bottom: 1px solid #ddd;
 		display: block;
 		width: 100%;
+    min-width: 400px;
 
     a[href] { // TAB LINKS & LINE LOCATION
 			text-align: center;
@@ -163,9 +164,9 @@ section.main-content.timeline {
       	padding-left: 0;
 
 				li.city-desc {
-          width: 45%;
+          // width: 45%;
           list-style: none;
-          margin-left: 54%;
+          // margin-left: 54%;
           margin-top: 30px;
           text-align: left;
 
@@ -195,7 +196,7 @@ section.main-content.timeline {
 				li.city-desc {
           width: 45%;
           list-style: none;
-          margin-left: 54%;
+          // margin-left: 54%;
           margin-bottom: 30px;
           text-align: left;
 
@@ -224,7 +225,7 @@ section.main-content.timeline {
       	bottom: 0;
       	width: 6px;
       	background: $accent;
-      	left: 49.3%;
+      	left: 95%;
 			}
 			&.destination-section::before {
         display: block;
@@ -234,7 +235,7 @@ section.main-content.timeline {
       	bottom: 50%;
       	width: 6px;
       	background: $accent;
-      	left: 49.3%;
+      	left: 95%;
 			}
 			&.city-section {
 				width: 95%;
@@ -248,7 +249,7 @@ section.main-content.timeline {
           padding-bottom: 3ex;
           @extend .clearfix;
           &:nth-of-type(odd) {
-            background-color: #EEE;
+            // background-color: #EEE;
           }
           &:nth-of-type(even) {
             background-color: #FFF;
@@ -259,7 +260,7 @@ section.main-content.timeline {
 						&.city-name {
               width: 47%;
               text-transform: uppercase;
-              text-align: right;
+              text-align: left;
               color: $dark;
 							font-size: 1em;
 							font-weight: 600;
@@ -278,19 +279,19 @@ section.main-content.timeline {
     article.event {
       @extend .clearfix;
       margin-bottom: 1ex;
-      width: 47%;
+      width: 90%;
       color: $dark;
       padding: 1%;
 
         &:nth-of-type(odd) {
           // float: left; // TODO: add back in??
-          text-align: right;
+          text-align: left;
           padding-right: 5px;
           position: relative;
         }
 
         &:nth-of-type(even) {
-          float: right;
+          // float: right;
           text-align: left;
           padding-left: 5px;
           position: relative;
@@ -298,15 +299,15 @@ section.main-content.timeline {
           &:first-of-type {
             margin-top: 30px;
           }
-          &::before{ //LEFT POINTING CARET
-            position: absolute;
-            left: -6px;
-            top: 0;
-            font-family: 'FontAwesome';
-            content: "\f0d9";
-            font-size: 2em;
-
-          }
+          // &::before{ //LEFT POINTING CARET
+          //   position: absolute;
+          //   left: -6px;
+          //   top: 0;
+          //   font-family: 'FontAwesome';
+          //   content: "\f0d9";
+          //   font-size: 2em;
+          //
+          // }
         }
 
           div.event-card {
@@ -319,7 +320,7 @@ section.main-content.timeline {
 
             &:nth-of-type(odd) {
               float: left;
-              text-align: right;
+              text-align: left;
               padding-right: 5px;
               position: relative;
 
@@ -374,8 +375,8 @@ section.main-content.timeline {
           color: $dark;
           font-size: .8em;
 
-            .event-location {
-
+            [class*='event-'] {
+              display: block;
             }
         }
 
@@ -392,7 +393,7 @@ section.main-content.timeline {
 				bottom: 0;
 				width: 6px;
 				background: $accent;
-				left: 49.3%;
+				left: 95%;
 			}
 
 		}// end of ul
