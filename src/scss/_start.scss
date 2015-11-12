@@ -14,8 +14,14 @@ h2.heading {
 
 
 .main-content.start {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.start-form-container {
   width: 90%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .breadcrumb {
@@ -61,18 +67,12 @@ h2.heading {
 .form-container {
   border: 1px solid #e6e6e6;
   padding: 5%;
-  min-width: 300px;
-  // max-width: 500px;
+  // min-width: 300px;
   background: #fff;
   opacity: .93;
+  margin: 0 auto;
 
     form.start {
-      display: block;
-      position: relative;
-      font-size: 1em;
-      margin: 0 auto;
-      text-align: left;
-      padding-bottom: 5%;
 
           div.dates {
             display: inline-block;
