@@ -148,18 +148,18 @@ header {
   background: $teal;
   color: #fff;
 
-    a[href] {
-      text-decoration: none;
-
-        h1.ziptrip {
+        h1 {
           font-weight: 200;
           width: 30%;
           margin: 0;
           display: inline-block !important;
           color: #fff;
+
+          a[href] {
+            text-decoration: none;
+            color: #fff;
           }
       }
-
 
 
 }
@@ -178,6 +178,7 @@ header {
       padding-right: 7px;
     }
 }
+
 
 h2.heading {
   font-weight: 400;
