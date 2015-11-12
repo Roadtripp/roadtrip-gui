@@ -7,6 +7,34 @@ $orange: #fbb03b;
 $blue: #29aae4;
 $purple: #bb9bca;
 
+div.key {
+  width: 100%;
+  // outline: 1px solid #000;
+  margin: 20px auto 0 auto;
+
+    span.orange {
+      outline: 1px solid #000;
+      background: $orange;
+      display: inline-block;
+
+    }
+
+    span.purple {
+      outline: 1px solid #000;
+      background: $purple;
+      display: inline-block;
+    }
+
+    span.blue {
+      outline: 1px solid #000;
+      background: $blue;
+      display: inline-block;
+    }
+
+}
+
+
+
 #map {
   display: none !important;
 
@@ -16,7 +44,7 @@ $purple: #bb9bca;
 
 }
 
-.hotels {
+.hotelscolor {
   background: $blue;
   color: #fff;
   &::before{
@@ -24,7 +52,7 @@ $purple: #bb9bca;
   } //caret
 }
 
-.activities {
+.activitiescolor {
   background: $purple;
   color: #fff;
     &::before{
@@ -32,7 +60,7 @@ $purple: #bb9bca;
     } //caret
 }
 
-.food {
+.foodcolor {
   background: $blue;
   color: #fff;
   &::before{
@@ -40,7 +68,7 @@ $purple: #bb9bca;
   } //caret
 }
 
-.sports {
+.sportcolor {
   background: $orange;
   color: #fff;
   &::before{
@@ -48,7 +76,7 @@ $purple: #bb9bca;
   } //caret
 }
 
-.artists {
+.artistcolor {
   background: $orange;
   color: #fff;
   &::before{
@@ -137,8 +165,9 @@ section.main-content.timeline {
 				li.city-desc {
           width: 45%;
           list-style: none;
-          margin-left: 42%;
+          margin-left: 54%;
           margin-top: 30px;
+          text-align: left;
 
 					span {
 
@@ -166,8 +195,9 @@ section.main-content.timeline {
 				li.city-desc {
           width: 45%;
           list-style: none;
-          margin-left: 42%;
+          margin-left: 54%;
           margin-bottom: 30px;
+          text-align: left;
 
 					span {
 
@@ -246,6 +276,7 @@ section.main-content.timeline {
 					}
 
     article.event {
+      @extend .clearfix;
       margin-bottom: 1ex;
       width: 47%;
       color: $dark;
@@ -308,12 +339,21 @@ section.main-content.timeline {
               text-align: left;
               padding-left: 5px;
               position: relative;
+              //
+              // &:first-of-type {
+              //   margin-top: 30px;
+              // }
+              &::before{ //LEFT POINTING CARET
+                position: absolute;
+                left: -6px;
+                top: 0;
+                font-family: 'FontAwesome';
+                content: "\f0d9";
+                font-size: 2em;
 
-              &:first-of-type {
-                margin-top: 30px;
               }
-
             }
+
 
             a[href] {
               text-decoration: none;

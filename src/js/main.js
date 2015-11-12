@@ -174,8 +174,6 @@ var destinationstart;
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
-
-          // foo.activity_stopover = {};
       }); // END .then
 
           // var wp = response.data.waypoints;
@@ -194,23 +192,23 @@ var destinationstart;
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].artist){
-                if( wp[i].artist[j].activity_stopover === true){
+              for (var k in wp[i].artist){
+                if( wp[i].artist[k].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].food){
-                if( wp[i].food[j].activity_stopover === true){
+              for (var l in wp[i].food){
+                if( wp[i].food[l].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].hotels){
-                if( wp[i].hotels[j].activity_stopover === true){
+              for (var m in wp[i].hotels){
+                if( wp[i].hotels[m].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].sports){
-                if( wp[i].sports[j].activity_stopover === true){
+              for (var n in wp[i].sports){
+                if( wp[i].sports[n].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
