@@ -8,10 +8,6 @@ var originstart;
 var destinationstart;
 
 
-
-
-
-
 ;(function(){
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
@@ -151,14 +147,15 @@ var destinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
 
-
-
-
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
-          $scope.cities = response.data;
-          console.log($scope.cities);
+          $rootScope.cities = response.data;
+
+          // $scope.category = $scope.cities.activity_set.category;
+          // console.log($scope.category);
+
+          console.log($rootScope.cities);
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
           waypointCities = [];
@@ -168,20 +165,27 @@ var destinationstart;
           }
 
 
+
+
 // END POINT FOR SAVING A TRIP- /trip/:id/save/
-
-
         });
+
+
+
+
       // Get Origin and Destination Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
         .then(function(response){
-          $scope.main = response.data;
+
+          $rootScope.main = response.data;
           var tripholder = response.data.id;
           $cookies.put("currenTrip", tripholder);
-          console.log($scope.main);
+
+          console.log($rootScope.main);
+
           // Generate Origin and Destination cities in array for Google Maps use
-          originCity = $scope.main.origin;
-          desinationCity = $scope.main.destination;
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
         });
 
 
@@ -196,13 +200,13 @@ var destinationstart;
             $location.path('/home/user/');
           }
 
-        )
+        );
       } //if not logged in
         else {
           $location.path('/panel-login');
         }
 
-      }
+      };
 
 
 
@@ -222,8 +226,6 @@ var destinationstart;
           console.log(response);
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
-
-          // foo.activity_stopover = {};
       }); // END .then
 
           // var wp = response.data.waypoints;
@@ -242,23 +244,23 @@ var destinationstart;
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].artist){
-                if( wp[i].artist[j].activity_stopover === true){
+              for (var k in wp[i].artist){
+                if( wp[i].artist[k].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].food){
-                if( wp[i].food[j].activity_stopover === true){
+              for (var l in wp[i].food){
+                if( wp[i].food[l].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].hotels){
-                if( wp[i].hotels[j].activity_stopover === true){
+              for (var m in wp[i].hotels){
+                if( wp[i].hotels[m].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
-              for (var j in wp[i].sports){
-                if( wp[i].sports[j].activity_stopover === true){
+              for (var n in wp[i].sports){
+                if( wp[i].sports[n].activity_stopover === true){
                   $rootScope.selectedCities.waypoints[i].stopover = true;
                 }
               }
@@ -266,7 +268,7 @@ var destinationstart;
           }
           cityTrue();
 
-            console.log($rootScope.selectedCities);
+            // console.log($rootScope.selectedCities);
 
 
 
@@ -318,7 +320,7 @@ var destinationstart;
   $scope.loggedIn = false;
   $rootScope.login = function (){
     $scope.loggedIn = $cookies.get("zloggedin");
-  }
+  };
 
   $scope.logout = function (){
     // var logoutObject = {};
@@ -333,7 +335,7 @@ var destinationstart;
     $cookies.remove("currenTrip");
     $location.path('/');
     $scope.loggedIn = false;
-  }
+  };
 
 })
 
@@ -568,13 +570,12 @@ function initAutocompleteD() {
 function fillInAddressO() {
   var place = autocompleteorigin.getPlace();
   console.log(place);
-  console.log(place.formatted_address);
+
   originstart = place.formatted_address;
   console.log(originstart);
 }
 function fillInAddressD() {
   var place = autocompletedestination.getPlace();
-  console.log(place.formatted_address);
   destinationstart = place.formatted_address;
   console.log(destinationstart);
 }

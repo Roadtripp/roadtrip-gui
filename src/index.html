@@ -24,13 +24,12 @@
     <body ng-app="road-Trip" >
 
       <header>
-        <h1>zip<strong>trip</strong></h1>
+        <a href="#/"><h1 class="ziptip">zip<strong>trip</strong></h1></a>
         <nav class="nav" ng-controller="headerController">
             <a href="#/start" class="newtrip">New Trip</a>
             <a ng-hide="loggedIn" href="#/panel-login" class="login">Login</a>
             <a ng-hide="loggedIn" href="#/panel-signup" class="login">Sign Up</a>
             <a ng-show="loggedIn" ng-click="logout()" href="" class="logout">Logout</a>
-          </nav>
       </header>
 
         <main class="container" ng-controller="loginController">

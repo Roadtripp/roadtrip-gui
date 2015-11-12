@@ -12,15 +12,15 @@
     <article class="activities">
       <div class="col-3">
       <h5 class="category">food</h5>
-      <div class="checkbox" data-ng-repeat="foo in city.food">
-      <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="$parent.foo.activity_stopover[$index]"/>{{foo.title}}
+      <div class="checkbox" ng-repeat="foo in city.food">
+      <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="foo.activity_stopover"/>{{foo.title}}
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-5">
       <h5 class="category">activities</h5>
       <div class="checkbox" ng-repeat="activity in city.activities">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="$parent.activity.activity_stopover[$index]"/>{{activity.title}}
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="$parent.activity.activity_stopover"/>{{activity.title}}
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -33,7 +33,7 @@
     </div>
       <div class="col-1">
       <h5 class="category">sporting events</h5>
-      <div class="checkbox" ng-repeat="sport in city.sports">
+      <div class="checkbox" ng-repeat="sport in city.sport">
         <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p>
         <label for="checkboxes"></label>
       </div>

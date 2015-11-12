@@ -3,6 +3,37 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
+$orange: #fbb03b;
+$blue: #29aae4;
+$purple: #bb9bca;
+
+div.key {
+  width: 100%;
+  // outline: 1px solid #000;
+  margin: 20px auto 0 auto;
+
+    span.orange {
+      outline: 1px solid #000;
+      background: $orange;
+      display: inline-block;
+
+    }
+
+    span.purple {
+      outline: 1px solid #000;
+      background: $purple;
+      display: inline-block;
+    }
+
+    span.blue {
+      outline: 1px solid #000;
+      background: $blue;
+      display: inline-block;
+    }
+
+}
+
+
 
 #map {
   display: none !important;
@@ -13,6 +44,45 @@ $green: #A3D39C;
 
 }
 
+.hotelscolor {
+  background: $blue;
+  color: #fff;
+  &::before{
+    color: $blue;
+  } //caret
+}
+
+.activitiescolor {
+  background: $blue;
+  color: #fff;
+    &::before{
+      color: $blue;
+    } //caret
+}
+
+.foodcolor {
+  background: $blue;
+  color: #fff;
+  &::before{
+    color: $blue;
+  } //caret
+}
+
+.sportcolor {
+  background: $purple;
+  color: #fff;
+  &::before{
+    color: $purple;
+  } //caret
+}
+
+.artistcolor {
+  background: $purple;
+  color: #fff;
+  &::before{
+    color: $purple;
+  } //caret
+}
 
 nav.tabs {
     padding-top: 10px;
@@ -20,17 +90,18 @@ nav.tabs {
     border-bottom: 1px solid #ddd;
 		display: block;
 		width: 100%;
+    min-width: 400px;
 
     a[href] { // TAB LINKS & LINE LOCATION
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
       position: relative;
-      bottom: -10px;
+      bottom: -12px;
       font-size: 15pt;
       padding: 2% 0;
       background: #fafafa;
-      color: $light-teal;
+      color: #c3c3c3;
       font-weight: 700;
       // border-right: 1px solid #ddd;
 			width: 49.5%;
@@ -38,7 +109,7 @@ nav.tabs {
 
       &.active {
         color: #000000;
-        border-top: 3px solid $green;
+        border-top: 3px solid $teal;
         border-right: 1px solid #ddd;
 				border-left: 1px solid #ddd;
         border-bottom: 2px solid #ffffff;
@@ -47,19 +118,40 @@ nav.tabs {
   }
 }
 
+div.buttons {
+  display: block;
+  text-align: center;
+  margin: 0 auto 5px auto;
+
+    button.save {
+      text-align: center;
+      margin: 0 auto 5px auto;
+      display: inline-block;
+      padding: 2% 3%;
+    }
+
+    button.return {
+      text-align: center;
+      margin: 0 auto 5px auto;
+      display: inline-block;
+      padding: 2% 3%;
+    }
+}
 
 section.main-content.timeline {
 	margin: 0px 10px 0 0;
 	width: 100%;
-	background: #fff;
+	// background: #fff;
 
 	section.tlv {
 		position: relative;
+    background: #fff;
+
     h3{
       text-align: center;
 			font-weight: 300;
-			margin: 30px auto;
-
+      margin: 0;
+      padding-top: 30px;
     }
 		ul {
       margin: 0px auto;
@@ -70,11 +162,16 @@ section.main-content.timeline {
       	list-style: none;
       	position: relative;
       	padding-left: 0;
+
 				li.city-desc {
-          width: 45%;
+          // width: 45%;
           list-style: none;
-          margin-left: 55%;
+          // margin-left: 54%;
+          margin-top: 30px;
+          text-align: left;
+
 					span {
+
 						&.start-end {
               font-size: 1em;
               font-weight: 600;
@@ -95,11 +192,16 @@ section.main-content.timeline {
       	list-style: none;
       	position: relative;
       	padding-left: 0;
+
 				li.city-desc {
           width: 45%;
           list-style: none;
-          margin-left: 55%;
+          // margin-left: 54%;
+          margin-bottom: 30px;
+          text-align: left;
+
 					span {
+
 						&.start-end {
               font-size: 1em;
               font-weight: 600;
@@ -121,9 +223,9 @@ section.main-content.timeline {
       	position: absolute;
       	top: 50%;
       	bottom: 0;
-      	width: 8px;
+      	width: 6px;
       	background: $accent;
-      	left: 49.3%;
+      	left: 95%;
 			}
 			&.destination-section::before {
         display: block;
@@ -131,9 +233,9 @@ section.main-content.timeline {
       	position: absolute;
       	top: 0;
       	bottom: 50%;
-      	width: 8px;
+      	width: 6px;
       	background: $accent;
-      	left: 49.3%;
+      	left: 95%;
 			}
 			&.city-section {
 				width: 95%;
@@ -147,102 +249,151 @@ section.main-content.timeline {
           padding-bottom: 3ex;
           @extend .clearfix;
           &:nth-of-type(odd) {
-            background-color: #EEE;
+            // background-color: #EEE;
           }
           &:nth-of-type(even) {
             background-color: #FFF;
           }
 
 					span {
+
 						&.city-name {
-              margin-left: 55%;
+              width: 47%;
+              text-transform: uppercase;
+              text-align: left;
+              color: $dark;
 							font-size: 1em;
 							font-weight: 600;
-              padding-bottom: 2ex;
 							display: block;
 							margin-top: 20px; //TODO: spacing between each city-section
 						}
+
 						&.city-date {
-              margin-left: 55%;
+              margin-left: 42%;
 							font-size: .7em;
 							font-weight: 300;
 							display: block;
 						}
 					}
-          a.event-card {
-            margin-bottom: 1ex;
-            width: 47%;
-            text-decoration: none;
+
+    article.event {
+      @extend .clearfix;
+      margin-bottom: 1ex;
+      width: 90%;
+      color: $dark;
+      padding: 1%;
+
+        &:nth-of-type(odd) {
+          // float: left; // TODO: add back in??
+          text-align: left;
+          padding-right: 5px;
+          position: relative;
+        }
+
+        &:nth-of-type(even) {
+          // float: right;
+          text-align: left;
+          padding-left: 5px;
+          position: relative;
+
+          &:first-of-type {
+            margin-top: 30px;
+          }
+          // &::before{ //LEFT POINTING CARET
+          //   position: absolute;
+          //   left: -6px;
+          //   top: 0;
+          //   font-family: 'FontAwesome';
+          //   content: "\f0d9";
+          //   font-size: 2em;
+          //
+          // }
+        }
+
+          div.event-card {
+            @extend .clearfix;
+            margin-bottom: .5ex;
+            width: 100%;
             color: #fff;
-            border: 2px solid $dark;
-            border-radius: 3px;
-						background: $dark;
+            border-radius: 2px;
 						padding: 1%;
+
             &:nth-of-type(odd) {
               float: left;
-              text-align: right;
+              text-align: left;
               padding-right: 5px;
               position: relative;
 
-              &::before{
-                position: absolute;
-                right: -12px;
-                font-family: 'FontAwesome';
-                content: "\f0da  ";
-                font-size: 2em;
-								color: $dark;
-              } //caret
+                &::before{
+                  position: absolute;
+                  right: -10px;
+                  top: -7px;
+                  font-family: 'FontAwesome';
+                  content: "\f0da";
+                  font-size: 2em;
+                } //caret
+
             }
+
             &:nth-of-type(even) {
               float: right;
               text-align: left;
               padding-left: 5px;
               position: relative;
-
-              &:first-of-type {
-                margin-top: 30px;
-              }
-              &::before{
+              //
+              // &:first-of-type {
+              //   margin-top: 30px;
+              // }
+              &::before{ //LEFT POINTING CARET
                 position: absolute;
-                left: -12px;
+                left: -6px;
+                top: 0;
                 font-family: 'FontAwesome';
-                content: "\f0d9  ";
+                content: "\f0d9";
                 font-size: 2em;
-								color: $dark;
+
               }
             }
-            span.event-name{
-              font-size: 1em;
-              font-weight: 500;
+
+
+            a[href] {
+              text-decoration: none;
+
+                span.event-name {
+                  font-size: 1em;
+                  font-weight: 500;
+                  display: block;
+                  color: #fff;
+                }
+          }
+
+      } // end event-card
+
+
+        section.details {
+          display: block;
+          color: $dark;
+          font-size: .8em;
+
+            [class*='event-'] {
               display: block;
             }
-            span.event-location{
-              font-size: 0.8em;
-              font-weight: 300;
-              display: block;
-            }
-            span.event-date{
-              font-size: 0.7em;
-              font-weight: 300;
-              display: block;
-            }
-            span.event-phone{
-              font-size: 0.7em;
-              font-weight: 300;
-              display: block;
-            }
-          } //event card
-        } //li.city-desc
-			} //city section
+        }
+
+
+      } // article event
+    } // li.city-desc
+	} // city section
+
 			&.city-section::before {
 				display: block;
 				content: '';
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				width: 8px;
+				width: 6px;
 				background: $accent;
-				left: 49.3%;
+				left: 95%;
 			}
 
 		}// end of ul
