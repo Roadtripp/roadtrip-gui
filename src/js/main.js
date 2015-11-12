@@ -227,7 +227,7 @@ var destinationstart;
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
 
-
+          
 
 
       }); // END .then
