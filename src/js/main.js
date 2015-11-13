@@ -148,12 +148,23 @@ var destinationstart;
       // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
-      controller: function($http, $location, $routeParams, $scope) {
+      controller: function($http, $location, $routeParams, $scope, $rootScope) {
+
+        $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
+          .then(function(response){
+
+            $rootScope.main = response.data;
+
+            originCity = $rootScope.main.origin;
+            desinationCity = $rootScope.main.destination;
+          });
+
         var pick = this;
 
         pick.selectedInt = { };
 
         $scope.sports = [{id: 'sport1'}];
+
 
         $scope.addNew = function(){
           var newItemNo = $scope.sports.length+1;
@@ -178,8 +189,11 @@ var destinationstart;
               console.log(pick.selectedInt);
           });
         };
+
+
       },
       controllerAs: 'pick'
+
     }) // END .when
 
 
@@ -285,6 +299,16 @@ var destinationstart;
 
 
       }); // END .then
+
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
+        .then(function(response){
+
+          $rootScope.main = response.data;
+
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
+        });
+
 
 
 
@@ -636,3 +660,10 @@ function fillInAddressD() {
   destinationstart = place.formatted_address;
   console.log(destinationstart);
 }
+
+
+
+$('.hamburger').on('click', function(){
+  $('.hamburger-nav').slideToggle('show');
+
+});

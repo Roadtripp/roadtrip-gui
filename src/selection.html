@@ -1,10 +1,18 @@
 <section class="main-content selection">
   <h2 class="heading">Select events</h2>
   <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="/#trip/:id" class="active">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="active">step two</a></li>
+    <li><a href="" class="active">step three</a></li>
   </ul>
+
+  <section class="main">
+    <aside class="aside-container">
+          <img ng-src="https://cloud.githubusercontent.com/assets/14016133/11154418/35a88c12-8a0d-11e5-9bff-4031cfa58f25.png">
+          <p class="side">traveling from <strong>{{main.origin | removeUSA}}</strong> to <strong>{{main.destination | removeUSA}}</strong></p>
+          <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
+    </aside> <!-- END .aside-container -->
+
 <section class="form-container">
   <div ng-show="loading" class ="spinner">
       <span class="fa fa-5x fa-spinner fa-spin"></span>
@@ -58,6 +66,7 @@
   </div>
 
 </section> <!-- END form-container -->
+</section> <!-- END .main -->
 
 <section class="footer">
   <div class="footer-container">
