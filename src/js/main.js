@@ -22,8 +22,10 @@ var destinationstart;
     .when('/home/user/', {
       templateUrl: 'admin.html',
       controller: function ($http, $location, $routeParams, $scope){
+        $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
+            $scope.loading = false; //hide loading spinner
             $scope.usertrips = response.data;
             $scope.trips = response.data.trips;
             console.log($scope.trips);
@@ -60,7 +62,7 @@ var destinationstart;
 
             },
             function(){
-              //TODO: alert user "wrong username or password"
+              //TODO: show "wrong username/password"
             });
 
 
@@ -148,10 +150,13 @@ var destinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
 
+      $scope.loading = true; //show loading spinner
+
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
+          $scope.loading = false; //hide loading spinner
 
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
@@ -206,6 +211,12 @@ var destinationstart;
         }
 
       };
+
+      //TODO: inpect all save trip
+      $http.get( BASE_URL + '/api/trips/')
+        .then(function (response){
+          //TODO:scan all trips return true to hide save button
+        });
 
 
 
@@ -319,6 +330,7 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
+  //updates nav buttons
   function statusUpdate (){
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;

@@ -209,13 +209,19 @@ button {
   text-align: center;
   color: $accent;
   width: 100%;
+  margin-top: 200px auto;
     span.fa-spin{
       color: $accent;
+      margin-top: 25px;
     }
     span.spinner-text {
       display: block;
       color: $accent;
       text-align: center;
+      font-weight: 300;
+      font-size: 0.9em;
+      margin-top: 25px;
+      margin-bottom: 50px;
     }
   // &.hide {
   //   display: none;
