@@ -578,6 +578,6 @@ function fillInAddressD() {
 
 
 $('.hamburger').on('click', function(){
-  $('.hamburger-nav').toggleClass('show');
+  $('.hamburger-nav').slideToggle('show');
 
 });

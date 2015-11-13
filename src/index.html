@@ -36,10 +36,10 @@
         <nav class="hamburger-nav">
           <ul>
             <li><a href="#/start" class="newtrip">New Trip</a><li>
-            <li><a ng-hide="loggedIn" href="#/home/user" class="login">Saved Trips</a><li>
-            <li><a ng-hide="loggedIn" href="#/panel-login" class="login">Login</a><li>
-            <li><a ng-hide="loggedIn" href="#/panel-signup" class="login">Sign Up</a><li>
-            <li><a ng-show="loggedIn" ng-click="logout()" href="" class="logout">Logout</a><li>
+            <li ng-show="loggedIn"><a href="#/home/user" class="login">My Trips</a><li>
+            <li ng-hide="loggedIn"><a  href="#/panel-login" class="login">Login</a><li>
+            <li ng-hide="loggedIn"><a href="#/panel-signup" class="login">Sign Up</a><li>
+            <li ng-show="loggedIn"><a ng-click="logout()" href="" class="logout">Logout</a><li>
           </ul>
         </nav>
       </header>
