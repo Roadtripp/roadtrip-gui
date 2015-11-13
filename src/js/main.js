@@ -45,16 +45,17 @@ var destinationstart;
               console.log(response);
               var temp = "Token " + response.data.token;
               $cookies.put("zipt", temp);
-              $http.defaults.headers.common.Authorization = temp;
-              login.user = { };
-              temp = "";
               $cookies.put("zloggedin", true);
               $rootScope.login();
+              login.user = { };
+              temp = "";
 
-              if ($cookies.get("currenTrip")) {
+
+
+              if (!isNaN($cookies.get("currenTrip"))) {
                 $location.path('/trip/' + $cookies.get("currenTrip") + '/city/');
               } else {
-                $location.path('/');
+                $location.path('/home/user/');
               }
 
             },
@@ -165,8 +166,6 @@ var destinationstart;
           }
 
 
-
-
 // END POINT FOR SAVING A TRIP- /trip/:id/save/
         });
 
@@ -192,16 +191,16 @@ var destinationstart;
       $scope.savetrip = function (){
         var titleToSave = { };
         titleToSave.title = $scope.main.title;
+        console.log($http.defaults.headers.common.Authorization);
 
         //if user logged-in
-        if ($http.defaults.headers.common.Authorization){
+        if ($http.defaults.headers.common.Authorization !== undefined){
           $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', titleToSave)
           .then ( function (response){
             $location.path('/home/user/');
           }
-
         );
-      } //if not logged in
+        } //if not logged in
         else {
           $location.path('/panel-login');
         }
@@ -220,15 +219,19 @@ var destinationstart;
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $location, $routeParams){
+        $rootScope.suggestions = { };
+        $rootScope.selectedCities = { };
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
+
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
-      }); // END .then
 
-          // var wp = response.data.waypoints;
+
+
+      }); // END .then
 
 
 
@@ -274,9 +277,9 @@ var destinationstart;
 
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
-                  console.log($rootScope.selectedCities);
-
                   $location.path('/trip/' + $routeParams.id + '/city/' );
+                  $rootScope.suggestions = { };
+                  $rootScope.selectedCities = { };
               });
           };
 
@@ -310,33 +313,36 @@ var destinationstart;
 
 
 })
-.controller ('loginController', function ($cookies, $http){
-  $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+.controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
 
-})
-.controller ('headerController', function ($cookies, $http, $scope, $location, $rootScope){
+  $scope.loggedIn = $cookies.get("zloggedin");
 
-  $scope.loggedIn = false;
+  //TODO: http get whoami to show username in header
+
   $rootScope.login = function (){
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
     $scope.loggedIn = $cookies.get("zloggedin");
+    console.log($http.defaults.headers.common.Authorization);
   };
 
-  $scope.logout = function (){
-    // var logoutObject = {};
-    // $http.post (BASE_URL + '/api/logout/', logoutObject)
-    // .then (function (){
-    //   $location.path('/');
-    // });
-
-    $http.defaults.headers.common.Authorization = null;
-    $cookies.remove("zloggedin");
-    $cookies.remove("zipt");
-    $cookies.remove("currenTrip");
-    $location.path('/');
-    $scope.loggedIn = false;
+  $rootScope.logout = function (){
+    var logoutObject = { };
+    $http.post(BASE_URL + '/api/logout/', logoutObject)
+    .then (function (response){
+      console.log("logged out from server");
+      $http.defaults.headers.common.Authorization = " ";
+      $cookies.remove("zloggedin"); //removes logged status
+      $cookies.remove("zipt");  //removes token
+      $cookies.remove("currenTrip"); //remove current trip number
+      $location.path('/');
+      $scope.loggedIn = false;
+      console.log($http.defaults.headers.common.Authorization);
+    }, function (){
+      $location.path('/');
+      $scope.loggedIn = false;
+    });
   };
-
 })
 
 .filter('removeUSA', function () {
@@ -352,17 +358,6 @@ var destinationstart;
 })(); // END IIFE
 
 
-
-//TODO:
-// ROUTES TO CREATED TRIP
-// .config(function($routeProvider, $locationProvider){
-//   $routeProvider
-//     .when('/trip/:id',{
-//       templateUrl: 'timeline.html',
-//       controller: 'activityController'
-//     });
-
-// }); // END CONFIG.
 
 
 
