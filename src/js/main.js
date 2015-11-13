@@ -22,8 +22,10 @@ var destinationstart;
     .when('/home/user/', {
       templateUrl: 'admin.html',
       controller: function ($http, $location, $routeParams, $scope){
+        $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
+            $scope.loading = false; //hide loading spinner
             $scope.usertrips = response.data;
             $scope.trips = response.data.trips;
             console.log($scope.trips);
@@ -60,7 +62,7 @@ var destinationstart;
 
             },
             function(){
-              //TODO: alert user "wrong username or password"
+              //TODO: show "wrong username/password"
             });
 
 
@@ -82,19 +84,57 @@ var destinationstart;
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-      controller: function($http, $location, $routeParams){
+      controller: function($http, $location, $routeParams, $scope, $timeout){
+        $scope.pwvalid = true;
+        $scope.unvalid = true;
+        $scope.created = true;
         var signup = this;
-
         signup.user = { };
 
         signup.createUser = function(){
-          console.log(signup.user);
-         $http.post( BASE_URL + '/api/register/', signup.user)
-           .then(function(response){
-             console.log(response.data);
-             signup.user = { };
-             $location.path('/panel-login/');
-           });
+
+            var pass1 = document.getElementById('pass1').value;
+            var pass2 = document.getElementById('pass2').value;
+            if (pass1 !== pass2)
+            {
+              $scope.pwvalid = false;
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+            } else {
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+              $scope.pwvalid = true;
+
+
+
+
+              $http.post( BASE_URL + '/api/register/', signup.user)
+                .then(function(){
+
+                  $scope.created = false;
+                  signup.user = { };
+
+                  (function (){
+                    $timeout(function(){
+                      $location.path('/panel-login/');
+                    }, 2000);
+                  }) ();
+
+
+
+                }, function (response){
+                  //TODO: show error... like username exists
+                });
+
+
+
+            }
+
+
+
+
+
+
          };
       }, // END controller
       controllerAs: 'signup'
@@ -148,10 +188,13 @@ var destinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
 
+      $scope.loading = true; //show loading spinner
+
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
+          $scope.loading = false; //hide loading spinner
 
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
@@ -207,6 +250,12 @@ var destinationstart;
 
       };
 
+      //TODO: inpect all save trip
+      $http.get( BASE_URL + '/api/trips/')
+        .then(function (response){
+          //TODO:scan all trips return true to hide save button
+        });
+
 
 
 
@@ -218,13 +267,17 @@ var destinationstart;
     // SELECTION PAGE
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location, $routeParams){
+      controller: function($http, $rootScope, $scope, $location, $routeParams){
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
+
+        $scope.loading = true; //show loading spinner
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
+
+          $scope.loading = false; //hide loading spinner
 
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
@@ -315,14 +368,23 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
-
-  $scope.loggedIn = $cookies.get("zloggedin");
+  //updates nav buttons
+  function statusUpdate (){
+    if ($http.defaults.headers.common.Authorization !== undefined){
+      $scope.loggedIn = true;
+      console.log("status logged in");
+    } else {
+      $scope.loggedIn = false;
+      console.log("status logged out");
+    }
+  }
+  statusUpdate ();
 
   //TODO: http get whoami to show username in header
 
   $rootScope.login = function (){
     $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
-    $scope.loggedIn = $cookies.get("zloggedin");
+    statusUpdate();
     console.log($http.defaults.headers.common.Authorization);
   };
 
@@ -331,8 +393,8 @@ var destinationstart;
     $http.post(BASE_URL + '/api/logout/', logoutObject)
     .then (function (response){
       console.log("logged out from server");
-      $http.defaults.headers.common.Authorization = " ";
-      $cookies.remove("zloggedin"); //removes logged status
+      $http.defaults.headers.common.Authorization = undefined;
+      statusUpdate();
       $cookies.remove("zipt");  //removes token
       $cookies.remove("currenTrip"); //remove current trip number
       $location.path('/');
@@ -340,7 +402,7 @@ var destinationstart;
       console.log($http.defaults.headers.common.Authorization);
     }, function (){
       $location.path('/');
-      $scope.loggedIn = false;
+      statusUpdate();
     });
   };
 })
