@@ -1,0 +1,56 @@
+@media screen and (min-width: 900px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav {
+    display: block !important
+  }
+
+  h2.heading {
+    width: 80% !important;
+    text-align: left !important;
+  }
+
+  .form-container {
+    margin: 0;
+    float: left;
+    width: 68%;
+  }
+
+  .breadcrumb {
+    width: 80%;
+  }
+
+
+section.main {
+  width: 80%;
+  margin: 0 auto;
+
+    aside.aside-container {
+      border: 1px solid #e6e6e6;
+      padding: 5%;
+      width: 30%;
+      background: #fff;
+      margin: 0 auto;
+      display: block !important;
+      float: right;
+      padding-bottom: 45%;
+
+        p.side {
+          color: #9d9d9d;
+          font-weight: 300;
+          margin-top: 0;
+        }
+
+  }
+
+}
+
+.footer {
+
+}
+
+
+}

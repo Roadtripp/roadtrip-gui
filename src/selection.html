@@ -1,10 +1,18 @@
 <section class="main-content selection">
   <h2 class="heading">Select events</h2>
   <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="/#trip/:id" class="active">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="active">step two</a></li>
+    <li><a href="" class="active">step three</a></li>
   </ul>
+
+  <section class="main">
+    <aside class="aside-container">
+          <p class="side">itinerary</p>
+          <p class="side">heading to <strong>Memphis, TN</strong></p>
+          <p class="side">from <strong>Tampa, FL</strong></p>
+    </aside> <!-- END .aside-container -->
+
 <section class="form-container">
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
     <h3 class="cities">{{city.location}}</h3>
@@ -54,6 +62,7 @@
   </div>
 
 </section> <!-- END form-container -->
+</section> <!-- END .main -->
 
 <section class="footer">
   <div class="footer-container">

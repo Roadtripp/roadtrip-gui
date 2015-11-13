@@ -109,6 +109,7 @@ $fa-font-path: '../../bower_components/font-awesome/fonts';
 @import 'timeline';
 @import 'interest';
 @import 'map';
+@import 'desktop';
 
 $accent: #E45F56;
 $dark: #35404F;
@@ -224,6 +225,7 @@ header {
   clear: both;
   font-size: 10pt;
   font-weight: 200;
+  display: none;
 
     a {
       color: #fff;
