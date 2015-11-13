@@ -84,19 +84,57 @@ var destinationstart;
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-      controller: function($http, $location, $routeParams){
+      controller: function($http, $location, $routeParams, $scope, $timeout){
+        $scope.pwvalid = true;
+        $scope.unvalid = true;
+        $scope.created = true;
         var signup = this;
-
         signup.user = { };
 
         signup.createUser = function(){
-          console.log(signup.user);
-         $http.post( BASE_URL + '/api/register/', signup.user)
-           .then(function(response){
-             console.log(response.data);
-             signup.user = { };
-             $location.path('/panel-login/');
-           });
+
+            var pass1 = document.getElementById('pass1').value;
+            var pass2 = document.getElementById('pass2').value;
+            if (pass1 !== pass2)
+            {
+              $scope.pwvalid = false;
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+            } else {
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+              $scope.pwvalid = true;
+
+
+
+
+              $http.post( BASE_URL + '/api/register/', signup.user)
+                .then(function(){
+
+                  $scope.created = false;
+                  signup.user = { };
+
+                  (function (){
+                    $timeout(function(){
+                      $location.path('/panel-login/');
+                    }, 2000);
+                  }) ();
+
+
+
+                }, function (response){
+                  //TODO: show error... like username exists
+                });
+
+
+
+            }
+
+
+
+
+
+
          };
       }, // END controller
       controllerAs: 'signup'
