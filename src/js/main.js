@@ -224,15 +224,13 @@ var destinationstart;
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
+
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
 
-          
 
 
       }); // END .then
-
-          // var wp = response.data.waypoints;
 
 
 

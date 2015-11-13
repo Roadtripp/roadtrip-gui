@@ -16,7 +16,7 @@ form.timeline {
     input.user-title {
       margin: 0px auto;
       display: block;
-      width: 50%;
+      width: 100%;
       text-align: center;
       border: none;
       font-size: 1.2em;
@@ -135,7 +135,7 @@ div.buttons {
       margin: 0 3px 5px auto;
       display: inline-block;
       padding: 2%;
-      width: 25%;
+      width: auto;
       font-size: .8em;
     }
 
@@ -144,7 +144,7 @@ div.buttons {
       margin: 0 3px 5px auto;
       display: inline-block;
       padding: 2%;
-      width: 25%;
+      // width: 25%;
       font-size: .8em;
     }
 

@@ -31,10 +31,10 @@
         </a>
       </div>
         <section class=details>
-        <span class="event-location">{{activity.address}}</span>
-        <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
-        <span class="event-phone">{{activity.phone| date}}</span>
-        <span class="event-phone"><img ng-src="{{activity.small_rate_img_url}}"/></span>
+        <span class="event-location" ng-hide="city.activity_set.address.length === 0">{{activity.address}}</span>
+        <span class="event-date" ng-hide="city.activity_set.date.length === 0">{{activity.date | date}} {{activity.time}}</span>
+        <span class="event-phone" ng-hide="city.activity_set.phone.length === 0">{{activity.phone| date}}</span>
+        <span class="event-phone" ng-hide="activity_set.small_rate_img_url === 0"><img ng-src="{{activity.small_rate_img_url}}"/></span>
       </section>
       </article>
       </li>
