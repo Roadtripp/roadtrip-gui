@@ -3,16 +3,24 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
-$orange: #fbb03b;
-$blue: #29aae4;
-$purple: #bb9bca;
 
-input.user-title {
-  margin: 20px auto;
-  width: 50%;
-  text-align: center;
-  border: none;
-  font-size: 1.2em;
+$pink: #D39CCC;
+$darkgreen: darken(#A3D39C, 10%);
+$blue: #5681E4;
+$orange: #E4B956;
+
+
+form.timeline {
+  margin-bottom: 20px;
+
+    input.user-title {
+      margin: 0px auto;
+      display: block;
+      width: 100%;
+      text-align: center;
+      border: none;
+      font-size: 1.2em;
+    }
 }
 
 
@@ -27,43 +35,58 @@ input.user-title {
 }
 
 .hotelscolor {
-  background: $blue;
+  background: $darkgreen;
   color: #fff;
   &::before{
-    color: $blue;
+    color: $darkgreen;
   } //caret
+  &::after{
+    border: 3px solid $darkgreen;
+  } //circle
 }
 
 .activitiescolor {
-  background: $blue;
+  background: $pink;
   color: #fff;
     &::before{
-      color: $blue;
+      color: $pink;
     } //caret
+    &::after{
+      border: 3px solid $pink;
+    } //circle
 }
 
 .foodcolor {
+  background: $orange;
+  color: #fff;
+  &::before{
+    color: $orange;
+  } //caret
+  &::after{
+    border: 3px solid $orange;
+  } //circle
+}
+
+.sportcolor {
+  background: $orange;
+  color: #fff;
+  &::before{
+    color: $orange;
+  } //caret
+  &::after{
+    border: 3px solid $orange;
+  } //circle
+}
+
+.artistcolor {
   background: $blue;
   color: #fff;
   &::before{
     color: $blue;
   } //caret
-}
-
-.sportcolor {
-  background: $purple;
-  color: #fff;
-  &::before{
-    color: $purple;
-  } //caret
-}
-
-.artistcolor {
-  background: $purple;
-  color: #fff;
-  &::before{
-    color: $purple;
-  } //caret
+  &::after{
+    border: 3px solid $blue;
+  } //circle
 }
 
 nav.tabs {
@@ -72,7 +95,8 @@ nav.tabs {
     border-bottom: 1px solid #ddd;
 		display: block;
 		width: 100%;
-    min-width: 400px;
+    margin: 0 auto;
+    // min-width: 394px;
 
     a[href] { // TAB LINKS & LINE LOCATION
 			text-align: center;
@@ -86,7 +110,7 @@ nav.tabs {
       color: #c3c3c3;
       font-weight: 700;
       // border-right: 1px solid #ddd;
-			width: 49.5%;
+			width: 49%;
       border-top: 1px solid #ddd;
 
       &.active {
@@ -96,6 +120,7 @@ nav.tabs {
 				border-left: 1px solid #ddd;
         border-bottom: 2px solid #ffffff;
         background: #ffffff;
+        width: 49.5%;
     }
   }
 }
@@ -107,17 +132,30 @@ div.buttons {
 
     button.save {
       text-align: center;
-      margin: 0 auto 5px auto;
+      margin: 0 3px 5px auto;
       display: inline-block;
-      padding: 2% 3%;
+      padding: 2%;
+      width: auto;
+      font-size: .8em;
     }
 
     button.return {
       text-align: center;
-      margin: 0 auto 5px auto;
+      margin: 0 3px 5px auto;
       display: inline-block;
-      padding: 2% 3%;
+      padding: 2%;
+      // width: 25%;
+      font-size: .8em;
     }
+
+}
+
+button.bottom {
+  text-align: center;
+  margin: 0 auto 5px auto;
+  display: block;
+  padding: 2%;
+  font-size: .8em;
 }
 
 section.main-content.timeline {
@@ -125,9 +163,17 @@ section.main-content.timeline {
 	width: 100%;
 	// background: #fff;
 
+section.tlv-container {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 92%;
+}
+
 	section.tlv {
 		position: relative;
     background: #fff;
+    margin: 0 auto;
+    width: 100%;
 
     h3 {
       text-align: center;
@@ -142,15 +188,27 @@ section.main-content.timeline {
       padding-bottom: 2ex;
 
 			&.origin-section {
-        width: 95%;
+        // width: 95%;
       	list-style: none;
       	position: relative;
       	padding-left: 0;
 
 				li.city-desc {
-          // width: 45%;
           list-style: none;
           text-align: left;
+
+            &::after { // CIRCLES
+              content: " ";
+              position: absolute;
+              top: 5px;
+              right: -9px;
+              width: 21px;
+              height: 21px;
+              background: #fff;
+              border: 3px solid $accent;
+              border-radius: 20px;
+              z-index: 10;
+            }
 
 					span {
 
@@ -158,7 +216,7 @@ section.main-content.timeline {
               font-size: 1em;
               font-weight: 600;
               display: block;
-              color: $green;
+              color: $dark;
               text-transform: uppercase;
 						}
 
@@ -173,7 +231,7 @@ section.main-content.timeline {
 			} //origin city
 
 			&.destination-section {
-        width: 95%;
+        // width: 95%;
       	list-style: none;
       	position: relative;
       	padding-left: 0;
@@ -181,9 +239,21 @@ section.main-content.timeline {
 				li.city-desc {
           width: 45%;
           list-style: none;
-          // margin-left: 54%;
           margin-bottom: 30px;
           text-align: left;
+
+            &::after { // CIRCLES
+              content: " ";
+              position: absolute;
+              top: 13px;
+              right: -9px;
+              width: 21px;
+              height: 21px;
+              background: #fff;
+              border: 3px solid $accent;
+              border-radius: 20px;
+              z-index: 10;
+            }
 
 					span {
 
@@ -191,7 +261,7 @@ section.main-content.timeline {
               font-size: 1em;
               font-weight: 600;
               display: block;
-              color: $green;
+              color: $dark;
               text-transform: uppercase;
 						}
 						&.city-date {
@@ -208,11 +278,11 @@ section.main-content.timeline {
 				display: block;
       	content: '';
       	position: absolute;
-      	top: 50%;
+      	top: 10%;
       	bottom: 0;
       	width: 6px;
       	background: $accent;
-      	left: 95%;
+      	left: 99%;
 			}
 
 			&.destination-section::before {
@@ -220,14 +290,13 @@ section.main-content.timeline {
       	content: '';
       	position: absolute;
       	top: 0;
-      	bottom: 50%;
+      	bottom: 69%;
       	width: 6px;
       	background: $accent;
-      	left: 95%;
+      	left: 99%;
 			}
 
 			&.city-section {
-				width: 95%;
 				list-style: none;
 				position: relative;
 				padding-left: 0;
@@ -264,21 +333,16 @@ section.main-content.timeline {
     article.event {
       @extend .clearfix;
       margin-bottom: 1ex;
-      width: 90%;
       color: $dark;
-      padding: 1%;
 
         &:nth-of-type(odd) {
-          // float: left; // TODO: add back in??
           text-align: left;
-          padding-right: 5px;
+          // padding-right: 5px;
           position: relative;
         }
 
         &:nth-of-type(even) {
-          // float: right;
           text-align: left;
-          padding-left: 5px;
           position: relative;
 
           &:first-of-type {
@@ -290,15 +354,31 @@ section.main-content.timeline {
           div.event-card {
             @extend .clearfix;
             margin-bottom: .5ex;
-            width: 100%;
+            width: auto;
+            margin-right: 27px;
             color: #fff;
+            padding-right: 3%;
             border-radius: 2px;
 						padding: 1%;
+            display: block;
+
+            &::after { // CIRCLES
+              content: " ";
+              position: absolute;
+              top: 5px;
+              right: -35px;
+              width: 18px;
+              height: 18px;
+              background: #fff;
+              // border: 3px solid $accent;
+              border-radius: 18px;
+              z-index: 10;
+            }
 
             &:nth-of-type(odd) {
-              float: left;
+              // float: left;
               text-align: left;
-              padding-right: 5px;
+              // padding-right: 5px;
               position: relative;
 
                 &::before{
@@ -313,14 +393,11 @@ section.main-content.timeline {
             }
 
             &:nth-of-type(even) {
-              float: right;
+              // float: right;
               text-align: left;
-              padding-left: 5px;
+
               position: relative;
-              //
-              // &:first-of-type {
-              //   margin-top: 30px;
-              // }
+
               &::before{ //LEFT POINTING CARET
                 position: absolute;
                 left: -6px;
@@ -362,7 +439,7 @@ section.main-content.timeline {
     } // li.city-desc
 	} // city section
 
-			&.city-section::before {
+			&.city-section::before { // LINE
 				display: block;
 				content: '';
 				position: absolute;
@@ -370,7 +447,7 @@ section.main-content.timeline {
 				bottom: 0;
 				width: 6px;
 				background: $accent;
-				left: 95%;
+				left: 99%;
 			}
 
 		}// end of ul

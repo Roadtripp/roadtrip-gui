@@ -27,6 +27,7 @@
         <h1><a href="#/">zip<strong>trip</strong></a></h1>
         <nav class="nav">
             <a href="#/start" class="newtrip">New Trip</a>
+            <a ng-hide="loggedIn" href="#/home/user" class="login">Saved Trips</a>
             <a ng-hide="loggedIn" href="#/panel-login" class="login">Login</a>
             <a ng-hide="loggedIn" href="#/panel-signup" class="login">Sign Up</a>
             <a ng-show="loggedIn" ng-click="logout()" href="" class="logout">Logout</a>

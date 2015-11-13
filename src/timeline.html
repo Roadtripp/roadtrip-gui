@@ -1,16 +1,17 @@
 <section class="main-content timeline">
  <h2 class="heading">Itinerary</h2>
  <div class="buttons">
-  <button class="save" ng-click="savetrip()">save this trip!</button>
+  <button class="save" ng-click="savetrip()">save this trip</button>
   <a href="#/start"><button class="return">plan return trip</button></a>
-<div>
+</div>
 
   <nav class="tabs">
     <a href="" ng-click="showme=true" class="button-timeline active" ng-init="showme=true">Timeline</a>
     <a href="" ng-click="showme=false" class="button-map" >Map View</a>
   </nav>
   <section class="tlv" ng-show="showme">
-  <form class="start" ng-submit="add.next()">
+    <section class="tlv-container">
+  <form class="timeline" ng-submit="add.next()">
     <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}" />
   </form>
     <ul class="origin-section">
@@ -30,10 +31,10 @@
         </a>
       </div>
         <section class=details>
-        <span class="event-location">{{activity.address}}</span>
-        <span class="event-date">{{activity.date | date}} {{activity.time}}</span>
-        <span class="event-phone">{{activity.phone| date}}</span>
-        <span class="event-phone"><img ng-src="{{activity.small_rate_img_url}}"/></span>
+        <span class="event-location" ng-hide="city.activity_set.address.length === 0">{{activity.address}}</span>
+        <span class="event-date" ng-hide="city.activity_set.date.length === 0">{{activity.date | date}} {{activity.time}}</span>
+        <span class="event-phone" ng-hide="city.activity_set.phone.length === 0">{{activity.phone| date}}</span>
+        <span class="event-phone" ng-hide="activity_set.small_rate_img_url === 0"><img ng-src="{{activity.small_rate_img_url}}"/></span>
       </section>
       </article>
       </li>
@@ -44,9 +45,10 @@
         <span class="city-date">Arrives {{main.destination_date}}</span>
       </li>
     </ul>
+    <button class="bottom" ng-click="savetrip()">save this trip</button>
   </section>
   <section id="map" class=""></section>
-
+</section> <!-- END .tlv-container -->
 
   <section class="footer">
     <div class="footer-container">
