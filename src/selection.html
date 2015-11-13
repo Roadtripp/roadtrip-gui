@@ -8,9 +8,9 @@
 
   <section class="main">
     <aside class="aside-container">
-          <p class="side">itinerary</p>
-          <p class="side">heading to <strong>Memphis, TN</strong></p>
-          <p class="side">from <strong>Tampa, FL</strong></p>
+          <img ng-src="https://cloud.githubusercontent.com/assets/14016133/11154418/35a88c12-8a0d-11e5-9bff-4031cfa58f25.png">
+          <p class="side">traveling from <strong>{{main.origin | removeUSA}}</strong> to <strong>{{main.destination | removeUSA}}</strong></p>
+          <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
     </aside> <!-- END .aside-container -->
 
 <section class="form-container">

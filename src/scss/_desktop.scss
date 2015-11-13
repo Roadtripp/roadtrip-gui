@@ -23,6 +23,16 @@
     width: 80%;
   }
 
+  .form-container.center {
+    border: 1px solid #e6e6e6;
+    padding: 5%;
+    max-width: 400px;
+    background: #fff;
+    margin: 0 auto 10px auto;
+    width: 50%;
+    float: none !important;
+
+}
 
 section.main {
   width: 80%;
@@ -30,13 +40,13 @@ section.main {
 
     aside.aside-container {
       border: 1px solid #e6e6e6;
-      padding: 5%;
+      padding: 3%;
       width: 30%;
       background: #fff;
       margin: 0 auto;
       display: block !important;
       float: right;
-      padding-bottom: 45%;
+      padding-bottom: 27%;
 
         p.side {
           color: #9d9d9d;
@@ -44,13 +54,37 @@ section.main {
           margin-top: 0;
         }
 
+        p.date {
+          color: #9d9d9d;
+          font-weight: 300;
+          margin-top: 0;
+          font-size: .9em;
+        }
+
+        img {
+          margin: 0 auto 20px -2px;
+          width: 100%;
+        }
   }
 
 }
 
-.footer {
+   .alternate {
+     width: 50%;
+     margin: 0 auto;
+     padding: 2% !important;
+     max-width: 400px;
+   }
 
-}
+   h2.heading.center {
+     width: 50% !important;
+     text-align: center !important;
+   }
 
+   .breadcrumb.center {
+     width: 50% !important;
+     text-align: center !important;
+     padding-left: 40px !important;
 
+   }
 }

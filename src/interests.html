@@ -1,16 +1,16 @@
 <section class="main-content selection">
   <h2 class="heading">What are your interests?</h2>
   <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="#/trip/:id" class="active">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="">step three</a></li>
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="active">step two</a></li>
+    <li><a href="" class="">step three</a></li>
   </ul>
 
 <section class="main">
   <aside class="aside-container">
-        <p class="side">itinerary</p>
-        <p class="side">heading to <strong>Memphis, TN</strong></p>
-        <p class="side">from <strong>Tampa, FL</strong></p>
+        <img ng-src="https://cloud.githubusercontent.com/assets/14016133/11157719/19926692-8a21-11e5-8b8e-b062f0e9e671.png">
+        <p class="side">traveling from <strong>{{main.origin | removeUSA}}</strong> to <strong>{{main.destination | removeUSA}}</strong></p>
+        <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
   </aside> <!-- END .aside-container -->
 
 
