@@ -4,6 +4,7 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+
 .form-container-selection {
   border: 1px solid #e6e6e6;
   padding: 5%;
@@ -28,9 +29,7 @@ $green: #A3D39C;
         padding: 2% 6%;
       }
 
-
   } // END .next-button
-
 
 }
 
@@ -105,13 +104,11 @@ h3.cities {
   width: 90%;
   margin: 0 auto;
 
-      // input[type=checkbox] {
+      // input[type=checkbox] { //HIDES CHECKBOXES
       // 	visibility: hidden;
       // }
 
       div.checkbox {
-        // width: 25px;
-        // margin: 20px 100px;
         position: relative;
       }
 
@@ -120,8 +117,6 @@ h3.cities {
     	position: absolute;
     	width: 18px;
     	height: 18px;
-    	// top: 0;
-      // left: 0;
     	background: #fff;
     	border:1px solid #ddd;
     }
@@ -196,9 +191,6 @@ article.activities {
 
 
 [class*='col-'] {
-  // outline: 1px solid #000;
-  // width: 50%;
-  // float: left;
   margin-bottom: 18px;
 }
 

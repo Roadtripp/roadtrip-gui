@@ -4,6 +4,10 @@
   <a href="#/start"><button class="plan-a-trip" type="">plan a trip +</button><a>
 <section class="saved">
   <h4>saved trips:</h4>
+  <div ng-show="loading" class ="spinner">
+      <span class="fa fa-5x fa-spinner fa-spin"></span>
+      <span class="spinner-text"></span>
+  </div>
   <div ng-repeat="trip in trips">
     <a href="#/trip/{{trip.id}}/city">{{trip.title}}</a>
     <section>

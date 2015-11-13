@@ -14,6 +14,10 @@
     </aside> <!-- END .aside-container -->
 
 <section class="form-container">
+  <div ng-show="loading" class ="spinner">
+      <span class="fa fa-5x fa-spinner fa-spin"></span>
+      <span class="spinner-text">generating cities and activities along your way...</span>
+  </div>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
     <h3 class="cities">{{city.location}}</h3>
     <article class="activities">
@@ -58,7 +62,7 @@
 
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click= "update()">generate trip</button>
+    <button ng-hide="loading" class="next" type="submit" ng-click= "update()">generate trip</button>
   </div>
 
 </section> <!-- END form-container -->
