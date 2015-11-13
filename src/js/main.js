@@ -313,8 +313,13 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
-
-  $scope.loggedIn = $cookies.get("zloggedin");
+  $rootScope.statusCheck = function (){
+  if ($http.defaults.headers.common.Authorization !== undefined){
+    $scope.loggedIn = true;
+  } else {
+    $scope.loggedIn = false;
+  }
+  }();
 
   //TODO: http get whoami to show username in header
 
