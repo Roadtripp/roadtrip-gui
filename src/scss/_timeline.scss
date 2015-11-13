@@ -46,13 +46,13 @@ form.timeline {
 }
 
 .activitiescolor {
-  background: $pink;
+  background: $blue;
   color: #fff;
     &::before{
-      color: $pink;
+      color: $blue;
     } //caret
     &::after{
-      border: 3px solid $pink;
+      border: 3px solid $blue;
     } //circle
 }
 
@@ -79,13 +79,13 @@ form.timeline {
 }
 
 .artistcolor {
-  background: $blue;
+  background: $pink;
   color: #fff;
   &::before{
-    color: $blue;
+    color: $pink;
   } //caret
   &::after{
-    border: 3px solid $blue;
+    border: 3px solid $pink;
   } //circle
 }
 
@@ -428,9 +428,16 @@ section.tlv-container {
           display: block;
           color: $dark;
           font-size: .8em;
+          width: auto;
+          margin-right: 27px;
 
             [class*='event-'] {
               display: block;
+            }
+
+            span.event-location {
+              width: auto;
+              margin-right: 27px;
             }
         }
 
