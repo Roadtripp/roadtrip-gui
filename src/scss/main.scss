@@ -205,6 +205,22 @@ button {
 }
 
 
+.spinner {
+  text-align: center;
+  color: $accent;
+  width: 100%;
+    span.fa-spin{
+      color: $accent;
+    }
+    span.spinner-text {
+      display: block;
+      color: $accent;
+      text-align: center;
+    }
+  // &.hide {
+  //   display: none;
+  // }
+}
 
 
 

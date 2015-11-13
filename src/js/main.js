@@ -218,13 +218,17 @@ var destinationstart;
     // SELECTION PAGE
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location, $routeParams){
+      controller: function($http, $rootScope, $scope, $location, $routeParams){
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
+
+        $scope.loading = true; //show loading spinner
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
+
+          $scope.loading = false; //hide loading spinner
 
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
@@ -315,19 +319,22 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
-  $rootScope.statusCheck = function (){
-  if ($http.defaults.headers.common.Authorization !== undefined){
-    $scope.loggedIn = true;
-  } else {
-    $scope.loggedIn = false;
+  function statusUpdate (){
+    if ($http.defaults.headers.common.Authorization !== undefined){
+      $scope.loggedIn = true;
+      console.log("status logged in");
+    } else {
+      $scope.loggedIn = false;
+      console.log("status logged out");
+    }
   }
-  }();
+  statusUpdate ();
 
   //TODO: http get whoami to show username in header
 
   $rootScope.login = function (){
     $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
-    $scope.loggedIn = $cookies.get("zloggedin");
+    statusUpdate();
     console.log($http.defaults.headers.common.Authorization);
   };
 
@@ -336,8 +343,8 @@ var destinationstart;
     $http.post(BASE_URL + '/api/logout/', logoutObject)
     .then (function (response){
       console.log("logged out from server");
-      $http.defaults.headers.common.Authorization = " ";
-      $cookies.remove("zloggedin"); //removes logged status
+      $http.defaults.headers.common.Authorization = undefined;
+      statusUpdate();
       $cookies.remove("zipt");  //removes token
       $cookies.remove("currenTrip"); //remove current trip number
       $location.path('/');
@@ -345,7 +352,7 @@ var destinationstart;
       console.log($http.defaults.headers.common.Authorization);
     }, function (){
       $location.path('/');
-      $scope.loggedIn = false;
+      statusUpdate();
     });
   };
 })
