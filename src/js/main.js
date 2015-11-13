@@ -574,3 +574,10 @@ function fillInAddressD() {
   destinationstart = place.formatted_address;
   console.log(destinationstart);
 }
+
+
+
+$('.hamburger').on('click', function(){
+  $('.hamburger-nav').toggleClass('show');
+
+});
