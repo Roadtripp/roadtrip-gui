@@ -1,8 +1,11 @@
 
+
+// place holder for google maps
 var originCity = "";
 var desinationCity = "";
 var waypointCities = [];
 
+//placeholder for google address autofill
 var autocompleteorigin, autocompletedestination, autocompleteW ;
 var originstart;
 var destinationstart;
@@ -21,7 +24,11 @@ var wdestinationstart;
       controller: function ($location, $rootScope){
         var welcome = this;
 
-        $rootScope.header.css("background", "");
+        $rootScope.htstyle();
+
+
+
+        // $rootScope.header.css("background", "");
 
 
         welcome.wdestination = wdestinationstart;
@@ -38,7 +45,9 @@ var wdestinationstart;
 
     .when('/home/user/', {
       templateUrl: 'admin.html',
-      controller: function ($http, $location, $routeParams, $scope){
+      controller: function ($http, $location, $routeParams, $rootScope, $scope){
+
+        $rootScope.htealstyle();
         $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
@@ -54,6 +63,7 @@ var wdestinationstart;
     .when('/panel-login', {
       templateUrl: 'login.html',
       controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
+        $rootScope.htealstyle();
         var login = this;
 
         login.user = { };
@@ -101,7 +111,8 @@ var wdestinationstart;
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-      controller: function($http, $location, $routeParams, $scope, $timeout){
+      controller: function($http, $location, $routeParams, $scope, $rootScope, $timeout){
+        $rootScope.htealstyle();
         $scope.pwvalid = true;
         $scope.unvalid = true;
         $scope.created = true;
@@ -157,16 +168,11 @@ var wdestinationstart;
       controllerAs: 'signup'
     }) // END .when
 
-    .when('/404', {
-      templateUrl: '404.html',
-    })
-
-
       // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
       controller: function($http, $location, $routeParams, $scope, $rootScope) {
-
+        $rootScope.htealstyle();
         $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
           .then(function(response){
 
@@ -218,6 +224,7 @@ var wdestinationstart;
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
+      $rootScope.htealstyle();
 
       $scope.loading = true; //show loading spinner
 
@@ -299,6 +306,7 @@ var wdestinationstart;
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $scope, $location, $routeParams){
+        $rootScope.htealstyle();
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
 
@@ -384,7 +392,8 @@ var wdestinationstart;
 
     .when('/start', {
       templateUrl: 'start.html',
-      controller: function($http, $location) {
+      controller: function($http, $location, $rootScope) {
+        $rootScope.htealstyle();
         var add = this;
         add.wdestination = wdestinationstart;
         add.trip = { };
@@ -410,7 +419,17 @@ var wdestinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
-  $rootScope.header = $('header');
+
+  //change header baackground to tranpasrent when on welcome page
+  $rootScope.htstyle = function (){
+    $rootScope.tstyle = {'background':'transparent'};
+  };
+  //change header baackground to teal when NOT on welcome page
+  $rootScope.htealstyle = function (){
+    $rootScope.tstyle = {'background':'#4AAAA5'};
+  };
+
+
   //updates nav buttons
   function statusUpdate (){
     if ($http.defaults.headers.common.Authorization !== undefined){

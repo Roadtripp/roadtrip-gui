@@ -25,10 +25,12 @@ div.welcome-top {
   height: 100vh;
   display: block;
   position: relative;
+  margin-top: -64px;
+  align-items: center;
 
   h2.heading {
     margin-top: 0px;
-    padding-top: 1.3em;
+    padding-top: 2.9em;
     color: white;
     font-size: 2em;
 
@@ -42,23 +44,23 @@ div.welcome-top {
     input#welcome_destination {
       float: left;
       display: inline-block;
-      width: 90.5%;
+      width: 88%;
       border-style: none;
-      height: 2em;
+      height: 2.5em;
       color: black;
       font-weight: 300;
       text-align: center;
     }
     a.start {
       float: right;
-      width: 9%;
-      height: 2em;
+      width: 12%;
+      height: 2.5em;
       background-color: lighten(#754AAA, 12%);
       display: inline-block;
       text-decoration: none;
       text-align: center;
       i {
-        font-size: 1.3em;
+        font-size: 2.0em;
         color: white;
         padding-top: 5px;
       }
@@ -70,8 +72,24 @@ div.welcome-top {
     margin-left: auto;
     margin-right: auto;
     color: $dark;
-    bottom: 10vh;
+    bottom: 5vh;
+    background: #f5f5f5;
 
+    @media screen and (max-height: 480px) { //color text white on height less than 480px (iphone 4)
+      color: white;
+      background: transparent;
+    }
+
+  }
+  a.how-works {
+    position: absolute;
+    display: block;
+    float: none;
+    background: $teal;
+    text-decoration: none;
+    color: white;
+    bottom: 0vh;
+    margin: 0 auto;
   }
 }
 
