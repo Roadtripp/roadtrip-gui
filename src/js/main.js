@@ -3,9 +3,10 @@ var originCity = "";
 var desinationCity = "";
 var waypointCities = [];
 
-var autocompleteorigin, autocompletedestination;
+var autocompleteorigin, autocompletedestination, autocompleteW ;
 var originstart;
 var destinationstart;
+var wdestinationstart;
 
 
 ;(function(){
@@ -17,6 +18,22 @@ var destinationstart;
 
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
+      controller: function ($location, $rootScope){
+        var welcome = this;
+
+        $rootScope.header.css("background", "");
+
+
+        welcome.wdestination = wdestinationstart;
+
+        welcome.save = function (){
+
+
+
+        }
+
+      },
+      controllerAs: 'welcome'
     })
 
     .when('/home/user/', {
@@ -369,6 +386,7 @@ var destinationstart;
       templateUrl: 'start.html',
       controller: function($http, $location) {
         var add = this;
+        add.wdestination = wdestinationstart;
         add.trip = { };
 
         add.next = function(){
@@ -392,6 +410,7 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
+  $rootScope.header = $('header');
   //updates nav buttons
   function statusUpdate (){
     if ($http.defaults.headers.common.Authorization !== undefined){
@@ -646,6 +665,14 @@ function initAutocompleteD() {
   autocompletedestination.addListener('place_changed', fillInAddressD);
 }
 
+function initAutocompleteW() {
+
+  autocompleteW = new google.maps.places.Autocomplete(
+    (document.getElementById('welcome_destination')),
+    {types: ['geocode'],componentRestrictions: {country: "us"}});
+  autocompleteW.addListener('place_changed', fillInAddressW);
+}
+
 
 
 function fillInAddressO() {
@@ -659,6 +686,12 @@ function fillInAddressD() {
   var place = autocompletedestination.getPlace();
   destinationstart = place.formatted_address;
   console.log(destinationstart);
+}
+
+function fillInAddressW() {
+  var place = autocompleteW.getPlace();
+  wdestinationstart = place.formatted_address;
+  console.log(wdestinationstart);
 }
 
 
