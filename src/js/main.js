@@ -674,5 +674,5 @@ $('.hamburger').on('click', function(){
 });
 
 $('.hamburger-nav li a').on('click', function(){
-  $('.hamburger-nav').hide('show');
+  $('.hamburger-nav').slideToggle('show');
 });
