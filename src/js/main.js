@@ -233,8 +233,9 @@ var wdestinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
       $rootScope.htealstyle();
-
       $scope.loading = true; //show loading spinner
+      var get1= false;
+      var get2= false;
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
@@ -242,6 +243,8 @@ var wdestinationstart;
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
 
+          get1 =true;
+          bothGetDone();
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
 
@@ -271,10 +274,19 @@ var wdestinationstart;
 
           console.log($rootScope.main);
 
+          get2 =true;
+          bothGetDone();
+
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
         });
+
+        function bothGetDone (){
+          if (get1 && get2) {
+            initMap();
+          }
+        }
 
 
       $scope.savetrip = function (){

@@ -141,7 +141,7 @@ section.main-content {
 }
 
 header.main-header {
-  @extend .grid;
+  // @extend .grid;
   @extend .clearfix;
   width: 100%;
   text-align: left;
@@ -149,6 +149,7 @@ header.main-header {
   padding: 10px 5%;
   // background: $teal;
   color: #fff;
+  z-index: 1000;
 
       h1 {
         font-weight: 200;
@@ -156,7 +157,7 @@ header.main-header {
         margin: 0;
         display: inline-block !important;
         color: #fff;
-        z-index: 1000;
+
 
         a[href] {
           text-decoration: none;

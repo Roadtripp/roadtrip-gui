@@ -9,9 +9,8 @@ $green: #A3D39C;
 .main-content.welcome {
   margin: 0px 10px 0 0;
 	width: 100%;
-  background-image: url("../img/welcome-car-mobile.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  z-index: 2;
+
 
   // img.banner {
   //   width: 100%;
@@ -22,17 +21,42 @@ $green: #A3D39C;
 div.welcome-top {
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: block;
   position: relative;
   margin-top: -64px;
   align-items: center;
+  background-image: url("../img/welcome-car-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 3;
+
+  @media screen and (min-height: 480px) { //iphone4 height
+    height: 420px;
+  }
+
+  @media screen and (min-height: 570px) { //iphone5 height
+    height: 508px;
+  }
+
+  @media screen and (min-height: 627px) { //iphone6 height
+    height: 540px;
+  }
+
+  @media screen and (min-height: 736px) { //iphone6+ height
+    height: 640px;
+  }
+
 
   h2.heading {
     margin-top: 0px;
     padding-top: 2.9em;
     color: white;
     font-size: 2em;
+    @media screen and (min-width: 400px) { //iphone6+ height
+      font-size: 3em;
+    }
+
 
   }
   div.welcome {
@@ -41,6 +65,10 @@ div.welcome-top {
     display: block;
     width: 85%;
     align-items: baseline;
+    margin-bottom: 60%;
+    @extend .clearfix;
+
+
     input#welcome_destination {
       float: left;
       display: inline-block;
@@ -55,49 +83,46 @@ div.welcome-top {
       float: right;
       width: 12%;
       height: 2.5em;
-      background-color: lighten(#754AAA, 12%);
+      background-color: $teal;
       display: inline-block;
       text-decoration: none;
       text-align: center;
       i {
-        font-size: 2.0em;
+        font-size: 1.5em;
         color: white;
-        padding-top: 5px;
+        padding-top: 8px;
       }
     }
   }
-  p.copy.welcome {
-    position: absolute;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    color: $dark;
-    bottom: 5vh;
-    background: #f5f5f5;
 
-    @media screen and (max-height: 480px) { //color text white on height less than 480px (iphone 4)
-      color: white;
-      background: transparent;
-    }
 
-  }
+} //welcome-top
+
   div.how-works {
-    position: absolute;
     display: block;
     text-align: center;
     text-decoration: none;
     width: 100%;
-    bottom: 0vh;
-    background: transparent;
+    background: #f5f5f5;
+    @extend .clearfix;
+    p.copy.welcome {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5px;
+      color: $dark;
+      margin-bottom: 20px;
     a.how-works {
       display: block;
       text-align: center;
-      background: $teal;
-      text-decoration: none;
+      background-color: $teal;
       color: white;
       padding-left: 5px;
       padding-right: 5px;
-      border-bottom: 2px solid $teal;
+      i.fa-angle-double-down{
+        text-decoration: none;
+        font-size: 2em;
+      }
 
 
     }
@@ -111,20 +136,68 @@ div.welcome-top {
     }
   }
 
-}
 
-
-  img.main {
-    padding-bottom: 10px;
-    width: 100%;
-    &:hover > .overlay {
-    width:100%;
-    height:100%;
-    position:absolute;
-    background-color:#000;
-    opacity:0.5;
-    border-radius:30px;
+  }
+  div.images{
+    margin-top: 10px;
+    img.main {
+      padding-bottom: 10px;
+      width: 100%;
     }
   }
 
-}
+  a.meet-team {
+    text-align: center;
+    display: block;
+    font-size: 1em;
+    font-weight: 300;
+    margin: 1em auto;
+  }
+  div.team {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: block;
+    div.group {
+      width: 80%;
+      margin: 1em auto;
+      span.prof{
+        width: 45%;
+        display: inline-block;
+        text-align: center;
+        img.prof{
+          display: block;
+          width: 70%;
+          border: 3px solid #f5f5f5;
+          border-radius: 50%;
+          margin: 0 auto;
+        }
+        span.name{
+          display: block;
+          font-size: 1.5em;
+          font-weight: 400;
+          color: $dark;
+        }
+        span.role{
+          display: block;
+          font-size: 0.9em;
+          font-weight: 200;
+          color: $dark;
+        }
+        a.contact {
+          display: inline-block;
+          i{
+            color: $dark;
+            font-size: 1.2em;
+            margin: 0 0.3em;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+} //welcome
