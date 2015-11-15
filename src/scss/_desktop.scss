@@ -104,7 +104,10 @@ section.main {
    }
 
 
-
+   [class*="dropdown-list-"] li label:hover {
+       background-color: $dark;
+       color: white;
+   }
 
 
 
