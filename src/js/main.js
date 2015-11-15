@@ -400,6 +400,9 @@ var destinationstart;
 
   //updates nav buttons
   function statusUpdate (){
+
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
       console.log("status logged in");
