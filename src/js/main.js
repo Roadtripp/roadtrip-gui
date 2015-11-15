@@ -671,5 +671,8 @@ function fillInAddressD() {
 
 $('.hamburger').on('click', function(){
   $('.hamburger-nav').slideToggle('show');
+});
 
+$('.hamburger-nav li a').on('click', function(){
+  $('.hamburger-nav').hide('show');
 });
