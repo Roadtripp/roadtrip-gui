@@ -23,8 +23,10 @@ var wdestinationstart;
       templateUrl: 'welcome.html',
       controller: function ($location, $rootScope){
         var welcome = this;
-
         $rootScope.htstyle();
+
+        $(function(){$("a.how-works").click(function(){
+          $("html,body").animate({scrollTop:$("#how-works-bottom").offset().top},"1000");return false})})
 
 
 
@@ -432,12 +434,15 @@ var wdestinationstart;
 
   //updates nav buttons
   function statusUpdate (){
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
       console.log("status logged in");
+      console.log($http.defaults.headers.common.Authorization);
     } else {
       $scope.loggedIn = false;
       console.log("status logged out");
+      console.log($http.defaults.headers.common.Authorization);
     }
   }
   statusUpdate ();
