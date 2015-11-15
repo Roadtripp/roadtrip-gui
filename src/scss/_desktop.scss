@@ -109,7 +109,13 @@ section.main {
        color: white;
    }
 
+   #map {
+     display: block !important;
 
+     &.active {
+       display: block !important;
+     }
+   }
 
 
 
