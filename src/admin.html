@@ -1,5 +1,5 @@
 
-  <h2 class="heading">Let's hit the road, {{user.username}}</h2>
+  <h2 class="heading center">Let's hit the road, {{user.username}}</h2>
 <section class="main-content admin">
   <a href="#/start"><button class="plan-a-trip" type="">plan a trip +</button><a>
 <section class="saved">
@@ -10,8 +10,8 @@
   </div>
   <div class="trip" ng-repeat="trip in trips">
     <a href="#/trip/{{trip.id}}/city">{{trip.title}}</a>
-      <p class="trip">{{trip.origin | removeUSA}} to {{trip.destination | removeUSA}}</p>
-      <p class="trip">Starts {{trip.origin_date}}</p>
+      <p class="cities">{{trip.origin | removeUSA}} to {{trip.destination | removeUSA}}</p>
+      <p class="date">{{trip.origin_date | date : 'shortDate'}}</p>
   </div>
 
 </section>

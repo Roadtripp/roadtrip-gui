@@ -29,8 +29,7 @@ h6 {
 
 div.trip {
   border: 1px solid #e6e6e6;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding: 2%;
   background: #fff;
   margin: 0 auto;
   @extend .clearfix;
@@ -41,12 +40,22 @@ div.trip {
       display: inline-block;
       text-decoration: none;
       color: $dark;
-      padding-left: 3%;
+      width: 25%;
+      vertical-align: middle;
     }
 
-    p.trip {
+    p.cities {
       display: inline-block;
       color: darken(#c3c3c3, 15%);
-      padding-left: 3%;
+      // padding-left: 3%;
+      width: 55%;
+      text-align: center;
+    }
+
+    p.date {
+      display: inline-block;
+      color: darken(#c3c3c3, 15%);
+      width: 18%;
+      text-align: right;
     }
 }
