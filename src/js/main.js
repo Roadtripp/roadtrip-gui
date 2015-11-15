@@ -236,14 +236,16 @@ var wdestinationstart;
 
       $scope.loading = true; //show loading spinner
 
+      var get1 = false;
+      var get2 = false;
+
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
 
-          // $scope.category = $scope.cities.activity_set.category;
-          // console.log($scope.category);
+          get1 = true;
 
           console.log($rootScope.cities);
           // Generate Waypoint cities in array for Google Maps use
@@ -254,11 +256,9 @@ var wdestinationstart;
             waypointCities.push(temp);
           }
 
+            bothGetDone();
 
-// END POINT FOR SAVING A TRIP- /trip/:id/save/
         });
-
-
 
 
       // Get Origin and Destination Details for Timeline
@@ -271,11 +271,19 @@ var wdestinationstart;
 
           console.log($rootScope.main);
 
+          get2 = true;
+          bothGetDone();
+
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
         });
 
+        function bothGetDone(){
+          if (get1 && get2) {
+            initMap();
+          }
+        }
 
       $scope.savetrip = function (){
         var titleToSave = { };
