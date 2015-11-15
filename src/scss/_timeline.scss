@@ -9,9 +9,10 @@ $darkgreen: darken(#A3D39C, 10%);
 $blue: #5681E4;
 $orange: #E4B956;
 
-
 form.timeline {
-  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
 
     input.user-title {
       margin: 0px auto;
@@ -20,8 +21,9 @@ form.timeline {
       text-align: center;
       border: none;
       font-size: 1.2em;
-    }
+      }
 }
+
 
 .timeline-map {
   @extend .clearfix;
@@ -42,6 +44,7 @@ div.desktop-button {
 
 #map {
   display: none !important;
+  background: #fff;
 
   &.active {
     display: block !important;

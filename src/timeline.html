@@ -14,11 +14,11 @@
       <span class="spinner-text">generating cities and activities</span>
   </div>
 <section class="timeline-map">
-  <section class="tlv" ng-show="showme">
-    <section class="tlv-container">
   <form class="timeline" ng-submit="titleToSave.savetrip()">
     <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}">{{titleToSave}}</input>
   </form>
+  <section class="tlv" ng-show="showme">
+    <section class="tlv-container">
     <ul class="origin-section">
       <li class="city-desc">
         <span class="start-end">{{main.origin | removeUSA}}</span>
@@ -55,6 +55,7 @@
   </section> <!-- END .tlv-container -->
   <section id="map" class=""></section>
 </section> <!-- END .timeline-map -->
+
 <div class="desktop-button">
   <button class="desktop-bottom" ng-click="savetrip()">save this trip</button>
 </div>
