@@ -31,6 +31,12 @@ var destinationstart;
             console.log($scope.trips);
           });
 
+        $http.get(BASE_URL + '/api/whoami/')
+          .then(function(response){
+            $scope.user = response.data;
+          });
+
+
         }
     })
 
