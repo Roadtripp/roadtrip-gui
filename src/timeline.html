@@ -1,5 +1,5 @@
 <section class="main-content timeline">
- <h2 class="heading">Itinerary</h2>
+ <h2 class="heading center">Itinerary</h2>
  <div class="buttons">
   <button class="save" ng-click="savetrip()">save this trip</button>
   <a href="#/start"><button class="return">plan return trip</button></a>
@@ -13,6 +13,7 @@
       <span class="fa fa-5x fa-spinner fa-spin"></span>
       <span class="spinner-text">generating cities and activities</span>
   </div>
+<section class="timeline-map">
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">
   <form class="timeline" ng-submit="titleToSave.savetrip()">
@@ -49,11 +50,14 @@
         <span class="city-date">Arrives {{main.destination_date}}</span>
       </li>
     </ul>
-    <button class="bottom" ng-click="savetrip()">save this trip</button>
+    <!-- <button class="bottom" ng-click="savetrip()">save this trip</button> -->
   </section>
   </section> <!-- END .tlv-container -->
   <section id="map" class=""></section>
-
+</section> <!-- END .timeline-map -->
+<div class="desktop-button">
+  <button class="desktop-bottom" ng-click="savetrip()">save this trip</button>
+</div>
 
   <section class="footer">
     <div class="footer-container">

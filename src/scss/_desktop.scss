@@ -101,6 +101,9 @@ section.main {
    section.tlv {
      margin: 0 !important;
      width: 50% !important;
+     float: left;
+     height: 600px;
+     overflow: auto;
    }
 
 
@@ -109,16 +112,42 @@ section.main {
        color: white;
    }
 
+
+.timeline-map {
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+
    #map {
      display: block !important;
+     float: right;
+     width: 50%;
+     height: 600px;
+     margin: 0 auto;
 
      &.active {
        display: block !important;
      }
    }
 
+   button.bottom {
+     display: none;
+   }
 
+}
 
+div.desktop-button {
+  display: block;
+  margin-top: 20px;
+
+   button.desktop-bottom {
+     text-align: center;
+     margin: 0 auto 5px auto;
+     display: block;
+     padding: 2%;
+     font-size: .8em;
+   }
+}
 
 
 }
