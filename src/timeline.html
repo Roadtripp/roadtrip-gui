@@ -15,8 +15,8 @@
   </div>
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">
-  <form class="timeline" ng-submit="add.next()">
-    <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}" />
+  <form class="timeline" ng-submit="titleToSave.savetrip()">
+    <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}">{{titleToSave}}</input>
   </form>
     <ul class="origin-section">
       <li class="city-desc">

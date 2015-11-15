@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 768px) {
 
   .hamburger {
     display: none;
@@ -85,6 +85,34 @@ section.main {
      width: 50% !important;
      text-align: center !important;
      padding-left: 40px !important;
-
    }
+
+   div.trip {
+     font-size: 1em;
+   }
+
+   .saved {
+     max-width: 600px;
+     margin: 0 auto;
+     width: 60%;
+   }
+
+
+   section.tlv {
+     margin: 0 !important;
+     width: 50% !important;
+   }
+
+
+   [class*="dropdown-list-"] li label:hover {
+       background-color: $dark;
+       color: white;
+   }
+
+
+
+
+
+
+
 }

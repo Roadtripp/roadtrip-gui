@@ -39,7 +39,7 @@ var wdestinationstart;
 
 
 
-        }
+        };
 
       },
       controllerAs: 'welcome'
@@ -58,6 +58,12 @@ var wdestinationstart;
             $scope.trips = response.data.trips;
             console.log($scope.trips);
           });
+
+        $http.get(BASE_URL + '/api/whoami/')
+          .then(function(response){
+            $scope.user = response.data;
+          });
+
 
         }
     })
@@ -434,7 +440,9 @@ var wdestinationstart;
 
   //updates nav buttons
   function statusUpdate (){
+
     $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
       console.log("status logged in");
@@ -722,5 +730,8 @@ function fillInAddressW() {
 
 $('.hamburger').on('click', function(){
   $('.hamburger-nav').slideToggle('show');
+});
 
+$('.hamburger-nav li a').on('click', function(){
+  $('.hamburger-nav').slideToggle('show');
 });

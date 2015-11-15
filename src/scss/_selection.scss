@@ -175,16 +175,20 @@ article.activities {
 
 
     p.time {
-      font-size: .8em;
+      font-size: .9em;
       margin-left: 19px;
       margin-top: 0;
-      color: #BFBFBF;
+      color: darken(#c3c3c3, 15%);
       font-weight: 300;
     }
 
     hr.break {
       width: 100%;
+    }
 
+    a[href] {
+      text-decoration: none;
+      color: $dark;
     }
 
 }
