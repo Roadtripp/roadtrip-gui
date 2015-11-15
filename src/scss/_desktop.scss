@@ -105,6 +105,7 @@ section.main {
      float: left;
      height: 600px;
      overflow: auto;
+     padding-left: 14px;
 
         .tlv-container {
           width: auto !important;
@@ -124,7 +125,7 @@ section.main {
 .timeline-map {
   margin: 0 auto;
   width: 90%;
-  background: #fff;
+  // background: #fff;
 
    #map {
      display: block !important;
@@ -146,7 +147,9 @@ section.main {
 
 div.desktop-button {
   display: block;
-  margin-top: 20px;
+  margin: 20px auto;
+  width: 100%;
+  text-align: center;
 
    button.desktop-bottom {
      text-align: center;
@@ -154,6 +157,16 @@ div.desktop-button {
      display: block;
      padding: 1%;
      font-size: .8em;
+     display: inline-block;
+   }
+
+   button.desktop-bottom-return {
+     text-align: center;
+     margin: 0 auto 5px auto;
+     display: block;
+     padding: 1%;
+     font-size: .8em;
+     display: inline-block;
    }
 }
 
@@ -162,8 +175,8 @@ div.desktop-button {
   }
 
   div.buttons {
-    background: #fff;
-
+    background: #f5f5f5;
+    display: none;
       .save, .return {
         padding: 1% !important;
       }
@@ -172,10 +185,21 @@ div.desktop-button {
 
 
     .main-content.timeline {
-      background: #fff;
+      background: #f5f5f5;
     }
 
+form.timeline {
+  background: #f5f5f5;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 0 !important;
 
+  input {
+    height: 37px;
+  }
+
+
+}
 
 
 

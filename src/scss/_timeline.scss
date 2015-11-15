@@ -24,6 +24,9 @@ form.timeline {
       }
 }
 
+button.desktop-bottom-return {
+  display: none;
+}
 
 .timeline-map {
   @extend .clearfix;
@@ -44,7 +47,6 @@ div.desktop-button {
 
 #map {
   display: none !important;
-  background: #fff;
 
   &.active {
     display: block !important;
