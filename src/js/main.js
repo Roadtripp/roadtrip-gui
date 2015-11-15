@@ -1,11 +1,15 @@
 
+
+// place holder for google maps
 var originCity = "";
 var desinationCity = "";
 var waypointCities = [];
 
-var autocompleteorigin, autocompletedestination;
+//placeholder for google address autofill
+var autocompleteorigin, autocompletedestination, autocompleteW ;
 var originstart;
 var destinationstart;
+var wdestinationstart;
 
 
 ;(function(){
@@ -17,11 +21,35 @@ var destinationstart;
 
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
+      controller: function ($location, $rootScope){
+        var welcome = this;
+        $rootScope.htstyle();
+
+        $(function(){$("a.how-works").click(function(){
+          $("html,body").animate({scrollTop:$("#how-works-bottom").offset().top},"1000");return false})})
+
+
+
+        // $rootScope.header.css("background", "");
+
+
+        welcome.wdestination = wdestinationstart;
+
+        welcome.save = function (){
+
+
+
+        }
+
+      },
+      controllerAs: 'welcome'
     })
 
     .when('/home/user/', {
       templateUrl: 'admin.html',
-      controller: function ($http, $location, $routeParams, $scope){
+      controller: function ($http, $location, $routeParams, $rootScope, $scope){
+
+        $rootScope.htealstyle();
         $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
@@ -37,6 +65,7 @@ var destinationstart;
     .when('/panel-login', {
       templateUrl: 'login.html',
       controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
+        $rootScope.htealstyle();
         var login = this;
 
         login.user = { };
@@ -84,7 +113,8 @@ var destinationstart;
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-      controller: function($http, $location, $routeParams, $scope, $timeout){
+      controller: function($http, $location, $routeParams, $scope, $rootScope, $timeout){
+        $rootScope.htealstyle();
         $scope.pwvalid = true;
         $scope.unvalid = true;
         $scope.created = true;
@@ -140,16 +170,11 @@ var destinationstart;
       controllerAs: 'signup'
     }) // END .when
 
-    .when('/404', {
-      templateUrl: '404.html',
-    })
-
-
       // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
       controller: function($http, $location, $routeParams, $scope, $rootScope) {
-
+        $rootScope.htealstyle();
         $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
           .then(function(response){
 
@@ -201,6 +226,7 @@ var destinationstart;
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
+      $rootScope.htealstyle();
 
       $scope.loading = true; //show loading spinner
 
@@ -282,6 +308,7 @@ var destinationstart;
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
       controller: function($http, $rootScope, $scope, $location, $routeParams){
+        $rootScope.htealstyle();
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
 
@@ -367,8 +394,10 @@ var destinationstart;
 
     .when('/start', {
       templateUrl: 'start.html',
-      controller: function($http, $location) {
+      controller: function($http, $location, $rootScope) {
+        $rootScope.htealstyle();
         var add = this;
+        add.wdestination = wdestinationstart;
         add.trip = { };
 
         add.next = function(){
@@ -392,14 +421,28 @@ var destinationstart;
 })
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
+
+  //change header baackground to tranpasrent when on welcome page
+  $rootScope.htstyle = function (){
+    $rootScope.tstyle = {'background':'transparent'};
+  };
+  //change header baackground to teal when NOT on welcome page
+  $rootScope.htealstyle = function (){
+    $rootScope.tstyle = {'background':'#4AAAA5'};
+  };
+
+
   //updates nav buttons
   function statusUpdate (){
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
       console.log("status logged in");
+      console.log($http.defaults.headers.common.Authorization);
     } else {
       $scope.loggedIn = false;
       console.log("status logged out");
+      console.log($http.defaults.headers.common.Authorization);
     }
   }
   statusUpdate ();
@@ -646,6 +689,14 @@ function initAutocompleteD() {
   autocompletedestination.addListener('place_changed', fillInAddressD);
 }
 
+function initAutocompleteW() {
+
+  autocompleteW = new google.maps.places.Autocomplete(
+    (document.getElementById('welcome_destination')),
+    {types: ['geocode'],componentRestrictions: {country: "us"}});
+  autocompleteW.addListener('place_changed', fillInAddressW);
+}
+
 
 
 function fillInAddressO() {
@@ -659,6 +710,12 @@ function fillInAddressD() {
   var place = autocompletedestination.getPlace();
   destinationstart = place.formatted_address;
   console.log(destinationstart);
+}
+
+function fillInAddressW() {
+  var place = autocompleteW.getPlace();
+  wdestinationstart = place.formatted_address;
+  console.log(wdestinationstart);
 }
 
 

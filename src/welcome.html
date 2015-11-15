@@ -1,16 +1,33 @@
 <section class="main-content welcome">
-<h2 class="heading">Your way on the highway</h2>
-<p class="copy welcome">The ultimate roadtrip generator for 100+ cities.</p>
-<a href="#/start"><button class="start">start your first roadtrip</button></a>
 
-<img class="main" src="https://cloud.githubusercontent.com/assets/14016133/11099544/e7d64a90-8879-11e5-889c-3472017e317e.png">
-<img class="main" src="https://cloud.githubusercontent.com/assets/14016133/11099552/f8798ede-8879-11e5-9738-4224d3a5e387.png">
-<img class="main" src="https://cloud.githubusercontent.com/assets/14016133/11099299/9244530c-8878-11e5-9c92-47e4cbe2793d.png">
-<img class="main" src="https://cloud.githubusercontent.com/assets/14016133/11099507/b93e363e-8879-11e5-8ced-d207284a2d6c.png">
+<!-- <img class="banner" src="img/welcome-car.jpg"> -->
+<div class="welcome-top">
+
+<h2 class="heading">Your way on the highway</h2>
+<div class="welcome">
+     <input id="welcome_destination"  placeholder="Where you want to roadtrip to?"
+     onFocus="this.value = ''; initAutocompleteW()" type="text" required></input>
+     <a href="#/start" class="start"><i class="fa fa-arrow-circle-right"></i></a>
+</div>
+
+<p class="copy welcome">The ultimate roadtrip generator for 100+ cities. Personalized for you.</p>
+<div class="how-works">
+  <a id="how" href="#how-works-bottom" class="how-works">How it Works</a>
+  <div id="how-works-bottom"class="how-works-bottom"></div>
+</div>
+
+
+</div>
+
+
+<img class="main" src="img/welcome-food.png">
+<img class="main" src="img/welcome-music.png">
+<img class="main" src="img/welcome-sports.png">
+<img class="main" src="img/welcome-recreation.png">
 
 <section class="footer">
   <div class="footer-container">
-    <p class="footer"> powered by:<img class="footer" src="https://cloud.githubusercontent.com/assets/14016133/11045241/432f8618-86f4-11e5-992d-f22b6aa92d03.png"> <img src="https://cloud.githubusercontent.com/assets/14016133/11045397/3b7646ae-86f5-11e5-8442-5867c5c29dd4.png"></p>
+    <p class="footer"> powered by:<img class="footer" src="img/yelp_logo.png"> <img src="img/seatgeek_logo.png"></p>
     <p class="footer">&copy; ziptrip 2015
   </div>
 </section> <!-- END .footer -->

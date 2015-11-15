@@ -5,27 +5,126 @@ $light-teal: #7ACCC8;
 $green: #A3D39C;
 
 
+
 .main-content.welcome {
-  margin: 20px 10px 0 0;
+  margin: 0px 10px 0 0;
 	width: 100%;
+  background-image: url("../img/welcome-car-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 
-  img.main {
-    padding-bottom: 10px;
-    width: 100%;
+  // img.banner {
+  //   width: 100%;
+  //   position: absolute;
+  //   z-index: 0;
+  // }
+
+div.welcome-top {
+
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: relative;
+  margin-top: -64px;
+  align-items: center;
+
+  h2.heading {
+    margin-top: 0px;
+    padding-top: 2.9em;
+    color: white;
+    font-size: 2em;
+
   }
-
-  a[href] {
-    text-decoration: none;
-  }
-
-  button.start {
-    text-align: center;
-    margin: 0 auto 20px auto;
+  div.welcome {
+    margin: auto;
+    padding-top: 2.5em;
     display: block;
+    width: 85%;
+    align-items: baseline;
+    input#welcome_destination {
+      float: left;
+      display: inline-block;
+      width: 88%;
+      border-style: none;
+      height: 2.5em;
+      color: black;
+      font-weight: 300;
+      text-align: center;
+    }
+    a.start {
+      float: right;
+      width: 12%;
+      height: 2.5em;
+      background-color: lighten(#754AAA, 12%);
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      i {
+        font-size: 2.0em;
+        color: white;
+        padding-top: 5px;
+      }
+    }
+  }
+  p.copy.welcome {
+    position: absolute;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: $dark;
+    bottom: 5vh;
+    background: #f5f5f5;
+
+    @media screen and (max-height: 480px) { //color text white on height less than 480px (iphone 4)
+      color: white;
+      background: transparent;
+    }
+
+  }
+  div.how-works {
+    position: absolute;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    bottom: 0vh;
+    background: transparent;
+    a.how-works {
+      display: block;
+      text-align: center;
+      background: $teal;
+      text-decoration: none;
+      color: white;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-bottom: 2px solid $teal;
+
+
+    }
+    div.how-works-bottom {
+      display: block;
+      background: $teal;
+      display: block;
+      height: 10px;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 
 }
 
-p.copy.welcome {
-  width: 57vw;
+
+  img.main {
+    padding-bottom: 10px;
+    width: 100%;
+    &:hover > .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color:#000;
+    opacity:0.5;
+    border-radius:30px;
+    }
+  }
+
 }
