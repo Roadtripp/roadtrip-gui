@@ -1,16 +1,19 @@
 <section class="main-content login">
-  <h2 class="heading">Sign up</h2>
+  <h2 class="heading center">Sign up</h2>
 
   <div class="tab-content">
   <section id="panel-signup" class="panel active">
 
-  <section class="form-container">
+  <section class="form-container center">
       <form class="start" ng-submit="signup.createUser()">
         <fieldset>
-        <label>Username<input type="text" ng-model="signup.user.username" placeholder="username" /></label>
-        <label>Email<input type="email" ng-model="signup.user.email" placeholder="your@email.com" /></label>
-        <label>Password<input type="password" ng-model="signup.user.password" placeholder="********" /></label>
+        <label>Username<input type="text" ng-model="signup.user.username" placeholder="username" required/></label>
+        <label>Email<input type="email" ng-model="signup.user.email" placeholder="your@email.com" required/></label>
+        <label>Password<input id="pass1" type="password" ng-model="signup.user.password" placeholder="******" minlength=6 required/></label>
+        <label>Confirm Password<input id="pass2" type="password" placeholder="******" minlength=6 required/></label>
       </fieldset>
+      <span class="pass-error" ng-hide="pwvalid" >Password Does Not Match</span>
+      <span class="created" ng-hide="created" >Account Created!</span>
       <div class="button">
       <button class="login" type="submit">sign up</button>
       </div>

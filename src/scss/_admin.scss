@@ -1,7 +1,7 @@
 .main-content.admin {
   margin: 0px 10px 0 0;
 	width: 100%;
-	background: #fff;
+	// background: #fff;
 
     .saved {
       margin: 0 auto;
@@ -13,8 +13,49 @@ button.plan-a-trip {
   text-align: center;
   margin: 0 auto 20px auto;
   display: block;
+  padding: 7px;
 }
 
 a[href] {
   text-decoration: none;
+}
+
+h6 {
+  font-weight: 300;
+  color: $teal;
+  font-size: 1em;
+  margin: 0 auto 15px 0;
+}
+
+div.trip {
+  border: 1px solid #e6e6e6;
+  padding: 2%;
+  background: #fff;
+  margin: 0 auto;
+  @extend .clearfix;
+  margin-bottom: 4px;
+  font-size: 3vw;
+
+    a[href] {
+      display: inline-block;
+      text-decoration: none;
+      color: $dark;
+      width: 25%;
+      vertical-align: middle;
+    }
+
+    p.cities {
+      display: inline-block;
+      color: darken(#c3c3c3, 15%);
+      // padding-left: 3%;
+      width: 55%;
+      text-align: center;
+    }
+
+    p.date {
+      display: inline-block;
+      color: darken(#c3c3c3, 15%);
+      width: 18%;
+      text-align: right;
+    }
 }

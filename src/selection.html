@@ -1,46 +1,63 @@
 <section class="main-content selection">
   <h2 class="heading">Select events</h2>
   <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="/#trip/:id" class="active">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="active">step three</a></li>
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="active">step two</a></li>
+    <li><a href="" class="active">step three</a></li>
   </ul>
+
+  <section class="main">
+    <aside class="aside-container">
+          <img ng-src="https://cloud.githubusercontent.com/assets/14016133/11154418/35a88c12-8a0d-11e5-9bff-4031cfa58f25.png">
+          <p class="side">traveling from <strong>{{main.origin | removeUSA}}</strong> to <strong>{{main.destination | removeUSA}}</strong></p>
+          <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
+    </aside> <!-- END .aside-container -->
+
 <section class="form-container">
+  <div ng-show="loading" class ="spinner">
+      <span class="fa fa-5x fa-spinner fa-spin"></span>
+      <span class="spinner-text">generating cities and activities along your way...</span>
+  </div>
   <form class="suggestion-content" ng-repeat="city in suggestions" ng-submit="update()">
     <h3 class="cities">{{city.location}}</h3>
     <article class="activities">
       <div class="col-3">
       <h5 class="category" ng-hide="city.food.length === 0">food</h5>
       <div class="checkbox" ng-repeat="foo in city.food">
-      <input id="checkboxes" type="checkbox" ng-model="foo.activity_stopover" />{{foo.title}}
+      <a href="{{foo.url}}" target="_blank" href="#">
+      <input id="checkboxes" type="checkbox" ng-model="foo.activity_stopover" />{{foo.title}}</a>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-5">
       <h5 class="category" ng-hide="city.activities.length === 0">activities</h5>
       <div class="checkbox" ng-repeat="activity in city.activities">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}
+        <a href="{{activity.url}}" target="_blank" href="#">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</a>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-4">
       <h5 ng-hide="city.hotels.length === 0" class="category">lodging</h5>
       <div class="checkbox" ng-repeat="hotel in city.hotels">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}
+        <a href="{{hotel.url}}" target="_blank" href="#">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}</a>
         <label for="checkboxes"></label>
       </div>
     </div>
       <div class="col-1">
       <h5 ng-hide="city.sport.length === 0" class="category">sports</h5>
       <div class="checkbox" ng-repeat="sport in city.sport">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}<br><p class="time">{{sport.date}} @ {{sport.time}}</p>
+        <a href="{{sport.url}}" target="_blank" href="#">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}</a><br><p class="time">{{sport.date}} @ {{sport.time}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-2">
       <h5 ng-hide="city.artist.length === 0" class="category">entertainment</h5>
       <div class="checkbox" ng-repeat="artis in city.artist">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}<br><p class="time">{{artis.date}} @ {{artis.time}}</p>
+        <a href="{{artis.url}}" target="_blank" href="#">
+        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}</a><br><p class="time">{{artis.date}} @ {{artis.time}}</p>
         <label for="checkboxes"></label>
       </div>
   </div>
@@ -50,10 +67,11 @@
 
   </form>
   <div class="button">
-    <button class="next" type="submit" ng-click= "update()">generate trip</button>
+    <button ng-hide="loading" class="next" type="submit" ng-click= "update()">generate trip</button>
   </div>
 
 </section> <!-- END form-container -->
+</section> <!-- END .main -->
 
 <section class="footer">
   <div class="footer-container">

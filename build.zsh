@@ -15,6 +15,7 @@ cp src/welcome.html dist/
 cp src/favicon.ico dist/
 cp src/404.html dist/
 
+
 # mkdir dist/partials/
 # cp -r src/partials dist/
 
@@ -24,6 +25,17 @@ npm run sass
 echo 'Step 2b: Copy CSS into `dist/`?'
 mkdir dist/css/
 cp src/css/main.css dist/css/
+
+mkdir dist/img/
+cp src/img/welcome-food.png dist/img
+cp src/img/welcome-sports.png dist/img
+cp src/img/welcome-music.png dist/img
+cp src/img/welcome-recreation.png dist/img
+cp src/img/yelp_logo.png dist/img
+cp src/img/seatgeek_logo.png dist/img
+cp src/img/welcome-music.png dist/img
+cp src/img/welcome-car-mobile.jpg dist/img
+
 
 echo 'Step 3: Copy all the JS'
 mkdir -p dist/js && cp -r src/js dist/

@@ -4,6 +4,36 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+
+.form-container-selection {
+  border: 1px solid #e6e6e6;
+  padding: 5%;
+  max-width: 400px;
+  background: #fff;
+  margin: 0 auto;
+
+  .button {
+    margin: 0 auto;
+    width: 97%;
+    display: block;
+    position: relative;
+    text-align: center;
+
+      button.next {
+        display: inline-block;
+        color: #fff;
+        border: none;
+        vertical-align: middle;
+        margin-top: 2.5%;
+        margin-right: 2%;
+        padding: 2% 6%;
+      }
+
+  } // END .next-button
+
+}
+
+
 h2.heading {
   padding-top: 25px;
   margin-top: 0;
@@ -16,6 +46,49 @@ p.copy {
   width: 300px;
   color: $dark;
   margin: 0 auto 20px auto;
+}
+
+.breadcrumb-selection {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 0;
+  margin-left: auto; margin-right: auto;
+  max-width: 400px;
+
+    li {
+      float: left;
+    }
+
+    li a[href] {
+      color: lighten($accent, 20%);
+      text-decoration: none;
+      padding: 0px 30px 5px 0px;
+      position: relative;
+      display: block;
+      float: left;
+      font-size: .8em;
+      font-weight: 300;
+
+      &.active {
+        color: $accent;
+        font-weight: 400;
+      }
+
+    }
+
+}
+
+.breadcrumb-selection li a:after {
+	content: "\bb";
+	position: absolute;
+	left: 76%;
+	// z-index: 2;
+
+}
+
+.breadcrumb li:last-child a:after {
+  content: " " !important;
 }
 
 h3.cities {
@@ -31,13 +104,11 @@ h3.cities {
   width: 90%;
   margin: 0 auto;
 
-      // input[type=checkbox] {
+      // input[type=checkbox] { //HIDES CHECKBOXES
       // 	visibility: hidden;
       // }
 
       div.checkbox {
-        // width: 25px;
-        // margin: 20px 100px;
         position: relative;
       }
 
@@ -46,8 +117,6 @@ h3.cities {
     	position: absolute;
     	width: 18px;
     	height: 18px;
-    	// top: 0;
-      // left: 0;
     	background: #fff;
     	border:1px solid #ddd;
     }
@@ -84,9 +153,6 @@ h3.cities {
 
 form.suggestion-content {
   background: #fff;
-  // padding: 5%;
-  // min-width: 300px;
-  // max-width: 500px;
   background: #fff;
   margin-bottom: 25px;
 }
@@ -109,25 +175,26 @@ article.activities {
 
 
     p.time {
-      font-size: .8em;
+      font-size: .9em;
       margin-left: 19px;
       margin-top: 0;
-      color: #BFBFBF;
+      color: darken(#c3c3c3, 15%);
       font-weight: 300;
     }
 
     hr.break {
       width: 100%;
+    }
 
+    a[href] {
+      text-decoration: none;
+      color: $dark;
     }
 
 }
 
 
 [class*='col-'] {
-  // outline: 1px solid #000;
-  // width: 50%;
-  // float: left;
   margin-bottom: 18px;
 }
 

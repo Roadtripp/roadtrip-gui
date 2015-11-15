@@ -109,6 +109,7 @@ $fa-font-path: '../../bower_components/font-awesome/fonts';
 @import 'timeline';
 @import 'interest';
 @import 'map';
+@import 'desktop';
 
 $accent: #E45F56;
 $dark: #35404F;
@@ -139,31 +140,90 @@ section.main-content {
   // width: 90%;
 }
 
-header {
+header.main-header {
   @extend .grid;
   @extend .clearfix;
   width: 100%;
   text-align: left;
   position: relative;
   padding: 10px 5%;
-  background: $teal;
+  // background: $teal;
   color: #fff;
 
-        h1 {
-          font-weight: 200;
-          width: 30%;
-          margin: 0;
-          display: inline-block !important;
-          color: #fff;
+      h1 {
+        font-weight: 200;
+        width: 30%;
+        margin: 0;
+        display: inline-block !important;
+        color: #fff;
+        z-index: 1000;
 
-          a[href] {
-            text-decoration: none;
-            color: #fff;
+        a[href] {
+          text-decoration: none;
+          color: #fff;
+        }
+
+        img {
+          width: 35%;
+        }
+    }
+
+      .hamburger::before {
+        content: '\2261';
+        color: #fff;
+        font-size: 4em;
+        text-decoration: none;
+        position: absolute;
+        display: block;
+        top: -16px;
+        right: 5%;
+        z-index: 1000;
+      }
+
+      .hamburger-nav {
+        @extend .clearfix;
+        float: right;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 auto;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 48px;
+        z-index: 1000;
+
+          ul {
+            background: #fff;
+            // width: 100%;
+            height: auto;
+            padding: 5%;
+            position: relative;
+            display: block;
+            font-weight: 200;
+            opacity: 1;
+            z-index: 1000;
+
+              li {
+                list-style-type: none;
+                margin-bottom: 10px;
+                display: block;
+                color: $dark;
+                text-align: center;
+
+                a[href]{
+                  color: $teal;
+                  font-size: 1.4em;
+                }
+              }
           }
+      } // .nav
+
+      .show {
+        display: block !important;
       }
 
 
-}
+} // header
 
 .nav {
   margin-top: 15px;
@@ -172,6 +232,7 @@ header {
   clear: both;
   font-size: 10pt;
   font-weight: 200;
+  display: none;
 
     a {
       color: #fff;
@@ -205,6 +266,28 @@ button {
 }
 
 
+.spinner {
+  text-align: center;
+  color: $accent;
+  width: 100%;
+  margin-top: 200px auto;
+    span.fa-spin{
+      color: $accent;
+      margin-top: 25px;
+    }
+    span.spinner-text {
+      display: block;
+      color: $accent;
+      text-align: center;
+      font-weight: 300;
+      font-size: 0.9em;
+      margin-top: 25px;
+      margin-bottom: 50px;
+    }
+  // &.hide {
+  //   display: none;
+  // }
+}
 
 
 

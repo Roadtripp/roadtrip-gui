@@ -1,11 +1,15 @@
 
+
+// place holder for google maps
 var originCity = "";
 var desinationCity = "";
 var waypointCities = [];
 
-var autocompleteorigin, autocompletedestination;
+//placeholder for google address autofill
+var autocompleteorigin, autocompletedestination, autocompleteW ;
 var originstart;
 var destinationstart;
+var wdestinationstart;
 
 
 ;(function(){
@@ -17,17 +21,49 @@ var destinationstart;
 
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
+      controller: function ($location, $rootScope){
+        var welcome = this;
+        $rootScope.htstyle();
+
+        $(function(){$("a.how-works").click(function(){
+          $("html,body").animate({scrollTop:$("#how-works-bottom").offset().top},"1000");return false})})
+
+
+
+        // $rootScope.header.css("background", "");
+
+
+        welcome.wdestination = wdestinationstart;
+
+        welcome.save = function (){
+
+
+
+        };
+
+      },
+      controllerAs: 'welcome'
     })
 
     .when('/home/user/', {
       templateUrl: 'admin.html',
-      controller: function ($http, $location, $routeParams, $scope){
+      controller: function ($http, $location, $routeParams, $rootScope, $scope){
+
+        $rootScope.htealstyle();
+        $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
+            $scope.loading = false; //hide loading spinner
             $scope.usertrips = response.data;
             $scope.trips = response.data.trips;
             console.log($scope.trips);
           });
+
+        $http.get(BASE_URL + '/api/whoami/')
+          .then(function(response){
+            $scope.user = response.data;
+          });
+
 
         }
     })
@@ -35,6 +71,7 @@ var destinationstart;
     .when('/panel-login', {
       templateUrl: 'login.html',
       controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
+        $rootScope.htealstyle();
         var login = this;
 
         login.user = { };
@@ -60,7 +97,7 @@ var destinationstart;
 
             },
             function(){
-              //TODO: alert user "wrong username or password"
+              //TODO: show "wrong username/password"
             });
 
 
@@ -82,38 +119,83 @@ var destinationstart;
 
     .when('/panel-signup', {
       templateUrl: 'signup.html',
-      controller: function($http, $location, $routeParams){
+      controller: function($http, $location, $routeParams, $scope, $rootScope, $timeout){
+        $rootScope.htealstyle();
+        $scope.pwvalid = true;
+        $scope.unvalid = true;
+        $scope.created = true;
         var signup = this;
-
         signup.user = { };
 
         signup.createUser = function(){
-          console.log(signup.user);
-         $http.post( BASE_URL + '/api/register/', signup.user)
-           .then(function(response){
-             console.log(response.data);
-             signup.user = { };
-             $location.path('/panel-login/');
-           });
+
+            var pass1 = document.getElementById('pass1').value;
+            var pass2 = document.getElementById('pass2').value;
+            if (pass1 !== pass2)
+            {
+              $scope.pwvalid = false;
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+            } else {
+              document.getElementById('pass1').value = '';
+              document.getElementById('pass2').value = '';
+              $scope.pwvalid = true;
+
+
+
+
+              $http.post( BASE_URL + '/api/register/', signup.user)
+                .then(function(){
+
+                  $scope.created = false;
+                  signup.user = { };
+
+                  (function (){
+                    $timeout(function(){
+                      $location.path('/panel-login/');
+                    }, 2000);
+                  }) ();
+
+
+
+                }, function (response){
+                  //TODO: show error... like username exists
+                });
+
+
+
+            }
+
+
+
+
+
+
          };
       }, // END controller
       controllerAs: 'signup'
     }) // END .when
 
-    .when('/404', {
-      templateUrl: '404.html',
-    })
-
-
       // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
-      controller: function($http, $location, $routeParams, $scope) {
+      controller: function($http, $location, $routeParams, $scope, $rootScope) {
+        $rootScope.htealstyle();
+        $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
+          .then(function(response){
+
+            $rootScope.main = response.data;
+
+            originCity = $rootScope.main.origin;
+            desinationCity = $rootScope.main.destination;
+          });
+
         var pick = this;
 
         pick.selectedInt = { };
 
         $scope.sports = [{id: 'sport1'}];
+
 
         $scope.addNew = function(){
           var newItemNo = $scope.sports.length+1;
@@ -138,8 +220,11 @@ var destinationstart;
               console.log(pick.selectedInt);
           });
         };
+
+
       },
       controllerAs: 'pick'
+
     }) // END .when
 
 
@@ -147,11 +232,15 @@ var destinationstart;
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
+      $rootScope.htealstyle();
+
+      $scope.loading = true; //show loading spinner
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
+          $scope.loading = false; //hide loading spinner
 
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
@@ -207,6 +296,12 @@ var destinationstart;
 
       };
 
+      //TODO: inpect all save trip
+      $http.get( BASE_URL + '/api/trips/')
+        .then(function (response){
+          //TODO:scan all trips return true to hide save button
+        });
+
 
 
 
@@ -218,13 +313,18 @@ var destinationstart;
     // SELECTION PAGE
     .when('/trip/:id/suggestions', {
       templateUrl: 'selection.html',
-      controller: function($http, $rootScope, $location, $routeParams){
+      controller: function($http, $rootScope, $scope, $location, $routeParams){
+        $rootScope.htealstyle();
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
+
+        $scope.loading = true; //show loading spinner
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
           console.log(response);
+
+          $scope.loading = false; //hide loading spinner
 
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
@@ -232,6 +332,16 @@ var destinationstart;
 
 
       }); // END .then
+
+      $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
+        .then(function(response){
+
+          $rootScope.main = response.data;
+
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
+        });
+
 
 
 
@@ -290,8 +400,10 @@ var destinationstart;
 
     .when('/start', {
       templateUrl: 'start.html',
-      controller: function($http, $location) {
+      controller: function($http, $location, $rootScope) {
+        $rootScope.htealstyle();
         var add = this;
+        add.wdestination = wdestinationstart;
         add.trip = { };
 
         add.next = function(){
@@ -316,13 +428,38 @@ var destinationstart;
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
 
-  $scope.loggedIn = $cookies.get("zloggedin");
+  //change header baackground to tranpasrent when on welcome page
+  $rootScope.htstyle = function (){
+    $rootScope.tstyle = {'background':'transparent'};
+  };
+  //change header baackground to teal when NOT on welcome page
+  $rootScope.htealstyle = function (){
+    $rootScope.tstyle = {'background':'#4AAAA5'};
+  };
+
+
+  //updates nav buttons
+  function statusUpdate (){
+
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
+    if ($http.defaults.headers.common.Authorization !== undefined){
+      $scope.loggedIn = true;
+      console.log("status logged in");
+      console.log($http.defaults.headers.common.Authorization);
+    } else {
+      $scope.loggedIn = false;
+      console.log("status logged out");
+      console.log($http.defaults.headers.common.Authorization);
+    }
+  }
+  statusUpdate ();
 
   //TODO: http get whoami to show username in header
 
   $rootScope.login = function (){
     $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
-    $scope.loggedIn = $cookies.get("zloggedin");
+    statusUpdate();
     console.log($http.defaults.headers.common.Authorization);
   };
 
@@ -331,8 +468,8 @@ var destinationstart;
     $http.post(BASE_URL + '/api/logout/', logoutObject)
     .then (function (response){
       console.log("logged out from server");
-      $http.defaults.headers.common.Authorization = " ";
-      $cookies.remove("zloggedin"); //removes logged status
+      $http.defaults.headers.common.Authorization = undefined;
+      statusUpdate();
       $cookies.remove("zipt");  //removes token
       $cookies.remove("currenTrip"); //remove current trip number
       $location.path('/');
@@ -340,7 +477,7 @@ var destinationstart;
       console.log($http.defaults.headers.common.Authorization);
     }, function (){
       $location.path('/');
-      $scope.loggedIn = false;
+      statusUpdate();
     });
   };
 })
@@ -560,6 +697,14 @@ function initAutocompleteD() {
   autocompletedestination.addListener('place_changed', fillInAddressD);
 }
 
+function initAutocompleteW() {
+
+  autocompleteW = new google.maps.places.Autocomplete(
+    (document.getElementById('welcome_destination')),
+    {types: ['geocode'],componentRestrictions: {country: "us"}});
+  autocompleteW.addListener('place_changed', fillInAddressW);
+}
+
 
 
 function fillInAddressO() {
@@ -574,3 +719,19 @@ function fillInAddressD() {
   destinationstart = place.formatted_address;
   console.log(destinationstart);
 }
+
+function fillInAddressW() {
+  var place = autocompleteW.getPlace();
+  wdestinationstart = place.formatted_address;
+  console.log(wdestinationstart);
+}
+
+
+
+$('.hamburger').on('click', function(){
+  $('.hamburger-nav').slideToggle('show');
+});
+
+$('.hamburger-nav li a').on('click', function(){
+  $('.hamburger-nav').slideToggle('show');
+});

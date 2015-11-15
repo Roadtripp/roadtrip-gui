@@ -9,11 +9,9 @@ $green: #A3D39C;
   margin: 0 auto;
 }
 
-.form-container {
-
+.form-container-center {
 
     form.start {
-
 
           label {
             display: block;
@@ -44,9 +42,7 @@ $green: #A3D39C;
 .alternate {
   margin-top: 8px;
   border: 1px solid #e6e6e6;
-  padding: 5%;
-  // min-width: 300px;
-  // max-width: 500px;
+  padding: 2%;
   background: #fff;
   opacity: .93;
 
@@ -62,3 +58,33 @@ $green: #A3D39C;
           }
     }
 }
+
+
+label {
+  display: block;
+  padding: 5px 5px 10px 2px;
+  font-size: 1em;
+  color: darken(#c3c3c3, 15%);
+  text-transform: lowercase;
+  font-weight: 400;
+  margin-bottom: 8px;
+  // letter-spacing: 1px;
+}
+
+    span.pass-error {
+      display: block;
+      text-align: center;
+      color: red;
+      font-weight: 300;
+      font-size: 0.8em;
+      padding-top: 0px;
+    }
+
+    span.created {
+      display: block;
+      text-align: center;
+      color: green;
+      font-weight: 300;
+      font-size: 0.8em;
+      padding-top: 0px;
+    }

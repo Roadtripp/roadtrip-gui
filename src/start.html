@@ -1,26 +1,26 @@
 <section class="main-content start">
-  <h2 class="heading">Where to?</h2>
+  <h2 class="heading center">Where to?</h2>
   <section class="start-form-container">
-  <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="#/trip/:id" class="">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="">step three</a></li>
+  <ul class="breadcrumb center">
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="">step two</a></li>
+    <li><a href="" class="">step three</a></li>
   </ul>
-  <section class="form-container">
+  <section class="form-container center">
       <form class="start" ng-submit="add.next()">
         <fieldset>
-        <label>Origin<input id="autocomplete_origin" placeholder="Enter origin address"
+        <label>Origin<input id="autocomplete_origin" placeholder="Enter origin address" ;
              onFocus="this.value = ''; initAutocompleteO()" type="text" required></input></label>
-        <label>Destination<input id="autocomplete_destination"  placeholder="Enter destination address"
+        <label>Destination<input id="autocomplete_destination"  placeholder="Enter destination address" value="{{add.wdestination}}"
              onFocus="this.value = ''; initAutocompleteD()" type="text" required></input></label>
         <div class="dates">
           <label class="date-label" for="date_depart">Departure Date
-            <input name="date_depart" class="date start-date" ng-model="add.trip.origin_date" type="date" placeholder="11/09/2015"/>
+            <input name="date_depart" class="date start-date" ng-model="add.trip.origin_date" type="date"/>
           </label>
         </div>
         <div class="dates">
           <label class="date-label" for="date_arrive">Arrival Date
-            <input name="date_arrive" class="date end-date" ng-model="add.trip.destination_date" type="date" placeholder="11/12/2015"/>
+            <input name="date_arrive" class="date end-date" ng-model="add.trip.destination_date" type="date"/>
           </label>
         </div>
         <div class="button">

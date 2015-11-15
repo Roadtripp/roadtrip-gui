@@ -1,39 +1,50 @@
 <section class="main-content selection">
   <h2 class="heading">What are your interests?</h2>
   <ul class="breadcrumb">
-    <li><a href="#/start" class="active">step one</a></li>
-    <li><a href="#/trip/:id" class="active">step two</a></li>
-    <li><a href="#/trip/:id/suggestions" class="">step three</a></li>
+    <li><a href="" class="active">step one</a></li>
+    <li><a href="" class="active">step two</a></li>
+    <li><a href="" class="">step three</a></li>
   </ul>
+
+<section class="main">
+  <aside class="aside-container">
+        <img ng-src="https://cloud.githubusercontent.com/assets/14016133/11157719/19926692-8a21-11e5-8b8e-b062f0e9e671.png">
+        <p class="side">traveling from <strong>{{main.origin | removeUSA}}</strong> to <strong>{{main.destination | removeUSA}}</strong></p>
+        <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
+  </aside> <!-- END .aside-container -->
+
+
+
+
 <section class="form-container">
   <form class="interest-content" ng-submit="pick.interest()">
     <div class="dropdownb-food">
       <span class="general-food">Food</span>
       <p class="multiSelected-food"></p>
       <ul class="dropdown-list-food">
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.restaurants" value="all" /> I love everything</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.americannew" value="American (new)" /> American (new)</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.americantraditional" value="American (traditional)" /> American (traditional)</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.asianfusion" value="Asian Fusion" /> Asian Fusion</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.barbeque" ng-true-value="true" ng-false-value="false" value="barbeque" /> Barbeque</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.burgers" value="burgers" /> Burgers</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.cafes" value="Cafes" /> Cafes</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.chinese" value="Chinese" /> Chinese</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.comfortfood" value="Comfort Food" /> Comfort Food</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.filipino" value="Filipino" /> Filipino</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.fishandchips" value="Fish & Chips" /> Fish & Chips</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.foodstands" value="Food Stands" /> Food Stands</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.gastropubs" value="Gastropubs" /> Gastropubs</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.glutenfree" value="Gluten-Free" /> Gluten-Free</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.italian" value="Italian" /> Italian</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.mexican" value="Mexican" /> Mexican</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.pizza" value="Pizza" /> Pizza</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.salad" value="Salad" /> Salad</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.sandwiches" value="Sandwiches" /> Sandwiches</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.seafood" value="Seafood" /> Seafood</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.steakhouses" value="Steakhouses" /> Steakhouses</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.thai" value="Thai" /> Thai</label></li>
-          <li><label><input type="checkbox" ng-model="pick.selectedInt.food.vegan" value="Vegan" /> Vegan</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.restaurants" value="all" /> I love everything</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.americannew" value="American (new)" /> American (new)</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.americantraditional" value="American (traditional)" /> American (traditional)</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.asianfusion" value="Asian Fusion" /> Asian Fusion</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.barbeque" ng-true-value="true" ng-false-value="false" value="barbeque" /> Barbeque</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.burgers" value="burgers" /> Burgers</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.cafes" value="Cafes" /> Cafes</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.chinese" value="Chinese" /> Chinese</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.comfortfood" value="Comfort Food" /> Comfort Food</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.filipino" value="Filipino" /> Filipino</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.fishandchips" value="Fish & Chips" /> Fish & Chips</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.foodstands" value="Food Stands" /> Food Stands</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.gastropubs" value="Gastropubs" /> Gastropubs</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.glutenfree" value="Gluten-Free" /> Gluten-Free</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.italian" value="Italian" /> Italian</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.mexican" value="Mexican" /> Mexican</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.pizza" value="Pizza" /> Pizza</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.salad" value="Salad" /> Salad</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.sandwiches" value="Sandwiches" /> Sandwiches</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.seafood" value="Seafood" /> Seafood</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.steakhouses" value="Steakhouses" /> Steakhouses</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.thai" value="Thai" /> Thai</label></li>
+          <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.food.vegan" value="Vegan" /> Vegan</label></li>
       </ul>
   </div>
 
@@ -41,27 +52,27 @@
     <span class="general-activities">Recreation</span>
     <p class="multiSelected-activities"></p>
     <ul class="dropdown-list-activities">
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.amusementparks" value="Amusement Parks" /> Amusement Parks</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.aquariums" value="Aquariums" /> Aquariums</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.bars"value="Bars" /> Bars</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.beaches"value="Beaches" /> Beaches</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.bikerentals"value="Bike Rentals" /> Bike Rentals</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.boating"value="Boating" /> Boating</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.bowling"value="Bowling" /> Bowling</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.challengecourses"value="Challenge Courses" /> Challenge Courses</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.climbing"value="Climbing" /> Climbing</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.discgolf"value="Disc Golf" /> Disc Golf</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.jetskis"value="Jet Skis" /> Jet Skis</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.kidsactivities"value="Kids Activities" /> Kids Activities</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.museums"value="Museums" /> Museums</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.nightlife"value="Nightlife" /> Nightlife</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.parks"value="Parks" /> Parks</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.publicplazas"value="Public Plazas" /> Public Plazas</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.shopping"value="Shopping" /> Shopping</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.tours"value="Tours" /> Tours</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.waterparks"value="Water Parks" /> Water Parks</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.wineries"value="Wineries" /> Wineries</label></li>
-        <li><label><input type="checkbox" ng-model="pick.selectedInt.activities.zoos"value="Zoos" /> Zoos</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.amusementparks" value="Amusement Parks" /> Amusement Parks</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.aquariums" value="Aquariums" /> Aquariums</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.bars"value="Bars" /> Bars</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.beaches"value="Beaches" /> Beaches</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.bikerentals"value="Bike Rentals" /> Bike Rentals</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.boating"value="Boating" /> Boating</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.bowling"value="Bowling" /> Bowling</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.challengecourses"value="Challenge Courses" /> Challenge Courses</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.climbing"value="Climbing" /> Climbing</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.discgolf"value="Disc Golf" /> Disc Golf</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.jetskis"value="Jet Skis" /> Jet Skis</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.kidsactivities"value="Kids Activities" /> Kids Activities</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.museums"value="Museums" /> Museums</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.nightlife"value="Nightlife" /> Nightlife</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.parks"value="Parks" /> Parks</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.publicplazas"value="Public Plazas" /> Public Plazas</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.shopping"value="Shopping" /> Shopping</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.tours"value="Tours" /> Tours</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.waterparks"value="Water Parks" /> Water Parks</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.wineries"value="Wineries" /> Wineries</label></li>
+        <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.activities.zoos"value="Zoos" /> Zoos</label></li>
     </ul>
 </div>
 
@@ -69,14 +80,14 @@
   <span class="general-hotels">lodging</span>
   <p class="multiSelected-hotels"></p>
   <ul class="dropdown-list-hotels">
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.bedandbreakfast" value="Bed & Breakfast" /> Bed & Breakfast</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.campgrounds" value="Campgrounds" /> Campgrounds</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.healthretreats" value="Health Retreats" /> Health Retreats</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.hostels" value="Hostels" /> Hostels</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.hotels" value="Hotels" /> Hotels</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.resorts" value="Resorts" /> Resorts</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.rvparks" value="RV Parks" /> RV Parks</label></li>
-      <li><label><input type="checkbox" ng-model="pick.selectedInt.hotels.skiresorts" value="Ski Resorts" /> Ski Resorts</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.bedandbreakfast" value="Bed & Breakfast" /> Bed & Breakfast</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.campgrounds" value="Campgrounds" /> Campgrounds</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.healthretreats" value="Health Retreats" /> Health Retreats</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.hostels" value="Hostels" /> Hostels</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.hotels" value="Hotels" /> Hotels</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.resorts" value="Resorts" /> Resorts</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.rvparks" value="RV Parks" /> RV Parks</label></li>
+      <li><label class="interests"><input type="checkbox" ng-model="pick.selectedInt.hotels.skiresorts" value="Ski Resorts" /> Ski Resorts</label></li>
   </ul>
 </div>
 
@@ -104,6 +115,8 @@
 </form>
 
 </section> <!-- END form-container -->
+
+</section> <!-- END main -->
 
 
 <script>
@@ -205,28 +218,6 @@ $(function () {
 
 
 
-    // var x = 1;
-    // $('button.add-more-sports').on('click', function(event){
-    //   event.preventDefault();
-    //
-    //   if(x < 5) {
-    //     x++;
-    //     // var z = x.toString();
-    //     $('.sportInputs').append('<input class="sports" ng-model='"pick.selectedInt.sports" + x'></input>');
-    //   }
-    // });
-    //
-    //
-    // var y = 1;
-    //
-    // $('button.add-more-artist').on('click', function(event){
-    //   event.preventDefault();
-    //
-    //   if(y < 5) {
-    //     y++;
-    //     $('.artistInputs').append('<input class="artists" ng-model="pick.selectedInt.artist2"></input>');
-    //   }
-    // });
 
 
 }); // END FULL FUNCTION
