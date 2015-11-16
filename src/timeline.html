@@ -1,9 +1,10 @@
-<h2 class="heading center">Itinerary</h2>
 <section class="main-content timeline">
-  <div class="buttons">
-   <button class="save" ng-click="savetrip()">save this trip</button>
-   <a href="#/start"><button class="return">plan return trip</button></a>
- </div>
+ <h2 class="heading">Itinerary</h2>
+ <div class="buttons">
+  <button class="save" ng-click="savetrip()">save this trip</button>
+  <a href="#/start"><button class="return">plan return trip</button></a>
+</div>
+
   <nav class="tabs">
     <a href="" ng-click="showme=true" class="button-timeline active" ng-init="showme=true">Timeline</a>
     <a href="" ng-click="showme=false" class="button-map">Map View</a>
@@ -12,12 +13,11 @@
       <span class="fa fa-5x fa-spinner fa-spin"></span>
       <span class="spinner-text">generating cities and activities</span>
   </div>
-<section class="timeline-map">
-  <form class="timeline" ng-submit="titleToSave.savetrip()">
-    <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}" />
-  </form>
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">
+  <form class="timeline" ng-submit="titleToSave.savetrip()">
+    <input class="user-title" ng-model="add.trip.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}">{{titleToSave}}</input>
+  </form>
     <ul class="origin-section">
       <li class="city-desc">
         <span class="start-end">{{main.origin | removeUSA}}</span>
@@ -49,16 +49,11 @@
         <span class="city-date">Arrives {{main.destination_date}}</span>
       </li>
     </ul>
-    <!-- <button class="bottom" ng-click="savetrip()">save this trip</button> -->
+    <button class="bottom" ng-click="savetrip()">save this trip</button>
   </section>
   </section> <!-- END .tlv-container -->
   <section id="map" class=""></section>
-</section> <!-- END .timeline-map -->
 
-<div class="desktop-button">
-  <button class="desktop-bottom" ng-click="savetrip()">save this trip</button>
-  <a href="#/start"><button class="desktop-bottom-return">plan return trip</button></a>
-</div>
 
   <section class="footer">
     <div class="footer-container">

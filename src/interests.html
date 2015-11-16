@@ -93,10 +93,9 @@
 
   <section class="sportInputs">
     <h4>Sports</h4>
-    <!-- <p class="ex">&nbsp;&nbsp;(ie. Football, Hurricanes)</p> -->
     <button ng-click="addNew()" type="button" class="add-more-sports">+</button>
     <div data-ng-repeat="sport in sports">
-    <input type="text" class="sports" ng-model="pick.selectedInt.sport.sport1[$index]" placeholder="Carolina Panthers"></input>
+    <input type="text" class="sports" ng-model="pick.selectedInt.sport.sport1[$index]" placeholder="Greenbay Packers"></input>
   </div>
   </section>
 
@@ -126,7 +125,7 @@ $(function () {
     // FOOD
     $(".dropdownb-food").on('click', function () {
         $(this).toggleClass("active");
-        $('.multiSelected-food').addClass('show'); //addClass
+        $('.multiSelected-food').addClass('show');
           event.stopPropagation();
     });
 
@@ -173,14 +172,6 @@ $(function () {
       }
     })
 
-    $('.dropdownb-food').on('click', function(event){
-      $('.dropdownb-activities').removeClass('active');
-    })
-
-    $('.dropdownb-hotels').on('click', function(event){
-      $('.dropdownb-activities').removeClass('active');
-    })
-
     $('.dropdown-list-activities input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-activities').find('input[type="checkbox"]').val(),
       selected = $(this).val() + ", ";
@@ -210,13 +201,6 @@ $(function () {
       }
     })
 
-    $('.dropdownb-activities').on('click', function(event){
-      $('.dropdownb-hotels').removeClass('active');
-    })
-
-    $('.dropdownb-food').on('click', function(event){
-      $('.dropdownb-hotels').removeClass('active');
-    })
 
     $('.dropdown-list-hotels input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-hotels').find('input[type="checkbox"]').val(),

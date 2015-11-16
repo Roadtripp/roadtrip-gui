@@ -4,13 +4,6 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
-
-p.ex {
-  display: inline-block;
-  font-size: .6em;
-  color: #c3c3c3;
-}
-
 .selected {
 
     .interests {
@@ -133,7 +126,6 @@ p[class*='multiSelected-'].show {
       font-weight: 300;
       font-size: 1em;
       color: darken(#c3c3c3, 15%);
-      // display: inline-block; //remove if i.e. removed
 
     }
 
@@ -147,7 +139,6 @@ input.sports, input.artists {
   border: 1px solid #c3c3c3;
   font-weight: lighter;
   padding-left: 3%;
-
 }
 
 

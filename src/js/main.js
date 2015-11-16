@@ -196,9 +196,9 @@ var wdestinationstart;
 
         $scope.sports = [{id: 'sport1'}];
 
+
         $scope.addNew = function(){
           var newItemNo = $scope.sports.length+1;
-
           $scope.sports.push({'id':'sport'+ newItemNo});
         };
 
@@ -236,16 +236,14 @@ var wdestinationstart;
 
       $scope.loading = true; //show loading spinner
 
-      var get1 = false;
-      var get2 = false;
-
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
 
-          get1 = true;
+          // $scope.category = $scope.cities.activity_set.category;
+          // console.log($scope.category);
 
           console.log($rootScope.cities);
           // Generate Waypoint cities in array for Google Maps use
@@ -256,9 +254,11 @@ var wdestinationstart;
             waypointCities.push(temp);
           }
 
-            bothGetDone();
 
+// END POINT FOR SAVING A TRIP- /trip/:id/save/
         });
+
+
 
 
       // Get Origin and Destination Details for Timeline
@@ -271,25 +271,16 @@ var wdestinationstart;
 
           console.log($rootScope.main);
 
-          get2 = true;
-          bothGetDone();
-
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
         });
 
-        function bothGetDone(){
-          if (get1 && get2) {
-            initMap();
-          }
-        }
 
       $scope.savetrip = function (){
         var titleToSave = { };
         titleToSave.title = $scope.main.title;
         console.log($http.defaults.headers.common.Authorization);
-        console.log(titleToSave);
 
         //if user logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
@@ -314,8 +305,7 @@ var wdestinationstart;
 
 
 
-    },
-    // controllerAs: 'titleToSave'
+    }
   })
 
 
@@ -439,57 +429,58 @@ var wdestinationstart;
 
 
   //change header baackground to tranpasrent when on welcome page
-    $rootScope.htstyle = function (){
-      $rootScope.tstyle = {'background':'transparent'};
-    };
-    //change header baackground to teal when NOT on welcome page
-    $rootScope.htealstyle = function (){
-      $rootScope.tstyle = {'background':'#4AAAA5'};
-    };
+  $rootScope.htstyle = function (){
+    $rootScope.tstyle = {'background':'transparent'};
+  };
+  //change header baackground to teal when NOT on welcome page
+  $rootScope.htealstyle = function (){
+    $rootScope.tstyle = {'background':'#4AAAA5'};
+  };
+
+
+  //updates nav buttons
+  function statusUpdate (){
 
     $http.defaults.headers.common.Authorization = $cookies.get("zipt");
-    //updates nav buttons
-    function statusUpdate (){
 
-      if ($http.defaults.headers.common.Authorization !== undefined){
-        $scope.loggedIn = true;
-        console.log("status logged in");
-        console.log($http.defaults.headers.common.Authorization);
-      } else {
-        $scope.loggedIn = false;
-        console.log("status logged out");
-        console.log($http.defaults.headers.common.Authorization);
-      }
-    }
-    statusUpdate ();
-
-    //TODO: http get whoami to show username in header
-
-    $rootScope.login = function (){
-      $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
-      statusUpdate();
+    if ($http.defaults.headers.common.Authorization !== undefined){
+      $scope.loggedIn = true;
+      console.log("status logged in");
       console.log($http.defaults.headers.common.Authorization);
-    };
+    } else {
+      $scope.loggedIn = false;
+      console.log("status logged out");
+      console.log($http.defaults.headers.common.Authorization);
+    }
+  }
+  statusUpdate ();
 
-    $rootScope.logout = function (){
-      var logoutObject = { };
-      $http.post(BASE_URL + '/api/logout/', logoutObject)
-      .then (function (response){
-        console.log("logged out from server");
-        $http.defaults.headers.common.Authorization = undefined;
-        statusUpdate();
-        $cookies.remove("zipt");  //removes token
-        $cookies.remove("currenTrip"); //remove current trip number
-        $location.path('/');
-        $scope.loggedIn = false;
-        console.log($http.defaults.headers.common.Authorization);
-      }, function (){
-        $http.defaults.headers.common.Authorization = undefined;
-        $location.path('/');
-        statusUpdate();
-      });
-    };
-  })
+  //TODO: http get whoami to show username in header
+
+  $rootScope.login = function (){
+    $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
+    statusUpdate();
+    console.log($http.defaults.headers.common.Authorization);
+  };
+
+  $rootScope.logout = function (){
+    var logoutObject = { };
+    $http.post(BASE_URL + '/api/logout/', logoutObject)
+    .then (function (response){
+      console.log("logged out from server");
+      $http.defaults.headers.common.Authorization = undefined;
+      statusUpdate();
+      $cookies.remove("zipt");  //removes token
+      $cookies.remove("currenTrip"); //remove current trip number
+      $location.path('/');
+      $scope.loggedIn = false;
+      console.log($http.defaults.headers.common.Authorization);
+    }, function (){
+      $location.path('/');
+      statusUpdate();
+    });
+  };
+})
 
 .filter('removeUSA', function () {
     return function (text) {
@@ -732,7 +723,6 @@ function fillInAddressD() {
 function fillInAddressW() {
   var place = autocompleteW.getPlace();
   wdestinationstart = place.formatted_address;
-  destinationstart = wdestinationstart;
   console.log(wdestinationstart);
 }
 
