@@ -4,6 +4,21 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+@keyframes bg-cat {
+    0%   {background-color: rgba(0, 0, 0, 0.1);}
+    25%  {background-color: rgba(0, 0, 0, 0.2);}
+    50%  {background-color: rgba(0, 0, 0, 0.3);}
+    75%  {background-color: rgba(0, 0, 0, 0.4);}
+    100% {background-color: rgba(0, 0, 0, 0.5);}
+
+    0%   {color: rgba(255, 255, 255, 0.1);}
+    25%  {color: rgba(255, 255, 255, 0.3);}
+    50%  {color: rgba(255, 255, 255, 0.6);}
+    75%  {color: rgba(255, 255, 255, 0.8);}
+    100% {color: rgba(255, 255, 255, 1.0);}
+}
+
+
 
 
 .main-content.welcome {
@@ -42,6 +57,9 @@ div.welcome-top {
   @media screen and (min-height: 627px) { //iphone6 height
     height: 540px;
   }
+  @media screen and (min-height: 659px) { //nexus6 height
+    height: 565px;
+  }
 
   @media screen and (min-height: 736px) { //iphone6+ height
     height: 640px;
@@ -69,7 +87,7 @@ div.welcome-top {
     @media screen and (min-width: 400px) { //iphone6+ height
       font-size: 3em;
     }
-    @media screen and (min-width: 600px) { //iphone6+ height
+    @media screen and (min-width: 600px) { //tablet width
       padding-top: 4em;
     }
 
@@ -83,7 +101,7 @@ div.welcome-top {
     align-items: baseline;
     margin-bottom: 60%;
     @extend .clearfix;
-    @media screen and (min-width: 600px) { //iphone6+ height
+    @media screen and (min-width: 600px) { //tablet
       width: 85%;
     }
 
@@ -132,44 +150,170 @@ div.welcome-top {
       padding-top: 5px;
       color: $dark;
       margin-bottom: 20px;
+    }
     a.how-works {
       display: block;
       text-align: center;
-      background-color: $teal;
       color: white;
       padding-left: 5px;
       padding-right: 5px;
+      text-decoration: none;
       i.fa-angle-double-down{
         text-decoration: none;
         font-size: 2em;
+        color: $dark;
       }
-
-
-    }
-    div.how-works-bottom {
-      display: block;
-      background: $teal;
-      display: block;
-      height: 10px;
-      width: 100%;
-      margin: 0 auto;
     }
   }
 
 
-  }
 
+@media screen and (max-width: 480px) {
 
-
-  div.images{
-    margin-top: 10px;
+  div.categories{
     width: 100%;
-    img.wel-act {
-      padding-bottom: 10px;
+    div.categoryw{
+      position: relative;
       width: 100%;
+      margin-bottom: 1em;
+      img.cat-pic{
+        width: 100%;
+      }
+      span.cat-big{
+        width: 100%;
+        position: absolute;
+        top: 23%;
+        left: 0%;
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 3em;
+        font-weight: 500;
+        &.hide {
+          display: none;
+        }
+      }
+      span.cat-small{
+        width: 100%;
+        padding: 0 12%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.hide {
+          display: none;
+        }
+
+      }
+      div.cat-pop {
+
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        padding: 0 2%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        color: transparent;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 400;
+        z-index: 1000;
+        @media screen and (max-width: 320px) { //iphone5 height
+          font-size: 1.6em;
+          display: none;
+        }
+        &.active{
+          animation-name: bg-cat;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+      }
     }
   }
-  //mobile view
+}//end mobile view
+
+//tablet view
+@media screen and (max-width: 800px) {
+
+  div.categories{
+    width: 100%;
+    text-align: center;
+    div.categoryw{
+      display: inline-block;
+      position: relative;
+      width: 49.7%;
+      margin-bottom: 1em;
+      img.cat-pic{
+        width: 100%;
+      }
+      span.cat-big{
+        width: 100%;
+        position: absolute;
+        top: 23%;
+        left: 0%;
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 3em;
+        font-weight: 500;
+        &.hide {
+          display: none;
+        }
+      }
+      span.cat-small{
+        width: 100%;
+        padding: 0 12%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.hide {
+          display: none;
+        }
+
+      }
+      div.cat-pop {
+
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        padding: 0 2%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        color: transparent;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 400;
+        z-index: 1000;
+        @media screen and (max-width: 320px) { //iphone5 height
+          font-size: 1.6em;
+          display: none;
+        }
+        &.active{
+          animation-name: bg-cat;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}//end tablet view
+
+  //mobile view meet the team
   a.meet-team {
     text-align: center;
     display: block;
@@ -220,7 +364,9 @@ div.welcome-top {
       }
     }
   }
-  @media screen and (min-width: 600px) { //iphone6+ height
+
+  //tablet view meet the team
+  @media screen and (min-width: 600px) {
     div.team {
       width: 80%;
       margin: 0 auto;
