@@ -9,17 +9,17 @@
   <section class="form-container center">
       <form class="start" ng-submit="add.next()">
         <fieldset>
-        <label>Origin<input id="autocomplete_origin" placeholder="Enter origin address" ;
+        <label class="gray">Origin<input id="autocomplete_origin" placeholder="Enter origin address" ;
              onFocus="this.value = ''; initAutocompleteO()" type="text" required></input></label>
-        <label>Destination<input id="autocomplete_destination"  placeholder="Enter destination address" value="{{add.wdestination}}"
+        <label class="gray">Destination<input id="autocomplete_destination"  placeholder="Enter destination address" value="{{add.wdestination}}"
              onFocus="this.value = ''; initAutocompleteD()" type="text" required></input></label>
         <div class="dates">
-          <label class="date-label" for="date_depart">Departure Date
+          <label class="gray" for="date_depart">Departure Date
             <input name="date_depart" class="date start-date" ng-model="add.trip.origin_date" type="date"/>
           </label>
         </div>
         <div class="dates">
-          <label class="date-label" for="date_arrive">Arrival Date
+          <label class="gray" for="date_arrive">Arrival Date
             <input name="date_arrive" class="date end-date" ng-model="add.trip.destination_date" type="date"/>
           </label>
         </div>

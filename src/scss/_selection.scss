@@ -4,6 +4,17 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+label.title {
+  color: $dark !important;
+  display: inline-block !important;
+  font-size: 1em !important;
+}
+
+div.checkbox {
+  a[href] {
+    display: inline-block;
+  }
+}
 
 .form-container-selection {
   border: 1px solid #e6e6e6;
@@ -108,46 +119,46 @@ h3.cities {
       // 	visibility: hidden;
       // }
 
-      div.checkbox {
-        position: relative;
-      }
-
-      div.checkbox label {
-    	cursor: pointer;
-    	position: absolute;
-    	width: 18px;
-    	height: 18px;
-    	background: #fff;
-    	border:1px solid #ddd;
-    }
-
-    .checkbox label:after {
-    	opacity: 0.4;
-    	content: '';
-    	position: absolute;
-    	width: 10px;
-    	height: 6px;
-    	background: transparent;
-    	top: 4px;
-    	left: 3px;
-    	border: 3px solid darken($green, 10%);
-    	border-top: none;
-    	border-right: none;
-
-    	-webkit-transform: rotate(-45deg);
-    	-moz-transform: rotate(-45deg);
-    	-o-transform: rotate(-45deg);
-    	-ms-transform: rotate(-45deg);
-    	transform: rotate(-45deg);
-    }
-
-    .checkbox label:hover::after {
-	     opacity: 0.5;
-     }
-
-    .checkbox input[type=checkbox]:checked + label:after {
- 	     opacity: 1;
- }
+ //      div.checkbox {
+ //        position: relative;
+ //      }
+ //
+ //      div.checkbox label {
+ //    	cursor: pointer;
+ //    	position: absolute;
+ //    	width: 18px;
+ //    	height: 18px;
+ //    	background: #fff;
+ //    	border:1px solid #ddd;
+ //    }
+ //
+ //    .checkbox label:after {
+ //    	opacity: 0.4;
+ //    	content: '';
+ //    	position: absolute;
+ //    	width: 10px;
+ //    	height: 6px;
+ //    	background: transparent;
+ //    	top: 4px;
+ //    	left: 3px;
+ //    	border: 3px solid darken($green, 10%);
+ //    	border-top: none;
+ //    	border-right: none;
+ //
+ //    	-webkit-transform: rotate(-45deg);
+ //    	-moz-transform: rotate(-45deg);
+ //    	-o-transform: rotate(-45deg);
+ //    	-ms-transform: rotate(-45deg);
+ //    	transform: rotate(-45deg);
+ //    }
+ //
+ //    .checkbox label:hover::after {
+ //      opacity: 0.5;
+ //     }
+ //
+ //    .checkbox input[type=checkbox]:checked + label:after {
+ // 	     opacity: 1;
+ // }
 
 }
 
@@ -176,10 +187,12 @@ article.activities {
 
     p.time {
       font-size: .9em;
-      margin-left: 19px;
+      margin-left: 6px;
       margin-top: 0;
       color: darken(#c3c3c3, 15%);
       font-weight: 300;
+      width: auto;
+      display: inline-block;
     }
 
     hr.break {
@@ -189,6 +202,7 @@ article.activities {
     a[href] {
       text-decoration: none;
       color: $dark;
+      margin-left: 22px;
     }
 
 }

@@ -8,11 +8,13 @@
       <span class="fa fa-5x fa-spinner fa-spin"></span>
       <span class="spinner-text"></span>
   </div>
-  <div class="trip" ng-repeat="trip in trips">
-    <a href="#/trip/{{trip.id}}/city">{{trip.title}}</a>
+
+  <a href="#/trip/{{trip.id}}/city" ng-repeat="trip in trips">
+  <div class="trip">
+    <p class="title-trip">{{trip.title}}</p>
       <p class="cities">{{trip.origin | removeUSA}} to {{trip.destination | removeUSA}}</p>
       <p class="date">{{trip.origin_date | date : 'shortDate'}}</p>
-  </div>
+  </div></a>
 
 </section>
 </section>

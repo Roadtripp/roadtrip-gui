@@ -1,5 +1,5 @@
 <section class="main-content selection">
-  <h2 class="heading">Select events</h2>
+  <h2 class="heading">Choose your own adventure</h2>
   <ul class="breadcrumb">
     <li><a href="" class="active">step one</a></li>
     <li><a href="" class="active">step two</a></li>
@@ -24,40 +24,42 @@
       <div class="col-3">
       <h5 class="category" ng-hide="city.food.length === 0">food</h5>
       <div class="checkbox" ng-repeat="foo in city.food">
-      <a href="{{foo.url}}" target="_blank" href="#">
-      <input id="checkboxes" type="checkbox" ng-model="foo.activity_stopover" />{{foo.title}}</a>
+
+      <label class="title"><input id="checkboxes" type="checkbox" ng-model="foo.activity_stopover" /> &nbsp;{{foo.title}}</label><br>
+      <a href="{{foo.url}}"><img ng-src="{{foo.small_rate_img_url}}"/></a><p class="time">{{foo.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-5">
       <h5 class="category" ng-hide="city.activities.length === 0">activities</h5>
       <div class="checkbox" ng-repeat="activity in city.activities">
-        <a href="{{activity.url}}" target="_blank" href="#">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/>{{activity.title}}</a>
+
+        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/> &nbsp;{{activity.title}}</label><br>
+         <a href="{{activity.url}}"><img ng-src="{{activity.small_rate_img_url}}"/></a><p class="time">{{activity.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-4">
       <h5 ng-hide="city.hotels.length === 0" class="category">lodging</h5>
       <div class="checkbox" ng-repeat="hotel in city.hotels">
-        <a href="{{hotel.url}}" target="_blank" href="#">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/>{{hotel.title}}</a>
+        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/> &nbsp;{{hotel.title}}</label><br>
+        <a href="{{hotel.url}}"><img ng-src="{{hotel.small_rate_img_url}}"/></a><p class="time">{{hotel.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
       <div class="col-1">
       <h5 ng-hide="city.sport.length === 0" class="category">sports</h5>
       <div class="checkbox" ng-repeat="sport in city.sport">
-        <a href="{{sport.url}}" target="_blank" href="#">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/>{{sport.title}}</a><br><p class="time">{{sport.date}} @ {{sport.time}}</p>
+        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/> &nbsp;{{sport.title}}</title><br><p class="time">{{sport.date}} @ {{sport.time}}</p>
+          <a href="{{sport.url}}">{{sport.lowest_price}} - {{sport.highest_price}}</a><p class="time">{{sport.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
     <div class="col-2">
       <h5 ng-hide="city.artist.length === 0" class="category">entertainment</h5>
       <div class="checkbox" ng-repeat="artis in city.artist">
-        <a href="{{artis.url}}" target="_blank" href="#">
-        <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/>{{artis.title}}</a><br><p class="time">{{artis.date}} @ {{artis.time}}</p>
+        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/> &nbsp;{{artis.title}}</title><br><p class="time">{{artis.date}} @ {{artis.time}}</p>
+          <a href="{{artis.url}}">{{artis.lowest_price}} - {{artis.highest_price}}</a><p class="time">{{artis.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
   </div>
