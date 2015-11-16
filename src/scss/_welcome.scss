@@ -4,14 +4,28 @@ $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
 
+@keyframes bg-cat {
+    0%   {background-color: rgba(0, 0, 0, 0.1);}
+    25%  {background-color: rgba(0, 0, 0, 0.2);}
+    50%  {background-color: rgba(0, 0, 0, 0.3);}
+    75%  {background-color: rgba(0, 0, 0, 0.4);}
+    100% {background-color: rgba(0, 0, 0, 0.5);}
+
+    0%   {color: rgba(255, 255, 255, 0.1);}
+    25%  {color: rgba(255, 255, 255, 0.3);}
+    50%  {color: rgba(255, 255, 255, 0.6);}
+    75%  {color: rgba(255, 255, 255, 0.8);}
+    100% {color: rgba(255, 255, 255, 1.0);}
+}
+
+
 
 
 .main-content.welcome {
   margin: 0px 10px 0 0;
 	width: 100%;
-  background-image: url("../img/welcome-car-mobile.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  z-index: 2;
+
 
   // img.banner {
   //   width: 100%;
@@ -22,109 +36,535 @@ $green: #A3D39C;
 div.welcome-top {
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: block;
   position: relative;
   margin-top: -64px;
   align-items: center;
+  background-image: url("../img/welcome-car-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 3;
 
-  h2.heading {
+  @media screen and (min-height: 480px) { //iphone4 height
+    height: 370px;
+  }
+
+  @media screen and (min-height: 570px) { //iphone5 height
+    height: 528px;
+  }
+
+  @media screen and (min-height: 627px) { //iphone6 height
+    height: 540px;
+  }
+  @media screen and (min-height: 659px) { //nexus6 height
+    height: 565px;
+  }
+
+  @media screen and (min-height: 736px) { //iphone6+ height
+    height: 640px;
+  }
+
+
+  @media screen and (min-height: 1024px) { //tablet height
+    height: 750px;
+  }
+
+  @media screen and (min-width: 600px) { //ipad min height
+    background-image: url("../img/welcome-car-tablet.jpg");
+  }
+  @media (min-width: 1000px) { //ipad min height
+    background-image: url("../img/welcome-car-desktop.jpg");
+  }
+
+
+  h2.welcome {
     margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 2.9em;
     color: white;
     font-size: 2em;
+    text-align: center;
+    width: 80%;
+    @media screen and (min-width: 400px) { //iphone6+ height
+      font-size: 3em;
+    }
+    @media screen and (min-width: 600px) { //tablet width
+      padding-top: 4em;
+    }
+    @media screen and (min-width: 1000px) { //dekstop width
+      font-size: 4em;
+      padding-top: 2em;
+    }
+
 
   }
   div.welcome {
     margin: auto;
-    padding-top: 2.5em;
+    margin-top: 2.5em;
     display: block;
     width: 85%;
     align-items: baseline;
+    margin-bottom: 60%;
+    border: 3px solid $teal;
+    @extend .clearfix;
+    @media screen and (min-width: 600px) { //tablet
+      width: 65%;
+    }
+
+
+
     input#welcome_destination {
       float: left;
       display: inline-block;
       width: 88%;
       border-style: none;
+      border: 1px solid $teal;
       height: 2.5em;
       color: black;
-      font-weight: 300;
+      font-weight: 400;
       text-align: center;
+      border-radius: 0px;
+      opacity: 0.9;
+      &::-webkit-input-placeholder {
+        color: black;
+        font-weight: 400;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: black;
+        font-weight: 400;
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+        color: black;
+        font-weight: 400;
+      }
+      &:-ms-input-placeholder {
+        color: black;
+        font-weight: 400;
+      }
+      &:focus::-webkit-input-placeholder {
+        color: transparent;
+      }
     }
     a.start {
       float: right;
       width: 12%;
       height: 2.5em;
-      background-color: lighten(#754AAA, 12%);
+      background-color: $teal;
+      border: 1px solid $teal;
       display: inline-block;
       text-decoration: none;
       text-align: center;
       i {
-        font-size: 2.0em;
+        font-size: 1.5em;
         color: white;
-        padding-top: 5px;
+        padding-top: 8px;
       }
     }
   }
-  p.copy.welcome {
-    position: absolute;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    color: $dark;
-    bottom: 5vh;
-    background: #f5f5f5;
 
-    @media screen and (max-height: 480px) { //color text white on height less than 480px (iphone 4)
-      color: white;
-      background: transparent;
-    }
 
-  }
+} //welcome-top
+
   div.how-works {
-    position: absolute;
     display: block;
     text-align: center;
     text-decoration: none;
     width: 100%;
-    bottom: 0vh;
-    background: transparent;
+    background: #f5f5f5;
+    @extend .clearfix;
+    p.copy.welcome {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5px;
+      color: $dark;
+      margin-bottom: 20px;
+      @media screen and (min-width: 600px) { //tablet
+        font-size: 1.5em;
+      }
+    }
     a.how-works {
       display: block;
       text-align: center;
-      background: $teal;
-      text-decoration: none;
       color: white;
       padding-left: 5px;
       padding-right: 5px;
-      border-bottom: 2px solid $teal;
-
-
-    }
-    div.how-works-bottom {
-      display: block;
-      background: $teal;
-      display: block;
-      height: 10px;
-      width: 100%;
-      margin: 0 auto;
+      text-decoration: none;
+      i.fa-angle-double-down{
+        text-decoration: none;
+        font-size: 2em;
+        color: $dark;
+      }
     }
   }
 
-}
 
+//mobile view
+@media screen and (max-width: 480px) {
 
-  img.main {
-    padding-bottom: 10px;
+  div.categories{
     width: 100%;
-    &:hover > .overlay {
-    width:100%;
-    height:100%;
-    position:absolute;
-    background-color:#000;
-    opacity:0.5;
-    border-radius:30px;
+    div.categoryw{
+      position: relative;
+      width: 100%;
+      margin-bottom: 1em;
+      img.cat-pic{
+        width: 100%;
+      }
+      span.cat-big{
+        width: 100%;
+        position: absolute;
+        top: 23%;
+        left: 0%;
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 3em;
+        font-weight: 500;
+        &.hide {
+          display: none;
+        }
+      }
+      span.cat-small{
+        width: 100%;
+        padding: 0 12%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.hide {
+          display: none;
+        }
+
+      }
+      div.cat-pop {
+
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        padding: 0 2%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        color: transparent;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 400;
+        z-index: 1000;
+        @media screen and (max-width: 320px) { //iphone5 height
+          font-size: 1.6em;
+          display: none;
+        }
+        &.active{
+          animation-name: bg-cat;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}//end mobile view
+
+//tablet view
+@media screen and (min-width: 600px) {
+
+  div.categories{
+    width: 100%;
+    text-align: center;
+    div.categoryw{
+      display: inline-block;
+      position: relative;
+      width: 49.7%;
+      margin-bottom: 1em;
+      img.cat-pic{
+        width: 100%;
+      }
+      span.cat-big{
+        width: 100%;
+        position: absolute;
+        top: 23%;
+        left: 0%;
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 3em;
+        font-weight: 500;
+        &.hide {
+          display: none;
+        }
+      }
+      span.cat-small{
+        width: 100%;
+        padding: 0 12%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.hide {
+          display: none;
+        }
+
+      }
+      div.cat-pop {
+
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        padding: 0 2%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        color: transparent;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 400;
+        z-index: 1000;
+        @media screen and (max-width: 320px) { //iphone5 height
+          font-size: 1.6em;
+          display: none;
+        }
+        &.active{
+          animation-name: bg-cat;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}//end tablet view
+
+//desktop view
+@media screen and (min-width: 1000px) {
+
+  div.categories{
+    width: 100%;
+    text-align: center;
+    div.categoryw{
+      display: inline-block;
+      position: relative;
+      width: 24.6%;
+      margin-bottom: 1em;
+      img.cat-pic{
+        width: 100%;
+      }
+      span.cat-big{
+        width: 100%;
+        position: absolute;
+        top: 23%;
+        left: 0%;
+        text-transform: uppercase;
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 2.5em;
+        font-weight: 500;
+        &.hide {
+          display: none;
+        }
+      }
+      span.cat-small{
+        width: 100%;
+        padding: 0 12%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: white;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.hide {
+          display: none;
+        }
+
+      }
+      div.cat-pop {
+
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        padding: 0 2%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        color: transparent;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 400;
+        z-index: 1000;
+        &.active{
+          animation-name: bg-cat;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+  }
+}//end desktop view
+
+
+  //mobile view meet the team
+  a.meet-team {
+    text-align: center;
+    display: block;
+    font-size: 1em;
+    font-weight: 300;
+    margin: 1em auto;
+    margin-bottom: 0px;
+  }
+  div.team {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: block;
+    div.group {
+      width: 80%;
+      margin: 1em auto;
+      span.prof{
+        width: 45%;
+        display: inline-block;
+        text-align: center;
+        img.prof{
+          display: block;
+          width: 70%;
+          border: 3px solid #f5f5f5;
+          border-radius: 50%;
+          margin: 0 auto;
+        }
+        span.name{
+          display: block;
+          font-size: 1.5em;
+          font-weight: 400;
+          color: $dark;
+        }
+        span.role{
+          display: block;
+          font-size: 0.9em;
+          font-weight: 200;
+          color: $dark;
+        }
+        a.contact {
+          display: inline-block;
+          i{
+            color: $dark;
+            font-size: 1.2em;
+            margin: 0 0.3em;
+          }
+        }
+      }
     }
   }
 
-}
+  //tablet view meet the team
+  @media screen and (min-width: 600px) {
+    div.team {
+      width: 80%;
+      margin: 0 auto;
+      div.group {
+        width: 49%;
+        margin: 1em auto;
+        display: inline-block;
+        span.prof{
+          width: 48%;
+          img.prof{
+            display: block;
+            width: 70%;
+            border: 3px solid #f5f5f5;
+            border-radius: 50%;
+            margin: 0 auto;
+          }
+          span.name{
+            display: block;
+            font-size: 1.5em;
+            font-weight: 400;
+            color: $dark;
+          }
+          span.role{
+            display: block;
+            font-size: 0.9em;
+            font-weight: 200;
+            color: $dark;
+          }
+          a.contact {
+            display: inline-block;
+            i{
+              color: $dark;
+              font-size: 1.2em;
+              margin: 0 0.3em;
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+  //desktop view meet the team
+  @media screen and (min-width: 1000px) {
+    div.team {
+      width: 50%;
+      margin: 0 auto;
+      div.group {
+        width: 49%;
+        margin: 1em auto;
+        display: inline-block;
+        span.prof{
+          width: 48%;
+          img.prof{
+            display: block;
+            width: 70%;
+            border: 3px solid #f5f5f5;
+            border-radius: 50%;
+            margin: 0 auto;
+          }
+          span.name{
+            display: block;
+            font-size: 1.5em;
+            font-weight: 400;
+            color: $dark;
+          }
+          span.role{
+            display: block;
+            font-size: 0.9em;
+            font-weight: 200;
+            color: $dark;
+          }
+          a.contact {
+            display: inline-block;
+            i{
+              color: $dark;
+              font-size: 1.2em;
+              margin: 0 0.3em;
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+
+
+
+
+
+} //welcome
