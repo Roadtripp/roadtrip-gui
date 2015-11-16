@@ -27,14 +27,8 @@ mkdir dist/css/
 cp src/css/main.css dist/css/
 
 mkdir dist/img/
-cp src/img/welcome-food.png dist/img
-cp src/img/welcome-sports.png dist/img
-cp src/img/welcome-music.png dist/img
-cp src/img/welcome-recreation.png dist/img
-cp src/img/yelp_logo.png dist/img
-cp src/img/seatgeek_logo.png dist/img
-cp src/img/welcome-music.png dist/img
-cp src/img/welcome-car-mobile.jpg dist/img
+cp src/img/*.jpg dist/img
+cp src/img/*.png dist/img
 
 
 echo 'Step 3: Copy all the JS'
