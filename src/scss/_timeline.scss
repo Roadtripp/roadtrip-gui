@@ -9,9 +9,10 @@ $darkgreen: darken(#A3D39C, 10%);
 $blue: #5681E4;
 $orange: #E4B956;
 
-
 form.timeline {
-  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
 
     input.user-title {
       margin: 0px auto;
@@ -20,10 +21,29 @@ form.timeline {
       text-align: center;
       border: none;
       font-size: 1.2em;
-    }
+      }
 }
 
+button.desktop-bottom-return {
+  display: none;
+}
 
+.timeline-map {
+  @extend .clearfix;
+}
+
+div.desktop-button {
+  display: block;
+  margin-top: 20px;
+
+   button.desktop-bottom {
+     text-align: center;
+     margin: 0 auto 5px auto;
+     display: block;
+     padding: 2%;
+     font-size: .8em;
+   }
+}
 
 #map {
   display: none !important;
