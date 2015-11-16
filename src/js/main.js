@@ -449,11 +449,9 @@ var wdestinationstart;
     $rootScope.tstyle = {'background':'#4AAAA5'};
   };
 
-
+  $http.defaults.headers.common.Authorization = $cookies.get("zipt");
   //updates nav buttons
   function statusUpdate (){
-
-    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
 
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
@@ -488,6 +486,7 @@ var wdestinationstart;
       $scope.loggedIn = false;
       console.log($http.defaults.headers.common.Authorization);
     }, function (){
+      $http.defaults.headers.common.Authorization = undefined;
       $location.path('/');
       statusUpdate();
     });
@@ -735,6 +734,7 @@ function fillInAddressD() {
 function fillInAddressW() {
   var place = autocompleteW.getPlace();
   wdestinationstart = place.formatted_address;
+  destinationstart = wdestinationstart;
   console.log(wdestinationstart);
 }
 
