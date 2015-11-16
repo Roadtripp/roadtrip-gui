@@ -10,8 +10,8 @@
       <form class="start" ng-submit="add.next()">
         <fieldset>
         <label class="gray">Origin<input id="autocomplete_origin" placeholder="Enter origin address" ;
-             onFocus="this.value = ''; initAutocompleteO()" type="text" required></input></label>
-        <label class="gray">Destination<input id="autocomplete_destination"  placeholder="Enter destination address" value="{{add.wdestination}}"
+             onFocus="this.value = ''; initAutocompleteO()" type="text" onkeydown="if (event.keyCode == 13) {return false;}" required></input></label>
+        <label class="gray">Destination<input id="autocomplete_destination"  onkeydown="if (event.keyCode == 13) {return false;}" placeholder="Enter destination address" value="{{add.wdestination}}"
              onFocus="this.value = ''; initAutocompleteD()" type="text" required></input></label>
         <div class="dates">
           <label class="gray" for="date_depart">Departure Date
