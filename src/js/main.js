@@ -196,9 +196,9 @@ var wdestinationstart;
 
         $scope.sports = [{id: 'sport1'}];
 
-
         $scope.addNew = function(){
           var newItemNo = $scope.sports.length+1;
+
           $scope.sports.push({'id':'sport'+ newItemNo});
         };
 
@@ -289,6 +289,7 @@ var wdestinationstart;
         var titleToSave = { };
         titleToSave.title = $scope.main.title;
         console.log($http.defaults.headers.common.Authorization);
+        console.log(titleToSave);
 
         //if user logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
@@ -314,7 +315,7 @@ var wdestinationstart;
 
 
     },
-    controllerAs: 'titleToSave'
+    // controllerAs: 'titleToSave'
   })
 
 
