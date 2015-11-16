@@ -25,8 +25,35 @@ var wdestinationstart;
         var welcome = this;
         $rootScope.htstyle();
 
+        //auto scroll
         $(function(){$("a.how-works").click(function(){
-          $("html,body").animate({scrollTop:$("#how-works-bottom").offset().top},"1000");return false})})
+          $("html,body").animate({scrollTop:$("#categories").offset().top},"1000");return false})});
+
+
+        //animation for categories
+        $('.cfood').on('click', function(){
+          $('.cat-pop.fo').toggleClass('active');
+          $('.cat-big.fo').toggleClass('hide');
+          $('.cat-small.fo').toggleClass('hide');
+        });
+
+        $('.cmusic').on('click', function(){
+          $('.cat-pop.mu').toggleClass('active');
+          $('.cat-big.mu').toggleClass('hide');
+          $('.cat-small.mu').toggleClass('hide');
+        });
+
+        $('.csports').on('click', function(){
+          $('.cat-pop.sp').toggleClass('active');
+          $('.cat-big.sp').toggleClass('hide');
+          $('.cat-small.sp').toggleClass('hide');
+        });
+
+        $('.crecreation').on('click', function(){
+          $('.cat-pop.re').toggleClass('active');
+          $('.cat-big.re').toggleClass('hide');
+          $('.cat-small.re').toggleClass('hide');
+        });
 
 
 
@@ -35,11 +62,6 @@ var wdestinationstart;
 
         welcome.wdestination = wdestinationstart;
 
-        welcome.save = function (){
-
-
-
-        };
 
       },
       controllerAs: 'welcome'
@@ -233,8 +255,9 @@ var wdestinationstart;
       templateUrl: 'timeline.html',
       controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
       $rootScope.htealstyle();
-
       $scope.loading = true; //show loading spinner
+      var get1= false;
+      var get2= false;
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
@@ -242,6 +265,8 @@ var wdestinationstart;
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
 
+          get1 =true;
+          bothGetDone();
           // $scope.category = $scope.cities.activity_set.category;
           // console.log($scope.category);
 
@@ -271,10 +296,19 @@ var wdestinationstart;
 
           console.log($rootScope.main);
 
+          get2 =true;
+          bothGetDone();
+
           // Generate Origin and Destination cities in array for Google Maps use
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
         });
+
+        function bothGetDone (){
+          if (get1 && get2) {
+            initMap();
+          }
+        }
 
 
       $scope.savetrip = function (){
@@ -437,11 +471,9 @@ var wdestinationstart;
     $rootScope.tstyle = {'background':'#4AAAA5'};
   };
 
-
+  $http.defaults.headers.common.Authorization = $cookies.get("zipt");
   //updates nav buttons
   function statusUpdate (){
-
-    $http.defaults.headers.common.Authorization = $cookies.get("zipt");
 
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
@@ -476,6 +508,7 @@ var wdestinationstart;
       $scope.loggedIn = false;
       console.log($http.defaults.headers.common.Authorization);
     }, function (){
+      $http.defaults.headers.common.Authorization = undefined;
       $location.path('/');
       statusUpdate();
     });
@@ -723,6 +756,7 @@ function fillInAddressD() {
 function fillInAddressW() {
   var place = autocompleteW.getPlace();
   wdestinationstart = place.formatted_address;
+  destinationstart = wdestinationstart;
   console.log(wdestinationstart);
 }
 
