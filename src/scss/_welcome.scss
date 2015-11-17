@@ -66,9 +66,9 @@ div.welcome-top {
   @media screen and (min-width: 600px) { //ipad min height
     background-image: url("../img/welcome-car-tablet.jpg");
   }
-  @media (min-width: 1000px) { // desktop
+  @media (min-width: 801px) { // desktop
     background-image: url("../img/welcome-car-desktop.jpg");
-    height: 600px;
+    // height: 600px;
   }
 
 
@@ -438,7 +438,7 @@ div.welcome-top {
   }
 
   .desktop-heading {
-    padding-top: 60px;
+    padding-top: 80px;
   }
 
   div.welcome {
@@ -461,7 +461,7 @@ div.welcome-top {
   }
 
   .how-works {
-    margin-top: -37px;
+    margin-top: 35px;
     z-index: 4 !important;
 
     img.trapezoid{
