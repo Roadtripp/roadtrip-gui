@@ -8,6 +8,8 @@ label.title {
   color: $dark !important;
   display: inline-block !important;
   font-size: 1em !important;
+  text-indent: -22px;
+  padding-left: 22px;
 }
 
 div.checkbox {
@@ -197,12 +199,13 @@ article.activities {
 
     a.price {
       font-size: .9em;
-      margin-left: 6px;
+      padding-left: 8px;
       margin-top: 0;
       color: darken(#c3c3c3, 15%) !important;
       font-weight: 300;
       width: auto;
       display: inline-block;
+
     }
 
     p.time {
