@@ -94,6 +94,7 @@ var wdestinationstart;
       templateUrl: 'login.html',
       controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
         $rootScope.htealstyle();
+        $scope.upvalid = true;
         var login = this;
 
         login.user = { };
@@ -120,7 +121,7 @@ var wdestinationstart;
 
             },
             function(){
-              //TODO: show "wrong username/password"
+              $scope.upvalid = false;
             });
 
 
@@ -147,6 +148,7 @@ var wdestinationstart;
         $scope.pwvalid = true;
         $scope.unvalid = true;
         $scope.created = true;
+        $scope.exists = true;
         var signup = this;
         signup.user = { };
 
@@ -182,7 +184,7 @@ var wdestinationstart;
 
 
                 }, function (response){
-                  //TODO: show error... like username exists
+                  $scope.exists = false;
                 });
 
 
@@ -335,7 +337,7 @@ var wdestinationstart;
 
           }
         );
-      } //if is not logged in
+      } //if user is not logged in
         else {
           $cookies.put("currenTrip", tripholder);
           $location.path('/panel-login');
@@ -343,20 +345,19 @@ var wdestinationstart;
 
       };
 
-
+      //listen to changes in input form for new title, calls saveTitle function
       $('input.user-title').on('change', function (){
         $scope.saveTitle();
       });
-
+      //pressing 'enter' will blur iput form
       $('input.user-title').keypress(function (event) {
         if(event.keyCode == 13) {
-
-          ('input.user-title').blur();
+          $('input.user-title').blur();
       }
       });
 
 
-        //saving new title
+      //saving new title
       $scope.saveTitle = function (){
         var titleToSave = { };
         titleToSave.title = $scope.new.title;
@@ -367,7 +368,10 @@ var wdestinationstart;
 
     };
 
+
       $scope.hideSaveButton = false;
+
+      //hiding save button if trip is already saved on user's trips
       function hideSaveButton (){
         if ($http.defaults.headers.common.Authorization !== undefined) {
           $http.get( BASE_URL + '/api/trips/')
@@ -464,9 +468,6 @@ var wdestinationstart;
             }
           }
           cityTrue();
-
-            // console.log($rootScope.selectedCities);
-
 
 
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)

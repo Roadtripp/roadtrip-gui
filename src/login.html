@@ -7,12 +7,13 @@
   <section class="form-container center">
       <form class="start" ng-submit="login.submit()">
         <fieldset>
-        <label class="gray">Username<input type="text" placeholder="RoadTripper9" ng-model="login.user.username" /></label>
-        <label class="gray">Password<input type="password" placeholder="********" ng-model="login.user.password"/></label>
+        <label class="gray">Username<input type="text" placeholder="RoadTripper9" ng-model="login.user.username" required/></label>
+        <label class="gray">Password<input type="password" placeholder="********" ng-model="login.user.password" required/></label>
       </fieldset>
       <div class="button">
         <button class="login" type="submit">log in</button>
       </div>
+      <span class="pass-error" ng-hide="upvalid" >username/password does not match</span>
       </form>
     </section> <!-- END .form-container -->
 
