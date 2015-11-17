@@ -9,6 +9,7 @@ $darkgreen: darken(#A3D39C, 10%);
 $blue: #5681E4;
 $orange: #E4B956;
 
+
 form.timeline {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -20,12 +21,45 @@ form.timeline {
       width: 100%;
       text-align: center;
       border: none;
+      border-radius: 0px;
       font-size: 1.2em;
+      color: $dark;
+      outline: none;
+      &:-moz-placeholder { /* Firefox 18- */
+        // color: black;
+        font-weight: 400;
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+        // color: black;
+        font-weight: 400;
+      }
+      &:-ms-input-placeholder {
+        // color: black;
+        font-weight: 400;
+      }
+      &::-webkit-input-placeholder {
+        // color: black;
+        font-weight: 400;
+      }
+      &:focus::-webkit-input-placeholder {
+        color: transparent;
+      }
+      }
+      button.save-title-button{
+        display: none;
+
+
       }
 }
 
 button.desktop-bottom-return {
   display: none;
+
+  a[href]{
+    text-decoration: none;
+    color: #fff;
+  }
+
 }
 
 .timeline-map {
@@ -166,6 +200,12 @@ div.buttons {
       padding: 2%;
       // width: 25%;
       font-size: .8em;
+
+      a[href] {
+        text-decoration: none;
+        color: #fff;
+      }
+
     }
 
 }

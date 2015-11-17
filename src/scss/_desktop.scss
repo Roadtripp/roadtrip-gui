@@ -1,11 +1,15 @@
 @media screen and (min-width: 768px) {
 
   .hamburger {
-    display: none;
+    display: none !important;
   }
 
   .nav {
-    display: block !important
+    display: block !important;
+
+      a[href] {
+        display: inline-block;
+      }
   }
 
   h2.heading {

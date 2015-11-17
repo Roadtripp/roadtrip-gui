@@ -1,5 +1,5 @@
 {
-  "firebase": "roadtrip-app",
+  "firebase": "ziptrip",
   "public": "dist",
   "ignore": [
     "firebase.json",

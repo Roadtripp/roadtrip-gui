@@ -1,8 +1,8 @@
-<h2 class="heading center">Itinerary</h2>
+<h2 class="heading center">your ziptrip</h2>
 <section class="main-content timeline">
   <div class="buttons">
-   <button class="save" ng-click="savetrip()">save this trip</button>
-   <a href="#/start"><button class="return">plan return trip</button></a>
+   <!-- <button class="save" ng-click="savetrip()">save this trip</button> -->
+   <!-- <button class="return"><a href="#/start">plan return trip</a></button> -->
  </div>
   <nav class="tabs">
     <a href="" ng-click="showme=true" class="button-timeline active" ng-init="showme=true">Timeline</a>
@@ -12,9 +12,10 @@
       <span class="fa fa-5x fa-spinner fa-spin"></span>
       <span class="spinner-text">generating cities and activities</span>
   </div>
-<section class="timeline-map">
-  <form class="timeline" ng-submit="savetrip()">
-    <input class="user-title" ng-model="main.title" type="text" placeholder="{{main.origin | removeUSA}} to {{main.destination | removeUSA}}" />
+<section ng-hide="loading" class="timeline-map">
+  <form class="timeline" ng-submit="saveTitle()">
+    <input class="user-title" ng-model="new.title" type="text" placeholder="{{displayTitle | removeUSA}}"/>
+    <button class="save-title-button" type="submit"></button>
   </form>
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">
@@ -38,7 +39,8 @@
         <span class="event-location" ng-hide="city.activity_set.address.length === 0">{{activity.address}}</span>
         <span class="event-date" ng-hide="city.activity_set.date.length === 0">{{activity.date | date}} {{activity.time}}</span>
         <span class="event-phone" ng-hide="city.activity_set.phone.length === 0">{{activity.phone| date}}</span>
-        <span class="event-phone" ng-hide="activity_set.small_rate_img_url === 0"><img ng-src="{{activity.small_rate_img_url}}"/></span>
+        <span class="event-img" ng-hide="activity.small_rate_img_url == 'null'"><a href="{{activity.url}}"><img ng-src="{{activity.small_rate_img_url}}"/></a></span>
+        <span class="event-img" ng-hide="activity.lowest_price == 'null'">{{activity.average_price}}</span>
       </section>
       </article>
       </li>
@@ -52,11 +54,11 @@
     <!-- <button class="bottom" ng-click="savetrip()">save this trip</button> -->
   </section>
   </section> <!-- END .tlv-container -->
-  <section id="map" class=""></section>
+  <section ng-hide="loading" id="map" class=""></section>
 </section> <!-- END .timeline-map -->
 
 <div class="desktop-button">
-  <button class="desktop-bottom" ng-click="savetrip()">save this trip</button>
+  <button ng-hide="hideSaveButton" class="desktop-bottom" ng-click="savetrip()">save this trip</button>
   <a href="#/start"><button class="desktop-bottom-return">plan return trip</button></a>
 </div>
 
@@ -67,28 +69,3 @@
     </div>
   </section> <!-- END .footer -->
   </section>
-
-
-<script>
-// $(document).ready(initMap());
-
-$(function () {
-
-$('.button-map').on('click', function(){
-  $('#map').addClass('active');
-  $('.button-map').addClass('active');
-  $('.button-timeline').removeClass('active');
-  initMap();
-
-});
-$('.button-timeline').on('click', function(){
-  $('#map').removeClass('active');
-  $('.button-timeline').addClass('active');
-  $('.button-map').removeClass('active');
-});
-
-
-
-
-  });
-</script>

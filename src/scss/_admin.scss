@@ -13,18 +13,27 @@ button.plan-a-trip {
   text-align: center;
   margin: 0 auto 20px auto;
   display: block;
-  padding: 7px;
+  padding: 7px 15px;
+
+  a[href] {
+    text-decoration: none;
+    color: #fff;
+  }
+
 }
 
-a[href] {
-  text-decoration: none;
-}
+
 
 h6 {
   font-weight: 300;
   color: $teal;
   font-size: 1em;
   margin: 0 auto 15px 0;
+}
+
+a[href] {
+  display: block;
+  text-decoration: none;
 }
 
 div.trip {
@@ -36,12 +45,11 @@ div.trip {
   margin-bottom: 4px;
   font-size: 3vw;
 
-    a[href] {
-      display: inline-block;
-      text-decoration: none;
+    p.title-trip {
       color: $dark;
       width: 25%;
       vertical-align: middle;
+      display: inline-block;
     }
 
     p.cities {
