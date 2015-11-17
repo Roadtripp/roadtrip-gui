@@ -18,13 +18,19 @@ form.timeline {
     input.user-title {
       margin: 0px auto;
       display: block;
-      width: 100%;
+      width: 80%;
       text-align: center;
       border: none;
       border-radius: 0px;
       font-size: 1.2em;
       color: $dark;
       outline: none;
+      background: #fff;
+
+       &:hover {
+         border: 1px solid #c3c3c3;
+       }
+
       &:-moz-placeholder { /* Firefox 18- */
         // color: black;
         font-weight: 400;
@@ -44,7 +50,7 @@ form.timeline {
       &:focus::-webkit-input-placeholder {
         color: transparent;
       }
-      }
+  }
       button.save-title-button{
         display: none;
 

@@ -262,6 +262,8 @@ var wdestinationstart;
       var get1= false;
       var get2= false;
       waypointCities = []; //clears last value of waypoint
+      originCity = "";
+      desinationCity = "";
       var tripholder;
       $scope.canSaveTitle = false;
 
@@ -306,7 +308,7 @@ var wdestinationstart;
 
           $rootScope.main = response.data;
           tripholder = response.data.id;
-
+          $cookies.put("currenTrip", tripholder);
 
           console.log($rootScope.main);
 
@@ -316,13 +318,13 @@ var wdestinationstart;
             $scope.displayTitle = response.data.title;
           }
 
+          // Generate Origin and Destination cities in array for Google Maps use
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
 
           get2 =true;
           bothGetDone();
 
-          // Generate Origin and Destination cities in array for Google Maps use
-          originCity = $rootScope.main.origin;
-          desinationCity = $rootScope.main.destination;
         });
 
 
@@ -331,6 +333,14 @@ var wdestinationstart;
             initMap();
           }
         }
+
+        (function() {
+        if ($http.defaults.headers.common.Authorization === undefined && $scope.hideSaveButton) {
+          $('.user-title').prop('disabled', true);
+            console.log('invalid');
+        }
+      })();
+
 
         //saving trip, Backend accept title key in an boject to save the TRIP (not saving the title)
       $scope.savetrip = function (){
@@ -352,7 +362,7 @@ var wdestinationstart;
         );
       } //if user is not logged in
         else {
-          $cookies.put("currenTrip", tripholder);
+
           $location.path('/panel-login');
         }
 
@@ -547,7 +557,9 @@ var wdestinationstart;
     $rootScope.tstyle = {'background':'#4AAAA5'};
   };
 
+  $cookies.remove("currenTrip"); //remove current trip number
   $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
   //updates nav buttons
   function statusUpdate (){
 

@@ -53,7 +53,7 @@
         <label class="title">
           <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/> &nbsp;{{sport.title}}</title><br>
           <p class="time">{{sport.date | date : 'shortDate'}} @ {{sport.time}}</p>
-          <a href="{{sport.url}}" class="price">{{sport.lowest_price | currency}} {{ - sport.highest_price | currency}}</a>
+          <a href="{{sport.url}}" class="price" ng-hide="sport.lowest_price == null">{{sport.lowest_price | currency}} {{ - sport.highest_price | currency}}</a>
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -62,7 +62,7 @@
       <div class="checkbox" ng-repeat="artis in city.artist">
         <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/> &nbsp;{{artis.title}}</title><br>
           <p class="time">{{artis.date | date : 'shortDate'}} @ {{artis.time}}</p>
-          <a href="{{artis.url}}" ng-hide="artis.lowest_price == null">{{artis.lowest_price | currency}} {{ - artis.highest_price | currency}}</a>
+          <a href="{{artis.url}}" class="price" ng-hide="artis.lowest_price == null">{{artis.lowest_price | currency}} {{ - artis.highest_price | currency}}</a>
         <label for="checkboxes"></label>
       </div>
   </div>
