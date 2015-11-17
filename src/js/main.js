@@ -263,7 +263,18 @@ var wdestinationstart;
       var get2= false;
       waypointCities = []; //clears last value of waypoint
 
+      $('.button-map').on('click', function(){
+        $('#map').addClass('active');
+        $('.button-map').addClass('active');
+        $('.button-timeline').removeClass('active');
+        initMap();
 
+      });
+      $('.button-timeline').on('click', function(){
+        $('#map').removeClass('active');
+        $('.button-timeline').addClass('active');
+        $('.button-map').removeClass('active');
+      });
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')

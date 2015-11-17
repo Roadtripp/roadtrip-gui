@@ -1,7 +1,7 @@
 
   <h2 class="heading center">Let's hit the road, {{user.username}}</h2>
 <section class="main-content admin">
-  <a href="#/start"><button class="plan-a-trip" type="">plan a trip +</button><a>
+  <button class="plan-a-trip" type=""><a href="#/start">plan a trip +</a></button>
 <section class="saved">
   <h6>saved trips</h6>
   <div ng-show="loading" class ="spinner">
@@ -9,7 +9,7 @@
       <span class="spinner-text"></span>
   </div>
 
-  <a href="#/trip/{{trip.id}}/city" ng-repeat="trip in trips">
+  <a href="#/trip/{{trip.id}}/city" ng-repeat="trip in trips | orderBy: '-origin_date'">
   <div class="trip">
     <p class="title-trip">{{trip.title}}</p>
       <p class="cities">{{trip.origin | removeUSA}} to {{trip.destination | removeUSA}}</p>

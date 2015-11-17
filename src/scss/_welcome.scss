@@ -26,13 +26,6 @@ $green: #A3D39C;
 	width: 100%;
   z-index: 2;
 
-
-  // img.banner {
-  //   width: 100%;
-  //   position: absolute;
-  //   z-index: 0;
-  // }
-
 div.welcome-top {
 
   width: 100%;
@@ -43,11 +36,11 @@ div.welcome-top {
   align-items: center;
   background-image: url("../img/welcome-car-mobile.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   z-index: 3;
 
   @media screen and (min-height: 480px) { //iphone4 height
-    height: 370px;
+    // height: 370px;
   }
 
   @media screen and (min-height: 570px) { //iphone5 height
@@ -73,8 +66,8 @@ div.welcome-top {
   @media screen and (min-width: 600px) { //ipad min height
     background-image: url("../img/welcome-car-tablet.jpg");
   }
-  @media (min-width: 1000px) { //ipad min height
-    background-image: url("../img/welcome-car-desktop.jpg");
+  @media (min-width: 801px) { // desktop
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("../img/welcome-car-desktop.jpg");
   }
 
 
@@ -86,18 +79,18 @@ div.welcome-top {
     color: white;
     font-size: 2em;
     text-align: center;
+    font-weight: 500;
     width: 80%;
     @media screen and (min-width: 400px) { //iphone6+ height
       font-size: 3em;
     }
     @media screen and (min-width: 600px) { //tablet width
-      padding-top: 4em;
+      padding-top: 3.5em;
     }
     @media screen and (min-width: 801px) { //dekstop width
-      font-size: 4em;
+      font-size: 3.5em;
       padding-top: 2em;
     }
-
 
   }
   div.welcome {
@@ -122,7 +115,7 @@ div.welcome-top {
       display: inline-block;
       width: 88%;
       border-style: none;
-      // border: 1px solid $teal;
+      outline: none;
       height: 2.5em;
       color: black;
       font-weight: 400;
@@ -158,9 +151,9 @@ div.welcome-top {
       text-decoration: none;
       text-align: center;
       i {
-        font-size: 1.5em;
+        font-size: 1.2em;
         color: white;
-        padding-top: 8px;
+        padding-top: 11px;
       }
     }
   }
@@ -175,16 +168,21 @@ div.welcome-top {
     width: 100%;
     background: #f5f5f5;
     @extend .clearfix;
+
     p.copy.welcome {
       width: 90%;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 5px;
+      margin-top: 15px;
       color: $dark;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       @media screen and (min-width: 600px) { //tablet
         font-size: 1.5em;
         margin-top: 15px;
+
+        .desktop {
+          display: none;
+        }
       }
     }
     a.how-works { //trapezoid on mobile
@@ -210,12 +208,17 @@ div.welcome-top {
       border: 0;
       margin: 0;
       z-index: 1;
+      margin-top: -1px;
     }
   }
 
 
 //mobile view
 @media screen and (max-width: 500px) {
+
+  .desktop {
+    display: none;
+  }
 
   div.categories{
     width: 100%;
@@ -245,7 +248,7 @@ div.welcome-top {
         width: 100%;
         padding: 0 12%;
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 0%;
         color: white;
         display: block;
@@ -286,7 +289,11 @@ div.welcome-top {
 }//end mobile view
 
 //tablet view
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+  .desktop {
+    display: none;
+  }
 
   div.categories{
     width: 100%;
@@ -398,11 +405,14 @@ div.welcome-top {
         text-align: center;
         font-size: 1.2em;
         font-weight: 300;
+        line-height: 1.2;
+
         // &.hide {
         //   display: none;
         // }
 
       }
+
       div.cat-pop {
 
         background-color: rgba(0, 0, 0, 0.0);
@@ -430,6 +440,40 @@ div.welcome-top {
       }
     }
   }
+
+  .desktop-heading {
+    padding-top: 75px;
+  }
+
+  div.welcome {
+    margin-top: 1em !important;
+  }
+
+  .desktop {
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto 2px auto;
+    font-size: 1.2em;
+  }
+
+  h2.welcome {
+    margin-bottom:0;
+  }
+
+  .copy.welcome {
+    display: none;
+  }
+
+  .how-works {
+    margin-top: 35px;
+    z-index: 4 !important;
+
+    img.trapezoid{
+      z-index: 4 !important;
+    }
+  }
+
 }//end desktop view
 
 
