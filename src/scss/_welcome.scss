@@ -376,6 +376,9 @@ div.welcome-top {
   div.categories{
     width: 100%;
     text-align: center;
+    top: 100%;
+    position: absolute;
+    @extend .clearfix;
 
     div.categoryw{
       display: inline-block;
@@ -542,6 +545,10 @@ div.welcome-top {
 
   //tablet view meet the team
   @media screen and (min-width: 600px) {
+
+    section.meet-team {
+      margin-top: 20%;
+    }
     div.team {
       width: 80%;
       margin: 0 auto;
@@ -588,6 +595,12 @@ div.welcome-top {
 
   //desktop view meet the team
   @media screen and (min-width: 1000px) {
+
+    section.meet-team {
+      margin-top: 20%;
+    }
+
+
     div.team {
       width: 50%;
       margin: 0 auto;
