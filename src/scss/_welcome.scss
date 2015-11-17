@@ -99,7 +99,6 @@ div.welcome-top {
       padding-top: 2em;
     }
 
-
   }
   div.welcome {
     margin: auto;
@@ -123,7 +122,7 @@ div.welcome-top {
       display: inline-block;
       width: 88%;
       border-style: none;
-      // border: 1px solid $teal;
+      outline: none;
       height: 2.5em;
       color: black;
       font-weight: 400;
@@ -219,6 +218,10 @@ div.welcome-top {
 
 //mobile view
 @media screen and (max-width: 500px) {
+
+  .desktop {
+    display: none;
+  }
 
   div.categories{
     width: 100%;
@@ -434,6 +437,30 @@ div.welcome-top {
       }
     }
   }
+
+  div.welcome {
+    margin-top: -1.5em !important;
+  }
+
+  .desktop {
+    color: #fff;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto 31px auto;
+  }
+
+  h2.welcome {
+    margin-bottom:0;
+  }
+
+  .copy.welcome {
+    display: none;
+  }
+
+  .how-works {
+    margin-top: 35px;
+  }
+
 }//end desktop view
 
 
