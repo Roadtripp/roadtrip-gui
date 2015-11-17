@@ -9,7 +9,7 @@
       <span class="spinner-text"></span>
   </div>
 
-  <a href="#/trip/{{trip.id}}/city" ng-repeat="trip in trips">
+  <a href="#/trip/{{trip.id}}/city" ng-repeat="trip in trips | orderBy: '-origin_date'">
   <div class="trip">
     <p class="title-trip">{{trip.title}}</p>
       <p class="cities">{{trip.origin | removeUSA}} to {{trip.destination | removeUSA}}</p>
