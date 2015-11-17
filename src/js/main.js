@@ -104,7 +104,6 @@ var wdestinationstart;
               console.log(response);
               var temp = "Token " + response.data.token;
               $cookies.put("zipt", temp);
-              $cookies.put("zloggedin", true);
               $rootScope.login();
               login.user = { };
               temp = "";
@@ -113,6 +112,8 @@ var wdestinationstart;
 
               if (!isNaN($cookies.get("currenTrip"))) {
                 $location.path('/trip/' + $cookies.get("currenTrip") + '/city/');
+                $cookies.remove("currenTrip"); //remove current trip number
+                console.log("trip number cookie removed");
               } else {
                 $location.path('/home/user/');
               }
@@ -258,6 +259,7 @@ var wdestinationstart;
       $scope.loading = true; //show loading spinner
       var get1= false;
       var get2= false;
+      waypointCities = []; //clears last value of waypoint
 
 
 
@@ -267,20 +269,18 @@ var wdestinationstart;
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
 
-          get1 =true;
-          // $scope.category = $scope.cities.activity_set.category;
-          // console.log($scope.category);
 
           console.log($rootScope.cities);
+
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
-          waypointCities = [];
           for (var i in waypoints) {
             var temp = { location: waypoints[i].city_name , stopover: waypoints[i].visited };
             waypointCities.push(temp);
           }
 
-            bothGetDone();
+          get1= true;
+          bothGetDone();
 
         });
 
@@ -291,9 +291,15 @@ var wdestinationstart;
 
           $rootScope.main = response.data;
           var tripholder = response.data.id;
-          $cookies.put("currenTrip", tripholder);
+
 
           console.log($rootScope.main);
+
+          if (response.data.title === null){
+            $scope.displayTitle = response.data.origin + " to " + response.data.destination;
+          } else {
+            $scope.displayTitle = response.data.title;
+          }
 
 
           get2 =true;
@@ -306,38 +312,65 @@ var wdestinationstart;
 
 
         function bothGetDone (){
-
           if (get1 && get2) {
             initMap();
           }
         }
 
-
+        //saving trip, Backend accept title key in an boject to save the TRIP (not saving the title)
       $scope.savetrip = function (){
-        var titleToSave = { };
-        titleToSave.title = $scope.main.title;
+        var tripToSave = { };
+        tripToSave.title = $scope.main.title;
         console.log($http.defaults.headers.common.Authorization);
         console.log(titleToSave);
 
-        //if user logged-in
+        //if user is logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
-          $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', titleToSave)
+          // sending to this endpoint saves the trip to the logged user
+          $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', tripToSave)
           .then ( function (response){
+            $cookies.remove("currenTrip"); //remove current trip number (if saved)
             $location.path('/home/user/');
+
           }
         );
-        } //if not logged in
+      } //if is not logged in
         else {
+          $cookies.put("currenTrip", tripholder);
           $location.path('/panel-login');
         }
 
       };
 
+
+      $('input.user-title').on('change', function (){
+        $scope.saveTitle();
+      });
+
+      $('input.user-title').keypress(function (event) {
+        if(event.keyCode == 13) {
+
+          ('input.user-title').blur();
+      }
+      });
+
+
+        //saving new title
+      $scope.saveTitle = function (){
+        var titleToSave = { };
+        titleToSave.title = $scope.new.title;
+        $http.patch ( BASE_URL + '/api/trip/' + $routeParams.id + '/', titleToSave)
+        .then ( function (response){
+          console.log(response);
+      });
+
+    };
+
       //TODO: inpect all save trip
-      $http.get( BASE_URL + '/api/trips/')
-        .then(function (response){
-          //TODO:scan all trips return true to hide save button
-        });
+      // $http.get( BASE_URL + '/api/trips/')
+      //   .then(function (response){
+      //     //TODO:scan all trips return true to hide save button
+      //   });
 
 
 
