@@ -26,13 +26,6 @@ $green: #A3D39C;
 	width: 100%;
   z-index: 2;
 
-
-  // img.banner {
-  //   width: 100%;
-  //   position: absolute;
-  //   z-index: 0;
-  // }
-
 div.welcome-top {
 
   width: 100%;
@@ -73,8 +66,9 @@ div.welcome-top {
   @media screen and (min-width: 600px) { //ipad min height
     background-image: url("../img/welcome-car-tablet.jpg");
   }
-  @media (min-width: 1000px) { //ipad min height
+  @media (min-width: 1000px) { // desktop
     background-image: url("../img/welcome-car-desktop.jpg");
+    height: 600px;
   }
 
 
@@ -186,6 +180,10 @@ div.welcome-top {
       @media screen and (min-width: 600px) { //tablet
         font-size: 1.5em;
         margin-top: 15px;
+
+        .desktop {
+          display: none;
+        }
       }
     }
     a.how-works { //trapezoid on mobile
@@ -293,6 +291,7 @@ div.welcome-top {
 
 //tablet view
 @media screen and (min-width: 501px) {
+
 
   div.categories{
     width: 100%;
@@ -438,15 +437,19 @@ div.welcome-top {
     }
   }
 
+  .desktop-heading {
+    padding-top: 60px;
+  }
+
   div.welcome {
-    margin-top: -1.5em !important;
+    margin-top: 1em !important;
   }
 
   .desktop {
     color: #fff;
     width: 80%;
     text-align: center;
-    margin: 0 auto 31px auto;
+    margin: 0 auto 2px auto;
   }
 
   h2.welcome {
@@ -458,7 +461,12 @@ div.welcome-top {
   }
 
   .how-works {
-    margin-top: 35px;
+    margin-top: -37px;
+    z-index: 4 !important;
+
+    img.trapezoid{
+      z-index: 4 !important;
+    }
   }
 
 }//end desktop view
