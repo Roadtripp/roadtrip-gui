@@ -51,7 +51,8 @@
       <h5 ng-hide="city.sport.length === 0" class="category">sports</h5>
       <div class="checkbox" ng-repeat="sport in city.sport">
         <label class="title">
-          <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/> &nbsp;{{sport.title}}</title><br><p class="time">{{sport.date}} @ {{sport.time}}</p>
+          <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/> &nbsp;{{sport.title}}</title><br>
+          <p class="time">{{sport.date | date : 'shortDate'}} @ {{sport.time}}</p>
           <a href="{{sport.url}}" class="price">{{sport.lowest_price | currency}} - {{sport.highest_price | currency}}</a>
         <label for="checkboxes"></label>
       </div>
@@ -59,7 +60,8 @@
     <div class="col-2">
       <h5 ng-hide="city.artist.length === 0" class="category">entertainment</h5>
       <div class="checkbox" ng-repeat="artis in city.artist">
-        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/> &nbsp;{{artis.title}}</title><br><p class="time">{{artis.date}} @ {{artis.time}}</p>
+        <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/> &nbsp;{{artis.title}}</title><br>
+          <p class="time">{{artis.date | date : 'shortDate'}} @ {{artis.time}}</p>
           <a href="{{artis.url}}">{{artis.lowest_price}} - {{artis.highest_price}}</a><p class="time">{{artis.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
