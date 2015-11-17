@@ -25,7 +25,6 @@
     "normalize-css": "normalize.css#~3.0.3",
     "angular-route": "~1.4.7",
     "font-awesome": "fontawesome#~4.4.0",
-    "angular-animate": "~1.4.7",
     "angular-cookies": "~1.4.7"
   }
 }
