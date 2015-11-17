@@ -322,7 +322,7 @@ var wdestinationstart;
         var tripToSave = { };
         tripToSave.title = $scope.main.title;
         console.log($http.defaults.headers.common.Authorization);
-        console.log(titleToSave);
+        console.log(tripToSave);
 
         //if user is logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
@@ -366,11 +366,22 @@ var wdestinationstart;
 
     };
 
-      //TODO: inpect all save trip
-      // $http.get( BASE_URL + '/api/trips/')
-      //   .then(function (response){
-      //     //TODO:scan all trips return true to hide save button
-      //   });
+      $scope.hideSaveButton = false;
+      (function (){
+        if ($http.defaults.headers.common.Authorization !== undefined) {
+          $http.get( BASE_URL + '/api/trips/')
+            .then(function (response){
+              var usertrips = response.data.trips;
+              for (var i in usertrips){
+                if (usertrips[i].id == $routeParams.id){
+                  $scope.hideSaveButton = true;
+                }
+              }
+              console.log($scope.hideSaveButton);
+            });
+        }
+      })();
+
 
 
 
