@@ -248,7 +248,7 @@ div.welcome-top {
         width: 100%;
         padding: 0 12%;
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 0%;
         color: white;
         display: block;
@@ -401,6 +401,7 @@ div.welcome-top {
         text-align: center;
         font-size: 1.2em;
         font-weight: 300;
+        line-height: 1.2;
         &.hide {
           display: none;
         }
