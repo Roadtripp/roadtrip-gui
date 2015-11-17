@@ -262,6 +262,8 @@ var wdestinationstart;
       var get1= false;
       var get2= false;
       waypointCities = []; //clears last value of waypoint
+      var tripholder;
+      $scope.canSaveTitle = false;
 
       $('.button-map').on('click', function(){
         $('#map').addClass('active');
@@ -303,7 +305,7 @@ var wdestinationstart;
         .then(function(response){
 
           $rootScope.main = response.data;
-          var tripholder = response.data.id;
+          tripholder = response.data.id;
 
 
           console.log($rootScope.main);
@@ -357,6 +359,14 @@ var wdestinationstart;
       };
 
       //listen to changes in input form for new title, calls saveTitle function
+      $('input.user-title').on('click', function (){
+        if ($http.defaults.headers.common.Authorization === undefined) {
+          $scope.canSaveTitle = true;
+            console.log('invalid');
+        }
+      });
+
+      //listen to changes in input form for new title, calls saveTitle function
       $('input.user-title').on('change', function (){
         $scope.saveTitle();
       });
@@ -375,7 +385,11 @@ var wdestinationstart;
         $http.patch ( BASE_URL + '/api/trip/' + $routeParams.id + '/', titleToSave)
         .then ( function (response){
           console.log(response);
-      });
+      },
+      function(){
+        $scope.canSaveTitle = true;
+      }
+    );
 
     };
 
@@ -396,7 +410,7 @@ var wdestinationstart;
               console.log($scope.hideSaveButton);
             });
         }
-      };
+      }
       hideSaveButton();
 
 
