@@ -12,11 +12,12 @@
         <label class="gray">Password<input id="pass1" type="password" ng-model="signup.user.password" placeholder="******" minlength=6 required/></label>
         <label class="gray">Confirm Password<input id="pass2" type="password" placeholder="******" minlength=6 required/></label>
       </fieldset>
-      <span class="pass-error" ng-hide="pwvalid" >Password Does Not Match</span>
-      <span class="created" ng-hide="created" >Account Created!</span>
       <div class="button">
       <button class="login" type="submit">sign up</button>
       </div>
+      <span class="pass-error" ng-hide="pwvalid" >password does not match</span>
+      <span class="created" ng-hide="created" >account created!</span>
+      <span class="user-exists" ng-hide="exists" >username already exists!</span>
       </form>
     </section> <!-- END .form-container -->
 

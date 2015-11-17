@@ -78,6 +78,7 @@ label.gray {
       font-weight: 300;
       font-size: 0.8em;
       padding-top: 0px;
+      margin-top: 10px;
     }
 
     span.created {
@@ -87,4 +88,14 @@ label.gray {
       font-weight: 300;
       font-size: 0.8em;
       padding-top: 0px;
+      margin-top: 10px;
+    }
+    span.user-exists {
+      display: block;
+      text-align: center;
+      color: red;
+      font-weight: 300;
+      font-size: 0.8em;
+      padding-top: 0px;
+      margin-top: 10px;
     }
