@@ -262,6 +262,10 @@ var wdestinationstart;
       var get1= false;
       var get2= false;
       waypointCities = []; //clears last value of waypoint
+      originCity = "";
+      desinationCity = "";
+      var tripholder;
+      $scope.canSaveTitle = false;
 
       $('.button-map').on('click', function(){
         $('#map').addClass('active');
@@ -303,8 +307,8 @@ var wdestinationstart;
         .then(function(response){
 
           $rootScope.main = response.data;
-          var tripholder = response.data.id;
-
+          tripholder = response.data.id;
+          $cookies.put("currenTrip", tripholder);
 
           console.log($rootScope.main);
 
@@ -314,13 +318,13 @@ var wdestinationstart;
             $scope.displayTitle = response.data.title;
           }
 
+          // Generate Origin and Destination cities in array for Google Maps use
+          originCity = $rootScope.main.origin;
+          desinationCity = $rootScope.main.destination;
 
           get2 =true;
           bothGetDone();
 
-          // Generate Origin and Destination cities in array for Google Maps use
-          originCity = $rootScope.main.origin;
-          desinationCity = $rootScope.main.destination;
         });
 
 
@@ -329,6 +333,16 @@ var wdestinationstart;
             initMap();
           }
         }
+
+          // $('.user-title').prop('disabled', false);
+
+        (function() {
+        if ($http.defaults.headers.common.Authorization === undefined ) {
+          $('.user-title').prop('disabled', true);
+            console.log('invalid');
+        }
+      })();
+
 
         //saving trip, Backend accept title key in an boject to save the TRIP (not saving the title)
       $scope.savetrip = function (){
@@ -350,11 +364,19 @@ var wdestinationstart;
         );
       } //if user is not logged in
         else {
-          $cookies.put("currenTrip", tripholder);
+
           $location.path('/panel-login');
         }
 
       };
+
+      //listen to changes in input form for new title, calls saveTitle function
+      $('input.user-title').on('click', function (){
+        if ($http.defaults.headers.common.Authorization === undefined) {
+          $scope.canSaveTitle = true;
+            console.log('invalid');
+        }
+      });
 
       //listen to changes in input form for new title, calls saveTitle function
       $('input.user-title').on('change', function (){
@@ -375,7 +397,11 @@ var wdestinationstart;
         $http.patch ( BASE_URL + '/api/trip/' + $routeParams.id + '/', titleToSave)
         .then ( function (response){
           console.log(response);
-      });
+      },
+      function(){
+        $scope.canSaveTitle = true;
+      }
+    );
 
     };
 
@@ -396,7 +422,7 @@ var wdestinationstart;
               console.log($scope.hideSaveButton);
             });
         }
-      };
+      }
       hideSaveButton();
 
 
@@ -533,7 +559,9 @@ var wdestinationstart;
     $rootScope.tstyle = {'background':'#4AAAA5'};
   };
 
+  $cookies.remove("currenTrip"); //remove current trip number
   $http.defaults.headers.common.Authorization = $cookies.get("zipt");
+
   //updates nav buttons
   function statusUpdate (){
 

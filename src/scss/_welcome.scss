@@ -45,13 +45,16 @@ div.welcome-top {
 
   @media screen and (min-height: 570px) { //iphone5 height
     height: 528px;
+    // background-size: cover;
   }
 
   @media screen and (min-height: 627px) { //iphone6 height
     height: 540px;
+    background-size: cover;
   }
   @media screen and (min-height: 659px) { //nexus6 height
     height: 565px;
+    background-size: cover;
   }
 
   @media screen and (min-height: 736px) { //iphone6+ height
@@ -65,9 +68,11 @@ div.welcome-top {
 
   @media screen and (min-width: 600px) { //ipad min height
     background-image: url("../img/welcome-car-tablet.jpg");
+    background-size: cover;
   }
   @media (min-width: 801px) { // desktop
     background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("../img/welcome-car-desktop.jpg");
+    background-size: cover;
   }
 
 
@@ -371,14 +376,17 @@ div.welcome-top {
   div.categories{
     width: 100%;
     text-align: center;
+
     div.categoryw{
       display: inline-block;
       position: relative;
       width: 24.6%;
       margin-bottom: 1em;
+
       img.cat-pic{
         width: 100%;
       }
+
       span.cat-big{
         width: 100%;
         position: absolute;
@@ -394,6 +402,7 @@ div.welcome-top {
         //   display: none;
         // }
       }
+
       span.cat-small{
         width: 100%;
         padding: 0 12%;
@@ -430,12 +439,14 @@ div.welcome-top {
         z-index: 1000;
 
       }
-      &:hover div.cat-pop{
+
+      &:hover div.cat-pop {
         animation-name: bg-cat;
         animation-duration: 0.3s;
         animation-fill-mode: forwards;
       }
-      &:hover span{
+
+      &:hover span {
         display: none;
       }
     }
