@@ -334,8 +334,10 @@ var wdestinationstart;
           }
         }
 
+          // $('.user-title').prop('disabled', false);
+
         (function() {
-        if ($http.defaults.headers.common.Authorization === undefined && $scope.hideSaveButton) {
+        if ($http.defaults.headers.common.Authorization === undefined ) {
           $('.user-title').prop('disabled', true);
             console.log('invalid');
         }
