@@ -330,6 +330,7 @@ var wdestinationstart;
           $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', tripToSave)
           .then ( function (response){
             $cookies.remove("currenTrip"); //remove current trip number (if saved)
+            hideSaveButton(); //update save button to hide
             $location.path('/home/user/');
 
           }
@@ -367,7 +368,7 @@ var wdestinationstart;
     };
 
       $scope.hideSaveButton = false;
-      (function (){
+      function hideSaveButton (){
         if ($http.defaults.headers.common.Authorization !== undefined) {
           $http.get( BASE_URL + '/api/trips/')
             .then(function (response){
@@ -380,7 +381,8 @@ var wdestinationstart;
               console.log($scope.hideSaveButton);
             });
         }
-      })();
+      };
+      hideSaveButton();
 
 
 
