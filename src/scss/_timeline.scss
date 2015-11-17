@@ -21,7 +21,34 @@ form.timeline {
       width: 100%;
       text-align: center;
       border: none;
+      border-radius: 0px;
       font-size: 1.2em;
+      color: $dark;
+      outline: none;
+      &:-moz-placeholder { /* Firefox 18- */
+        // color: black;
+        font-weight: 400;
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+        // color: black;
+        font-weight: 400;
+      }
+      &:-ms-input-placeholder {
+        // color: black;
+        font-weight: 400;
+      }
+      &::-webkit-input-placeholder {
+        // color: black;
+        font-weight: 400;
+      }
+      &:focus::-webkit-input-placeholder {
+        color: transparent;
+      }
+      }
+      button.save-title-button{
+        display: none;
+
+
       }
 }
 

@@ -67,8 +67,7 @@ div.welcome-top {
     background-image: url("../img/welcome-car-tablet.jpg");
   }
   @media (min-width: 801px) { // desktop
-    background-image: url("../img/welcome-car-desktop.jpg");
-    // height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("../img/welcome-car-desktop.jpg");
   }
 
 
@@ -290,8 +289,11 @@ div.welcome-top {
 }//end mobile view
 
 //tablet view
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 501px) and (max-width: 800px) {
 
+  .desktop {
+    display: none;
+  }
 
   div.categories{
     width: 100%;
@@ -388,9 +390,9 @@ div.welcome-top {
         display: block;
         font-size: 2.5em;
         font-weight: 500;
-        &.hide {
-          display: none;
-        }
+        // &.hide {
+        //   display: none;
+        // }
       }
       span.cat-small{
         width: 100%;
@@ -404,11 +406,13 @@ div.welcome-top {
         font-size: 1.2em;
         font-weight: 300;
         line-height: 1.2;
-        &.hide {
-          display: none;
-        }
+
+        // &.hide {
+        //   display: none;
+        // }
 
       }
+
       div.cat-pop {
 
         background-color: rgba(0, 0, 0, 0.0);
@@ -438,7 +442,7 @@ div.welcome-top {
   }
 
   .desktop-heading {
-    padding-top: 80px;
+    padding-top: 75px;
   }
 
   div.welcome {
@@ -450,6 +454,7 @@ div.welcome-top {
     width: 80%;
     text-align: center;
     margin: 0 auto 2px auto;
+    font-size: 1.2em;
   }
 
   h2.welcome {
