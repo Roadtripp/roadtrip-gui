@@ -263,18 +263,7 @@ var wdestinationstart;
       var get2= false;
       waypointCities = []; //clears last value of waypoint
 
-      $('.button-map').on('click', function(){
-        $('#map').addClass('active');
-        $('.button-map').addClass('active');
-        $('.button-timeline').removeClass('active');
-        initMap();
 
-      });
-      $('.button-timeline').on('click', function(){
-        $('#map').removeClass('active');
-        $('.button-timeline').addClass('active');
-        $('.button-map').removeClass('active');
-      });
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
@@ -827,11 +816,22 @@ function fillInAddressW() {
 }
 
 
-
+var hb=false;
 $('.hamburger').on('click', function(){
+  if (hb === false) {
   $('.hamburger-nav').slideToggle('show');
+  setTimeout(function(){ hb=true; }, 500);
+}
 });
 
 $('.hamburger-nav li a').on('click', function(){
   $('.hamburger-nav').slideToggle('show');
+  hb=false;
+});
+
+$('*:not(.hamburger)').on('click', function(){
+  if (hb) {
+    $('.hamburger-nav').slideToggle('show');
+    hb=false;
+  }
 });
