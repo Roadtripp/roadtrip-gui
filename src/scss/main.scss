@@ -268,6 +268,7 @@ button {
 }
 
 
+
 .spinner {
   text-align: center;
   color: $accent;
@@ -276,6 +277,9 @@ button {
     span.fa-spin{
       color: $accent;
       margin-top: 25px;
+      &.generating {
+        font-size: 3em;
+      }
     }
     span.spinner-text {
       display: block;
@@ -286,10 +290,22 @@ button {
       margin-top: 25px;
       margin-bottom: 50px;
     }
-  // &.hide {
-  //   display: none;
-  // }
+
 }
+
+.spinner-sending {
+  text-align: center;
+  color: $accent;
+  width: 100%;
+  margin-top: 15px auto;
+  span.fa-spin.generating{
+      color: $accent;
+      margin-top: 5px;
+      font-size: 3em;
+  }
+}
+
+
 
 
 
