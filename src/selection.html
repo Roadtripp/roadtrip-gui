@@ -26,7 +26,7 @@
       <div class="checkbox" ng-repeat="foo in city.food">
 
       <label class="title"><input id="checkboxes" type="checkbox" ng-model="foo.activity_stopover" /> &nbsp;{{foo.title}}</label><br>
-      <a href="{{foo.url}}"><img ng-src="{{foo.small_rate_img_url}}"/></a><p class="cat">{{foo.sub_categories[0][0]}}</p>
+      <a href="{{foo.url}}" target="_blank"><img ng-src="{{foo.small_rate_img_url}}"/></a><p class="cat">{{foo.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -35,7 +35,7 @@
       <div class="checkbox" ng-repeat="activity in city.activities">
 
         <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="activity.activity_stopover"/> &nbsp;{{activity.title}}</label><br>
-         <a href="{{activity.url}}"><img ng-src="{{activity.small_rate_img_url}}"/></a><p class="cat">{{activity.sub_categories[0][0]}}</p>
+         <a href="{{activity.url}}" target="_blank"><img ng-src="{{activity.small_rate_img_url}}"/></a><p class="cat">{{activity.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <h5 ng-hide="city.hotels.length === 0" class="category">lodging</h5>
       <div class="checkbox" ng-repeat="hotel in city.hotels">
         <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="hotel.activity_stopover"/> &nbsp;{{hotel.title}}</label><br>
-        <a href="{{hotel.url}}"><img ng-src="{{hotel.small_rate_img_url}}"/></a><p class="cat">{{hotel.sub_categories[0][0]}}</p>
+        <a href="{{hotel.url}}" target="_blank"><img ng-src="{{hotel.small_rate_img_url}}"/></a><p class="cat">{{hotel.sub_categories[0][0]}}</p>
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -53,7 +53,7 @@
         <label class="title">
           <input id="checkboxes" value="checkboxes" type="checkbox" ng-model="sport.activity_stopover"/> &nbsp;{{sport.title}}</title><br>
           <p class="time">{{sport.date | date : 'shortDate'}} @ {{sport.time}}</p>
-          <a href="{{sport.url}}" class="price" ng-hide="sport.lowest_price == null">{{sport.lowest_price | currency}} {{ - sport.highest_price | currency}}</a>
+          <a href="{{sport.url}}" target="_blank" class="price" ng-hide="sport.lowest_price == null">{{sport.lowest_price | currency}} {{ - sport.highest_price | currency}}</a>
         <label for="checkboxes"></label>
       </div>
     </div>
@@ -62,7 +62,7 @@
       <div class="checkbox" ng-repeat="artis in city.artist">
         <label class="title"><input id="checkboxes" value="checkboxes" type="checkbox" ng-model="artis.activity_stopover"/> &nbsp;{{artis.title}}</title><br>
           <p class="time">{{artis.date | date : 'shortDate'}} @ {{artis.time}}</p>
-          <a href="{{artis.url}}" class="price" ng-hide="artis.lowest_price == null">{{artis.lowest_price | currency}} {{ - artis.highest_price | currency}}</a>
+          <a href="{{artis.url}}" target="_blank" class="price" ng-hide="artis.lowest_price == null">{{artis.lowest_price | currency}} {{ - artis.highest_price | currency}}</a>
         <label for="checkboxes"></label>
       </div>
   </div>
@@ -81,10 +81,4 @@
 </section> <!-- END form-container -->
 </section> <!-- END .main -->
 
-<section class="footer">
-  <div class="footer-container">
-    <p class="footer"> powered by:<img class="footer" src="https://cloud.githubusercontent.com/assets/14016133/11045241/432f8618-86f4-11e5-992d-f22b6aa92d03.png"> <img src="https://cloud.githubusercontent.com/assets/14016133/11045397/3b7646ae-86f5-11e5-8442-5867c5c29dd4.png"></p>
-    <p class="footer">&copy; ziptrip 2015
-  </div>
-</section> <!-- END .footer -->
 </section>

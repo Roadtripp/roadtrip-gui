@@ -71,7 +71,7 @@ div.welcome-top {
     background-size: cover;
   }
   @media (min-width: 801px) { // desktop
-    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("../img/welcome-car-desktop.jpg");
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("../img/welcome-car-desktop-tall.jpg");
     background-size: cover;
   }
 
@@ -214,6 +214,7 @@ div.welcome-top {
       margin: 0;
       z-index: 1;
       margin-top: -1px;
+      padding-bottom: 23px;
     }
   }
 
