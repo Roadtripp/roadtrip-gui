@@ -267,18 +267,7 @@ var wdestinationstart;
       var tripholder;
       $scope.canSaveTitle = false;
 
-      $('.button-map').on('click', function(){
-        $('#map').addClass('active');
-        $('.button-map').addClass('active');
-        $('.button-timeline').removeClass('active');
-        initMap();
 
-      });
-      $('.button-timeline').on('click', function(){
-        $('#map').removeClass('active');
-        $('.button-timeline').addClass('active');
-        $('.button-map').removeClass('active');
-      });
 
        // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
@@ -310,7 +299,7 @@ var wdestinationstart;
           tripholder = response.data.id;
           $cookies.put("currenTrip", tripholder);
 
-          console.log($rootScope.main);
+
 
           if (response.data.title === null){
             $scope.displayTitle = response.data.origin + " to " + response.data.destination;
@@ -336,20 +325,14 @@ var wdestinationstart;
 
           // $('.user-title').prop('disabled', false);
 
-        (function() {
-        if ($http.defaults.headers.common.Authorization === undefined ) {
-          $('.user-title').prop('disabled', true);
-            console.log('invalid');
-        }
-      })();
+
 
 
         //saving trip, Backend accept title key in an boject to save the TRIP (not saving the title)
       $scope.savetrip = function (){
         var tripToSave = { };
         tripToSave.title = $scope.main.title;
-        console.log($http.defaults.headers.common.Authorization);
-        console.log(tripToSave);
+
 
         //if user is logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
@@ -370,13 +353,13 @@ var wdestinationstart;
 
       };
 
-      //listen to changes in input form for new title, calls saveTitle function
-      $('input.user-title').on('click', function (){
-        if ($http.defaults.headers.common.Authorization === undefined) {
-          $scope.canSaveTitle = true;
-            console.log('invalid');
-        }
-      });
+
+      // $('input.user-title').on('click', function (){
+      //   if ($http.defaults.headers.common.Authorization === undefined) {
+      //     $scope.canSaveTitle = true;
+      //       console.log('invalid');
+      //   }
+      // });
 
       //listen to changes in input form for new title, calls saveTitle function
       $('input.user-title').on('change', function (){
@@ -407,7 +390,7 @@ var wdestinationstart;
 
 
       $scope.hideSaveButton = false;
-
+      $scope.tripsaved = false;
       //hiding save button if trip is already saved on user's trips
       function hideSaveButton (){
         if ($http.defaults.headers.common.Authorization !== undefined) {
@@ -417,15 +400,14 @@ var wdestinationstart;
               for (var i in usertrips){
                 if (usertrips[i].id == $routeParams.id){
                   $scope.hideSaveButton = true;
+                  $scope.tripsaved = true;
                 }
               }
-              console.log($scope.hideSaveButton);
+              console.log($scope.tripsaved);
             });
         }
       }
       hideSaveButton();
-
-
 
 
 
@@ -444,6 +426,7 @@ var wdestinationstart;
         $rootScope.selectedCities = { };
 
         $scope.loading = true; //show loading spinner
+        $scope.sending= false; //show loading spinner
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
@@ -472,6 +455,7 @@ var wdestinationstart;
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
+            $scope.sending= true; //show sending spinner
 
             // change cities stopover to true if they select any activities within that city
             var wp = $rootScope.suggestions;
@@ -855,11 +839,22 @@ function fillInAddressW() {
 }
 
 
-
+var hb=false;
 $('.hamburger').on('click', function(){
+  if (hb === false) {
   $('.hamburger-nav').slideToggle('show');
+  setTimeout(function(){ hb=true; }, 500);
+}
 });
 
 $('.hamburger-nav li a').on('click', function(){
   $('.hamburger-nav').slideToggle('show');
+  hb=false;
+});
+
+$('*:not(.hamburger)').on('click', function(){
+  if (hb) {
+    $('.hamburger-nav').slideToggle('show');
+    hb=false;
+  }
 });

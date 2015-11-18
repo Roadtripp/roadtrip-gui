@@ -26,6 +26,7 @@ form.timeline {
       color: $dark;
       outline: none;
       background: #fff;
+      line-height: 2em;
 
        &:hover {
          border: 1px solid #c3c3c3;
@@ -47,7 +48,7 @@ form.timeline {
         // color: black;
         font-weight: 400;
       }
-      &:focus::-webkit-input-placeholder {
+      &:focus::-webkit--placeholder {
         color: transparent;
       }
   }
