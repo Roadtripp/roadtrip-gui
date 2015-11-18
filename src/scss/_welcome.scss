@@ -375,6 +375,11 @@ div.welcome-top {
 //desktop view
 @media screen and (min-width: 801px) {
 
+  .welcome-top {
+    background: cover;
+    height: 100vh !important;
+  }
+
   div.categories{
     width: 100%;
     text-align: center;
@@ -382,6 +387,7 @@ div.welcome-top {
     position: absolute;
     @extend .clearfix;
     max-width: 1280px !important;
+    padding-top: 20px;
 
     div.categoryw{
       display: inline-block;
@@ -459,7 +465,7 @@ div.welcome-top {
   }
 
   .desktop-heading {
-    padding-top: 75px;
+    padding-top: 120px;
   }
 
   div.welcome {
@@ -483,12 +489,17 @@ div.welcome-top {
   }
 
   .how-works {
-    margin-top: 25px;
-    z-index: 4 !important;
+    // margin-top: 25px;
+    // z-index: 4 !important;
+    display: none !important;
 
     img.trapezoid{
       z-index: 4 !important;
     }
+  }
+
+  .how-fillers {
+    display: none !important;
   }
 
 }//end desktop view
