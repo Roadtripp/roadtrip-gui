@@ -267,6 +267,18 @@ var wdestinationstart;
       var tripholder;
       $scope.canSaveTitle = false;
 
+      $('.button-map').on('click', function(){
+        $('#map').addClass('active');
+        $('.button-map').addClass('active');
+        $('.button-timeline').removeClass('active');
+        initMap();
+
+      });
+      $('.button-timeline').on('click', function(){
+        $('#map').removeClass('active');
+        $('.button-timeline').addClass('active');
+        $('.button-map').removeClass('active');
+      });
 
 
        // Get Waypoints and Activites Details for Timeline
