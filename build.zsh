@@ -14,6 +14,7 @@ cp src/timeline.html dist/
 cp src/welcome.html dist/
 cp src/favicon.ico dist/
 cp src/404.html dist/
+cp src/apple-touch-icon.png dist/
 
 
 # mkdir dist/partials/
