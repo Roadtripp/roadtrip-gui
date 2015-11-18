@@ -23,6 +23,7 @@
     width: 68%;
   }
 
+
   .breadcrumb {
     width: 80%;
   }
@@ -41,6 +42,7 @@
 section.main {
   width: 80%;
   margin: 0 auto;
+  position: relative;
 
     aside.aside-container {
       border: 1px solid #e6e6e6;
@@ -50,7 +52,7 @@ section.main {
       margin: 0 auto;
       display: block !important;
       float: right;
-      padding-bottom: 27%;
+      padding-bottom: 175px;
 
         p.side {
           color: #9d9d9d;
