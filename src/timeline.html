@@ -1,7 +1,7 @@
 <h2 class="heading center">your ziptrip</h2>
 <section class="main-content timeline">
   <div class="buttons">
-   <!-- <button class="save" ng-click="savetrip()">save this trip</button> -->
+   <!-- <a href class="save" ng-click="savetrip()">save this trip</a> -->
    <!-- <button class="return"><a href="#/start">plan return trip</a></button> -->
  </div>
   <nav class="tabs">
@@ -15,7 +15,9 @@
 <section ng-hide="loading" class="timeline-map">
   <form class="timeline" ng-submit="saveTitle()">
     <input class="user-title" ng-model="new.title" type="text" placeholder="{{displayTitle | removeUSA}}"/>
+    <!-- <span class="logout-title">{{main.origin | removeUSA }} to {{main.destination | removeUSA}}</span> -->
     <button class="save-title-button" type="submit"></button>
+    <span class="save-title-error" ng-show="canSaveTitle">Log in to edit title</span>
   </form>
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">
@@ -59,7 +61,7 @@
 
 <div class="desktop-button">
   <button ng-hide="hideSaveButton" class="desktop-bottom" ng-click="savetrip()">save this trip</button>
-  <a href="#/start"><button class="desktop-bottom-return">plan return trip</button></a>
+  <button class="desktop-bottom-return"><a href="#/start">plan return trip</a></button>
 </div>
 
   <section class="footer">
