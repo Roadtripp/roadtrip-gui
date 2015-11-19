@@ -236,10 +236,11 @@ div.welcome-top {
       img.cat-pic{
         width: 100%;
       }
-      span.cat-big{
+
+      span.cat-big {
         width: 100%;
         position: absolute;
-        top: 23%;
+        top: 22%;
         left: 0%;
         text-transform: uppercase;
         color: white;
@@ -247,29 +248,35 @@ div.welcome-top {
         display: block;
         font-size: 3em;
         font-weight: 500;
-        &.hide {
-          display: none;
-        }
+
+          &.hide {
+            display: none;
+          }
       }
-      span.cat-small{
-        width: 100%;
-        padding: 0 12%;
+
+      span.cat-small {
+        width: auto;
+        margin: 0 16.5%;
+        text-align: center;
         position: absolute;
-        top: 45%;
+        top: 49%;
         left: 0%;
         color: white;
         display: block;
         text-align: center;
         font-size: 1.2em;
         font-weight: 300;
+        line-height: 1;
+
         &.hide {
           display: none;
         }
 
       }
+
       div.cat-pop {
 
-        background-color: rgba(0, 0, 0, 0.0);
+        background-color: rgba(0, 0, 0, 0.1);
         vertical-align: middle;
         width: 100%;
         height: 100%;
@@ -282,9 +289,11 @@ div.welcome-top {
         font-size: 2em;
         font-weight: 400;
         z-index: 1000;
+
         @media screen and (max-width: 320px) { //iphone5 height
           font-size: 1.6em;
         }
+
         &.active{
           animation-name: bg-cat;
           animation-duration: 0.3s;
@@ -305,15 +314,18 @@ div.welcome-top {
   div.categories{
     width: 100%;
     text-align: center;
-    div.categoryw{
+
+    div.categoryw {
       display: inline-block;
       position: relative;
       width: 49.6%;
-      margin-bottom: 1em;
-      img.cat-pic{
+      margin-bottom: .3em;
+
+      img.cat-pic {
         width: 100%;
       }
-      span.cat-big{
+
+      span.cat-big {
         width: 100%;
         position: absolute;
         top: 23%;
@@ -402,7 +414,7 @@ div.welcome-top {
       span.cat-big{
         width: 100%;
         position: absolute;
-        top: 23%;
+        top: 24%;
         left: 0%;
         text-transform: uppercase;
         color: white;
@@ -410,14 +422,13 @@ div.welcome-top {
         display: block;
         font-size: 2.5em;
         font-weight: 500;
-        // &.hide {
-        //   display: none;
-        // }
+
       }
 
       span.cat-small{
-        width: 100%;
-        padding: 0 12%;
+        width: auto;
+        margin: 0 10%;
+        text-align: center;
         position: absolute;
         top: 50%;
         left: 0%;
@@ -440,7 +451,7 @@ div.welcome-top {
         vertical-align: middle;
         width: 100%;
         height: 100%;
-        padding: 0 2%;
+        padding: 2% 2%;
         position: absolute;
         top: 0%;
         left: 0%;
@@ -561,7 +572,7 @@ div.welcome-top {
   @media screen and (min-width: 600px) {
 
     section.meet-team {
-      margin-top: 20%;
+      margin-top: 5%;
     }
     div.team {
       width: 80%;
