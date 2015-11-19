@@ -21,11 +21,16 @@ var wdestinationstart;
 
     $routeProvider.when('/', {
       templateUrl: 'welcome.html',
-      controller: function ($location, $rootScope){
-        var welcome = this;
+      controller: function ($location, $rootScope, $cookies){
+
+        //activates transparent header on welcome page
         $rootScope.htstyle();
 
-        //auto scroll
+
+        //remove current trip number
+        $cookies.remove("currenTrip");
+
+        //auto scroll on mobile
         $(function(){$("a.how-works").click(function(){
           $("html,body").animate({scrollTop:$("#categories").offset().top},"1000");return false})});
 
@@ -57,10 +62,6 @@ var wdestinationstart;
 
 
 
-        // $rootScope.header.css("background", "");
-
-
-        welcome.wdestination = wdestinationstart;
 
 
       },
@@ -71,6 +72,7 @@ var wdestinationstart;
       templateUrl: 'admin.html',
       controller: function ($http, $location, $routeParams, $rootScope, $scope){
 
+        // activates teal colored header
         $rootScope.htealstyle();
         $scope.loading = true; //show loading spinner
         $http.get( BASE_URL + '/api/trips/')
@@ -152,8 +154,11 @@ var wdestinationstart;
         var signup = this;
         signup.user = { };
 
+
+        //posting user details
         signup.createUser = function(){
 
+            //cheacks if passwords match
             var pass1 = document.getElementById('pass1').value;
             var pass2 = document.getElementById('pass2').value;
             if (pass1 !== pass2)
@@ -166,9 +171,7 @@ var wdestinationstart;
               document.getElementById('pass2').value = '';
               $scope.pwvalid = true;
 
-
-
-
+              //post data since paswords matches
               $http.post( BASE_URL + '/api/register/', signup.user)
                 .then(function(){
 
@@ -181,9 +184,8 @@ var wdestinationstart;
                     }, 2000);
                   }) ();
 
-
-
                 }, function (response){
+                  console.log(response);
                   $scope.exists = false;
                 });
 
@@ -777,6 +779,13 @@ var map = new google.maps.Map(document.getElementById('map'), {
   zoom: 8
 });
 
+google.maps.event.addDomListener(window, 'resize', function() {
+    var center = map.getCenter();
+    map.setCenter(center);
+});
+
+google.maps.event.trigger(map, "resize");
+
 map.mapTypes.set(customMapTypeId, customMapType);
 map.setMapTypeId(customMapTypeId);
 
@@ -821,6 +830,7 @@ function initAutocompleteD() {
 }
 
 function initAutocompleteW() {
+
 
   autocompleteW = new google.maps.places.Autocomplete(
     (document.getElementById('welcome_destination')),
