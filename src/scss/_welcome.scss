@@ -314,15 +314,18 @@ div.welcome-top {
   div.categories{
     width: 100%;
     text-align: center;
-    div.categoryw{
+
+    div.categoryw {
       display: inline-block;
       position: relative;
       width: 49.6%;
-      margin-bottom: 1em;
-      img.cat-pic{
+      margin-bottom: .3em;
+
+      img.cat-pic {
         width: 100%;
       }
-      span.cat-big{
+
+      span.cat-big {
         width: 100%;
         position: absolute;
         top: 23%;
@@ -448,7 +451,7 @@ div.welcome-top {
         vertical-align: middle;
         width: 100%;
         height: 100%;
-        padding: 0 2%;
+        padding: 2% 2%;
         position: absolute;
         top: 0%;
         left: 0%;
@@ -569,7 +572,7 @@ div.welcome-top {
   @media screen and (min-width: 600px) {
 
     section.meet-team {
-      margin-top: 20%;
+      margin-top: 5%;
     }
     div.team {
       width: 80%;
