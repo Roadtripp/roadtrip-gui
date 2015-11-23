@@ -11,7 +11,7 @@ var originstart;
 var destinationstart;
 var wdestinationstart;
 
-
+//IIFE for Angular module
 ;(function(){
 
   var BASE_URL = "https://hidden-woodland-2621.herokuapp.com";
@@ -19,15 +19,17 @@ var wdestinationstart;
 
   angular.module('road-Trip', ['ngRoute','ngCookies'], function($routeProvider){
 
-    $routeProvider.when('/', {
+    $routeProvider
+
+    //WELOME PAGE
+    .when('/', {
       templateUrl: 'welcome.html',
       controller: function ($location, $rootScope, $cookies){
 
         //activates transparent header on welcome page
         $rootScope.htstyle();
 
-
-        //remove current trip number
+        //clears current trip number when welcome page visited
         $cookies.remove("currenTrip");
 
         //auto scroll on mobile
@@ -36,38 +38,32 @@ var wdestinationstart;
 
 
         //animation for categories
+        //TODO: refactoring of codes in AngularJS
         $('.cfood').on('click', function(){
           $('.cat-pop.fo').toggleClass('active');
           $('.cat-big.fo').toggleClass('hide');
           $('.cat-small.fo').toggleClass('hide');
         });
-
         $('.cmusic').on('click', function(){
           $('.cat-pop.mu').toggleClass('active');
           $('.cat-big.mu').toggleClass('hide');
           $('.cat-small.mu').toggleClass('hide');
         });
-
         $('.csports').on('click', function(){
           $('.cat-pop.sp').toggleClass('active');
           $('.cat-big.sp').toggleClass('hide');
           $('.cat-small.sp').toggleClass('hide');
         });
-
         $('.crecreation').on('click', function(){
           $('.cat-pop.re').toggleClass('active');
           $('.cat-big.re').toggleClass('hide');
           $('.cat-small.re').toggleClass('hide');
         });
-
-
-
-
-
       },
       controllerAs: 'welcome'
     })
 
+    //USER PAGE
     .when('/home/user/', {
       templateUrl: 'admin.html',
       controller: function ($http, $location, $routeParams, $rootScope, $scope){
@@ -75,74 +71,64 @@ var wdestinationstart;
         // activates teal colored header
         $rootScope.htealstyle();
         $scope.loading = true; //show loading spinner
+
+        // get user trips
         $http.get( BASE_URL + '/api/trips/')
           .then(function (response){
             $scope.loading = false; //hide loading spinner
             $scope.usertrips = response.data;
             $scope.trips = response.data.trips;
-            console.log($scope.trips);
           });
 
+        // get user's username
         $http.get(BASE_URL + '/api/whoami/')
           .then(function(response){
             $scope.user = response.data;
           });
-
-
         }
     })
 
+    //LOGIN PAGE
     .when('/panel-login', {
       templateUrl: 'login.html',
       controller: function($http, $location, $routeParams, $rootScope, $cookies, $scope){
         $rootScope.htealstyle();
         $scope.upvalid = true;
         var login = this;
-
         login.user = { };
 
+
+        //post user login details
         login.submit = function(){
           $http.post( BASE_URL + '/api/login/', login.user)
             .then(function(response){
-              console.log(response);
               var temp = "Token " + response.data.token;
               $cookies.put("zipt", temp);
               $rootScope.login();
               login.user = { };
               temp = "";
 
-
-
+              // direct user to last generated timeline page or to user page
               if (!isNaN($cookies.get("currenTrip"))) {
                 $location.path('/trip/' + $cookies.get("currenTrip") + '/city/');
                 $cookies.remove("currenTrip"); //remove current trip number
-                console.log("trip number cookie removed");
               } else {
                 $location.path('/home/user/');
               }
 
             },
+            //post response error, show username password error.
+            //TODO: verify back-end to clarify error maessages if there is any.
             function(){
               $scope.upvalid = false;
             });
 
-
-
-          // $http.get(BASE_URL + 'api/whoami', {
-          //   headers: {
-          //     Authorization: "Basic" + btoa(login.user.username + ":" + login.user.password)
-          //   }
-          // }).then(function(){
-          //   $location.path('/home/user/' + $routeParams.id);
-          //   $http.defaults.headers.common.Authorization = "Basic" + btoa(login.user.username + ":" + login.user.password);
-          // });
-
         }; // END login.submit function
       },
-
       controllerAs: 'login'
     })
 
+    //SIGNUP PAGE
     .when('/panel-signup', {
       templateUrl: 'signup.html',
       controller: function($http, $location, $routeParams, $scope, $rootScope, $timeout){
@@ -154,11 +140,10 @@ var wdestinationstart;
         var signup = this;
         signup.user = { };
 
-
-        //posting user details
+        //posting user's signup details
         signup.createUser = function(){
 
-            //cheacks if passwords match
+            //checks if passwords match
             var pass1 = document.getElementById('pass1').value;
             var pass2 = document.getElementById('pass2').value;
             if (pass1 !== pass2)
@@ -171,67 +156,54 @@ var wdestinationstart;
               document.getElementById('pass2').value = '';
               $scope.pwvalid = true;
 
-              //post data since paswords matches
+              //post data since passwords matched
               $http.post( BASE_URL + '/api/register/', signup.user)
                 .then(function(){
-
                   $scope.created = false;
                   signup.user = { };
 
+                  //show success signup
                   (function (){
                     $timeout(function(){
                       $location.path('/panel-login/');
                     }, 2000);
                   }) ();
 
-                }, function (response){
-                  console.log(response);
+                },
+                //post response error signup, username already exists
+                function (response){
                   $scope.exists = false;
                 });
-
-
-
             }
-
-
-
-
-
-
          };
       }, // END controller
       controllerAs: 'signup'
     }) // END .when
 
-      // INTERESTS PAGE
+    // INTERESTS PAGE
     .when('/trip/:id', {
       templateUrl: 'interests.html',
       controller: function($http, $location, $routeParams, $scope, $rootScope) {
         $rootScope.htealstyle();
         $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
           .then(function(response){
-
             $rootScope.main = response.data;
-
             originCity = $rootScope.main.origin;
             desinationCity = $rootScope.main.destination;
           });
 
         var pick = this;
-
         pick.selectedInt = { };
 
-        $scope.sports = [{id: 'sport1'}];
 
+        $scope.sports = [{id: 'sport1'}];
         $scope.addNew = function(){
           var newItemNo = $scope.sports.length+1;
-
           $scope.sports.push({'id':'sport'+ newItemNo});
         };
 
 
         $scope.artists = [{id: 'artist1'}];
-
         $scope.addNewArt = function(){
           var newItem = $scope.artists.length+1;
           $scope.artists.push({'id':'artist'+ newItem});
@@ -239,12 +211,9 @@ var wdestinationstart;
 
 
         pick.interest = function(){
-          console.log(pick.selectedInt);
           $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/interests/', pick.selectedInt)
             .then(function(response){
-              console.log(response);
               $location.path('/trip/' + $routeParams.id + '/suggestions/');
-              console.log(pick.selectedInt);
           });
         };
 
@@ -269,28 +238,26 @@ var wdestinationstart;
       var tripholder;
       $scope.canSaveTitle = false;
 
+      //show map tab for mobile and tablet view
       $('.button-map').on('click', function(){
         $('#map').addClass('active');
         $('.button-map').addClass('active');
         $('.button-timeline').removeClass('active');
         initMap();
-
       });
+
+      //show timeline tab for mobile and tablet view
       $('.button-timeline').on('click', function(){
         $('#map').removeClass('active');
         $('.button-timeline').addClass('active');
         $('.button-map').removeClass('active');
       });
 
-
-       // Get Waypoints and Activites Details for Timeline
+      // Get Waypoints and Activites Details for Timeline
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/city/')
         .then(function (response){
           $rootScope.cities = response.data;
           $scope.loading = false; //hide loading spinner
-
-
-          console.log($rootScope.cities);
 
           // Generate Waypoint cities in array for Google Maps use
           var waypoints = response.data;
@@ -299,9 +266,9 @@ var wdestinationstart;
             waypointCities.push(temp);
           }
 
+          //call initmap function
           get1= true;
           bothGetDone();
-
         });
 
 
@@ -313,8 +280,6 @@ var wdestinationstart;
           tripholder = response.data.id;
           $cookies.put("currenTrip", tripholder);
 
-
-
           if (response.data.title === null){
             $scope.displayTitle = response.data.origin + " to " + response.data.destination;
           } else {
@@ -325,20 +290,18 @@ var wdestinationstart;
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
 
+          // call initmap function
           get2 =true;
           bothGetDone();
 
         });
 
-
+        //call initmap() if both get reuests are true
         function bothGetDone (){
           if (get1 && get2) {
             initMap();
           }
         }
-
-          // $('.user-title').prop('disabled', false);
-
 
 
 
@@ -350,51 +313,39 @@ var wdestinationstart;
 
         //if user is logged-in
         if ($http.defaults.headers.common.Authorization !== undefined){
-          // sending to this endpoint saves the trip to the logged user
+          // post to this endpoint saves the trip to the logged user
           $http.post ( BASE_URL + '/api/trip/' + $routeParams.id + '/save/', tripToSave)
           .then ( function (response){
             $cookies.remove("currenTrip"); //remove current trip number (if saved)
             hideSaveButton(); //update save button to hide
             $location.path('/home/user/');
-
           }
         );
       } //if user is not logged in
         else {
-
           $location.path('/panel-login');
         }
 
       };
 
-
-      // $('input.user-title').on('click', function (){
-      //   if ($http.defaults.headers.common.Authorization === undefined) {
-      //     $scope.canSaveTitle = true;
-      //       console.log('invalid');
-      //   }
-      // });
-
       //listen to changes in input form for new title, calls saveTitle function
       $('input.user-title').on('change', function (){
         $scope.saveTitle();
       });
-      //pressing 'enter' will blur iput form
+      //pressing 'enter' will blur input form
       $('input.user-title').keypress(function (event) {
         if(event.keyCode == 13) {
           $('input.user-title').blur();
       }
       });
 
-
-      //saving new title
+      //saving new title by patch
       $scope.saveTitle = function (){
         var titleToSave = { };
         titleToSave.title = $scope.new.title;
         $http.patch ( BASE_URL + '/api/trip/' + $routeParams.id + '/', titleToSave)
         .then ( function (response){
-          console.log(response);
-      },
+        },
       function(){
         $scope.canSaveTitle = true;
       }
@@ -402,9 +353,10 @@ var wdestinationstart;
 
     };
 
-
+      //initial values if user not saved the trip
       $scope.hideSaveButton = false;
       $scope.tripsaved = false;
+
       //hiding save button if trip is already saved on user's trips
       function hideSaveButton (){
         if ($http.defaults.headers.common.Authorization !== undefined) {
@@ -417,16 +369,11 @@ var wdestinationstart;
                   $scope.tripsaved = true;
                 }
               }
-              console.log($scope.tripsaved);
             });
         }
       }
       hideSaveButton();
-
-
-
     },
-
   })
 
 
@@ -438,40 +385,29 @@ var wdestinationstart;
         $rootScope.htealstyle();
         $rootScope.suggestions = { };
         $rootScope.selectedCities = { };
-
         $scope.loading = true; //show loading spinner
-        $scope.sending= false; //show loading spinner
+        $scope.sending = false; //show sending spinner
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/suggestions/')
         .then(function (response){
-          console.log(response);
-
           $scope.loading = false; //hide loading spinner
-
           $rootScope.suggestions = response.data.waypoints;
           $rootScope.selectedCities = response.data;
-
-
-
       }); // END .then
 
       $http.get( BASE_URL + '/api/trip/' + $routeParams.id + '/')
         .then(function(response){
-
           $rootScope.main = response.data;
-
           originCity = $rootScope.main.origin;
           desinationCity = $rootScope.main.destination;
         });
-
-
-
 
           // SUBMITS THE CHECKED CITIES
           $rootScope.update = function(){
             $scope.sending= true; //show sending spinner
 
-            // change cities stopover to true if they select any activities within that city
+            //change cities.stopover to true if they select any activities within that city
+            // as requested by the BE
             var wp = $rootScope.suggestions;
             function cityTrue (){
             for (var i in wp){
@@ -504,7 +440,7 @@ var wdestinationstart;
           }
           cityTrue();
 
-
+              //post selection
               $http.post( BASE_URL + '/api/trip/' + $routeParams.id + '/selections/', $rootScope.selectedCities)
                 .then(function(){
                   $location.path('/trip/' + $routeParams.id + '/city/' );
@@ -517,7 +453,7 @@ var wdestinationstart;
   }) // END .when
 
 
-
+    //START PAGE
     .when('/start', {
       templateUrl: 'start.html',
       controller: function($http, $location, $rootScope) {
@@ -545,6 +481,7 @@ var wdestinationstart;
 
 
 })
+//main login controller
 .controller ('loginController', function ($cookies, $http, $scope, $location, $rootScope){
 
 
@@ -557,65 +494,56 @@ var wdestinationstart;
     $rootScope.tstyle = {'background':'#4AAAA5'};
   };
 
-  $cookies.remove("currenTrip"); //remove current trip number
+  //clears current trip number
+  $cookies.remove("currenTrip");
+
+  // set the token in header from existing cookie on page load
   $http.defaults.headers.common.Authorization = $cookies.get("zipt");
 
   //updates nav buttons
   function statusUpdate (){
-
     if ($http.defaults.headers.common.Authorization !== undefined){
       $scope.loggedIn = true;
-      console.log("status logged in");
-      console.log($http.defaults.headers.common.Authorization);
     } else {
       $scope.loggedIn = false;
-      console.log("status logged out");
-      console.log($http.defaults.headers.common.Authorization);
-
     }
   }
     statusUpdate ();
 
-    //TODO: http get whoami to show username in header
-
+    // set header authorization and update page header
     $rootScope.login = function (){
       $http.defaults.headers.common.Authorization = $cookies.get("zipt"); //set token to cookie
       statusUpdate();
-      console.log($http.defaults.headers.common.Authorization);
-
     };
 
+    // clears header authorization and update page header
     $rootScope.logout = function (){
       var logoutObject = { };
       $http.post(BASE_URL + '/api/logout/', logoutObject)
       .then (function (response){
-        console.log("logged out from server");
         $http.defaults.headers.common.Authorization = undefined;
         statusUpdate();
         $cookies.remove("zipt");  //removes token
         $cookies.remove("currenTrip"); //remove current trip number
         $location.path('/');
-        $scope.loggedIn = false;
-        console.log($http.defaults.headers.common.Authorization);
 
     }, function (){
+      //fall back if server logout fails, force clearing of token
       $http.defaults.headers.common.Authorization = undefined;
-      $location.path('/');
+      $cookies.remove("zipt");  //removes token
+      $cookies.remove("currenTrip"); //remove current trip number
       statusUpdate();
+      $location.path('/');
     });
   };
 })
 
-
+//removes ", USA" from data getting from server
 .filter('removeUSA', function () {
     return function (text) {
   return text ? text.replace(', USA', '') : '';
     };
 }); // END MODULE
-
-
-
-
 
 })(); // END IIFE
 
@@ -793,7 +721,7 @@ var directionsDisplay = new google.maps.DirectionsRenderer({
   map: map
 });
 
-// Set destination, origin and travel mode.
+// Set destination, origin, waypoints and travel mode.
 var request = {
   origin: originCity,
   waypoints: waypointCities,
@@ -861,6 +789,7 @@ function fillInAddressW() {
 }
 
 
+// hamburger menu behavior
 var hb=false;
 $('.hamburger').on('click', function(){
   if (hb === false) {
