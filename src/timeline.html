@@ -15,9 +15,8 @@
 <section ng-hide="loading" class="timeline-map">
   <form class="timeline" ng-submit="saveTitle()">
     <input class="user-title" ng-disabled="!tripsaved" ng-model="new.title" type="text" placeholder="{{displayTitle | removeUSA}}"/>
-    <!-- <span class="logout-title">{{main.origin | removeUSA }} to {{main.destination | removeUSA}}</span> -->
+    <p class="saved-indication"><span class="saved-indication" ng-show="titleSaved">title saved</span></p>
     <button class="save-title-button" type="submit"></button>
-    <!-- <span class="save-title-error" ng-show="canSaveTitle">Log in to edit title</span> -->
   </form>
   <section class="tlv" ng-show="showme">
     <section class="tlv-container">

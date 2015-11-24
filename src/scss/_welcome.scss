@@ -395,17 +395,21 @@ div.welcome-top {
   div.categories{
     width: 100%;
     text-align: center;
-    top: 100%;
+    top: 108%;
     position: absolute;
     @extend .clearfix;
     max-width: 1280px !important;
     padding-top: 20px;
 
     div.categoryw{
+      float: left;
       display: inline-block;
       position: relative;
-      width: 24.6%;
+      width: 25%;
       margin-bottom: 1em;
+      margin-left: 0px;
+      margin-right: 0px;
+      border: 0px;
 
       img.cat-pic{
         width: 100%;
@@ -629,8 +633,10 @@ div.welcome-top {
     div.team {
       width: 50%;
       margin: 0 auto;
+      @extend .clearfix;
       div.group {
-        width: 49%;
+        float: left;
+        width: 50%;
         margin: 1em auto;
         display: inline-block;
         span.prof{
@@ -671,6 +677,21 @@ div.welcome-top {
   }
 
 
+
+span.how-desktop {
+  font-size: 1.8em;
+  margin-top: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  color: $dark;
+  margin-bottom: 15px;
+  text-align: center;
+  display: block;
+  @media screen and (max-width: 999px) { //tablet
+    display: none;
+  }
+}
 
 
 

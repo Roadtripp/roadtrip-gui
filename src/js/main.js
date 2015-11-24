@@ -227,7 +227,7 @@ var wdestinationstart;
     // TIMELINE PAGE
     .when('/trip/:id/city', {
       templateUrl: 'timeline.html',
-      controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies){
+      controller: function($http, $scope, $location, $routeParams, $rootScope, $cookies, $timeout){
       $rootScope.htealstyle();
       $scope.loading = true; //show loading spinner
       var get1= false;
@@ -237,6 +237,7 @@ var wdestinationstart;
       desinationCity = "";
       var tripholder;
       $scope.canSaveTitle = false;
+      $scope.titleSaved = false;
 
       //show map tab for mobile and tablet view
       $('.button-map').on('click', function(){
@@ -345,6 +346,12 @@ var wdestinationstart;
         titleToSave.title = $scope.new.title;
         $http.patch ( BASE_URL + '/api/trip/' + $routeParams.id + '/', titleToSave)
         .then ( function (response){
+          $scope.titleSaved = true;
+          (function (){
+            $timeout(function(){
+              $scope.titleSaved = false;
+            }, 1000);
+          }) ();
         },
       function(){
         $scope.canSaveTitle = true;
