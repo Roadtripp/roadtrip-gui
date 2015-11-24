@@ -96,8 +96,6 @@ p.copy {
 	content: "\bb";
 	position: absolute;
 	left: 76%;
-	// z-index: 2;
-
 }
 
 .breadcrumb li:last-child a:after {
@@ -116,6 +114,9 @@ h3.cities {
 .main-content.selection {
   width: 90%;
   margin: 0 auto;
+
+
+// TODO: put back in styled checkboxes and dynamtically bind them
 
       // input[type=checkbox] { //HIDES CHECKBOXES
       // 	visibility: hidden;
@@ -166,14 +167,12 @@ h3.cities {
 
 form.suggestion-content {
   background: #fff;
-  background: #fff;
   margin-bottom: 25px;
 }
 
 article.activities {
   @extend .clearfix;
   width: 100%;
-
 
     h5.category {
       margin-top: 0;
@@ -185,7 +184,6 @@ article.activities {
     label {
       font-size: .9em;
     }
-
 
     p.cat {
       font-size: .9em;

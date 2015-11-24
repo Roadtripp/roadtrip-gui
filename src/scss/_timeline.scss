@@ -3,7 +3,6 @@ $dark: #35404F;
 $teal: #4AAAA5;
 $light-teal: #7ACCC8;
 $green: #A3D39C;
-
 $pink: #D39CCC;
 $darkgreen: darken(#A3D39C, 10%);
 $blue: #5681E4;
@@ -33,29 +32,27 @@ form.timeline {
        }
 
       &:-moz-placeholder { /* Firefox 18- */
-        // color: black;
         font-weight: 400;
       }
+
       &::-moz-placeholder {  /* Firefox 19+ */
-        // color: black;
         font-weight: 400;
       }
+
       &:-ms-input-placeholder {
-        // color: black;
         font-weight: 400;
       }
+
       &::-webkit-input-placeholder {
-        // color: black;
         font-weight: 400;
       }
+
       &:focus::-webkit--placeholder {
         color: transparent;
       }
   }
       button.save-title-button{
         display: none;
-
-
       }
 }
 
@@ -120,10 +117,12 @@ div.desktop-button {
 .activitiescolor {
   background: $blue;
   color: #fff;
-    &::before{
+
+    &::before {
       color: $blue;
     } //caret
-    &::after{
+
+    &::after {
       border: 3px solid $blue;
     } //circle
 }
@@ -131,10 +130,12 @@ div.desktop-button {
 .foodcolor {
   background: $orange;
   color: #fff;
-  &::before{
+
+  &::before {
     color: $orange;
   } //caret
-  &::after{
+
+  &::after {
     border: 3px solid $orange;
   } //circle
 }
@@ -142,10 +143,12 @@ div.desktop-button {
 .sportcolor {
   background: $pink;
   color: #fff;
-  &::before{
+
+  &::before {
     color: $pink;
   } //caret
-  &::after{
+
+  &::after {
     border: 3px solid $pink;
   } //circle
 }
@@ -153,10 +156,12 @@ div.desktop-button {
 .artistcolor {
   background: $pink;
   color: #fff;
-  &::before{
+
+  &::before {
     color: $pink;
   } //caret
-  &::after{
+
+  &::after {
     border: 3px solid $pink;
   } //circle
 }
@@ -168,7 +173,6 @@ nav.tabs {
 		display: block;
 		width: 100%;
     margin: 0 auto;
-    // min-width: 394px;
 
     a[href] { // TAB LINKS & LINE LOCATION
 			text-align: center;
@@ -181,7 +185,6 @@ nav.tabs {
       background: #fafafa;
       color: #c3c3c3;
       font-weight: 700;
-      // border-right: 1px solid #ddd;
 			width: 49%;
       border-top: 1px solid #ddd;
 
@@ -216,7 +219,6 @@ div.buttons {
       margin: 0 3px 5px auto;
       display: inline-block;
       padding: 2%;
-      // width: 25%;
       font-size: .8em;
 
       a[href] {
@@ -239,7 +241,6 @@ button.bottom {
 section.main-content.timeline {
 	margin: 0px 10px 0 0;
 	width: 100%;
-	// background: #fff;
 
 section.tlv-container {
   margin: 0 auto;
@@ -266,7 +267,6 @@ section.tlv-container {
       padding-bottom: 2ex;
 
 			&.origin-section {
-        // width: 95%;
       	list-style: none;
       	position: relative;
       	padding-left: 0;
@@ -309,7 +309,6 @@ section.tlv-container {
 			} //origin city
 
 			&.destination-section {
-        // width: 95%;
       	list-style: none;
       	position: relative;
       	padding-left: 0;
@@ -415,7 +414,6 @@ section.tlv-container {
 
         &:nth-of-type(odd) {
           text-align: left;
-          // padding-right: 5px;
           position: relative;
         }
 
@@ -454,9 +452,7 @@ section.tlv-container {
             }
 
             &:nth-of-type(odd) {
-              // float: left;
               text-align: left;
-              // padding-right: 5px;
               position: relative;
 
                 &::before{
@@ -473,7 +469,6 @@ section.tlv-container {
             &:nth-of-type(even) {
               // float: right;
               text-align: left;
-
               position: relative;
 
               &::before{ //LEFT POINTING CARET
@@ -535,6 +530,6 @@ section.tlv-container {
 				left: 99%;
 			}
 
-		}// end of ul
+		} // end of ul
 	}
 }
