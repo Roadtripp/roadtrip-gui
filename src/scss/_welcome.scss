@@ -426,7 +426,12 @@ div.welcome-top {
         display: block;
         font-size: 2.5em;
         font-weight: 500;
-
+        @media screen and (min-width: 801px) and (max-width: 900px) { //tablet
+          font-size: 1.8em;
+        }
+        @media screen and (min-width: 901px) and (max-width: 1000px) { //tablet
+          font-size: 2.1em;
+        }
       }
 
       span.cat-small{
@@ -442,10 +447,12 @@ div.welcome-top {
         font-size: 1.2em;
         font-weight: 300;
         line-height: 1.2;
-
-        // &.hide {
-        //   display: none;
-        // }
+        @media screen and (min-width: 801px) and (max-width: 900px) { //tablet
+          font-size: 0.8em;
+        }
+        @media screen and (min-width: 901px) and (max-width: 1000px) { //tablet
+          font-size: 1em;
+        }
 
       }
 
@@ -464,7 +471,12 @@ div.welcome-top {
         font-size: 1.5em;
         font-weight: 400;
         z-index: 1000;
-
+        @media screen and (min-width: 801px) and (max-width: 900px) { //tablet
+          font-size: 1em;
+        }
+        @media screen and (min-width: 901px) and (max-width: 1000px) { //tablet
+          font-size: 1.2em;
+        }
       }
 
       &:hover div.cat-pop {
@@ -520,7 +532,7 @@ div.welcome-top {
 }//end desktop view
 
 
-  //mobile view meet the team
+
   a.meet-team {
     text-align: center;
     display: block;
@@ -529,6 +541,8 @@ div.welcome-top {
     margin: 1em auto;
     margin-bottom: 0px;
   }
+
+  //mobile view meet the team
   div.team {
     width: 100%;
     text-align: center;
@@ -623,7 +637,7 @@ div.welcome-top {
   }
 
   //desktop view meet the team
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 800px) {
 
     section.meet-team {
       margin-top: 20%;
@@ -688,7 +702,7 @@ span.how-desktop {
   margin-bottom: 15px;
   text-align: center;
   display: block;
-  @media screen and (max-width: 999px) { //tablet
+  @media screen and (max-width: 800px) { //tablet
     display: none;
   }
 }
