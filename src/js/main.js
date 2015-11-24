@@ -777,22 +777,18 @@ function initAutocompleteW() {
 
 function fillInAddressO() {
   var place = autocompleteorigin.getPlace();
-  console.log(place);
-
   originstart = place.formatted_address;
-  console.log(originstart);
+
 }
 function fillInAddressD() {
   var place = autocompletedestination.getPlace();
   destinationstart = place.formatted_address;
-  console.log(destinationstart);
 }
 
 function fillInAddressW() {
   var place = autocompleteW.getPlace();
   wdestinationstart = place.formatted_address;
   destinationstart = wdestinationstart;
-  console.log(wdestinationstart);
 }
 
 
