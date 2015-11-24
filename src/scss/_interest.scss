@@ -31,12 +31,12 @@ p.ex {
     padding: 10px;
     position: relative;
     margin: 0 auto 20px auto;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    // -webkit-touch-callout: none;
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
 }
 
 [class*="dropdownb-"]:after {
@@ -69,18 +69,13 @@ ul[class*="dropdown-list-"] {
     list-style: none;
     padding: 0;
     position: absolute;
-    top: 100%; /* align the dropdown right below the dropdown text */
+    top: 100%; // align the dropdown right below the dropdown text
     border: inherit;
     border-top: none;
     left: -1px;
     right: -1px;
     opacity: 0;
-    // -webkit-transition: opacity 0.4s ease-in-out;
-    // -moz-transition: opacity 0.4s ease-in-out;
-    // -o-transition: opacity 0.4s ease-in-out;
-    // -ms-transition: opacity 0.4s ease-in-out;
-    // transition: opacity 0.4s ease-in-out;
-    pointer-events: none; /* avoid mouse click events inside the dropdown */
+    pointer-events: none;
 }
 
 .active [class*="dropdown-list-"] {
@@ -92,11 +87,6 @@ ul[class*="dropdown-list-"] {
     display: block;
     padding: 4px 10px 4px 0;
     color: $dark;
-    // -webkit-transition: all 0.2s ease-out;
-    // -moz-transition: all 0.2s ease-out;
-    // -o-transition: all 0.2s ease-out;
-    // -ms-transition: all 0.2s ease-out;
-    // transition: all 0.2s ease-out;
 }
 
 [class*="dropdown-list-"] input[type=checkbox] {
@@ -135,7 +125,6 @@ p[class*='multiSelected-'].show {
       font-weight: 300;
       font-size: 1em;
       color: darken(#c3c3c3, 15%);
-      // display: inline-block; //remove if i.e. removed
 
     }
 

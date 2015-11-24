@@ -30,7 +30,6 @@ h2.heading {
   padding: 0;
   margin-top: 0;
   margin-left: auto; margin-right: auto;
-  // max-width: 400px;
 
     li {
       float: left;
@@ -59,8 +58,6 @@ h2.heading {
 	content: "\bb";
 	position: absolute;
 	left: 76%;
-	// z-index: 2;
-
 }
 
 .breadcrumb li:last-child a:after {
@@ -78,7 +75,6 @@ section.main {
 .form-container {
   border: 1px solid #e6e6e6;
   padding: 5%;
-  // max-width: 400px;
   background: #fff;
   margin: 0 auto;
   @extend .clearfix;

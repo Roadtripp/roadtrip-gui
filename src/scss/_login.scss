@@ -21,7 +21,6 @@ $green: #A3D39C;
             text-transform: lowercase;
             font-weight: 400;
             margin-bottom: 8px;
-            // letter-spacing: 1px;
           }
 
           input {
@@ -68,7 +67,6 @@ label.gray {
   text-transform: lowercase;
   font-weight: 400;
   margin-bottom: 8px;
-  // letter-spacing: 1px;
 }
 
     span.pass-error {
@@ -90,6 +88,7 @@ label.gray {
       padding-top: 0px;
       margin-top: 10px;
     }
+    
     span.user-exists {
       display: block;
       text-align: center;
