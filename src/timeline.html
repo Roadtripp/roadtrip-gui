@@ -1,7 +1,7 @@
 <h2 class="heading center">your ziptrip</h2>
 <section class="main-content timeline">
   <div class="buttons">
-   <!-- <button class="save" ng-click="savetrip()">save this trip</button> -->
+   <!-- <a href class="save" ng-click="savetrip()">save this trip</a> -->
    <!-- <button class="return"><a href="#/start">plan return trip</a></button> -->
  </div>
   <nav class="tabs">
@@ -14,7 +14,8 @@
   </div>
 <section ng-hide="loading" class="timeline-map">
   <form class="timeline" ng-submit="saveTitle()">
-    <input class="user-title" ng-model="new.title" type="text" placeholder="{{displayTitle | removeUSA}}"/>
+    <input class="user-title" ng-disabled="!tripsaved" ng-model="new.title" type="text" placeholder="{{displayTitle | removeUSA}}"/>
+    <p class="saved-indication"><span class="saved-indication" ng-show="titleSaved">title saved</span></p>
     <button class="save-title-button" type="submit"></button>
   </form>
   <section class="tlv" ng-show="showme">
@@ -58,14 +59,8 @@
 </section> <!-- END .timeline-map -->
 
 <div class="desktop-button">
-  <button ng-hide="hideSaveButton" class="desktop-bottom" ng-click="savetrip()">save this trip</button>
-  <a href="#/start"><button class="desktop-bottom-return">plan return trip</button></a>
+  <button ng-hide="hideSaveButton || loading" class="desktop-bottom" ng-click="savetrip()">save this trip</button>
+  <button class="desktop-bottom-return" ng-hide="loading"><a href="#/start">plan return trip</a></button>
 </div>
 
-  <section class="footer">
-    <div class="footer-container">
-      <p class="footer"> powered by:<img class="footer" src="https://cloud.githubusercontent.com/assets/14016133/11045241/432f8618-86f4-11e5-992d-f22b6aa92d03.png"> <img src="https://cloud.githubusercontent.com/assets/14016133/11045397/3b7646ae-86f5-11e5-8442-5867c5c29dd4.png"></p>
-      <p class="footer">&copy; ziptrip 2015
-    </div>
-  </section> <!-- END .footer -->
-  </section>
+</section>

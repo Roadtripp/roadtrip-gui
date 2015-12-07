@@ -13,9 +13,6 @@
         <p class="date">{{main.origin_date | date}} - {{main.destination_date}}</p>
   </aside> <!-- END .aside-container -->
 
-
-
-
 <section class="form-container">
   <form class="interest-content" ng-submit="pick.interest()">
     <div class="dropdownb-food">
@@ -93,10 +90,9 @@
 
   <section class="sportInputs">
     <h4>Sports</h4>
-    <!-- <p class="ex">&nbsp;&nbsp;(ie. Football, Hurricanes)</p> -->
     <button ng-click="addNew()" type="button" class="add-more-sports">+</button>
     <div data-ng-repeat="sport in sports">
-    <input type="text" class="sports" ng-model="pick.selectedInt.sport.sport1[$index]" placeholder="ie. football, hockey, Carolina Panthers, Carolina Hurricanes"></input>
+    <input type="text" class="sports" ng-model="pick.selectedInt.sport.sport1[$index]" onkeydown="if (event.keyCode == 13) {return false;}" placeholder="ie. football, hockey, Carolina Panthers, Carolina Hurricanes"></input>
   </div>
   </section>
 
@@ -104,7 +100,7 @@
     <h4>Entertainment</h4>
     <button ng-click="addNewArt()" type="button" class="add-more-artists">+</button>
     <div data-ng-repeat="artist in artists">
-    <input type="text" class="artists" ng-model="pick.selectedInt.artist.artist1[$index]" placeholder="ie. rock, country, Taylor Swift, Red Hot Chili Peppers"></input>
+    <input type="text" class="artists" ng-model="pick.selectedInt.artist.artist1[$index]" onkeydown="if (event.keyCode == 13) {return false;}" placeholder="ie. rock, country, Taylor Swift, Red Hot Chili Peppers"></input>
   </div>
   </section>
 
@@ -116,10 +112,10 @@
 </form>
 
 </section> <!-- END form-container -->
-
 </section> <!-- END main -->
 
 
+<!-- TODO: move this to main.js. get jQuery working in the js file -->
 <script>
 $(function () {
 
@@ -136,7 +132,6 @@ $(function () {
         $('.dropdownb-food').removeClass('active');
       }
     })
-
 
     $('.dropdown-list-food input[type="checkbox"]').on('click', function(){
       var selected = $(this).closest('.dropdown-list-food').find('input[type="checkbox"]').val(),
@@ -231,8 +226,6 @@ $(function () {
         $('span[selected="' + selected + '"]').remove();
       }
     });
-
-
 
 
 

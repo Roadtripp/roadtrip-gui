@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
         <!-- Place favicon.ico in the root directory -->
 
         <!--bower:css-->
@@ -32,7 +32,7 @@
             <a ng-show="loggedIn" ng-click="logout()" href="" class="logout">Logout</a>
         </nav>
 
-        <a href="" class="hamburger"></a>
+        <a href="" class="hamburger fa fa-bars"></a>
         <nav class="hamburger-nav">
           <ul>
             <li><a href="#/start" class="newtrip">New Trip</a><li>
@@ -48,6 +48,12 @@
           <ng-view></ng-view>
         </main>
 
+        <section class="footer">
+          <div class="footer-container">
+            <p class="footer"> powered by:<img class="footer" src="img/yelp_logo.png"> <img src="img/seatgeek_logo.png"></p>
+            <p class="footer">&copy; ziptrip 2015
+          </div>
+        </section> <!-- END .footer -->
 
         <!--bower:js-->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
